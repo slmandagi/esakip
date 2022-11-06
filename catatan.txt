@@ -1,0 +1,7 @@
+Catatan:::
+
+1. Belum ator config, autoload, dan routes
+2. Belum fix itu sidebar menu hover
+3. Gambar di Home belum ada
+4. Peraturan  belum ada
+5. Kontak belum ada

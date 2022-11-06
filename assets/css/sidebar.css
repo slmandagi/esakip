@@ -1,0 +1,253 @@
+.sidebar {
+    position: fixed;
+    height: 100vh;
+    /* width: 70px; */
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #062C30;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+.header {
+    padding: 20px;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* justify-content: space-between; */
+    /* pointer-events: none; */
+}
+
+.header .list-bar {
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    left: 80%;
+}
+
+
+
+
+
+/* BAGIAN MAIN SIDEBAR */
+.sidebar-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 10px; */
+    flex: 0.9;
+    margin-bottom: 180px;
+    cursor: default;
+    /* position: relative; */
+}
+
+.menu {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 90%;
+    color: white;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+    position: relative;
+    white-space: nowrap;
+}
+
+
+.menu i {
+    font-size: 20px;
+    color: white;
+}
+
+
+.menu p {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 30px;
+    color: white;
+    opacity: 1;
+}
+
+
+.menu.dokumen-sakip .fa-chevron-up {
+    margin-left: 8px;
+}
+
+
+.menu .tooltip,
+.profile .tooltip {
+    position: absolute;
+    width: 150px;
+    height: 35px;
+    background: #A3C8CD;
+    color: black;
+    line-height: 35px;
+    border-radius: 10px;
+    left: 70px;
+    text-align: center;
+    transition: 0s;
+    top: 0%;
+    transform: translateY(-50%);
+    opacity: 0;
+    /* display: none; */
+    display: block;
+}
+
+
+.profile .tooltip.for-profile {
+    left: 100px;
+}
+
+.menu:hover {
+    background: #A3C8CD;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.menu.active {
+    background: #A3C8CD;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+}
+
+.menu.active p {
+    color: black;
+}
+
+
+/* BAGIAN PROFIL */
+.profile {
+    width: 100%;
+    /* flex: 0.25; */
+    height: 12%;
+    background: rgba(163, 200, 205, 0.5);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom-right-radius: 20px;
+    cursor: default;
+    position: relative;
+}
+
+.profile .data-profile {
+    margin: 10px;
+}
+
+.profile .data-profile p {
+    color: white;
+    font-size: 12px;
+}
+
+.profile .data-profile h4 {
+    color: white;
+    font-size: 14px;
+}
+
+.profile .logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 20%;
+    border-radius: 25px;
+    transition: all 0.5s ease;
+}
+
+.profile .logout:hover {
+    /* background: grey; */
+    background: #A3C8CD;
+    transform: scale(1.2);
+    transition: all 0.5s ease;
+}
+
+.profile .logout i {
+    color: white;
+    font-size: 20px;
+}
+
+.profile .logout:hover i {
+    color: black;
+}
+
+
+/* KETIKA */
+.sidebar.close {
+    width: 90px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.close .header {
+    width: 100%;
+}
+
+.sidebar.close .sidebar-content {
+    width: 100%;
+}
+
+.sidebar.close .sidebar-content .menu {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar.close .logo-esakip {
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar.close .header .list-bar {
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s ease;
+}
+
+.header .fa-bars:hover {
+    transition: 0.5s;
+    transform: rotateY(180deg);
+}
+
+/* .sidebar.close .sidebar-content {
+    width: 50%;
+    padding: 20px;
+} */
+
+.menu.active i,
+.menu:hover i,
+.menu:hover p {
+    color: black;
+}
+
+.sidebar.close .menu p,
+.sidebar.close .menu .fa-chevron-up {
+    display: none;
+    opacity: 0;
+}
+
+.sidebar.close .menu:hover .tooltip,
+.sidebar.close .menu:hover .tooltip,
+.sidebar.close .profile:hover .tooltip {
+    transition: all 0.5s ease;
+    top: 50%;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.sidebar.close .profile img,
+.sidebar.close .profile div {
+    display: none;
+}
+
+.sidebar.close .profile a {
+    left: 0px;
+    width: 50%;
+}

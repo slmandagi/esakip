@@ -22,3 +22,23 @@ window.addEventListener("scroll", () => {
 		}
 	});
 });
+
+// id dari class landing musti sama deng class dari li.
+
+// Ini for bking animation on scroll
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		console.log(entry);
+		if (entry.isIntersecting) {
+			entry.target.classList.add("show");
+		}
+		// } else {
+		// 	entry.target.classList.remove("show");
+		// }
+	});
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+
+// Untuk semua elemnent dengan class hidden akan diobserve
+hiddenElements.forEach((elmnt) => observer.observe(elmnt));
