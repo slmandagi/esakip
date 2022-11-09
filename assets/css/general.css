@@ -9,4 +9,5 @@
             https://www.w3schools.com/css/css3_box-sizing.asp#:~:text=The%20box%2Dsizing%20property%20allows,Hooray! */
     box-sizing: border-box;
     scroll-behavior: smooth;
+    /* scrollbar-gutter: stable both-edges; */
 }

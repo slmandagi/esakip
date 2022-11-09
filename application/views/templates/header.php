@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-
-    <!-- Styling references -->
-    <link rel="stylesheet" href="<?= base_url('/assets/css/home.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/general.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/assets/css/sidebar.css') ?>">
-
     <!-- Fontawesome -->
     <!-- <script src="https://kit.fontawesome.com/41038b9160.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="<?= base_url('/assets/fontawesome/css/all.css') ?>">
+
+    <!-- Styling references -->
+    <link rel="stylesheet" href="<?= base_url('/assets/css/general.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/assets/css/home.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/assets/css/sidebar.css') ?>">
+
 
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -18,7 +18,7 @@
     <div class="content">
         <!-- Home -->
         <div class="landing home" id="home">
-            <img src="<?= base_url('/assets/img/home/pulau-siladen-manado-sulawesi-utara 1.svg'); ?>" alt="" class="bg-img hidden">
+            <img src="<?= base_url('/assets/img/home/pulau-siladen-manado-sulawesi-utara 1.svg'); ?>" alt="" class="bg-img">
             <div class="headline-about">
                 <h5 class="hidden">Selamat Datang di</h5>
                 <h1 class="sakip-highlight hidden">Sistem Akuntabilitas Kinerja Instansi Pemerintah Provinsi Sulawesi Utara</h1>
@@ -38,7 +38,9 @@
             <img src="<?= base_url('/assets/img/home/garuda.svg'); ?>" alt="" class="img-garuda hidden">
 
             <div class="glass-bg desc hidden">
-                <p class="sakip-desc">E-Sakip adalah aplikasi Sistem Akuntabilitas Kinerja Instansi Pemerintah secara elektronik (E-SAKIP) yang bertujuan untuk memudahkan proses pemantauan dan pengendalian kinerja Unit Kerja di lingkungan Instansi Pemerintah dalam rangka meningkatkan akuntabilitas dan kinerja satuan / unit kerja pada khususnya dan kinerja Instansi pada umumnya.</p>
+                <p class="sakip-desc">
+                    E - SAKIP adalah aplikasi Sistem Akuntabilitas Kinerja Instansi Pemerintah yang bertujuan untuk memudahkan proses pemantauan dan pengendalian kinerja dalam rangka meningkatkan akuntabilitas dan kinerja unit kerja. APLIKASI ini menampilkan proses perencanaan kinerja, penganggaran kinerja, keterkaitan kegiatan/sub kegiatan dalam pencapaian target kinerja, dan monitoring serta evaluasi pencapaian kinerja dan keuangan.
+                </p>
             </div>
         </div>
         <div class="strip-login">
@@ -54,13 +56,14 @@
             <img src="<?= base_url('/assets/img/home/illustrations-regulation-page.svg') ?>" alt="" height="400" width="400" class="hidden">
             <div class="glass-bg regulation hidden">
                 <!-- Nanti akan berupa link yang akan mendownload dokumen tentang aturan-aturan -->
-                <p>1. Peraturan pertama</p>
-                <p>2. Peraturan kedua </p>
-                <p>3. Peraturan ketiga</p>
-                <p>4. Peraturan keempat</p>
+                <p>1. Peraturan Presiden Nomor 29 Tahun 2014 tentang Sistem Akuntabilitas Kinerja Instansi Pemerintah</p>
+                <p>2. Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Republik Indonesia Nomor 53 Tahun 2014 tentang Petunjuk Teknis Perjanjian Kinerja, Pelaporan Kinerja, dan Tata Cara Reviu atas Laporan Kinerja Instansi Pemerintah;</p>
+                <p>3. Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Republik Indonesia Nomor 88 Tahun 2021 tentang Evaluasi Akuntabilitas Kinerja Instansi Pemerintah</p>
+                <p>4. Keputusan Gubernur Sulawesi Utara Nomor 36a Tahun 2022 tentang Pedoman Pelaksanaan Sistem Akuntabilitas Kinerja Instansi Pemerintah di Lingkungan Provinsi Sulawesi Utara</p>
+                <p>5. Keputusan Gubernur Sulawesi Utara Nomor 104 Tahun 2022 tentang Pembentukan Tim Evaluasi Akuntabilitas Kinerja Instansi Pemerintah Di Lingkungan Pemerintah Provinsi Sulawesi Utara</p>
             </div>
             <div class="rincian-regulation hidden">
-                * Peraturan yang ada pada esakip sudah mengacu pada PERMENPAN NO.......
+                * Esakip pemerintah provinsi Sulawesi Utara sudah mengacu pada peraturan yang telah dikeluarkan.
             </div>
         </div>
 
@@ -91,7 +94,7 @@
                     <div class="icon-wrapper-kontak">
                         <i class="fa-solid fa-envelope" style="font-size: 25px;"></i>
                     </div>
-                    <h5>organisasi@sulut.go.id</h5>
+                    <h5>biroorganisasi.sulutprov@gmail.com</h5>
                 </div>
                 <div class="kontak">
                     <div class="icon-wrapper-kontak">

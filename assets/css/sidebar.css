@@ -1,3 +1,8 @@
+li {
+    list-style: none
+}
+
+
 .sidebar {
     position: fixed;
     height: 100vh;
@@ -5,22 +10,22 @@
     width: 230px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     background: #062C30;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     transition: all 0.5s ease;
+    /* overflow-y: scroll;
+    scroll-behavior: smooth; */
 }
 
 .header {
     padding: 20px;
-    height: 80px;
+    height: 10%;
     width: 100%;
     display: flex;
     align-items: center;
     position: relative;
-    /* justify-content: space-between; */
-    /* pointer-events: none; */
+    top: 0;
 }
 
 .header .list-bar {
@@ -30,26 +35,27 @@
     left: 80%;
 }
 
-
-
-
-
 /* BAGIAN MAIN SIDEBAR */
 .sidebar-content {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    /* padding: 10px; */
-    flex: 0.9;
-    margin-bottom: 180px;
+    height: 100%;
     cursor: default;
-    /* position: relative; */
+    position: relative;
+    gap: 1rem;
+    /* overflow-inline: hidden; */
+}
+
+.main-menu {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .menu {
-    height: 15%;
+    /* height: 70px; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -59,26 +65,81 @@
     transition: all 0.5s ease;
     border-radius: 10px;
     position: relative;
-    white-space: nowrap;
+    overflow: visible;
 }
 
-
 .menu i {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 }
 
-
 .menu p {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
-    margin-left: 30px;
+    margin-left: 10px;
     color: white;
     opacity: 1;
 }
 
 
-.menu.dokumen-sakip .fa-chevron-up {
+.dropdown {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: flex-start;
+    left: 0%;
+    width: 80%;
+    margin-bottom: 15px;
+    display: none;
+    border-radius: 10px;
+    /* transition: all 0.2s ease-in; */
+}
+
+.dropdown .bagian-komponen-sakip {
+    /* width: 100%; */
+    height: 145px;
+}
+
+.dropdown .bagian-pengaturan {
+    /* width: 100%; */
+    height: 110px;
+}
+
+.bagian-komponen-sakip li,
+.bagian-pengaturan li {
+    /* margin: 0px 0px 5px 0px; */
+    font-size: 14px;
+    text-align: start;
+    height: 35px;
+    line-height: 35px;
+    transition: all 0.5s ease;
+    font-weight: 500;
+    border: 1px solid black;
+    background: #E1E8E6;
+    margin: 5px;
+}
+
+.bagian-komponen-sakip li:hover,
+.bagian-komponen-sakip .komponen.active,
+.bagian-pengaturan li:hover,
+.bagian-pengaturan .pengaturan.active {
+    background: #A3C8CD;
+    /* border-radius: 10px; */
+    margin-left: 10px;
+    transition: all 0.5s ease;
+    font-weight: 500;
+}
+
+.komponen.nonactive,
+.nonactive {
+    /* border-radius: 0px 0px 10px 10px; */
+    color: black;
+    transition: all 0.5s ease;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.fa-chevron-up {
     margin-left: 8px;
 }
 
@@ -98,8 +159,8 @@
     top: 0%;
     transform: translateY(-50%);
     opacity: 0;
-    /* display: none; */
-    display: block;
+    pointer-events: none;
+    /* z-index: 99; */
 }
 
 
@@ -123,13 +184,20 @@
     color: black;
 }
 
+.dropdown-pengaturan {
+    display: none;
+    /* pointer-events: none; */
+
+    height: 110px;
+}
 
 /* BAGIAN PROFIL */
 .profile {
     width: 100%;
     /* flex: 0.25; */
     height: 12%;
-    background: rgba(163, 200, 205, 0.5);
+    justify-self: end;
+    background: #547A7E;
     padding: 15px;
     display: flex;
     align-items: center;
@@ -137,6 +205,8 @@
     border-bottom-right-radius: 20px;
     cursor: default;
     position: relative;
+    /* bottom: 0%; */
+    /* position: fixed; */
 }
 
 .profile .data-profile {
@@ -158,7 +228,7 @@
     align-items: center;
     justify-content: center;
     height: 50%;
-    width: 20%;
+    width: 15%;
     border-radius: 25px;
     transition: all 0.5s ease;
 }
@@ -166,19 +236,18 @@
 .profile .logout:hover {
     /* background: grey; */
     background: #A3C8CD;
-    transform: scale(1.2);
+    transform: scale(0.9);
     transition: all 0.5s ease;
 }
 
 .profile .logout i {
     color: white;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .profile .logout:hover i {
     color: black;
 }
-
 
 /* KETIKA */
 .sidebar.close {
@@ -211,15 +280,11 @@
     transition: all 0.5s ease;
 }
 
+/* ACTION */
 .header .fa-bars:hover {
     transition: 0.5s;
     transform: rotateY(180deg);
 }
-
-/* .sidebar.close .sidebar-content {
-    width: 50%;
-    padding: 20px;
-} */
 
 .menu.active i,
 .menu:hover i,
@@ -230,7 +295,7 @@
 .sidebar.close .menu p,
 .sidebar.close .menu .fa-chevron-up {
     display: none;
-    opacity: 0;
+    /* opacity: 0; */
 }
 
 .sidebar.close .menu:hover .tooltip,
@@ -239,8 +304,16 @@
     transition: all 0.5s ease;
     top: 50%;
     opacity: 1;
-    pointer-events: none;
+    /* z-index: 999 */
+    /* pointer-events: none; */
 }
+
+
+/* .sidebar.close .menu.komponen-sakip .bagian-komponen-sakip {
+    position: absolute;
+    margin-left: 200px;
+    transform: translateX(-50%);
+} */
 
 .sidebar.close .profile img,
 .sidebar.close .profile div {
@@ -250,4 +323,45 @@
 .sidebar.close .profile a {
     left: 0px;
     width: 50%;
+}
+
+/* SCROLL SECTION */
+
+::-webkit-scrollbar {
+    display: none;
+    left: 0%;
+    /* background: black;
+    width: 10px; */
+}
+
+::-webkit-scrollbar-thumb {
+    /* background: grey;
+    border-radius: 10px;
+    left: 0%; */
+}
+
+/* DROPDOWN SECTION KETIKA SIDEBAR CLOSE*/
+.sidebar.close .dropdown.side-close {
+    position: absolute;
+    left: 100%;
+    width: 200px;
+    opacity: 1;
+}
+
+.sidebar.close .dropdown.side-close.bagian-komponen-sakip {
+    top: 8%;
+}
+
+.sidebar.close .dropdown.side-close.bagian-pengaturan {
+    top: 24%;
+}
+
+
+
+.sidebar.close .dropdown.side-close li {
+    border: 0px;
+}
+
+.sidebar.close .menu:hover .dropdown.side-close {
+    /* opacity: 1; */
 }
