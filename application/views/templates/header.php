@@ -15,17 +15,17 @@
     <link rel="stylesheet" href="<?= base_url('/assets/css/general.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/home.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/sidebar.css') ?>">
-
-
+    <link rel="stylesheet" href="<?= base_url('/assets/css/content.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/assets/css/table.css') ?>">
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
-
-
-    <!-- List of Icons -->
-    <!-- 
+    <div class="container-for-all-content">
+        <!-- List of Icons -->
+        <!-- 
     <i class="fa-solid fa-upload"></i>
     <i class="fa-solid fa-question"></i>
     <i class="fa-solid fa-xmark"></i>

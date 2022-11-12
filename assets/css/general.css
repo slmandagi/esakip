@@ -11,3 +11,9 @@
     scroll-behavior: smooth;
     /* scrollbar-gutter: stable both-edges; */
 }
+
+.container-for-all-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}

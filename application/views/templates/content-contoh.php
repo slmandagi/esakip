@@ -10,11 +10,9 @@
             </div>
         </div>
         <div class="sidebar-content">
-            <div class="menu dashboard active" id="menu">
+            <div class="menu dashboard" id="menu">
                 <i class="fa-solid fa-gauge-high"></i>
-                <a href="">
-                    <p>Dashboard</p>
-                </a>
+                <p>Dashboard</p>
                 <span class="tooltip">Dashboard</span>
             </div>
             <div class="menu komponen-sakip">
@@ -80,4 +78,97 @@
             <span class="tooltip for-profile">Profile/Keluar</span>
         </div>
     </div>
+</div>
+<!-- END OF SIDEBAR -->
+
+
+<!-- START OF DASHBOARD CONTAINER -->
+<div class="content-container">
+    <!-- START OF HEADER -->
+    <div class="content-head-container">
+        <div class="headline-dashboard">
+            <!-- DEPE ISI INI MUSTI SESUAI PAGE -->
+            <!-- UNTUK SEMENTARA PAKE STATIC -->
+            <h1>Dashboard</h1>
+            <i class="fa-solid fa-bell"></i>
+        </div>
+    </div>
+    <!-- END OF HEADER -->
+
+    <!-- START OF DASHBOARD CONTENT -->
+    <div class="dashboard-content-container">
+        <div class="search-dashboard-container">
+            <div class="search-dashboard">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Cari" class="search-dashboard-input">
+            </div>
+        </div>
+        <div class="main-content-container">
+            <table class="table-dashboard">
+                <!-- DI BAGIAN TABLE SO BOLEH COBA PAKE API FOR DATA DUMMY -->
+                <thead>
+                    <tr>
+                        <th>OPD</th>
+                        <th>RPJMD</th>
+                        <th>Renstra</th>
+                        <th>IKU</th>
+                        <th>Renja/RKT</th>
+                        <th>PK</th>
+                        <th>Renaksi</th>
+                        <th>Laporan Kinerja</th>
+                        <th>Lainnya</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Provinsi Sulawesi Utara</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                    </tr>
+                    <tr>
+                        <td>Provinsi Sulawesi Utara</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                    </tr>
+                    <tr>
+                        <td>Provinsi Sulawesi Utara</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                    </tr>
+                    <tr>
+                        <td>Provinsi Sulawesi Utara</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                        <td>CHECK</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END OF DASHBOARD CONTENT -->
+    <!-- END OF DASHBOARD CONTAINER -->
 </div>

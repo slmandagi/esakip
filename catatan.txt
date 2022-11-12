@@ -1,7 +1,12 @@
 Catatan:::
 
 1. Belum ator config, autoload, dan routes
-2. Belum fix itu sidebar menu hover
+2. Belum fix itu sidebar menu hover (clear)
 3. Gambar di Home belum ada
-4. Peraturan  belum ada
-5. Kontak belum ada
+4. Peraturan  belum ada (clear)
+5. Kontak belum ada (clear)
+6. Saat user klik menu, itu menu tabuka (belum)
+6. Fitur lihat dropdown di table (belum)
+7. Fitur cari di table(belum)
+8. Fitur pagination for table(belum)
+

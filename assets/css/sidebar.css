@@ -2,7 +2,18 @@ li {
     list-style: none
 }
 
+/* PEMBUNGKUS START */
+.sidebar-container {
+    width: 15%;
+    transition: all 0.5s;
+}
 
+.sidebar-container.lebih-kecil {
+    width: 6%;
+    transition: all 0.5s;
+}
+
+/* PEMBUNGKUS END */
 .sidebar {
     position: fixed;
     height: 100vh;
@@ -346,6 +357,9 @@ li {
     left: 100%;
     width: 200px;
     opacity: 1;
+    background: #062C30;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 .sidebar.close .dropdown.side-close.bagian-komponen-sakip {
@@ -355,8 +369,6 @@ li {
 .sidebar.close .dropdown.side-close.bagian-pengaturan {
     top: 24%;
 }
-
-
 
 .sidebar.close .dropdown.side-close li {
     border: 0px;

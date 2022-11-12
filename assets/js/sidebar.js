@@ -15,43 +15,73 @@ $(document).ready(function () {
 		$(this).addClass("active").siblings().removeClass("active");
 		console.log("active");
 
+		const classActiveSakip = $(".komponen-sakip").hasClass("active");
+		const classActivePengaturan = $(".list-pengaturan").hasClass("active");
 		if (
-			$(".komponen-sakip").hasClass("active") &&
+			classActiveSakip &&
 			$(".dropdown.bagian-komponen-sakip").is(":hidden")
 		) {
 			/* 1. FOR KASE TURUN DEPE DROPDOWN */
-			$(".dropdown.bagian-komponen-sakip").slideDown("slow");
+			$(".dropdown.bagian-komponen-sakip").slideDown("fast");
 			/* 2. FOR UBAH ICON UP JADI DOWN */
 			$(".panah-sakip", this).toggleClass("fa-chevron-down");
 			console.log("komponen slidedown");
 		} else {
 			/* 1. FOR KASE NAE DEPE DROPDOWN */
-			$(".dropdown.bagian-komponen-sakip").slideUp("slow");
+			$(".dropdown.bagian-komponen-sakip").slideUp("fast");
 			/* 2. FOR UBAH ICON DOWN JADI UP*/
 			$(".panah-sakip", this).toggleClass("fa-chevron-down");
 			console.log("komponen slide up");
 		}
 
 		if (
-			$(".list-pengaturan").hasClass("active") &&
+			classActivePengaturan &&
 			$(".dropdown.bagian-pengaturan").is(":hidden")
 		) {
 			/* 1. FOR KASE TURUN DEPE DROPDOWN */
-			$(".dropdown.bagian-pengaturan").slideDown("slow");
+			$(".dropdown.bagian-pengaturan").slideDown("fast");
 			/* 2. FOR UBAH ICON UP JADI DOWN */
 			$(".panah-pengaturan", this).toggleClass("fa-chevron-down");
 		} else {
 			/* 1. FOR KASE NAE  DPE DROPDOWN*/
-			$(".dropdown.bagian-pengaturan").slideUp("slow");
+			$(".dropdown.bagian-pengaturan").slideUp("fast");
 			/* 2. FOR UBAH ICON DOWN JADI UP */
 			$(".panah-pengaturan", this).toggleClass("fa-chevron-down");
 		}
+
+		if ($(".komponen-sakip").siblings().hasClass("active")) {
+			$(".panah-sakip").removeClass("fa-chevron-down");
+			$(".bagian-komponen-sakip .komponen").removeClass("active");
+			// console.log("nda aktif");
+		}
+		if ($(".list-pengaturan").siblings().hasClass("active")) {
+			$(".panah-pengaturan").removeClass("fa-chevron-down");
+			$(".bagian-pengaturan .pengaturan").removeClass("active");
+			// console.log("nda aktif");
+		}
+
+		// $(".panah-sakip").toggleClass("fa-chevron-down");
+		// console.log("cek");
 	});
 
 	/* 2. INI KALO USER PILIH SALAH SATU SUBMENU DI MENU KOMPONEN SAKIP*/
 	$("ul .komponen, ul .pengaturan").click(function () {
 		$(this).addClass("active").siblings().removeClass("active");
-		console.log("halo");
+		if (
+			$(
+				".sidebar.close .dropdown.bagian-komponen-sakip.side-close li"
+			).hasClass("active")
+		) {
+			$(".dropdown.bagian-komponen-sakip.side-close").slideUp(700);
+		}
+		if (
+			$(".sidebar.close .dropdown.bagian-pengaturan.side-close li").hasClass(
+				"active"
+			)
+		) {
+			$(".dropdown.bagian-pengaturan.side-close").slideUp(700);
+		}
+		console.log("halo slide");
 	});
 
 	/* --USER CLICK MENU KOMPONEN SAKIP  */
@@ -75,22 +105,25 @@ $(document).ready(function () {
 	// 	console.log("poengaturan");
 	// });
 
-	/* USER CLICK MENU KOMPONEN SAKIP SAAT SIDEBAR CLOSE */
-	// $(".sidebar").hasClass("close")(function () {
-	// 	console.log("hasclose");
-	// });
-
+	// /* USER CLICK MENU KOMPONEN SAKIP SAAT SIDEBAR CLOSE */
+	// // $(".sidebar").hasClass("close")(function () {
+	// // 	console.log("hasclose");
+	// // });
 	/* KETIKA SIDBEAR DI CLICK MAKA TAMBAH CLASS DI DROPDOWNN DENGAN NAMA side-close */
 	/* DEPE FUNGSI FOR PENANDA KALO ITU DROP DOWN SO ADA DALAM KONDISI SIDEBAR CLOSE */
-	$(".sidebar").click(function () {
+	$(".sidebar-content").click(function () {
 		$(".dropdown.bagian-komponen-sakip, .dropdown.bagian-pengaturan").addClass(
 			"side-close"
 		);
 		console.log("close");
 	});
 
-	$(".komponen-sakip").click(function () {});
-
+	// $(".dropdown.bagian-komponen-sakip.side-close .komponen").click(function () {
+	// 	if ($(".komponen").hasClass("active")) {
+	// 		$(".dropdown.bagian-komponen-sakip").slideUp("slow");
+	// 	}
+	// 	console.log("side-close slideup");
+	// });
 	$(".list-pengaturan").click(function () {
 		// KALO DROPDOWN PENGATURAN ADA TABUKA KONG TORANG D KLIK MENU, TORANG TOGGLE ULANG SPYA TTTUP
 	});

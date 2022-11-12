@@ -1,0 +1,88 @@
+/* PEMBUNGKUS KONTEN START */
+.content-container {
+    height: 100vh;
+    width: 85%;
+    transition: all 0.5s;
+}
+
+/* INI KALO SIDEBAR CLOSE DIA MO JADI LEBE LEBAR, MENYESUAIKAN DENG SIDEBAR PE WIDTH */
+.content-container.lebih-lebar {
+    width: 100%;
+}
+
+/* PEMBUNGKUS KONTEN END */
+
+/* BAGIAN ATAS START */
+.content-head-container {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: black; */
+}
+
+.headline-dashboard {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    justify-content: space-between;
+    ;
+}
+
+.headline-dashboard i {
+    font-size: 20px;
+}
+
+.headline-dashboard i:hover,
+.headline-dashboard i.active {
+    color: #46B5D1;
+}
+
+/* BAGIAN ATAS END */
+
+
+/* BAGIAN CONTENT START */
+.dashboard-content-container {
+    width: 100%;
+}
+
+/* BAGIAN SEARCH START */
+.search-dashboard-container {
+    margin: 20px 0px;
+    /* background-color: aqua; */
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.show-n-row-table {
+    display: flex;
+    padding-left: 40px;
+    width: 12%;
+    justify-content: space-around;
+    /* background: black; */
+    /* margin: 10px; */
+}
+
+.show-n-row-table select {
+    width: 50%;
+}
+
+.search-dashboard {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-dashboard-input {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.main-content-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

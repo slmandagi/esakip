@@ -1,5 +1,6 @@
 const landingClasses = document.querySelectorAll(".landing");
 const navClasses = document.querySelectorAll(".nav-right ul li");
+const navbar = document.querySelectorAll(".navbar");
 
 window.addEventListener("scroll", () => {
 	let current = "";

@@ -130,8 +130,8 @@ p {
 
 .hidden {
     opacity: 0;
-    transition: all 2s;
-    transform: translateX(-100%);
+    transition: all 1s;
+    transform: translateY(100%);
     filter: blur(5px);
 }
 
@@ -142,14 +142,15 @@ p {
 }
 
 
-
-.landing.home {}
+.landing.home {
+    background-color: black;
+}
 
 
 .landing.home h5 {
     color: white;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .landing.about {
@@ -162,11 +163,11 @@ p {
 .landing h1 {
     margin-bottom: 30px;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .landing.about p {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     text-align: center;
     color: #062C30;
@@ -192,13 +193,15 @@ p {
     font-size: 16px;
     font-weight: 500;
     transition: all 0.5s ease;
-
 }
 
-.landing.regulation p:hover {
+.landing.regulation p:hover,
+.list-medsos .medsos:hover i,
+.list-medsos .medsos:hover p {
     color: white;
     cursor: default;
     margin-left: 8px;
+    transition: all 0.5s ease;
 }
 
 .rincian-regulation {
@@ -206,7 +209,7 @@ p {
     right: 14%;
     width: 50%;
     font-size: 15px;
-    top: 78%;
+    top: 80%;
     color: white;
     font-style: italic;
 }
@@ -221,15 +224,22 @@ p {
 
 .landing.contact .list-kontak {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 .landing.contact .list-kontak .kontak {
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
-    align-content: space-between;
-    padding: 60px;
+    /* align-content: space-between; */
+    /* padding: 60px; */
+    width: 30%;
+    /* background: black; */
+    word-wrap: break-word;
 }
 
 .landing.contact .list-kontak .kontak h5 {
@@ -291,10 +301,63 @@ p {
 
 .footer {
     display: flex;
-    justify-content: center;
-    background-color: grey;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* align-self: center; */
+    background: rgba(6, 44, 48, 0.5);
+    height: 150px;
+    font-size: 15px;
+    width: 100%;
+    cursor: default;
 }
 
+.footer-content {
+    display: flex;
+    width: auto;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    transition: all 0.5s ease;
+    background: grey;
+}
+
+.footer-content:hover {
+    background-color: #46B5D1;
+}
+
+.footer-content .list-medsos {
+    display: flex;
+    justify-content: space-evenly;
+    /* background: white; */
+    width: 90%;
+}
+
+.footer-content h3 {
+    color: white;
+    /* margin-bottom: 15px; */
+}
+
+.footer-content h5 {
+    /* background: white; */
+    display: flex;
+    justify-items: flex-end;
+    /* width: 100%; */
+}
+
+.medsos {
+    display: flex;
+    transition: all 0.5s;
+    /* margin: 5px; */
+}
+
+.medsos .icon-wrapper-medsos {
+    padding-right: 10px;
+}
 
 
 .glass-bg {
@@ -315,9 +378,10 @@ p {
 }
 
 .glass-bg.regulation {
-    padding: 20px 50px;
+    padding: 30px 30px;
     width: 60%;
-    height: 45%;
+    height: 48%;
+    word-wrap: break-word;
     line-height: 30px;
     letter-spacing: normal;
     border-radius: 30px;
@@ -330,10 +394,12 @@ p {
 
 
 .bg-img {
-    max-width: 100%;
-    height: max-content;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     margin: 0;
     padding: 0;
+    opacity: 0.7;
     /* position: absolute; */
 }
 
@@ -343,6 +409,7 @@ p {
     width: 85%;
     text-align: center;
     top: 50%;
+    cursor: default;
     left: 50%;
     transform: translate(-50%, -50%);
 }

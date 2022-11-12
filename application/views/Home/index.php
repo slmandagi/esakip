@@ -1,116 +1,138 @@
-<div class="container">
-    <div class="navbar">
-        <div class="nav-left">
-            <p class="e">e<span class="sakip">SAKIP</span></p>
-        </div>
-        <div class="nav-right">
-            <ul>
-                <li class="home"><a href="#home">Home</a></li>
-                <li class="about"><a href="#about">About</a></li>
-                <li class="regulation"><a href="#regulation">Regulation</a></li>
-                <li class="contact"><a href="#contact">Contact</a></li>
-                <!-- <button type="button" class="btn-login">Login</button> -->
-                <a href="" class="btn-login">Login</a>
-            </ul>
-        </div>
+<!-- <div class="container"> -->
+<div class="navbar">
+    <div class="nav-left">
+        <p class="e">e<span class="sakip">SAKIP</span></p>
     </div>
-
-    <div class="content">
-        <!-- Home -->
-        <div class="landing home" id="home">
-            <img src="<?= base_url('/assets/img/home/pulau-siladen-manado-sulawesi-utara 1.svg'); ?>" alt="" class="bg-img">
-            <div class="headline-about">
-                <h5 class="hidden">Selamat Datang di</h5>
-                <h1 class="sakip-highlight hidden">Sistem Akuntabilitas Kinerja Instansi Pemerintah Provinsi Sulawesi Utara</h1>
-            </div>
-
-        </div>
-
-        <!-- About -->
-        <div class="landing about" id="about">
-            <h1 class="hidden">Tentang <span class="e">e</span>SAKIP</h1>
-            <div class="filler hidden">
-                <div class="persegi-panjang biru">
-                </div>
-                <div class="persegi-panjang putih"></div>
-            </div>
-
-            <img src="<?= base_url('/assets/img/home/garuda.svg'); ?>" alt="" class="img-garuda hidden">
-
-            <div class="glass-bg desc hidden">
-                <p class="sakip-desc">
-                    E - SAKIP adalah aplikasi Sistem Akuntabilitas Kinerja Instansi Pemerintah yang bertujuan untuk memudahkan proses pemantauan dan pengendalian kinerja dalam rangka meningkatkan akuntabilitas dan kinerja unit kerja. APLIKASI ini menampilkan proses perencanaan kinerja, penganggaran kinerja, keterkaitan kegiatan/sub kegiatan dalam pencapaian target kinerja, dan monitoring serta evaluasi pencapaian kinerja dan keuangan.
-                </p>
-            </div>
-        </div>
-        <div class="strip-login">
-            <div class="bungkus-strip-login hidden">
-                <h2 class="hidden">Silahkan Login Terlebih Dahulu Untuk Dapat Masuk ke Sistem.</h2>
-                <a href="" class="strip btn-login hidden">Login</a>
-            </div>
-        </div>
-
-        <!-- Regulation -->
-        <div class="landing regulation" id="regulation">
-            <h1 class="hidden">Peraturan Terkait <span class="e">e</span>SAKIP</h1>
-            <img src="<?= base_url('/assets/img/home/illustrations-regulation-page.svg') ?>" alt="" height="400" width="400" class="hidden">
-            <div class="glass-bg regulation hidden">
-                <!-- Nanti akan berupa link yang akan mendownload dokumen tentang aturan-aturan -->
-                <p>1. Peraturan Presiden Nomor 29 Tahun 2014 tentang Sistem Akuntabilitas Kinerja Instansi Pemerintah</p>
-                <p>2. Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Republik Indonesia Nomor 53 Tahun 2014 tentang Petunjuk Teknis Perjanjian Kinerja, Pelaporan Kinerja, dan Tata Cara Reviu atas Laporan Kinerja Instansi Pemerintah;</p>
-                <p>3. Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Republik Indonesia Nomor 88 Tahun 2021 tentang Evaluasi Akuntabilitas Kinerja Instansi Pemerintah</p>
-                <p>4. Keputusan Gubernur Sulawesi Utara Nomor 36a Tahun 2022 tentang Pedoman Pelaksanaan Sistem Akuntabilitas Kinerja Instansi Pemerintah di Lingkungan Provinsi Sulawesi Utara</p>
-                <p>5. Keputusan Gubernur Sulawesi Utara Nomor 104 Tahun 2022 tentang Pembentukan Tim Evaluasi Akuntabilitas Kinerja Instansi Pemerintah Di Lingkungan Pemerintah Provinsi Sulawesi Utara</p>
-            </div>
-            <div class="rincian-regulation hidden">
-                * Esakip pemerintah provinsi Sulawesi Utara sudah mengacu pada peraturan yang telah dikeluarkan.
-            </div>
-        </div>
-
-        <div class="strip-login">
-            <div class="bungkus-strip-login hidden">
-                <h2 class="hidden">Silahkan Login Terlebih Dahulu Untuk Dapat Masuk ke Sistem.</h2>
-                <a href="" class="strip btn-login hidden">Login</a>
-            </div>
-        </div>
-
-        <!-- Kontak -->
-        <div class="landing contact" id="contact">
-            <h1 class="hidden">Kontak Kami</h1>
-            <div class="filler hidden">
-                <div class="persegi-panjang biru">
-                </div>
-                <div class="persegi-panjang putih"></div>
-            </div>
-            <div class="list-kontak hidden">
-                <div class="kontak">
-                    <div class="icon-wrapper-kontak">
-                        <i class="fa-solid fa-mobile-screen-button" style="font-size: 25px;"></i>
-                    </div>
-                    <h5><span>TELP:</span> (031) 5474482 | <span> EXT:</span> 353
-                    </h5>
-                </div>
-                <div class="kontak">
-                    <div class="icon-wrapper-kontak">
-                        <i class="fa-solid fa-envelope" style="font-size: 25px;"></i>
-                    </div>
-                    <h5>biroorganisasi.sulutprov@gmail.com</h5>
-                </div>
-                <div class="kontak">
-                    <div class="icon-wrapper-kontak">
-                        <i class="fa-solid fa-location-dot" style="font-size:25px"></i>
-                        <!-- <i class="bi bi-geo-alt-fill" style="height: 25px; width: 25px;"></i> -->
-                    </div>
-                    <h5>
-                        Jl Jimerto 25 -27
-                        SBY 60272, INA</h5>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>e-SAKIP Biro Organisasi Pemerintah Provinsi Sulawesi Utara</p>
-        </div>
+    <div class="nav-right">
+        <ul>
+            <li class="home"><a href="#home">Home</a></li>
+            <li class="about"><a href="#about">About</a></li>
+            <li class="regulation"><a href="#regulation">Regulation</a></li>
+            <li class="contact"><a href="#contact">Contact</a></li>
+            <!-- <button type="button" class="btn-login">Login</button> -->
+            <a href="" class="btn-login">Login</a>
+        </ul>
     </div>
 </div>
+
+<div class="content">
+    <!-- Home -->
+    <div class="landing home" id="home">
+        <img src="<?= base_url('/assets/img/home/pulau-siladen-manado-sulawesi-utara 1.svg'); ?>" alt="" class="bg-img">
+        <div class="headline-about">
+            <h5 class="hidden">Selamat Datang di</h5>
+            <h1 class="sakip-highlight hidden">Sistem Akuntabilitas Kinerja Instansi Pemerintah Provinsi Sulawesi Utara</h1>
+        </div>
+
+    </div>
+
+    <!-- About -->
+    <div class="landing about" id="about">
+        <h1 class="hidden">Tentang <span class="e">e</span>SAKIP</h1>
+        <div class="filler hidden">
+            <div class="persegi-panjang biru">
+            </div>
+            <div class="persegi-panjang putih"></div>
+        </div>
+
+        <img src="<?= base_url('/assets/img/home/garuda.svg'); ?>" alt="" class="img-garuda hidden">
+
+        <div class="glass-bg desc hidden">
+            <p class="sakip-desc">
+                E - SAKIP adalah aplikasi Sistem Akuntabilitas Kinerja Instansi Pemerintah yang bertujuan untuk memudahkan proses pemantauan dan pengendalian kinerja dalam rangka meningkatkan akuntabilitas dan kinerja unit kerja. APLIKASI ini menampilkan proses perencanaan kinerja, penganggaran kinerja, keterkaitan kegiatan/sub kegiatan dalam pencapaian target kinerja, dan monitoring serta evaluasi pencapaian kinerja dan keuangan.
+            </p>
+        </div>
+    </div>
+    <div class="strip-login">
+        <div class="bungkus-strip-login hidden">
+            <h2 class="hidden">Silahkan Login Terlebih Dahulu Untuk Dapat Masuk ke Sistem.</h2>
+            <a href="" class="strip btn-login hidden">Login</a>
+        </div>
+    </div>
+
+    <!-- Regulation -->
+    <div class="landing regulation" id="regulation">
+        <h1 class="hidden">Peraturan Terkait <span class="e">e</span>SAKIP</h1>
+        <img src="<?= base_url('/assets/img/home/illustrations-regulation-page.svg') ?>" alt="" height="400" width="400" class="hidden">
+        <div class="glass-bg regulation hidden">
+            <!-- Nanti akan berupa link yang akan mendownload dokumen tentang aturan-aturan -->
+            <p>1. Peraturan Presiden Nomor 29 Tahun 2014 tentang Sistem Akuntabilitas Kinerja Instansi Pemerintah</p>
+            <p>2. Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Republik Indonesia Nomor 53 Tahun 2014 tentang Petunjuk Teknis Perjanjian Kinerja, Pelaporan Kinerja, dan Tata Cara Reviu atas Laporan Kinerja Instansi Pemerintah</p>
+            <p>3. Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Republik Indonesia Nomor 88 Tahun 2021 tentang Evaluasi Akuntabilitas Kinerja Instansi Pemerintah</p>
+            <p>4. Keputusan Gubernur Sulawesi Utara Nomor 36a Tahun 2022 tentang Pedoman Pelaksanaan Sistem Akuntabilitas Kinerja Instansi Pemerintah di Lingkungan Provinsi Sulawesi Utara</p>
+            <p>5. Keputusan Gubernur Sulawesi Utara Nomor 104 Tahun 2022 tentang Pembentukan Tim Evaluasi Akuntabilitas Kinerja Instansi Pemerintah Di Lingkungan Pemerintah Provinsi Sulawesi Utara</p>
+        </div>
+        <div class="rincian-regulation hidden">
+            * Esakip pemerintah provinsi Sulawesi Utara sudah mengacu pada peraturan yang telah dikeluarkan.
+        </div>
+    </div>
+
+    <div class="strip-login">
+        <div class="bungkus-strip-login hidden">
+            <h2 class="hidden">Silahkan Login Terlebih Dahulu Untuk Dapat Masuk ke Sistem.</h2>
+            <a href="" class="strip btn-login hidden">Login</a>
+        </div>
+    </div>
+
+    <!-- Kontak -->
+    <div class="landing contact" id="contact">
+        <h1 class="hidden">Kontak Kami</h1>
+        <div class="filler hidden">
+            <div class="persegi-panjang biru">
+            </div>
+            <div class="persegi-panjang putih"></div>
+        </div>
+        <div class="list-kontak hidden">
+            <div class="kontak">
+                <div class="icon-wrapper-kontak">
+                    <i class="fa-solid fa-mobile-screen" style="font-size: 25px;"></i>
+                </div>
+                <h5>Admin: 085205538693 (Randi) | 0812-6135-2722(Ali)</h5>
+            </div>
+            <div class="kontak">
+                <div class="icon-wrapper-kontak">
+                    <i class="fa-solid fa-envelope" style="font-size: 25px;"></i>
+                </div>
+                <h5>biroorganisasi.sulutprov@gmail.com</h5>
+            </div>
+            <div class="kontak">
+                <div class="icon-wrapper-kontak">
+                    <i class="fa-solid fa-location-dot" style="font-size:25px"></i>
+                    <!-- <i class="bi bi-geo-alt-fill" style="height: 25px; width: 25px;"></i> -->
+                </div>
+                <h5>
+                    Jl. 17 Agustus No.69, Teling Atas, Kec. Wanea, Kota Manado, Sulawesi Utara</h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <h3>Anda bisa temukan kami juga di</h3>
+            <div class="list-medsos hidden">
+                <div class="medsos">
+                    <div class="icon-wrapper-medsos">
+                        <i class="fa-brands fa-facebook" style="font-size: 25px;"></i>
+                    </div>
+                    <p>Biroorganisasi Setdaprovsulut</p>
+                </div>
+                <div class="medsos">
+                    <div class="icon-wrapper-medsos">
+                        <i class="fa-brands fa-instagram" style="font-size: 25px;"></i>
+                    </div>
+                    <p>Biroorganisasi</p>
+                </div>
+                <div class="medsos">
+                    <div class="icon-wrapper-medsos">
+                        <i class="fa-brands fa-twitter" style="font-size: 25px;"></i>
+                    </div>
+                    <p>@Biro_Organisasi</p>
+                </div>
+            </div>
+            <h5 class="hidden">e-SAKIP Biro Organisasi Pemerintah Provinsi Sulawesi Utara 2022</h5>
+        </div>
+
+    </div>
+</div>
+<!-- </div> -->
