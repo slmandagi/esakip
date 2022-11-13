@@ -7,7 +7,7 @@
 
 /* INI KALO SIDEBAR CLOSE DIA MO JADI LEBE LEBAR, MENYESUAIKAN DENG SIDEBAR PE WIDTH */
 .content-container.lebih-lebar {
-    width: 100%;
+    width: 94%;
 }
 
 /* PEMBUNGKUS KONTEN END */
@@ -19,6 +19,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* position: sticky;
+    top: 0%; */
+    background: white;
     /* background: black; */
 }
 
@@ -27,7 +30,6 @@
     align-items: center;
     width: 95%;
     justify-content: space-between;
-    ;
 }
 
 .headline-dashboard i {
@@ -50,6 +52,8 @@
 /* BAGIAN SEARCH START */
 .search-dashboard-container {
     margin: 20px 0px;
+    /* position: fixed; */
+    background: white;
     /* background-color: aqua; */
     width: 97%;
     display: flex;
@@ -84,5 +88,33 @@
 .main-content-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-for-pagination {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.button-pagination {
+    display: inline-block;
+    /* padding: 20px 20px;
+    border: 1px solid black; */
+}
+
+.button-pagination a {
+    padding: 5px 8px;
+    /* border: 1px solid black; */
+    margin: 3px;
+}
+
+.button-pagination a.active {
+    background: #46B5D1;
+    color: white;
+}
+
+.button-pagination a:hover {
+    color: white;
+    background: #46B5D1;
 }

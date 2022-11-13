@@ -6,7 +6,8 @@ Catatan:::
 4. Peraturan  belum ada (clear)
 5. Kontak belum ada (clear)
 6. Saat user klik menu, itu menu tabuka (belum)
-6. Fitur lihat dropdown di table (belum)
-7. Fitur cari di table(belum)
-8. Fitur pagination for table(belum)
-
+7. Fitur lihat dropdown konek dengan table (belum)
+8. Fitur cari di table(belum)
+9. Fitur pagination for table(belum)
+10. Data table sudah di load pake script (done)
+11. Data table load pake fetch API (belum)

@@ -19,4 +19,13 @@ $(document).ready(function () {
 	$(".headline-dashboard i").click(function () {
 		$(".headline-dashboard i").toggleClass("active");
 	});
+
+	/*FOR UBAH WARNA DI BUTTON PAGINATION */
+	$(".button-pagination a").click(function () {
+		$(".button-pagination a")
+			.addClass("active")
+			.siblings()
+			.removeClass("active");
+		console.log("pagination active");
+	});
 });

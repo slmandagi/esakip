@@ -6,7 +6,7 @@
      border-spacing: 0 10px;
  }
 
- .table-dashboard th:nth-child(1) {
+ .table-dashboard th:nth-child(2) {
      width: 20%;
  }
 
@@ -35,7 +35,7 @@
      height: 50px;
  }
 
- .table-dashboard tbody td:nth-child(1) {
+ .table-dashboard tbody td:nth-child(2) {
      text-align: start;
      padding-left: 20px;
  }
