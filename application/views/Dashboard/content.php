@@ -31,8 +31,8 @@
                  </tr>
              </thead>
 
-             <!-- <tbody>
-                 <tr>
+             <tbody>
+                 <!-- <tr>
                      <td>1</td>
                      <td>Provinsi Sulawesi Utara</td>
                      <td>CHECK</td>
@@ -151,10 +151,7 @@
                      <td>CHECK</td>
                      <td>CHECK</td>
                      <td>CHECK</td>
-                 </tr>
-             </tbody> -->
-             <tbody>
-
+                 </tr> -->
              </tbody>
          </table>
 

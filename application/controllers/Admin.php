@@ -13,6 +13,8 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    //loms tu komponen admin dg user se pisah ne di views...
+
     // public function dashboard()
     // {
     //     $this->load->view('templates/header');

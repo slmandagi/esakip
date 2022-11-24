@@ -210,9 +210,9 @@ $(document).ready(function () {
 		}
 
 		/*ABIS ITU TORANG HAPUS BAGIAN BODY YANG DEFAULT */
-		$("table tbody tr").remove();
+		$(".table-dashboard tbody tr").remove();
 		/*KONG TORANG SELIP YANG TORANG D BEKING */
-		$("table tbody").append(selip_html);
+		$(".table-dashboard tbody").append(selip_html);
 	};
 
 	$.fn.tampilkanDataTable();
