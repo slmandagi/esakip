@@ -2,17 +2,16 @@
     <div class="form-container">
         <h1>Login</h1>
         <p>Silahkan bapak/ibu perangkat daerah untuk memasukkan data agar dapat masuk ke sistem.</p>
+        <br> <?php echo $this->session->flashdata('msg'); ?>
+        <form action="<?= base_url('Autentikasi/autentikasi'); ?>" method="POST" class="form-autentikasi">
 
-        <?= $this->session->flashdata('massage'); ?>
-        <form action="<?= base_url('Autentikasi'); ?>" method="POST" class="form-autentikasi">
-            <label for="input-username">Username</label>
-            <span style="color: red;"><?= form_error('email', '<small class="text-danger">', '</small>') ?></span>
-            <input id="email" name="email" type="text" placeholder="Isi email anda..." id="input-username">
+
+            <label for="input-username">Email</label>
+            <input id="email" name="email" type="email" placeholder="Isi email anda..." required>
 
             <label for="input-password">Password</label>
-            <span style="color: red;"> <?= form_error('password', '<small class="text-danger">', '</small>') ?></span>
             <div class="password-wrapper">
-                <input id="password" name="password" type="password" placeholder="Isi password anda..." id="input-password">
+                <input id="password" name="pass" type="password" placeholder="Isi password anda..." required>
                 <i class="fa-solid fa-eye"></i>
             </div>
             <button type="submit" class="btn-login autentikasi">Login</button>

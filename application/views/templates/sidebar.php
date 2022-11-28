@@ -71,10 +71,10 @@
         <div class="profile">
             <img src="<?= base_url('/assets/img/sidebar/RandomPerson.svg') ?> " alt="" height="50" width="50">
             <div class="data-profile">
-                <h4>Person Name</h4>
-                <p>Job</p>
+                <h4><?php echo $this->session->userdata('name'); ?></h4>
+                <p><?php echo $this->session->userdata('access'); ?></p>
             </div>
-            <a href="" class="logout">
+            <a href="<?php echo site_url('autentikasi/logout'); ?>" class="logout">
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
             <span class="tooltip for-profile">Profile/Keluar</span>

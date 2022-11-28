@@ -7,70 +7,77 @@ class Autentikasi extends CI_Controller
     // torang beking dulu variable for simpan model pe lokasi.
     // protected $model = '';
 
-    public function index()
+    function __construct()
     {
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
-            'required' => 'Email harus diisi',
-            'valid_email' => 'Email tidak sesuai',
-        ]);
-        $this->form_validation->set_rules('password', 'Password', 'required|trim', [
-            'required' => 'Kata sandi harus di isi'
-        ]);
-
-        if ($this->form_validation->run() == false) {
-            // load torang pe models
-            $this->load->view('templates/header');
-            $this->load->view('autentikasi/login');
-            $this->load->view('templates/footer');
-        } else {
-            $this->login();
-        }
+        parent::__construct();
+        $this->load->model('Mlogin', 'Mlogin');
     }
 
-    //function login blum ta redirect ke dashbord admin... why????
+    function index()
+    {
+        $this->load->view('autentikasi/view-login');
+    }
 
-    private function login()
+    //autentikasi so bisa cuman nda tau kenapa tu style di view-logout so ilang dpe css wkwkwk i dunno why...
+
+    function autentikasi()
     {
         $email = $this->input->post('email');
-        $password = $this->input->post('password');
+        $password = $this->input->post('pass');
 
-        $user = $this->db->get_where('user', ['email' => $email])->row_array();
-        // var_dump($user);
-        // die;
+        $validasi_email = $this->Mlogin->query_validasi_email($email);
+        if ($validasi_email->num_rows() > 0) {
+            $validate_ps = $this->Mlogin->query_validasi_password($email, $password);
+            if ($validate_ps->num_rows() > 0) {
+                $x = $validate_ps->row_array();
+                if ($x['user_status'] == '1') {
+                    $this->session->set_userdata('logged', TRUE);
+                    $this->session->set_userdata('user', $email);
+                    $id = $x['user_id'];
 
-        // ada user
-        if ($user) {
-            // jika user active
-            if ($user['is_active'] ==  1) {
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'email' => $user['email'],
-                        'role_id' => $user['role_id'],
-                        'name' => $user['name'],
-                    ];
-
-                    $this->session->set_userdata($data);
-                    if ($user['role_id'] == 1) {
-                        redirect('Admin');
-                    } else {
-                        redirect('User');
+                    if ($x['user_akses'] == '1') { //untuk login sebagai admin
+                        $name = $x['user_name'];
+                        $this->session->set_userdata('access', 'Administrator');
+                        $this->session->set_userdata('id', $id);
+                        $this->session->set_userdata('name', $name);
+                        redirect('admin');
+                    } else if ($x['user_akses'] == '2') { //untuk login sebagai user
+                        $name = $x['user_name'];
+                        $this->session->set_userdata('access', 'User');
+                        $this->session->set_userdata('id', $id);
+                        $this->session->set_userdata('name', $name);
+                        redirect('user');
                     }
+
+                    //pesan yang mo timbul pas kalo salah input
                 } else {
-                    $this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert">Password salah!</div>');
-                    redirect('Autentikasi');
+                    $url = base_url('autentikasi');
+                    echo $this->session->set_flashdata('msg', '
+                    <h3>Uupps!</h3>
+                    <p>Akun kamu telah di blokir. Silahkan hubungi admin.</p>');
+                    redirect($url);
                 }
             } else {
-                $this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert">Email belum diaktivasi!</div>');
-                redirect('Autentikasi');
+                $url = base_url('autentikasi');
+                echo $this->session->set_flashdata('msg', '
+                    <h3>Uupps!</h3>
+                    <p>Password yang kamu masukan salah.</p>');
+                redirect($url);
             }
         } else {
-            $this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert">Email belum terdaftar!</div>');
-            redirect('Autentikasi');
+            $url = base_url('autentikasi');
+            echo $this->session->set_flashdata('msg', '
+            <h3>Uupps!</h3>
+            <p>Email yang kamu masukan salah.</p>');
+            redirect($url);
         }
     }
 
-
-    // public function registrasi()
-    // {
-    // }
+    //function for loguout
+    function logout()
+    {
+        $this->session->sess_destroy();
+        $url = base_url('autentikasi');
+        redirect($url);
+    }
 }

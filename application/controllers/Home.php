@@ -19,6 +19,16 @@ class Home extends CI_Controller
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+
+	// function __construct()
+	// {
+	// 	parent::__construct();
+	// 	if ($this->session->userdata('logged') != TRUE) {
+	// 		$url = base_url('autentikasi');
+	// 		redirect($url);
+	// 	};
+	// }
+
 	public function index()
 	{
 		$this->load->view('templates/header.php');
