@@ -15,7 +15,9 @@ class Autentikasi extends CI_Controller
 
     function index()
     {
+        $this->load->view('templates/header');
         $this->load->view('autentikasi/view-login');
+        $this->load->view('templates/footer');
     }
 
     //autentikasi so bisa cuman nda tau kenapa tu style di view-logout so ilang dpe css wkwkwk i dunno why...
