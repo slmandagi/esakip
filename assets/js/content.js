@@ -21,11 +21,11 @@ $(document).ready(function () {
 	});
 
 	/*FOR UBAH WARNA DI BUTTON PAGINATION */
-	$(".button-pagination a").click(function () {
-		$(".button-pagination a")
-			.addClass("active")
-			.siblings()
-			.removeClass("active");
-		console.log("pagination active");
-	});
+	// $(".button-pagination a").click(function () {
+	// 	$(".button-pagination a")
+	// 		.addClass("active")
+	// 		.siblings()
+	// 		.removeClass("active");
+	// 	console.log("pagination active");
+	// });
 });

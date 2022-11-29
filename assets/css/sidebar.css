@@ -1,7 +1,3 @@
-li {
-    list-style: none
-}
-
 /* PEMBUNGKUS START */
 .sidebar-container {
     width: 15%;
@@ -28,6 +24,7 @@ li {
     /* overflow-y: scroll;
     scroll-behavior: smooth; */
 }
+
 
 .header {
     padding: 20px;
@@ -59,10 +56,8 @@ li {
     /* overflow-inline: hidden; */
 }
 
-.main-menu {
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
+.sidebar-content a {
+    transition: all 0.5s;
 }
 
 .menu {
@@ -78,6 +73,7 @@ li {
     position: relative;
     overflow: visible;
 }
+
 
 .menu i {
     font-size: 18px;
@@ -116,8 +112,8 @@ li {
     height: 110px;
 }
 
-.bagian-komponen-sakip li,
-.bagian-pengaturan li {
+.bagian-komponen-sakip .komponen,
+.bagian-pengaturan .pengaturan {
     /* margin: 0px 0px 5px 0px; */
     font-size: 14px;
     text-align: start;
@@ -197,7 +193,6 @@ li {
 .dropdown-pengaturan {
     display: none;
     /* pointer-events: none; */
-
     height: 110px;
 }
 

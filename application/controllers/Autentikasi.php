@@ -9,8 +9,10 @@ class Autentikasi extends CI_Controller
 
     public function index()
     {
+
+        $data['judul_halaman'] = "Login";
         // load torang pe models
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('autentikasi/login');
         $this->load->view('templates/footer');
     }

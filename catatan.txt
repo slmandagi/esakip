@@ -1,13 +1,32 @@
 Catatan:::
 
-1. Belum ator config, autoload, dan routes
+
+LEVEL URGENT:
+SU: SANGAT URGENT
+LU: LUMAYAN URGENT
+U: URGENT
+BU: BELUM URGENT
+BN: BOLEH NANTI
+
+1. Belum ator config, autoload, dan routes (U)
 2. Belum fix itu sidebar menu hover (clear)
 3. Gambar di Home belum ada
-4. Peraturan  belum ada (clear)
+4. Peraturan belum ada (clear)
 5. Kontak belum ada (clear)
 6. Saat user klik menu, itu menu tabuka (belum)
-7. Fitur lihat dropdown konek dengan table (belum)
-8. Fitur cari di table(belum)
-9. Fitur pagination for table(belum)
-10. Data table sudah di load pake script (done)
-11. Data table load pake fetch API (belum)
+7. Fitur lihat dropdown(select banyaknya data) konek dengan table (clear)
+8. Fitur cari di table(LU) (belum)
+9. Fitur pagination for table(clear) (SU)
+10. Data table sudah di load pake script (done) (GANTI KE CONTROLLER PLEASE)
+11. Data table load pake fetch API (belum dapat tutorial)
+12. MIGRASI SAMUA PROSES LOAD DI CONTROLLER (SU) (clear)
+13. MIGRASI SAMUA PROSES DISPLAY KE PHP (SU) (clear)
+14. Tambah sweet alert (BN)
+15. Pengukuran kinerja, dengaan Evaluasi belum jadi -> belum tau bgmna dpe db nnti soalnya ada inputan disitu (for admin)
+16. Evaluasi Kinerja deng pengukuran kinerja cuman pake hard code
+17. Function pengukuran_kinerja deng evaluasi_kinerja di controller admin belum pake pagination dengan blum load dari db
+
+
+TIPS:
+1. KASE NAMA YANG GAMPANG DIMENGERTI DI SCRIPT ATO DIMANAPUN ITU (hindari singkatan).
+2. KALO MO PAKE PRINT_R NDA PERLU PAKE ECHO

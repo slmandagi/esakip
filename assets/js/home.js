@@ -1,6 +1,6 @@
 const landingClasses = document.querySelectorAll(".landing");
 const navClasses = document.querySelectorAll(".nav-right ul li");
-const navbar = document.querySelectorAll(".navbar");
+const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
 	let current = "";
@@ -14,7 +14,6 @@ window.addEventListener("scroll", () => {
 			current = landingClass.getAttribute("id");
 		}
 	});
-
 	navClasses.forEach((li) => {
 		li.classList.remove("active");
 

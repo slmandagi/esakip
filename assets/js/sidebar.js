@@ -49,6 +49,7 @@ $(document).ready(function () {
 			$(".panah-pengaturan", this).toggleClass("fa-chevron-down");
 		}
 
+		// INI KALO MENU LAIN PUNYA CLASS ACTIVE, MAKA YANG DROPDOWN ADA TABUKA, DIA OTOMATIS TTTUP
 		if ($(".komponen-sakip").siblings().hasClass("active")) {
 			$(".panah-sakip").removeClass("fa-chevron-down");
 			$(".bagian-komponen-sakip .komponen").removeClass("active");
@@ -60,30 +61,35 @@ $(document).ready(function () {
 			// console.log("nda aktif");
 		}
 
+		// INI KALO DI DALAM
+
 		// $(".panah-sakip").toggleClass("fa-chevron-down");
 		// console.log("cek");
 	});
 
-	/* 2. INI KALO USER PILIH SALAH SATU SUBMENU DI MENU KOMPONEN SAKIP*/
+	/* 2. INI KALO USER PILIH SALAH SATU SUBMENU DI MENU KOMPONEN SAKIP/PENGATURAN SIDEBAR OPEN*/
 	$("ul .komponen, ul .pengaturan").click(function () {
 		$(this).addClass("active").siblings().removeClass("active");
-		if (
+		if ($(".sidebar .dropdown.bagian-komponen-sakip li").hasClass("active")) {
+			console.log("dropdown tutup");
 			$(
-				".sidebar.close .dropdown.bagian-komponen-sakip.side-close li"
-			).hasClass("active")
-		) {
-			$(".dropdown.bagian-komponen-sakip.side-close").slideUp(700);
+				".dropdown.bagian-komponen-sakip, .dropdown.bagian-komponen-sakip.side-close"
+			).slideUp(700);
+			$(".panah-sakip").removeClass("fa-chevron-down");
 		}
-		if (
-			$(".sidebar.close .dropdown.bagian-pengaturan.side-close li").hasClass(
-				"active"
-			)
-		) {
-			$(".dropdown.bagian-pengaturan.side-close").slideUp(700);
+
+		if ($(".sidebar .dropdown.bagian-pengaturan li").hasClass("active")) {
+			console.log("dropdown tutup pengaturan");
+			$(
+				".dropdown.bagian-pengaturanm, .dropdown.bagian-pengaturan.side-close"
+			).slideUp(700);
+			$('.panah-pengaturan').toggleClass("fa-chevron-down");
 		}
 		console.log("halo slide");
 	});
 
+	/* INI KALO USER CLICK SALAH SATU SUBMENU DI MENU KOMPONEN SAKIP/PENGATURAN SIDEBAR OPEN*/
+	$(".ul ");
 	/* --USER CLICK MENU KOMPONEN SAKIP  */
 	// $(".komponen-sakip").click(function () {
 	// 	if ($(".dropdown.bagian-komponen-sakip").is(":hidden")) {

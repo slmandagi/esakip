@@ -1,0 +1,60 @@
+<div class="pelaporan-kinerja-container">
+    <div class="search-table-container">
+        <div class="show-n-row-table">
+            <p>Lihat</p>
+
+            <form method="GET" action="<?= base_url('admin/pelaporan_kinerja') ?>">
+                <select name="banyaknya-data">
+                    <option hidden></option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <!-- <option value="5">5</option> -->
+                </select>
+                <input type="submit" name="pilih_jum_data" value="Tampilkan">
+            </form>
+        </div>
+        <div class="search-table">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
+        </div>
+    </div>
+    <div class="main-content-pelaporan-kinerja">
+        <table class="table-pelaporan-kinerja">
+            <thead>
+                <tr>
+                    <th>Nomor</th>
+                    <th>Pengirim</th>
+                    <th>Laporan Kinerja</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $nomor =  $this->uri->segment(3) ? $this->uri->segment(3) + 1  : 1;
+                foreach ($table as $baris) :
+                ?>
+                    <tr>
+                        <td><?= $nomor ?></td>
+                        <td><?= $baris['opd'] ?></td>
+                        <td><i class="<?= $baris['dokumen_lakip'] ?>"></i></td>
+                    </tr>
+                <?php
+                    $nomor++;
+                endforeach;
+                ?>
+            </tbody>
+        </table>
+
+        <div class="footer-for-pagination">
+            <div class="button-pagination">
+                <?php echo $pagination ?>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<style>
+
+</style>

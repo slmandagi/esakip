@@ -10,7 +10,7 @@
             <li class="regulation"><a href="#regulation">Regulation</a></li>
             <li class="contact"><a href="#contact">Contact</a></li>
             <!-- <button type="button" class="btn-login">Login</button> -->
-            <a href="" class="btn-login">Login</a>
+            <a href="<?php echo base_url('autentikasi') ?>" class="btn-login">Login</a>
         </ul>
     </div>
 </div>
@@ -46,7 +46,7 @@
     <div class="strip-login">
         <div class="bungkus-strip-login hidden">
             <h2 class="hidden">Silahkan Login Terlebih Dahulu Untuk Dapat Masuk ke Sistem.</h2>
-            <a href="" class="strip btn-login hidden">Login</a>
+            <a href="<?php echo base_url('autentikasi') ?>" class="strip btn-login hidden">Login</a>
         </div>
     </div>
 
@@ -70,7 +70,7 @@
     <div class="strip-login">
         <div class="bungkus-strip-login hidden">
             <h2 class="hidden">Silahkan Login Terlebih Dahulu Untuk Dapat Masuk ke Sistem.</h2>
-            <a href="" class="strip btn-login hidden">Login</a>
+            <a href="<?php echo base_url('autentikasi') ?>" class="strip btn-login hidden">Login</a>
         </div>
     </div>
 
@@ -87,7 +87,7 @@
                 <div class="icon-wrapper-kontak">
                     <i class="fa-solid fa-mobile-screen" style="font-size: 25px;"></i>
                 </div>
-                <h5>Admin: 085205538693 (Randi) | 0812-6135-2722(Ali)</h5>
+                <h5>Admin: 085205538693 (Randi) | 081261352722(Ali)</h5>
             </div>
             <div class="kontak">
                 <div class="icon-wrapper-kontak">

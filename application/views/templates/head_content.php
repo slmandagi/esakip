@@ -2,10 +2,10 @@
 <div class="content-container">
     <!-- START OF CONTENT HEAD -->
     <div class="content-head-container">
-        <div class="headline-dashboard">
+        <div class="headline-for-all">
             <!-- DEPE ISI INI MUSTI SESUAI PAGE -->
             <!-- UNTUK SEMENTARA PAKE STATIC -->
-            <h1>Dashboard</h1>
+            <h1><?php echo $judul_header_page ?></h1>
             <i class="fa-solid fa-bell"></i>
         </div>
     </div>
