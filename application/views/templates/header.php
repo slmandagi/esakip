@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="<?= base_url('/assets/css/sidebar.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/content.css') ?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/table.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/assets/css/u_table.css') ?>">
+
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

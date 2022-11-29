@@ -47,6 +47,10 @@ $(document).ready(function () {
 		$('.button-pagination').append(html_pagination_button)
 		// $(".button-pagination").html(html_pagination_button);
 		// $.fn.hide_show_btn(halaman);
+		/*ABIS ITU TORANG HAPUS BAGIAN BODY YANG DEFAULT */
+		$(".table-dashboard tbody tr").remove();
+		/*KONG TORANG SELIP YANG TORANG D BEKING */
+		$(".table-dashboard tbody").append(selip_html);
 	};
 
 	// $.fn.tampilkanTable = function () {

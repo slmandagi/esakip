@@ -8,12 +8,17 @@ class Admin extends CI_Controller
             Useful links:
             - http://codeigniter.com/userguide3/libraries/pagination.html?highlight=paginatio
         */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('logged') != TRUE) {
+            $url = base_url('autentikasi');
+            redirect($url);
+        };
+
         $this->load->model('Table');
-        // $this->load->library('pagination');
     }
+
     public function index()
     {
         $model = 'dashboard';
@@ -335,32 +340,3 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 };
-
-
-
-
-
-
-
-
-
-/**
-   if ($per_page_input == 0) {
-            $config['per_page'] = 5;
-            echo 'halo';
-            echo $config['per_page'];
-            // $config['per_page'] = $per_page_input;
-
-        } else {
-            $cookie = array(
-                'name'   => 'per_page',
-                'value'  => $per_page_input,
-                'expire' => '300',
-                'secure' => TRUE
-            );
-            $this->input->set_cookie($cookie);
-
-            $config['per_page']  = $this->input->cookie('per_page', true);
-            echo $config['per_page'];
-        }
- */

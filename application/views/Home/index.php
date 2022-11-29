@@ -10,7 +10,7 @@
             <li class="regulation"><a href="#regulation">Regulation</a></li>
             <li class="contact"><a href="#contact">Contact</a></li>
             <!-- <button type="button" class="btn-login">Login</button> -->
-            <a href="<?php echo base_url('autentikasi') ?>" class="btn-login">Login</a>
+            <a href="<?= base_url('Autentikasi') ?>" class="btn-login">Login</a>
         </ul>
     </div>
 </div>
