@@ -10,26 +10,39 @@
             </div>
         </div>
         <div class="sidebar-content">
-            <div class="menu dashboard active" id="menu">
+            <div class="menu dashboard" id="menu">
                 <i class="fa-solid fa-gauge-high"></i>
-                <a href="">
+                <a href="<?= base_url('user/') ?>">
                     <p>Dashboard</p>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </div>
             <div class="menu komponen-sakip">
                 <i class="fa-regular fa-file"></i>
-                <a href="<?= base_url('User/dokumen') ?>">
-                    <p>Dokumen SAKIP</p>
-                </a>
+                <!-- <a href="<?= base_url('User/dokumen') ?>"> -->
+                <p>Dokumen SAKIP</p>
+                <!-- </a> -->
+                <i class="fa-solid fa-chevron-up panah-sakip"></i>
+                <span class="tooltip">Dokumen SAKIP
+                </span>
             </div>
-            <!-- <ul class="dropdown bagian-komponen-sakip">
-                <li class="komponen nonactive">Perencanaan Kinerja</li>
-                <li class="komponen nonactive">Pengukuran Kinerja</li>
-                <li class="komponen nonactive">Pelaporan Kinerja</li>
-                <li class="komponen nonactive">Evaluasi Kinerja</li>
-            </ul> -->
-
+            <ul class="dropdown bagian-komponen-sakip">
+                <li class="komponen nonactive">
+                    <a href="<?= base_url('User/perencanaan_kinerja') ?>">
+                        Perencanaan Kinerja
+                    </a>
+                </li>
+                <li class="komponen nonactive">
+                    <a href="<?= base_url('User/pengukuran_kinerja') ?>">
+                        Pengukuran Kinerja
+                    </a>
+                </li>
+                <li class="komponen nonactive">
+                    <a href="<?= base_url('User/pelaporan_kinerja') ?>">
+                        Pelaporan Kinerja
+                    </a>
+                </li>
+            </ul>
             <div class="menu informasi">
                 <!-- <img src="<?= base_url('/assets/img/sidebar/Information.svg') ?>" alt="" height="25"> -->
                 <i class="fa-regular fa-message"></i>

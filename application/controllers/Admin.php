@@ -339,4 +339,16 @@ class Admin extends CI_Controller
         $this->load->view('admin/pengaturan/profil_pengguna');
         $this->load->view('templates/footer');
     }
+
+    public function ubah_email_password()
+    {
+        # code...
+        $data['judul_halaman'] = "Ubah Email & Password";
+        $data['judul_header_page'] =  "Ubah Email & Password";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/pengaturan/ubah_email_pass');
+        $this->load->view('templates/footer');
+    }
 };

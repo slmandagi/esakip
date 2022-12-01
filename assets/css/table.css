@@ -84,6 +84,30 @@
  /* BAGIAN TABLE DASHBOARD END */
 
 
+ /* BAGIAN TABLE DASHBOARD USER START */
+
+ table.table-dashboard-user {
+     width: 80%;
+ }
+
+ .table-dashboard-user thead th:nth-child(1) {
+     width: 5%;
+ }
+
+ .table-dashboard-user thead th {
+     width: 15%;
+ }
+
+ .table-dashboard-user tr td i {
+     font-size: 18px;
+ }
+
+ .table-dashboard-user tbody tr:hover td i {
+     color: #60CB5E;
+ }
+
+ /* BAGIAN TABLE DASHBOARD USER END */
+
  /* BAGIAN TABLE PENGUKURAN KINERJA START*/
 
  /* PILIH BANYA */

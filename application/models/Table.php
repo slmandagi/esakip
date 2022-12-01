@@ -2,8 +2,6 @@
 
 class Table extends CI_Model
 {
-
-
     // for all table
     public function get_table($model, $limit = null, $start = null)
     {
@@ -17,6 +15,7 @@ class Table extends CI_Model
         // $total_data = count($query);
         return $query;
     }
+
     public function total_data($model)
     {
         $this->load->database($model);

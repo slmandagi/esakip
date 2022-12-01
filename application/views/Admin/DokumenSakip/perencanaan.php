@@ -19,7 +19,7 @@
             <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
         </div>
     </div>
-    <div class="main-content-perencanaan">
+    <div class="main-content-perencanaan-kinerj">
         <table class="table-perencanaan">
             <thead>
                 <tr>

@@ -1,5 +1,4 @@
  <!-- START OF DASHBOARD CONTENT -->
-
  <div class="dashboard-container">
      <div class="search-table-container">
          <div class="show-n-row-table">
@@ -13,7 +12,6 @@
                  </select>
                  <input type="submit" name="pilih_jum_data" value="Tampilkan">
              </form>
-
          </div>
          <div class="search-table">
              <i class="fa-solid fa-magnifying-glass"></i>
