@@ -70,12 +70,18 @@
 
 .form-autentikasi input {
     height: 40px;
-    border-radius: 8px;
     border: none;
     outline: none;
     padding: 10px;
     font-size: 12px;
     width: 100%;
+    background: none;
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.form-autentikasi input::placeholder {
+    color: black;
 }
 
 .footer-autentikasi input:focus {

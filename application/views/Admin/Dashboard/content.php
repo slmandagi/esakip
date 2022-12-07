@@ -33,7 +33,9 @@
                      <th>PK</th>
                      <th>Renaksi</th>
                      <th>Lakip</th>
-                     <th>Lainnya</th>
+                     <th>Cascading Kinerja</th>
+                     <th>Pohon Kinerja</th>
+                     <th>Crosscutting</th>
                  </tr>
 
              </thead>
@@ -54,6 +56,8 @@
                          <td><i class="<?= $baris['renaksi'] ?>"></i></td>
                          <td><i class="<?= $baris['lakip'] ?>"></i></td>
                          <td><i class="<?= $baris['lainnya'] ?>"></i></td>
+                         <td>Kosong</td>
+                         <td>Kosong</td>
                      </tr>
                  <?php
                         $nomor++;

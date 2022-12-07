@@ -29,7 +29,6 @@
                     <option value="Renja">Renja</option>
                     <option value="PK"> PK</option>
                     <option value="Rencana Aksi">Rencana Aksi</option>
-                    <option value="Laporan Kerja">Laporan Kerja</option>
                     <option value="Cascading Kerja">Cascading Kerja</option>
                     <option value="Pohon Kinerja">Pohon Kinerja</option>
                     <option value="Crosscutting">Crosscutting</option>

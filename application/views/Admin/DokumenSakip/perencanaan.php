@@ -19,7 +19,7 @@
             <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
         </div>
     </div>
-    <div class="main-content-perencanaan-kinerj">
+    <div class="main-content-perencanaan-kinerja">
         <table class="table-perencanaan">
             <thead>
                 <tr>
@@ -30,6 +30,11 @@
                     <th>RKT</th>
                     <th>PK</th>
                     <th>PK Perubahan</th>
+                    <th>Renja</th>
+                    <th>Renaksi</th>
+                    <th>Cascading Kinerja</th>
+                    <th>Pohon Kinerja</th>
+                    <th>Crosscutting</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +51,12 @@
                         <td><i class="<?= $baris['rkt'] ?>"></i></td>
                         <td><i class="<?= $baris['pk'] ?>"></i></td>
                         <td><i class="<?= $baris['pk_perubahan'] ?>"></i></td>
+                        <td>Kosong</td>
+                        <td>Kosong</td>
+                        <td>Kosong</td>
+                        <td>Kosong</td>
+                        <td>Kosong</td>
+
                     </tr>
                 <?php
                     $nomor++;
@@ -61,12 +72,3 @@
         </div>
     </div>
 </div>
-
-
-
-</div>
-
-
-<style>
-
-</style>
