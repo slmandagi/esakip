@@ -21,9 +21,8 @@
         <img src="<?= base_url('/assets/img/home/pulau-siladen-manado-sulawesi-utara 1.svg'); ?>" alt="" class="bg-img">
         <div class="headline-about">
             <h5 class="hidden">Selamat Datang di</h5>
-            <h1 class="sakip-highlight hidden">Sistem Akuntabilitas Kinerja Instansi Pemerintah Provinsi Sulawesi Utara</h1>
+            <h1 class="sakip-highlight hidden">Sistem Akuntabilitas Kinerja Instansi Pemerintahan Provinsi Sulawesi Utara</h1>
         </div>
-
     </div>
 
     <!-- About -->

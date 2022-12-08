@@ -46,19 +46,17 @@
             <div class="menu informasi">
                 <!-- <img src="<?= base_url('/assets/img/sidebar/Information.svg') ?>" alt="" height="25"> -->
                 <i class="fa-regular fa-message"></i>
-                <p>Informasi</p>
+                <a href="<?= base_url('user/informasi') ?>">
+                    <p>Informasi</p>
+                </a>
                 <span class="tooltip">Informasi</span>
             </div>
-            <!-- USER TIDAK ADA PENGATURAN -->
-            <!-- PAKE DROP DOWN (
-            1. PROFIL PENGGUNA
-            2. UBAH EMAIL/PASSSWORD
-            3. USER OPD
-            )-->
 
             <div class="menu faq">
                 <i class="fa-solid fa-question"></i>
-                <p>FAQ</p>
+                <a href="<?= base_url('user/faq') ?>">
+                    <p>FAQ</p>
+                </a>
                 <span class="tooltip">FAQ</span>
             </div>
         </div>

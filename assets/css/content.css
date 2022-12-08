@@ -46,6 +46,45 @@
     transition: all 0.5s ease-out;
 }
 
+.headline-for-all {
+    position: relative;
+}
+
+.head-notification-container {
+    width: 25%;
+    height: 200px;
+    background: #062C30;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    line-height: 25px;
+    border-radius: 12px;
+    padding: 10px;
+    display: none;
+    opacity: 0;
+    z-index: 9;
+}
+
+.head-notification-container.active {
+    display: block;
+    opacity: 1;
+}
+
+.head-notification-container .isi-notifikasi p {
+    color: white;
+    font-size: 14px;
+}
+
+.head-notification-container .isi-notifikasi h5 {
+    font-size: 14px;
+}
+
+.head-notification-container a {
+    color: white;
+    text-decoration: underline;
+}
+
+
 /* BAGIAN ATAS END */
 
 
@@ -67,8 +106,6 @@
     display: flex;
     padding-left: 40px;
     width: 20%;
-    align-items: center;
-    /* justify-content: space-evenly; */
 }
 
 .show-n-row-table p {
@@ -81,7 +118,7 @@
 }
 
 .show-n-row-table form select {
-    width: 40%;
+    /* width: 30%; */
     border: none;
     border-bottom: 1px solid black;
     outline: none;
@@ -117,13 +154,6 @@
 
 /* BAGIAN CONTENT START */
 
-/* .dashboard-container,
-.perencanaan-kinerja-container,
-.pelaporan-kinerja-container,
-.ubah-email-pass-container,
-.perencanaan-kinerja-container {
-    width: 100%;
-} */
 
 .main-content-dashboard,
 .main-content-pelaporan-kinerja,
@@ -131,16 +161,22 @@
 .main-content-pengukuran-kinerja,
 .main-content-ubah-email-container,
 .main-content-dashboard-user,
-.main-content-perencanaan-kinerja {
+.main-content-perencanaan-kinerja,
+.main-content-informasi-user,
+.main-content-profil-pengguna-container,
+.main-content-notification,
+.main-content-informasi,
+.main-content-user-opd,
+.main-content-faq {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: lightblue;
+    transition: all 0.5s;
 }
 
 
-/* BAGIAN DOKUMEN SAKIP USER START*/
+/* ~~~BAGIAN DOKUMEN SAKIP USER START*/
 
 /* ---GENERAL (SEMUA KOMPONEN PAKE INI) */
 .wrapper-input-dokumen {
@@ -171,6 +207,12 @@
     color: grey;
     cursor: pointer;
     margin: 0;
+    transition: all 0.5s;
+}
+
+.wrapper-input-dokumen .upload-file-dokumen:hover {
+    color: white;
+    background: grey;
 }
 
 .wrapper-input-dokumen label.upload-file-dokumen i {
@@ -193,19 +235,14 @@
     display: none;
 }
 
-.wrapper-input-dokumen select option {
-    width: 40px;
-}
-
 /* ---PERENCANAAN START */
-.perencanaan-kinerja-container form,
-.pelaporan-kinerja-container form,
+.perencanaan-kinerja-container .form-input-dokumen-perencanaan,
+.pelaporan-kinerja-container .form-input-dokumen-pelaporan,
 .pengukuran-kinerja-container form {
     width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: lightyellow;
 }
 
 .main-content-perencanaan-kinerja .form-input-dokumen-perencanaan button,
@@ -226,8 +263,368 @@
 }
 
 
-/* BAGIAN DOKUMEN SAKIP USER END */
+/*~~~ BAGIAN DOKUMEN SAKIP USER END */
 
+
+/* ---BAGIAN INFORMASI START */
+
+.the-base {
+    width: 95%;
+    height: inherit;
+    border-radius: 30px;
+    display: flex;
+}
+
+.daftar-pesan-terkirim {
+    width: 50%;
+    padding: 10px 20px 10px 20px;
+    background: #062C30;
+    border-radius: 10px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pesan-terkirim {
+    line-height: 25px;
+}
+
+.pesan-terkirim p {
+    font-size: 14px;
+    color: white;
+}
+
+.pesan-terkirim h5.user-pengirim {
+    font-size: 14px;
+    color: white;
+}
+
+.pesan-terkirim h5 {
+    color: grey;
+}
+
+form.form-kirim-pesan-admin {
+    width: 55%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-kirim-pesan-admin textarea {
+    border: none;
+    outline: none;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    background: #E1E8E6;
+    width: 90%;
+    transition: all 0.5s;
+}
+
+.form-kirim-pesan-admin textarea:focus {
+    box-shadow: 3px 3px 2px 2px #A3C8CD;
+
+}
+
+.form-kirim-pesan-admin .input-file-informasi-container {
+    width: 50%;
+    display: flex;
+    align-self: flex-start;
+    padding-left: 35px;
+    flex-direction: column;
+}
+
+.form-kirim-pesan-admin input[type="file"] {
+    display: none;
+}
+
+.form-kirim-pesan-admin .upload-file-informasi {
+    background: #E1E8E6;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.form-kirim-pesan-admin .upload-file-informasi:hover {
+    background: grey;
+    color: white;
+}
+
+.form-kirim-pesan-admin .btn-kirim-informasi {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #062C30;
+    width: 12%;
+    font-size: 14px;
+    height: 32px;
+    color: white;
+    align-self: flex-end;
+    margin-right: 35px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.5s;
+}
+
+.form-kirim-pesan-admin .btn-kirim-informasi:hover {
+    background: #46B5D1;
+}
+
+.form-kirim-pesan-admin select {
+    align-self: flex-start;
+    margin-left: 35px;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    width: 35%;
+}
+
+.form-kirim-pesan-admin option {
+    background: #E1E8E6;
+}
+
+/* ---BAGIAN INFORMASI END */
+
+
+/* BAGIAN PROFILE PENGGUNA (PENGATURAN) START*/
+
+.penjelasan-singkat {
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+
+.form-profil-pengguna {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* padding: 40px; */
+    border-radius: 20px;
+    margin: 0;
+    /* scroll-behavior: smooth; */
+}
+
+.form-profil-pengguna input {
+    height: 35px;
+    border-radius: 8px;
+    background: #E1E8E6;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    transition: all 0.5s;
+}
+
+.form-profil-pengguna input:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+.form-profil-pengguna .input-pengaturan-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+
+.form-profil-pengguna label:first-of-type {
+    margin-top: 0px;
+}
+
+.form-profil-pengguna label {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 2px;
+    color: #062C30
+}
+
+.form-profil-pengguna .input-pengaturan-wrapper button {
+    width: 60%;
+    align-self: flex-end;
+    margin-top: 50px;
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #1C6758;
+    color: white;
+    transition: all 0.5s;
+}
+
+.form-profil-pengguna .input-pengaturan-wrapper button:hover {
+    background-color: #46B5D1;
+    box-shadow: 4px 8px 30px rgba(23, 201, 213, 0.2);
+}
+
+/* BAGIAN PROFILE PENGGUNA (PENGATURAN) END */
+
+
+/* BAGIAN USER OPD (PENGATURAN) START */
+.btn-tambah-user {
+    margin-left: 40px;
+}
+
+.main-content-user-opd button {
+    border: none;
+    outline: none;
+    padding: 5px;
+    background: #1C6758;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    border: 2px solid grey;
+}
+
+.main-content-user-opd button:hover {
+    border: 2px solid white;
+}
+
+.main-content-user-opd button.btn-edit-user {
+    background: #3D8361;
+}
+
+.modal-tambah-user-container,
+.modal-edit-user-container,
+.modal-lupa-password-container {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0s;
+}
+
+.modal-tambah-user-container.active,
+.modal-edit-user-container.active,
+.modal-lupa-password-container.active {
+    visibility: visible;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-tambah-user,
+.modal-edit-user {
+    background: white;
+    border-radius: 10px;
+    height: 50%;
+    width: 30%;
+}
+
+.modal-lupa-password {
+    width: 30%;
+    height: 30%;
+    background: white;
+    border-radius: 10px;
+}
+
+.modal-pengaturan h3 {
+    color: black;
+}
+
+
+.form-tambah-user,
+.form-edit-user,
+.form-lupa-password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 90%;
+    width: 100%;
+    position: relative;
+}
+
+.modal-pengaturan input {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid grey;
+    width: 60%;
+    height: 25px;
+    padding-left: 20px;
+}
+
+.modal-pengaturan input:focus {
+    box-shadow: 0 2px 2px #A3C8CD;
+}
+
+.modal-pengaturan label {
+    align-self: flex-start;
+    padding-left: 20%;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.modal-pengaturan select {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.modal-pengaturan option {
+    background: #E1E8E6;
+}
+
+.modal-close {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* BAGIAN USER OPD (PENGATURAN) END */
+
+/* BAGIAN FAQ START */
+
+.content-faq {
+    width: 96%;
+    height: 400px;
+    line-height: 30px;
+    background: #062C30;
+    padding-left: 20px;
+    border-radius: 12px;
+}
+
+.judul-faq {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+}
+
+.isi-faq {
+    display: none;
+    color: white;
+}
+
+.isi-faq.active {
+    display: block;
+}
+
+.judul-faq i {
+    margin-left: 0;
+}
+
+/* BAGIAN FAQ END */
 /* BAGIAN CONTENT END*/
 
 /* BAGIAN FOOTER START*/

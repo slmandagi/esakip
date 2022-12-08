@@ -9,10 +9,19 @@ USING YOUR NAME SIGN, OKAY?.
 
 TARUH DISINI NEH KALO ADA BUG ATO APA.
 --->>>> SECTION[BUG]
-1. 
-2.
+1.
+2. 
+3.
+4. will keep going...
+--->>>> SECTION[SECURITY IS NOT SECURED]
+1. Bagian Autentukasi, pas masuk dengan data user biasa, kita bisa masuk juga sebagai admin tanpa harus autentikasi sebagai admin (cuman dengan ganti url).
+2. Pas X website kong buka ulang tu website, torang bisa langsung maso ke website tanpa autentikasi (cuman ganti url)
 3. 
 4. will keep going...
+
+YANG KURANG:
+1. Di perencanaan admin, belum ada renja, renaksi, cascading kinerja, pohon kinerja, deng crosscutting
+2. Jg lupa di pengukuran user, dpe jenis dokumen ganti dpe tipe input
 
 
 LEVEL URGENT:
@@ -52,6 +61,9 @@ BN: BOLEH NANTI
 TIPS:
 1. KASE NAMA YANG GAMPANG DIMENGERTI DI SCRIPT ATO DIMANAPUN ITU (hindari singkatan).
 2. KALO MO PAKE PRINT_R NDA PERLU PAKE ECHO
+
+WILL:
+1. Boleh yang dibagian informasi admin dpe pesan itu hanya tampil 5 terbaru jo?
 
 
 

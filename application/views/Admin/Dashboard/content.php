@@ -3,7 +3,7 @@
      <div class="search-table-container">
          <div class="show-n-row-table">
              <p>Lihat</p>
-             <form method="GET" action="<?= base_url('admin/') ?>">
+             <form method="GET" action="<?= base_url('admin_sakip_sulut/') ?>">
                  <select name="banyaknya-data">
                      <option hidden></option>
                      <option value="5">5</option>
@@ -33,7 +33,9 @@
                      <th>PK</th>
                      <th>Renaksi</th>
                      <th>Lakip</th>
-                     <th>Lainnya</th>
+                     <th>Cascading Kinerja</th>
+                     <th>Pohon Kinerja</th>
+                     <th>Crosscutting</th>
                  </tr>
 
              </thead>
@@ -54,6 +56,8 @@
                          <td><i class="<?= $baris['renaksi'] ?>"></i></td>
                          <td><i class="<?= $baris['lakip'] ?>"></i></td>
                          <td><i class="<?= $baris['lainnya'] ?>"></i></td>
+                         <td>Kosong</td>
+                         <td>Kosong</td>
                      </tr>
                  <?php
                         $nomor++;

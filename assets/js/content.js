@@ -16,18 +16,13 @@ $(document).ready(function () {
 	});
 
 	/*FOR UBAH WARNA ICON NOTIFIKASI */
-	$(".headline-dashboard i").click(function () {
-		$(".headline-dashboard i").toggleClass("active");
+	$(".headline-for-all i").click(function () {
+		$(".headline-for-all i").toggleClass("active");
+		$('.head-notification-container').toggleClass("active");
+		console.log("headline");
 	});
 
 	/*FOR UBAH WARNA DI BUTTON PAGINATION */
-	// $(".button-pagination a").click(function () {
-	// 	$(".button-pagination a")
-	// 		.addClass("active")
-	// 		.siblings()
-	// 		.removeClass("active");
-	// 	console.log("pagination active");
-	// });
 });
 
 

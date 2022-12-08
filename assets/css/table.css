@@ -187,15 +187,12 @@
  /* BAGIAN TABLE PERENCANAAN START */
 
  .table-perencanaan tr th {
-     width: 10%;
+     width: 5%;
      text-align: center;
  }
 
- .table-perencanaan tr th:nth-child(1) {
-     width: 5%;
- }
-
- .table-perencanaan tbody td:nth-child(2) {
+ .table-perencanaan tbody tr td:nth-child(2) {
+     width: 15%;
      text-align: start;
  }
 
@@ -254,3 +251,25 @@
  }
 
  /* BAGIAN TABLE EVALUASI END*/
+
+ /* BAGIAN TABLE INFORMASI START */
+ .table-informasi-user {
+     width: 85%;
+ }
+
+ .table-informasi-user th:nth-child(1) {
+     width: 5%;
+ }
+
+ .table-informasi-user th:last-child {
+     width: 55%;
+ }
+
+ /* BAGIAN TABLE INFORMASI END */
+
+ /* BAGIAN TABLE NOTIFICATION START */
+ .table-notification {
+     width: 90%;
+ }
+
+ /* BAGIAN TABLE NOTIFICATION END */

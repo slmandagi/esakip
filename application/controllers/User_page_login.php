@@ -14,6 +14,8 @@ class User_page_login extends CI_Controller
 
     public function index()
     {
+        $data['user'] = 'user';
+
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = "Dashboard";
         $this->load->view('templates/header', $data);
@@ -38,6 +40,7 @@ class User_page_login extends CI_Controller
 
         if (!$this->upload->do_upload('File_dok')) {
 
+            $data['user'] = 'user';
             $getsurat = $this->Mdoc->getSuratData();
 
             $data['jenis_surat'] = $getsurat;
@@ -83,6 +86,8 @@ class User_page_login extends CI_Controller
     public function pengukuran_kinerja()
     {
         # code...
+        $data['user'] = 'user';
+
         $data['judul_halaman'] = 'Pengukuran Kinerja';
         $data['judul_header_page'] = 'Pengukuran Kinerja';
 
@@ -96,6 +101,7 @@ class User_page_login extends CI_Controller
     public function pelaporan_kinerja()
     {
         # code...
+        $data['user'] = 'user';
         $data['judul_halaman'] = 'Pelaporan Kinerja';
         $data['judul_header_page'] = 'Pelaporan Kinerja';
 

@@ -30,6 +30,8 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function index()
     {
+        $data['user'] = 'admin';
+
         $model = 'dashboard';
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = 'Dashboard';
@@ -141,6 +143,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function perencanaan_kinerja()
     {
+        $data['user'] = 'admin';
         $data['judul_halaman'] = 'Perencanaan Kinerja';
         $data['judul_header_page'] = 'Perencanaan Kinerja';
         $model = 'perencanaan_kinerja_admin';
@@ -182,6 +185,8 @@ class Admin_sakip_sulut extends CI_Controller
     public function pengukuran_kinerja()
     {
         # code...
+        $data['user'] = 'admin';
+
         $data['judul_halaman'] = "Pengukuran Kinerja";
         $data['judul_header_page'] = 'Pengukuran Kinerja';
 
@@ -241,6 +246,8 @@ class Admin_sakip_sulut extends CI_Controller
     public function pelaporan_kinerja()
     {
         # code...
+        $data['user'] = 'admin';
+
         $data['judul_halaman'] = "Pelaporan Kinerja";
         $data['judul_header_page'] = "Pelaporan Kinerja";
         $model = "pelaporan_kinerja_admin";
@@ -298,6 +305,8 @@ class Admin_sakip_sulut extends CI_Controller
     public function evaluasi_kinerja()
     {
         # code...
+        $data['user'] = 'admin';
+
         $data['judul_halaman'] = 'Evaluasi Kinerja';
         $data['judul_header_page'] = 'Evaluasi Kinerja';
         $model = 'evaluasi_kinerja_admin';
@@ -340,6 +349,8 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function profil_pengguna()
     {
+        $data['user'] = 'admin';
+
         $data['judul_halaman'] = 'Profil Pengguna';
         $data['judul_header_page'] = 'Profil Pengguna';
         $this->load->view('templates/header', $data);
@@ -351,13 +362,73 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function ubah_email_password()
     {
+        $data['user'] = 'admin';
+
         # code...
-        $data['judul_halaman'] = "Ubah Email & Password";
+        $data['judul_halaman'] = "Pengaturan";
         $data['judul_header_page'] =  "Ubah Email & Password";
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
         $this->load->view('admin/pengaturan/ubah_email_pass');
+        $this->load->view('templates/footer');
+    }
+
+    public function informasi()
+    {
+        $data['user'] = 'admin';
+
+        $data['judul_halaman'] = 'Informasi';
+        $data['judul_header_page'] = 'Informasi';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/informasi/index');
+        $this->load->view('templates/footer');
+        # code...
+    }
+
+    public function faq()
+    {
+        # code...
+        $data['user'] = 'admin';
+
+        $data['judul_halaman'] = 'FAQ';
+        $data['judul_header_page'] = 'FAQ';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('templates/faq');
+        $this->load->view('templates/footer');
+    }
+
+    public function user_opd()
+    {
+        # code...
+        $data['user'] = 'admin';
+
+        $data['judul_halaman'] = 'Pengaturan';
+        $data['judul_header_page'] = 'User OPD';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/pengaturan/user_opd');
+        $this->load->view('templates/footer');
+    }
+    public function notification()
+    {
+        # code...
+        $data['user'] = 'admin';
+
+        $data['judul_halaman'] = 'Notifikasi';
+        $data['judul_header_page'] = 'Notifikasi';
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('templates/notification');
         $this->load->view('templates/footer');
     }
 };

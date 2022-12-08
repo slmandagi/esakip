@@ -8,7 +8,6 @@
         <br>
         <?php echo $this->session->flashdata('msg'); ?>
         <form action="<?= base_url('Autentikasi/autentikasi'); ?>" method="POST" class="form-autentikasi">
-
             <label for="input-username">Email</label>
             <input id="email" name="email" type="email" placeholder="Isi email anda..." required>
 

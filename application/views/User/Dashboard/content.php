@@ -3,7 +3,7 @@
     <div class="search-table-container">
         <div class="show-n-row-table">
             <p>Lihat</p>
-            <form method="GET" action="<?= base_url('admin/') ?>">
+            <form method="GET" action="<?= base_url('user_page_login/') ?>">
                 <select name="banyaknya-data">
                     <option hidden></option>
                     <option value="5">5</option>
