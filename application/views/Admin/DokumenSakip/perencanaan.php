@@ -3,7 +3,7 @@
         <div class="show-n-row-table">
             <p>Lihat</p>
 
-            <form method="GET" action="<?= base_url('admin/perencanaan_kinerja') ?>">
+            <form method="GET" action="<?= base_url('admin_sakip_sulut/perencanaan_kinerja') ?>">
                 <select name="banyaknya-data">
                     <option hidden></option>
                     <option value="5">5</option>
@@ -25,24 +25,11 @@
                 <tr>
                     <th>Nomor</th>
                     <th>Pengirim</th>
-<<<<<<< HEAD
                     <th>Jenis Dokumen</th>
                     <th>Nama dokumen</th>
                     <th>Waktu Pengiriman</th>
                     <th>Download</th>
 
-=======
-                    <th>Renstra/RPJMD</th>
-                    <th>IKU</th>
-                    <th>RKT</th>
-                    <th>PK</th>
-                    <th>PK Perubahan</th>
-                    <th>Renja</th>
-                    <th>Renaksi</th>
-                    <th>Cascading Kinerja</th>
-                    <th>Pohon Kinerja</th>
-                    <th>Crosscutting</th>
->>>>>>> 659556ed212f74180aecb4da82fee5084314a8d9
                 </tr>
             </thead>
             <tbody>
@@ -54,25 +41,11 @@
                     <tr>
                         <td><?= $nomor ?></td>
                         <td><?= $baris['opd'] ?></td>
-<<<<<<< HEAD
                         <td><?= $baris['jenis_dok'] ?></td>
                         <td><?= $baris['nama_dok'] ?></td>
                         <td><?= $baris['date'] ?></td>
-                        <td><?= $baris['File_dok'] ?></td>
+                        <td><a class="fa-solid fa-download" href="<?= base_url(); ?>download/download/<?= $baris['id'] ?>"></a></td>
                         <!-- <td><i class="<?= $baris['pk_perubahan'] ?>"></i></td> -->
-=======
-                        <td><i class="<?= $baris['renstra_rpjmd'] ?>"></i></td>
-                        <td><i class="<?= $baris['iku'] ?>"></i></td>
-                        <td><i class="<?= $baris['rkt'] ?>"></i></td>
-                        <td><i class="<?= $baris['pk'] ?>"></i></td>
-                        <td><i class="<?= $baris['pk_perubahan'] ?>"></i></td>
-                        <td>Kosong</td>
-                        <td>Kosong</td>
-                        <td>Kosong</td>
-                        <td>Kosong</td>
-                        <td>Kosong</td>
-
->>>>>>> 659556ed212f74180aecb4da82fee5084314a8d9
                     </tr>
                 <?php
                     $nomor++;

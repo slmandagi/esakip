@@ -147,7 +147,7 @@ class Admin_sakip_sulut extends CI_Controller
         $data['judul_halaman'] = 'Perencanaan Kinerja';
         $data['judul_header_page'] = 'Perencanaan Kinerja';
         $model = 'perencanaan_kinerja_admin';
-        $config['base_url'] = site_url('admin/perencanaan_kinerja'); // ini langsung link ke controller
+        $config['base_url'] = site_url('admin_sakip_sulut/perencanaan_kinerja'); // ini langsung link ke controller
         $config['uri_segment'] = 3;
         $table_perencanaan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $config['total_rows'] = ceil($this->Table->total_data($model));
@@ -431,4 +431,10 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/notification');
         $this->load->view('templates/footer');
     }
+
+    // function download($id)
+    // {
+    //     $data = $this->db->get_where('perencanaan_kinerja_admin', ['id' => $id])->row();
+    //     force_download('uploads/' . $data->File_dok, NULL);
+    // }
 };

@@ -76,7 +76,7 @@ class User_page_login extends CI_Controller
             $insert = $this->Mupload->input_data($data, 'perencanaan_kinerja_admin');
 
             if ($insert) {
-                redirect('User/index');
+                redirect('User_page_login/index');
             } else {
                 echo "Gagal";
             }
@@ -88,13 +88,16 @@ class User_page_login extends CI_Controller
         # code...
         $data['user'] = 'user';
 
+        $getsurat = $this->Mdoc->getTriwulan();
+        $data['jenis_surat'] = $getsurat;
+
         $data['judul_halaman'] = 'Pengukuran Kinerja';
         $data['judul_header_page'] = 'Pengukuran Kinerja';
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('user/dokumensakip/pengukuran');
+        $this->load->view('user/dokumensakip/pengukuran', $data);
         $this->load->view('templates/footer');
     }
 

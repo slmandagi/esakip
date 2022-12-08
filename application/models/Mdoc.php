@@ -9,4 +9,10 @@ class Mdoc extends CI_Model
 
         return $query->result();
     }
+    function getTriwulan()
+    {
+        $query = $this->db->query("SELECT * FROM tbl_triwulan ORDER BY name ASC");
+
+        return $query->result();
+    }
 }
