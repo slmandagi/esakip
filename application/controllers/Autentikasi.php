@@ -11,6 +11,8 @@ class Autentikasi extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Mlogin', 'Mlogin');
+        // $this->auth->cek_bukan_ad();
+        // $this->auth->cek_auth();
     }
 
     function index()
@@ -22,7 +24,7 @@ class Autentikasi extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    //autentikasi so bisa cuman nda tau kenapa tu style di view-logout so ilang dpe css wkwkwk i dunno why...
+
 
     function autentikasi()
     {
@@ -35,7 +37,7 @@ class Autentikasi extends CI_Controller
             if ($validate_ps->num_rows() > 0) {
                 $x = $validate_ps->row_array();
                 if ($x['user_status'] == '1') {
-                    $this->session->set_userdata('logged', TRUE);
+                    $this->session->set_userdata('logged', TRUE); //session for supaya tidak ada user yang boleh akses masuk lewat path...
                     $this->session->set_userdata('user', $email);
                     $id = $x['user_id'];
 
@@ -44,13 +46,19 @@ class Autentikasi extends CI_Controller
                         $this->session->set_userdata('access', 'Administrator');
                         $this->session->set_userdata('id', $id);
                         $this->session->set_userdata('name', $name);
-                        redirect('admin');
-                    } else if ($x['user_akses'] == '2') { //untuk login sebagai user
+                        redirect('admin_sakip_sulut');
+                    } else if ($x['user_akses'] == '2') { //untuk login sebagai user opd
                         $name = $x['user_name'];
                         $this->session->set_userdata('access', 'User');
                         $this->session->set_userdata('id', $id);
                         $this->session->set_userdata('name', $name);
-                        redirect('user');
+                        redirect('user_page_login');
+                    } else if ($x['user_akses'] == '3') { //untuk login sebagai user instansi pemuda
+                        $name = $x['user_name'];
+                        $this->session->set_userdata('access', 'User');
+                        $this->session->set_userdata('id', $id);
+                        $this->session->set_userdata('name', $name);
+                        redirect('user_page_login');
                     }
 
                     //pesan yang mo timbul pas kalo salah input

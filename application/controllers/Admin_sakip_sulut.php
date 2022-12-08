@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class Admin extends CI_Controller
+class Admin_sakip_sulut extends CI_Controller
 {
     /*
             Useful links:
@@ -10,11 +10,20 @@ class Admin extends CI_Controller
         */
     function __construct()
     {
+
         parent::__construct();
         if ($this->session->userdata('logged') != TRUE) {
             $url = base_url('autentikasi');
             redirect($url);
         };
+
+
+        // if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] != 'username' || $_SERVER['PHP_AUTH_PW'] != 'password') {
+        //     header('WWW-Authenticate: Basic realm="MyProject"');
+        //     header('HTTP/1.0 401 Unauthorized');
+        //     die('Access Denied');
+        // }
+
 
         $this->load->model('Table');
     }

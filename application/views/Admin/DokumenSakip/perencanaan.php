@@ -25,11 +25,11 @@
                 <tr>
                     <th>Nomor</th>
                     <th>Pengirim</th>
-                    <th>Renstra/RPJMD</th>
-                    <th>IKU</th>
-                    <th>RKT</th>
-                    <th>PK</th>
-                    <th>PK Perubahan</th>
+                    <th>Jenis Dokumen</th>
+                    <th>Nama dokumen</th>
+                    <th>Waktu Pengiriman</th>
+                    <th>Download</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -41,11 +41,11 @@
                     <tr>
                         <td><?= $nomor ?></td>
                         <td><?= $baris['opd'] ?></td>
-                        <td><i class="<?= $baris['renstra_rpjmd'] ?>"></i></td>
-                        <td><i class="<?= $baris['iku'] ?>"></i></td>
-                        <td><i class="<?= $baris['rkt'] ?>"></i></td>
-                        <td><i class="<?= $baris['pk'] ?>"></i></td>
-                        <td><i class="<?= $baris['pk_perubahan'] ?>"></i></td>
+                        <td><?= $baris['jenis_dok'] ?></td>
+                        <td><?= $baris['nama_dok'] ?></td>
+                        <td><?= $baris['date'] ?></td>
+                        <td><?= $baris['File_dok'] ?></td>
+                        <!-- <td><i class="<?= $baris['pk_perubahan'] ?>"></i></td> -->
                     </tr>
                 <?php
                     $nomor++;

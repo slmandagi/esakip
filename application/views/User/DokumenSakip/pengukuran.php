@@ -31,19 +31,7 @@
             </div>
             <div class="wrapper-input-dokumen">
                 <label for="input-jenis-dokumen">Jenis Dokumen</label>
-                <select name="input-jenis-dokumen" id="input-jenis-dokumen" class="input-jenis-dokumen upload-input">
-                    <option value="default-value" selected hidden>Pilih Dokumen</option>
-                    <option value="Renstra">Renstra</option>
-                    <option value="RPJMD">RPMJD</option>
-                    <option value="IKU">IKU</option>
-                    <option value="Renja">Renja</option>
-                    <option value="PK"> PK</option>
-                    <option value="Rencana Aksi">Rencana Aksi</option>
-                    <option value="Laporan Kerja">Laporan Kerja</option>
-                    <option value="Cascading Kerja">Cascading Kerja</option>
-                    <option value="Pohon Kinerja">Pohon Kinerja</option>
-                    <option value="Crosscutting">Crosscutting</option>
-                </select>
+                <input type="text" value="Laporan Kinerja" class="input-nama-dokumen upload-input">
             </div>
             <button type="submit" id="kirim-dokumen-pengukuran">Kirim</button>
         </form>
