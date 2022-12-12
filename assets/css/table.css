@@ -109,76 +109,18 @@
  /* BAGIAN TABLE DASHBOARD USER END */
 
  /* BAGIAN TABLE PENGUKURAN KINERJA START*/
-
- /* PILIH BANYA */
- .table-pengukuran-kinerja {
-     border-collapse: collapse;
-     border-spacing: 0px;
- }
-
- .table-pengukuran-kinerja tbody tr:nth-child(odd) td,
- .table-pengukuran-kinerja tbody tr:nth-child(even) td {
-     background: #E1E8E6;
- }
-
- .table-pengukuran-kinerja tbody tr:hover td {
-     color: inherit;
- }
-
- .table-pengukuran-kinerja tr td input {
-     width: 60%;
-     border: none;
-     outline: none;
-     border-radius: 10px;
-     text-align: center;
-     font-size: 14px;
+ .table-pengukuran-kinerja tbody td .btn-triwulan {
+     padding: 4px;
+     border-radius: 8px;
+     cursor: pointer;
+     color: white;
+     background: #3D8361;
+     border: 2px solid #3D8361;
      transition: all 0.5s;
  }
 
- .table-pengukuran-kinerja tr td input:focus {
-     box-shadow: 0 2px 2px #A3C8CD;
- }
-
- /* PILIH SPESIFIK  */
-
- /*----INI FOR CELL NOMOR  DENG USERNAME (text)*/
- .table-pengukuran-kinerja tbody tr:first-child td:nth-child(1),
- .table-pengukuran-kinerja tbody tr:first-child td:nth-child(2) {
-     vertical-align: top;
-     padding-top: 15px;
- }
-
- /*---- INI FOR KASE ILANG BAWAAN BORDER DI TD FIRST CHILD DG LAST CHILD */
- .table-pengukuran-kinerja tbody tr td:first-child,
- .table-pengukuran-kinerja tbody tr td:last-child {
-     border-radius: 0px;
- }
-
- /* INI FOR KASE BORDER RADIUS DI KOLOM PERTAMA DENG AKHIR */
- /* .table-pengukuran-kinerja tbody tr:first-child td:first-child {
-     border-top-left-radius: 10px;
- }
-
- .table-pengukuran-kinerja tbody tr:first-child td:last-child {
-     border-top-right-radius: 10px;
- }
-
- .table-pengukuran-kinerja tbody tr:last-child td:first-child {
-     border-bottom-left-radius: 10px;
- }
-
- .table-pengukuran-kinerja tbody tr:last-child td:last-child {
-     border-bottom-right-radius: 10px;
- } */
-
-
- tr.footer-submit form button {
-     border: none;
-     outline: none;
-     padding: 5px;
-     border-radius: 10px;
-     background: lightgreen;
-     cursor: pointer;
+ .table-pengukuran-kinerja tbody td .btn-triwulan:hover {
+     border: 2px solid white;
  }
 
  /* BAGIAN TABLE PENGUKURAN KINERJA END*/
@@ -273,3 +215,79 @@
  }
 
  /* BAGIAN TABLE NOTIFICATION END */
+
+
+
+
+ /* PENGUKURAN LAMA */
+ /* .table-pengukuran-kinerja {
+     border-collapse: collapse;
+     border-spacing: 0px;
+ }
+
+ .table-pengukuran-kinerja tbody tr:nth-child(odd) td,
+ .table-pengukuran-kinerja tbody tr:nth-child(even) td {
+     background: #E1E8E6;
+ }
+
+ .table-pengukuran-kinerja tbody tr:hover td {
+     color: inherit;
+ }
+
+ .table-pengukuran-kinerja tr td input {
+     width: 60%;
+     border: none;
+     outline: none;
+     border-radius: 10px;
+     text-align: center;
+     font-size: 14px;
+     transition: all 0.5s;
+ }
+
+ .table-pengukuran-kinerja tr td input:focus {
+     box-shadow: 0 2px 2px #A3C8CD;
+ } */
+
+ /* PILIH SPESIFIK  */
+
+ /*----INI FOR CELL NOMOR  DENG USERNAME (text)*/
+ /* .table-pengukuran-kinerja tbody tr:first-child td:nth-child(1),
+ .table-pengukuran-kinerja tbody tr:first-child td:nth-child(2) {
+     vertical-align: top;
+     padding-top: 15px;
+ } */
+
+ /*---- INI FOR KASE ILANG BAWAAN BORDER DI TD FIRST CHILD DG LAST CHILD */
+ /* .table-pengukuran-kinerja tbody tr td:first-child,
+ .table-pengukuran-kinerja tbody tr td:last-child {
+     border-radius: 0px;
+ } */
+
+ /* INI FOR KASE BORDER RADIUS DI KOLOM PERTAMA DENG AKHIR */
+ /* .table-pengukuran-kinerja tbody tr:first-child td:first-child {
+     border-top-left-radius: 10px;
+ }
+
+ .table-pengukuran-kinerja tbody tr:first-child td:last-child {
+     border-top-right-radius: 10px;
+ }
+
+ .table-pengukuran-kinerja tbody tr:last-child td:first-child {
+     border-bottom-left-radius: 10px;
+ }
+
+ .table-pengukuran-kinerja tbody tr:last-child td:last-child {
+     border-bottom-right-radius: 10px;
+ } */
+
+
+ /* tr.footer-submit form button {
+     border: none;
+     outline: none;
+     padding: 5px;
+     border-radius: 10px;
+     background: lightgreen;
+     cursor: pointer;
+ } */
+
+ /* PENGUKURAN LAMA END */
