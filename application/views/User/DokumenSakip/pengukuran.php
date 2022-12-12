@@ -20,21 +20,17 @@
                 <input type="text" placeholder="Input unit kerja anda disini..." class="input-unit-kerja upload-input">
             </div>
             <div class="wrapper-input-dokumen">
-                <label for="input-triwulan">Jenis Dokumen</label>
+                <label for="input-triwulan">Input Triwulan</label>
                 <select name="input-triwulan" id="input-triwulan" class="input-triwulan upload-input">
-                    <option value="default-value" selected hidden>Pilih Triwulan</option>
-                    <option value="Triwulan 1">Triwulan 1</option>
-                    <option value="Tiruwlan 2">Triwulan 2</option>
-                    <option value="Triwulan 3">Triwulan 3</option>
-                    <option value="Triwulan 4">Triwulan 4</option>
+                    <?php foreach ($jenis_surat as $value) : ?>
+                        <option value="" hidden>Pilih..</option>
+                        <option value="<?= $value->name ?>"><?= $value->name ?></option>
+                    <?php endforeach ?>
                 </select>
             </div>
             <div class="wrapper-input-dokumen">
                 <label for="input-jenis-dokumen">Jenis Dokumen</label>
-                <select name="input-jenis-dokumen" id="input-jenis-dokumen" class="input-jenis-dokumen upload-input">
-                    <option value="default-value" selected hidden>Pilih Dokumen</option>
-                    <option value="Laporan Kinerja">Laporan Kinerja</option>
-                </select>
+                <input type="text" value="Laporan Kinerja" class="input-nama-dokumen upload-input">
             </div>
             <button type="submit" id="kirim-dokumen-pengukuran">Kirim</button>
         </form>

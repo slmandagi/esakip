@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-class Admin extends CI_Controller
+class Admin_sakip_sulut extends CI_Controller
 {
     /*
             Useful links:
@@ -10,11 +10,20 @@ class Admin extends CI_Controller
         */
     function __construct()
     {
+
         parent::__construct();
         if ($this->session->userdata('logged') != TRUE) {
             $url = base_url('autentikasi');
             redirect($url);
         };
+
+
+        // if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] != 'username' || $_SERVER['PHP_AUTH_PW'] != 'password') {
+        //     header('WWW-Authenticate: Basic realm="MyProject"');
+        //     header('HTTP/1.0 401 Unauthorized');
+        //     die('Access Denied');
+        // }
+
 
         $this->load->model('Table');
     }
@@ -138,7 +147,7 @@ class Admin extends CI_Controller
         $data['judul_halaman'] = 'Perencanaan Kinerja';
         $data['judul_header_page'] = 'Perencanaan Kinerja';
         $model = 'perencanaan_kinerja_admin';
-        $config['base_url'] = site_url('admin/perencanaan_kinerja'); // ini langsung link ke controller
+        $config['base_url'] = site_url('admin_sakip_sulut/perencanaan_kinerja'); // ini langsung link ke controller
         $config['uri_segment'] = 3;
         $table_perencanaan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $config['total_rows'] = ceil($this->Table->total_data($model));
@@ -422,4 +431,10 @@ class Admin extends CI_Controller
         $this->load->view('templates/notification');
         $this->load->view('templates/footer');
     }
+
+    // function download($id)
+    // {
+    //     $data = $this->db->get_where('perencanaan_kinerja_admin', ['id' => $id])->row();
+    //     force_download('uploads/' . $data->File_dok, NULL);
+    // }
 };

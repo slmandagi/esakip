@@ -1,7 +1,7 @@
 <div class="sidebar-container">
     <div class="sidebar" id="sidebar">
         <div class="header">
-            <a href="<?php echo base_url('admin/index') ?>" class="logo-esakip" id="logo-esakip">
+            <a href="<?php echo base_url('admin_sakip_sulut/index') ?>" class="logo-esakip" id="logo-esakip">
                 <img src="<?= base_url('/assets/img/sidebar/eSakip.svg') ?>" alt="" width="100px">
             </a>
             <!-- <img src="<?= base_url('/assets/img/sidebar/List.svg') ?>" alt="" width="35px"> -->
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="sidebar-content">
-            <a href="<?php echo base_url('admin/index') ?>" class="menu dashboard">
+            <a href="<?php echo base_url('admin_sakip_sulut/index') ?>" class="menu dashboard">
                 <i class="fa-solid fa-gauge-high"></i>
                 <p>Dashboard</p>
                 <span class="tooltip">Dashboard</span>
@@ -31,23 +31,23 @@
             </div>
             <ul class="dropdown bagian-komponen-sakip ">
                 <li class="komponen nonactive">
-                    <a href="<?php echo base_url('admin/perencanaan_kinerja') ?>">
+                    <a href="<?php echo base_url('admin_sakip_sulut/perencanaan_kinerja') ?>">
                         Perencanaan Kinerja
                     </a>
                 </li>
                 <li class="komponen nonactive">
-                    <a href="<?php echo base_url('admin/pengukuran_kinerja') ?>">
+                    <a href="<?php echo base_url('admin_sakip_sulut/pengukuran_kinerja') ?>">
                         Pengukuran Kinerja
                     </a>
                 </li>
                 <li class="komponen nonactive">
-                    <a href="<?php echo base_url('admin/pelaporan_kinerja') ?>">
+                    <a href="<?php echo base_url('admin_sakip_sulut/pelaporan_kinerja') ?>">
                         Pelaporan Kinerja
                     </a>
                 </li>
 
                 <li class="komponen nonactive">
-                    <a href="<?php echo base_url('admin/evaluasi_kinerja') ?>">
+                    <a href="<?php echo base_url('admin_sakip_sulut/evaluasi_kinerja') ?>">
                         Evaluasi Kinerja
                     </a>
                 </li>
@@ -74,7 +74,7 @@
             </div>
             <ul class="dropdown bagian-pengaturan">
                 <li class="pengaturan nonactive">
-                    <a href="<?php echo base_url('admin/profil_pengguna') ?>">
+                    <a href="<?php echo base_url('admin_sakip_sulut/profil_pengguna') ?>">
                         Profil Pengguna
                     </a>
                 </li>
