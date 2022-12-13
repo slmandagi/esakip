@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="modal-tambah-user-container modal-pengaturan">
+            <div class="modal-tambah-user-container modal modal-pengaturan">
                 <div class="modal-tambah-user">
                     <form action="<?= base_url('admin_sakip_sulut/user_opd'); ?>" class="form-tambah-user" method="POST">
                         <h3>Tambah User</h3>
@@ -93,7 +93,7 @@
 
 
             </div>
-            <div class="modal-edit-user-container modal-pengaturan">
+            <div class="modal-edit-user-container modal modal-pengaturan">
                 <div class="modal-edit-user">
                     <form action="" class="form-edit-user" method="POST">
                         <h3>Edit User</h3>
@@ -120,7 +120,7 @@
                 </div>
             </div>
 
-            <div class="modal-lupa-password-container modal-pengaturan">
+            <div class="modal-lupa-password-container modal modal-pengaturan">
                 <div class="modal-lupa-password">
                     <form action="" class="form-lupa-password" id="form-lupa-password" class="form-lupa-password">
                         <h3>Lupa Password</h3>
@@ -134,9 +134,9 @@
                 </div>
             </div>
 
-            <div class="modal-block-user-container modal-pengaturan">
+            <div class="modal-block-user-container modal modal-pengaturan">
                 <div class="modal-block-user">
-                    <h3>Apakah anda ingin memblok user ini?</h3>
+                    <h3>Apakah anda yakin ingin memblok user ini?</h3>
                     <div class="btn-ya-tidak-block-container">
                         <button type="submit" class="btn-ya-block btn-block-user-modal">Ya</button>
                         <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>

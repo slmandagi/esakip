@@ -117,6 +117,7 @@
      background: #3D8361;
      border: 2px solid #3D8361;
      transition: all 0.5s;
+     margin: 0px 5px 0px 5px;
  }
 
  .table-pengukuran-kinerja tbody td .btn-triwulan:hover {
