@@ -25,11 +25,58 @@
             </div>
         </div>
 
-        <div class="pengukuran-kinerja_">
-            <a href="<?= base_url('/assets/img/home/garuda.svg') ?>" download="dokumen-laporan">
-                <i class="fa-solid fa-download"></i>
-            </a>
-
-        </div>
+        <table class="table-pengukuran-kinerja">
+            <thead>
+                <tr>
+                    <th>Nomor</th>
+                    <th>Username</th>
+                    <th>Triwulan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Provinsi Sulawesi Utara</td>
+                    <td>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 1
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 2
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 3
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 4
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Final
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Provinsi Sulawesi Utara</td>
+                    <td>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 1
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 2
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 3
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Triwulan 4
+                        </button>
+                        <button class="btn-triwulan" type="button">
+                            Final
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

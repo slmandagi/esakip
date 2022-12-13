@@ -10,7 +10,9 @@
             <li class="regulation"><a href="#regulation">Regulation</a></li>
             <li class="contact"><a href="#contact">Contact</a></li>
             <!-- <button type="button" class="btn-login">Login</button> -->
-            <a href="<?= base_url('Autentikasi') ?>" class="btn-login">Login</a>
+            <li class="btn-login">
+                <a href="<?= base_url('Autentikasi') ?>">Login</a>
+            </li>
         </ul>
     </div>
 </div>
@@ -34,7 +36,7 @@
             <div class="persegi-panjang putih"></div>
         </div>
 
-        <img src="<?= base_url('/assets/img/home/garuda.svg'); ?>" alt="" class="img-garuda hidden">
+        <img src="<?= base_url('/assets/img/home/garuda.svg'); ?>" alt="" class="img-garuda hidden" height="300" width="300">
 
         <div class="glass-bg desc hidden">
             <p class="sakip-desc">
@@ -131,7 +133,6 @@
             </div>
             <h5 class="hidden">e-SAKIP Biro Organisasi Pemerintah Provinsi Sulawesi Utara 2022</h5>
         </div>
-
     </div>
 </div>
 <!-- </div> -->

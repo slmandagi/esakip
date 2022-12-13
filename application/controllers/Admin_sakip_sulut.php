@@ -238,7 +238,7 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/dokumensakip/pengukuran');
+        $this->load->view('admin/dokumensakip/pengukuran_');
         $this->load->view('templates/footer');
     }
 
