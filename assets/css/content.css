@@ -512,7 +512,8 @@ form.form-kirim-pesan-admin {
 
 .modal-tambah-user-container.active,
 .modal-edit-user-container.active,
-.modal-lupa-password-container.active {
+.modal-lupa-password-container.active,
+.modal-block-user-container.active {
     visibility: visible;
     opacity: 1;
     background: rgba(0, 0, 0, 0.8);
@@ -532,7 +533,46 @@ form.form-kirim-pesan-admin {
     background: white;
     border-radius: 10px;
 }
+.modal-block-user {
+    height: 12%;
+    width: 22%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+}
 
+.modal-block-user h3 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn-ya-tidak-block-container {
+    width: 100%;
+    /* display: block; */
+    display: flex;
+    justify-content: center;
+}
+
+.modal-block-user .btn-ya-block {
+    background: red;
+    width: 50%;
+    border: none;
+    outline: none;
+    border: 2px solid red;
+    border-radius: 0px;
+}
+
+.modal-block-user .btn-tidak-block {
+    background: grey;
+    width: 50%;
+    border: none;
+    outline: none;
+    border: 2px solid grey;
+    border-radius: 0px;
+}
 .modal-pengaturan h3 {
     color: black;
 }

@@ -36,4 +36,14 @@ $(document).ready(function () {
     $('.btn-lupa-password-modal').click(function () {
         $('.modal-lupa-password-container').removeClass('active');
     })
+
+    // Modal block user
+    $('.btn-block-user').click(function () {
+        $('.modal-block-user-container').addClass('active');
+        console.log('ahlls')
+    })
+
+    $('.btn-tidak-block').click(function () {
+        $('.modal-block-user-container').removeClass('active');
+    })
 })

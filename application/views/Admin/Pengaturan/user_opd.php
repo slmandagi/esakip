@@ -134,60 +134,14 @@
                 </div>
             </div>
 
-            <div class="modal-block-user-container">
+            <div class="modal-block-user-container modal-pengaturan">
                 <div class="modal-block-user">
                     <h3>Apakah anda ingin memblok user ini?</h3>
                     <div class="btn-ya-tidak-block-container">
-                        <button type="submit" class="btn-ya-block">Ya</button>
-                        <button class="btn-tidak-block">Tidak</button>
+                        <button type="submit" class="btn-ya-block btn-block-user-modal">Ya</button>
+                        <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <style>
-        .modal-block-user-container {
-            height: 100vh;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-block-user {
-            height: 20%;
-            width: 30%;
-            background: lightblue;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .btn-ya-tidak-block-container {
-            width: 100%;
-            /* display: block; */
-            background: lightyellow;
-        }
-
-        .modal-block-user .btn-ya-block {
-            background: red;
-            width: 40%;
-            border: none;
-            outline: none;
-            border-radius: 0px;
-        }
-
-        .modal-block-user .btn-tidak-block {
-            background: grey;
-            width: 50%;
-            border: none;
-            outline: none;
-            border-radius: 0px;
-        }
-    </style>
