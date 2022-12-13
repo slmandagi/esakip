@@ -45,8 +45,17 @@
                             <td><?= $baris['user_status'] ?></td>
                             <td>
                                 <button class="btn-edit-user">Edit</button>
-                                <button class="btn-aktif-user">Aktif</button>
-                                <button class="btn-block-user">Block</button>
+                                <!-- <button class="btn-aktif-user">Aktif</button>
+                                <button class="btn-block-user">Block</button> -->
+                                <?php if ($baris['user_status'] == '1') { ?>
+
+                                    <button class="btn-block-user user_status" uid="<?php echo $baris['user_id']; ?>" ustatus="<?php echo $baris['user_status']; ?>">Block</button>
+                                    <!-- //In these buttons we are creating an attribute and passing the values -->
+                                <?php } else { ?>
+
+                                    <button class="btn-aktif-user user_status" uid="<?php echo $baris['user_id']; ?>" ustatus="<?php echo $baris['user_status']; ?>">Aktifkan</button>
+
+                                <?php } ?>
                                 <button class="btn-lupa-password">Lupa Password</button>
                             </td>
                         </tr>
@@ -57,6 +66,8 @@
 
                 </tbody>
             </table>
+
+
             <div class="footer-for-pagination">
                 <div class="button-pagination">
                     <?php echo $pagination ?>
@@ -134,14 +145,26 @@
                 </div>
             </div>
 
-            <div class="modal-block-user-container modal modal-pengaturan">
-                <div class="modal-block-user">
-                    <h3>Apakah anda yakin ingin memblok user ini?</h3>
-                    <div class="btn-ya-tidak-block-container">
-                        <button type="submit" class="btn-ya-block btn-block-user-modal">Ya</button>
-                        <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
+            <!-- modal for block user -->
+            <div class="modal-block-user-container modal-pengaturan">
+                <form action="<?php echo base_url(); ?>admin_sakip_sulut/user_status_changed" method="post">
+                    <div class="modal-block-user">
+                        <h3>Apakah anda yakin ingin memblok user ini?</h3>
+
+                        <!-- <input type="hidden" name="id" id="user_id" value="">
+                        <input type="hidden" name="status" id="user_status" value=""> -->
+
+                        <div class="btn-ya-tidak-block-container">
+                            <button type="submit" class="btn-ya-block btn-block-user-modal" name="submit">Ya</button>
+                            <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
+                        </div>
                     </div>
-                </div>
+                </form>
+
             </div>
+
+
+
+
         </div>
     </div>

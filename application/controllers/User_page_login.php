@@ -10,6 +10,11 @@ class User_page_login extends CI_Controller
             $url = base_url('autentikasi');
             redirect($url);
         };
+
+        if ($this->session->userdata('access') != 'User') {
+            $url = base_url('admin_sakip_sulut');
+            redirect($url);
+        };
     }
 
     public function index()

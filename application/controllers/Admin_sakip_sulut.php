@@ -17,6 +17,11 @@ class Admin_sakip_sulut extends CI_Controller
             redirect($url);
         };
 
+        if ($this->session->userdata('access') != 'Administrator') {
+            $url = base_url('user_page_login');
+            redirect($url);
+        }
+
 
         // if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] != 'username' || $_SERVER['PHP_AUTH_PW'] != 'password') {
         //     header('WWW-Authenticate: Basic realm="MyProject"');
@@ -480,10 +485,9 @@ class Admin_sakip_sulut extends CI_Controller
                 'jenis_user' => htmlspecialchars($this->input->post('jenis_user'), true),
                 'user_password' =>  md5($this->input->post("user_password")),
                 'user_akses' => 2,
-                'user_status' => 1,
+                'user_status' => '1',
                 'date_created' => time(),
                 'date_update' => time(),
-                // 'date_created' => time()
             ];
 
             $this->db->insert('tbl_user', $data);
@@ -493,6 +497,31 @@ class Admin_sakip_sulut extends CI_Controller
             $this->session->set_flashdata('massage', '<div role="alert">Akun User berhasil didaftarkan</div>');
             redirect('admin_sakip_sulut/user_opd');
         }
+    }
+
+    public function user_status_changed()
+    {
+        //get hidden values in variables
+        $id = $this->input->post('user_id');
+        $status = $this->input->post('user_status');
+
+        //check condition
+        if ($status == '1') {
+            $user_status = '0';
+        } else {
+            $user_status = '1';
+        }
+
+        $data = array('user_status' => $user_status);
+
+        $this->db->where('user_id', $id);
+        $this->db->update('tbl_user', $data); //Update status here
+
+        //Create success measage
+        $this->session->set_flashdata('msg', "User status has been changed successfully.");
+        $this->session->set_flashdata('msg_class', 'alert-success');
+
+        return redirect('admin_sakip_sulut/user_opd');
     }
 
 
