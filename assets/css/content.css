@@ -492,9 +492,11 @@ form.form-kirim-pesan-admin {
     background: #3D8361;
 }
 
-.modal-tambah-user-container,
-.modal-edit-user-container,
-.modal-lupa-password-container {
+.main-content-user-opd button.btn-block-user{
+    background: red; 
+}
+
+.modal-pengaturan {
     height: 100vh;
     width: 100%;
     position: fixed;
