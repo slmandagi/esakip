@@ -53,7 +53,7 @@
                 </li>
             </ul>
 
-            <a href="<?php echo base_url('admin/informasi') ?>" class="menu informasi">
+            <a href="<?php echo base_url('admin_sakip_sulut/informasi') ?>" class="menu informasi">
                 <!-- <img src="<?= base_url('/assets/img/sidebar/Information.svg') ?>" alt="" height="25"> -->
                 <i class="fa-regular fa-message"></i>
                 <p>Informasi</p>
@@ -80,7 +80,7 @@
                 </li>
                 <li class="pengaturan nonactive">Ubah Email</li>
                 <li class="pengaturan nonactive">
-                    <a href="<?= base_url('admin/user_opd') ?>">
+                    <a href="<?= base_url('admin_sakip_sulut/user_opd') ?>">
                         User OPD
                     </a>
                 </li>
@@ -88,7 +88,7 @@
 
             <div class="menu faq">
                 <i class="fa-solid fa-question"></i>
-                <a href="<?= base_url('admin/faq') ?>">
+                <a href="<?= base_url('admin_sakip_sulut/faq') ?>">
                     <p>FAQ</p>
                 </a>
                 <span class="tooltip">FAQ</span>

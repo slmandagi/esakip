@@ -251,7 +251,7 @@ class Admin_sakip_sulut extends CI_Controller
         $data['judul_halaman'] = "Pelaporan Kinerja";
         $data['judul_header_page'] = "Pelaporan Kinerja";
         $model = "pelaporan_kinerja_admin";
-        $config['base_url'] = site_url('admin/pelaporan_kinerja'); // ini langsung link ke controller
+        $config['base_url'] = site_url('admin_sakip_sulut/pelaporan_kinerja'); // ini langsung link ke controller
 
         $config['uri_segment'] = 3;
         $table_pelaporan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -393,7 +393,6 @@ class Admin_sakip_sulut extends CI_Controller
     {
         # code...
         $data['user'] = 'admin';
-
         $data['judul_halaman'] = 'FAQ';
         $data['judul_header_page'] = 'FAQ';
 
@@ -404,20 +403,120 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function user_opd()
+
+    public function user_opd() //$id adalah variable yang di lempar untuk edit data user..
     {
-        # code...
-        $data['user'] = 'admin';
+        //form validation set rules....
+        $this->form_validation->set_rules('user_name', 'Name', 'required|trim', [
+            'required' => 'Nama pengguna harus diisi'
+        ]);
+        $this->form_validation->set_rules('user_email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.user_email]', [
+            'required' => 'Email harus diisi',
+            'valid_email' => 'Email tidak sesuai',
+            'is_unique' => 'Email ini sudah digunakan!'
+        ]);
+        $this->form_validation->set_rules('user_password', 'Password', 'required|trim|min_length[3]', [
+            'required' => 'Kata sandi harus diisi',
+            'min_length' => 'Password harus lebih dari 3 karakter',
 
-        $data['judul_halaman'] = 'Pengaturan';
-        $data['judul_header_page'] = 'User OPD';
+        ]);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/pengaturan/user_opd');
-        $this->load->view('templates/footer');
+        if ($this->form_validation->run() == false) {
+
+
+            $model = "tbl_user";
+            $config['base_url'] = site_url('admin_sakip_sulut/user_opd'); // ini langsung link ke controller
+
+            $config['uri_segment'] = 3;
+            $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $config['total_rows'] = $this->Table->total_data($model);
+
+            if ($data['page'] == 0) {
+                if ($this->session->per_page == 0) {
+                    $this->session->per_page = 5;
+                    // return $this->session->per_page;
+                }
+                if ((int)$this->input->get('banyaknya-data')) {
+                    $this->session->per_page = (int)$this->input->get('banyaknya-data');
+                }
+            }
+            $config['per_page'] = $this->session->per_page;
+
+            $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
+            $config['first_link'] = '<<';
+            $config['next_link'] = 'Selanjutnya >';
+            $config['prev_link'] = '< Sebelumnya';
+
+            // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
+            $this->pagination->initialize($config);
+
+            $data = array(
+                'table' => $this->Table->get_table($model, $config['per_page'], $data['page'])
+            );
+
+            // torang simpan create linksnya ke variabel
+            $data['pagination'] = $this->pagination->create_links();
+            ///////////////////////////////////
+            $data['user'] = 'admin';
+            $data['judul_halaman'] = 'Pengaturan';
+            $data['judul_header_page'] = 'User OPD';
+
+            $get_u = $this->Mregis->get_jenis_u();
+            $data['jenis_u'] = $get_u; //get jenis user dari model Mregis..
+
+            //untuk update/edit data user...
+            // $where = array('user_name' => $id);
+            // $data['tbl_user'] = $this->Muser->edit_data($where, 'tbl_user')->result();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/head_content', $data);
+            $this->load->view('admin/pengaturan/user_opd', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'user_name' => htmlspecialchars($this->input->post('user_name', true)),
+                'user_email' => htmlspecialchars($this->input->post('user_email', true)),
+                'jenis_user' => htmlspecialchars($this->input->post('jenis_user'), true),
+                'user_password' =>  md5($this->input->post("user_password")),
+                'user_akses' => 2,
+                'user_status' => 1,
+                // 'date_created' => time()
+            ];
+
+            $this->db->insert('tbl_user', $data);
+
+            // $this->_sendEmail();
+
+            $this->session->set_flashdata('massage', '<div role="alert">Akun User berhasil didaftarkan</div>');
+            redirect('admin_sakip_sulut/user_opd');
+        }
     }
+
+
+    //funcition untuk mengolah edit data yang pada pages pengaturan...
+    // function update_data()
+    // {
+    //     // $user_id = $this->input->post('user_id');
+    //     $user_name = $this->input->post('user_name');
+    //     $user_email = $this->input->post('user_email');
+    //     $jenis_user = $this->input->post('jenis_user');
+
+    //     $data = array(
+    //         // 'user_name' => $user_name,
+    //         'jenis_user' => $jenis_user,
+    //         'user_email' => $user_email
+    //     );
+
+    //     $where = array(
+    //         'user_name' => $user_name
+    //     );
+
+    //     $this->m_data->update_data($where, $data, 'tbl_user');
+    //     redirect('admin_sakip_sulut/user_opd');
+    // }
+
+
     public function notification()
     {
         # code...

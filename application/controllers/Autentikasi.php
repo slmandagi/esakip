@@ -43,7 +43,7 @@ class Autentikasi extends CI_Controller
 
                     if ($x['user_akses'] == '1') { //untuk login sebagai admin
                         $name = $x['user_name'];
-                        $this->session->set_userdata('access', 'Administrator');
+                        $this->session->set_userdata('access', 'Administrator', TRUE);
                         $this->session->set_userdata('id', $id);
                         $this->session->set_userdata('name', $name);
                         redirect('admin_sakip_sulut');
@@ -84,6 +84,8 @@ class Autentikasi extends CI_Controller
             redirect($url);
         }
     }
+
+
 
     //function for loguout
     function logout()
