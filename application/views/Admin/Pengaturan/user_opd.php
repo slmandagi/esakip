@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="modal-tambah-user-container modal-pengaturan">
+            <div class="modal-tambah-user-container modal modal-pengaturan">
                 <div class="modal-tambah-user">
                     <form action="<?= base_url('admin_sakip_sulut/user_opd'); ?>" class="form-tambah-user" method="POST">
                         <h3>Tambah User</h3>
@@ -104,7 +104,7 @@
 
 
             </div>
-            <div class="modal-edit-user-container modal-pengaturan">
+            <div class="modal-edit-user-container modal modal-pengaturan">
                 <div class="modal-edit-user">
                     <form action="" class="form-edit-user" method="POST">
                         <h3>Edit User</h3>
@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="modal-lupa-password-container modal-pengaturan">
+            <div class="modal-lupa-password-container modal modal-pengaturan">
                 <div class="modal-lupa-password">
                     <form action="" class="form-lupa-password" id="form-lupa-password" class="form-lupa-password">
                         <h3>Lupa Password</h3>
@@ -147,10 +147,9 @@
 
             <!-- modal for block user -->
             <div class="modal-block-user-container modal-pengaturan">
-
                 <form action="<?php echo base_url(); ?>admin_sakip_sulut/user_status_changed" method="post">
                     <div class="modal-block-user">
-                        <h3>Apakah anda ingin memblok user ini?</h3>
+                        <h3>Apakah anda yakin ingin memblok user ini?</h3>
 
                         <!-- <input type="hidden" name="id" id="user_id" value="">
                         <input type="hidden" name="status" id="user_status" value=""> -->
