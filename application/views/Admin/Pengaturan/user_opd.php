@@ -146,25 +146,18 @@
             </div>
 
             <!-- modal for block user -->
-            <div class="modal-block-user-container modal-pengaturan">
-                <form action="<?php echo base_url(); ?>admin_sakip_sulut/user_status_changed" method="post">
-                    <div class="modal-block-user">
-                        <h3>Apakah anda yakin ingin memblok user ini?</h3>
-
-                        <!-- <input type="hidden" name="id" id="user_id" value="">
+            <div class="modal-block-user-container modal modal-pengaturan">
+                <form action="<?php echo base_url(); ?>admin_sakip_sulut/user_status_changed" method="post" class="form-modal-block-user">
+                    <h3>Apakah anda yakin ingin memblok user ini?</h3>
+                    <!-- <input type="hidden" name="id" id="user_id" value="">
                         <input type="hidden" name="status" id="user_status" value=""> -->
 
-                        <div class="btn-ya-tidak-block-container">
-                            <button type="submit" class="btn-ya-block btn-block-user-modal" name="submit">Ya</button>
-                            <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
-                        </div>
+                    <div class="btn-ya-tidak-block-container">
+                        <button type="submit" class="btn-ya-block btn-block-user-modal" name="submit">Ya</button>
+                        <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
                     </div>
                 </form>
 
             </div>
-
-
-
-
         </div>
     </div>

@@ -35,13 +35,13 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function index()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $model = 'dashboard';
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = 'Dashboard';
         // 2. torang ambe site urlnya
-        $config['base_url'] = site_url('admin/index/'); // ini langsung link ke controller
+        $config['base_url'] = site_url('admin_sakip_sulut/index/'); // ini langsung link ke controller
         // 3. torang beking variable dan isinya
         // current page itu diambil dari nilai segment 3, segment 3 itu setelah method dari controller
         // misal: https://google.com/segment1/segment2/segment3 -> https://google.com/admin/load_data/5
@@ -148,7 +148,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function perencanaan_kinerja()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'Perencanaan Kinerja';
         $data['judul_header_page'] = 'Perencanaan Kinerja';
         $model = 'perencanaan_kinerja_admin';
@@ -190,7 +190,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function pengukuran_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = "Pengukuran Kinerja";
         $data['judul_header_page'] = 'Pengukuran Kinerja';
@@ -251,7 +251,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function pelaporan_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = "Pelaporan Kinerja";
         $data['judul_header_page'] = "Pelaporan Kinerja";
@@ -310,7 +310,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function evaluasi_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Evaluasi Kinerja';
         $data['judul_header_page'] = 'Evaluasi Kinerja';
@@ -354,7 +354,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function profil_pengguna()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Profil Pengguna';
         $data['judul_header_page'] = 'Profil Pengguna';
@@ -367,7 +367,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function ubah_email_password()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         # code...
         $data['judul_halaman'] = "Pengaturan";
@@ -381,7 +381,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function informasi()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Informasi';
         $data['judul_header_page'] = 'Informasi';
@@ -397,7 +397,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function faq()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'FAQ';
         $data['judul_header_page'] = 'FAQ';
 
@@ -558,7 +558,7 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('templates/notification');
+        $this->load->view('admin/notification/index');
         $this->load->view('templates/footer');
     }
 

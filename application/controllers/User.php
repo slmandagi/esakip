@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User_page_login extends CI_Controller
+class User extends CI_Controller
 {
     function __construct()
     {
@@ -81,7 +81,7 @@ class User_page_login extends CI_Controller
             $insert = $this->Mupload->input_data($data, 'perencanaan_kinerja_admin');
 
             if ($insert) {
-                redirect('User_page_login/index');
+                redirect('user/index');
             } else {
                 echo "Gagal";
             }
@@ -110,13 +110,14 @@ class User_page_login extends CI_Controller
     {
         # code...
         $data['user'] = 'user';
-        $data['judul_halaman'] = 'Pelaporan Kinerja';
-        $data['judul_header_page'] = 'Pelaporan Kinerja';
+        $data['judul_halaman'] = 'Informasi';
+        $data['judul_header_page'] = 'Informasi';
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user');
         $this->load->view('templates/head_content', $data);
         $this->load->view('user/dokumensakip/pelaporan');
+
         $this->load->view('templates/footer');
     }
 
@@ -124,5 +125,47 @@ class User_page_login extends CI_Controller
     {
         $data = $this->db->get_where('perencanaan_kinerja_admin', ['id' => $id])->row();
         force_download('uploads/' . $data->File_dok, NULL);
+    }
+
+    public function informasi()
+    {
+        # code...
+        $data['user'] = 'user';
+        $data['judul_halaman'] = 'Informasi';
+        $data['judul_header_page'] = 'Informasi';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_user');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('user/informasi/index');
+        $this->load->view('templates/footer');
+    }
+
+    public function faq()
+    {
+        # code...
+        $data['user'] = 'user';
+        $data['judul_halaman'] = 'FAQ';
+        $data['judul_header_page'] = 'FAQ';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_user');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('templates/faq');
+        $this->load->view('templates/footer');
+    }
+
+    public function notification()
+    {
+        # code...
+        $data['user'] = 'user';
+        $data['judul_halaman'] = 'Notifikasi';
+        $data['judul_header_page'] = 'Notifikasi';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_user');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('user/notification/index');
+        $this->load->view('templates/footer');
     }
 }

@@ -52,14 +52,14 @@
                 <textarea name="input-pesan-informasi" id="" rows="8" placeholder="Input pesan anda disini..."></textarea>
                 <!-- <input type="file" class="input-file-informasi"> -->
                 <div class="input-file-informasi-container">
-                    <label for="upload-file-informasi">Pilih File</label>
+                    <!-- <label for="upload-file-informasi">Pilih File</label> -->
                     <!-- label ini berfungsi sebagai input(secara tampilan) -->
                     <label for="upload-file-informasi" class="upload-file-informasi">
                         Upload file anda disini...
                         <i class="fa-solid fa-file-circle-plus"></i>
                     </label>
-                    <!-- hanya trima dokumen dan gambar -->
-                    <input type="file" id="upload-file-informasi" class="upload-file-informasi" required accept=".doc,.docx, application/pdf">
+                    <!-- hanya trima dokumen -->
+                    <input type="file" id="upload-file-informasi" class="upload-file-informasi-input" required accept=".doc,.docx, application/pdf">
                 </div>
                 <button type="submit" class="btn-kirim-informasi">Kirim</button>
             </form>

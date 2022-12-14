@@ -476,24 +476,26 @@ form.form-kirim-pesan-admin {
 }
 
 .form-kirim-pesan-admin .input-file-informasi-container {
-    width: 50%;
-    display: flex;
+    width: 60%;
     align-self: flex-start;
     padding-left: 35px;
-    flex-direction: column;
 }
 
 .form-kirim-pesan-admin input[type="file"] {
     display: none;
 }
 
-.form-kirim-pesan-admin .upload-file-informasi {
+.form-kirim-pesan-admin label.upload-file-informasi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #E1E8E6;
     padding: 8px;
     border-radius: 10px;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.5s;
+    width: 100%;
 }
 
 .form-kirim-pesan-admin .upload-file-informasi:hover {
@@ -685,7 +687,8 @@ form.form-kirim-pesan-admin {
     border-radius: 10px;
 }
 
-.modal-block-user {
+
+.form-modal-block-user {
     height: 12%;
     width: 24%;
     background: white;
@@ -696,7 +699,7 @@ form.form-kirim-pesan-admin {
     border-radius: 10px;
 }
 
-.modal-block-user h3 {
+.form-modal-block-user h3 {
     font-size: 16px;
     text-align: center;
     margin: 12px;
@@ -709,7 +712,7 @@ form.form-kirim-pesan-admin {
     justify-content: center;
 }
 
-.modal-block-user .btn-ya-block {
+.form-modal-block-user .btn-ya-block {
     background: red;
     width: 50%;
     border: none;
@@ -719,7 +722,7 @@ form.form-kirim-pesan-admin {
     border-bottom-left-radius: 8px;
 }
 
-.modal-block-user .btn-tidak-block {
+.form-modal-block-user .btn-tidak-block {
     background: grey;
     width: 50%;
     border: none;

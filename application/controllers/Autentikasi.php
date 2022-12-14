@@ -52,13 +52,13 @@ class Autentikasi extends CI_Controller
                         $this->session->set_userdata('access', 'User');
                         $this->session->set_userdata('id', $id);
                         $this->session->set_userdata('name', $name);
-                        redirect('user_page_login');
+                        redirect('user');
                     } else if ($x['user_akses'] == '3') { //untuk login sebagai user instansi pemuda
                         $name = $x['user_name'];
                         $this->session->set_userdata('access', 'User');
                         $this->session->set_userdata('id', $id);
                         $this->session->set_userdata('name', $name);
-                        redirect('user_page_login');
+                        redirect('user');
                     }
 
                     //pesan yang mo timbul pas kalo salah input
