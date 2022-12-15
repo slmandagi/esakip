@@ -12,7 +12,7 @@ class Mlogin extends CI_Model
 
     function query_validasi_password($email, $password)
     {
-        $result = $this->db->query("SELECT * FROM tbl_user WHERE user_email='$email' AND user_password=SHA2('$password', 224) LIMIT 1");
+        $result = $this->db->query("SELECT * FROM tbl_user WHERE user_email='$email' AND user_password= '" . md5($password) . "' ");
         return $result;
     }
-}
+}   
