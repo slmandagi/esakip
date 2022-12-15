@@ -53,7 +53,7 @@
                                     <!-- //In these buttons we are creating an attribute and passing the values -->
                                 <?php } else { ?>
 
-                                    <button class="btn-aktif-user user_status" uid="<?php echo $baris['user_id']; ?>" ustatus="<?php echo $baris['user_status']; ?>">Aktifkan</button>
+                                    <button style="background-color: aqua;" class="btn-block-user user_status" uid="<?php echo $baris['user_id']; ?>" ustatus="<?php echo $baris['user_status']; ?>"><span style="color: black;">Aktifkan</span></button>
 
                                 <?php } ?>
                                 <button class="btn-lupa-password">Lupa Password</button>
@@ -67,6 +67,11 @@
                 </tbody>
             </table>
 
+            <?php if ($error = $this->session->flashdata('msg')) { ?>
+
+                <h3 class="text-success"><?php echo  $error; ?></h3>
+
+            <?php } ?>
 
             <div class="footer-for-pagination">
                 <div class="button-pagination">
@@ -108,15 +113,12 @@
                 <div class="modal-edit-user">
                     <form action="" class="form-edit-user" method="POST">
                         <h3>Edit User</h3>
+
                         <label for="unit-kerja-modal">Unit Kerja</label>
                         <input type="text" id="unit-kerja-modal" placeholder="Pemerintah Provinsi Sulut" value="">
 
-                        <!-- <label for="username-modal">Username</label>
-                            <input type="text" id="username-modal" placeholder="..." <?php echo $u->user_name ?>> -->
-
                         <label for="email-modal">Email</label>
                         <input type="text" id="email-modal" placeholder="pemprovsulut@gmail.com" value="">
-
                         <select name="" id="pilih-role-user" role="radiogroup">
                             <?php foreach ($jenis_u as $value) : ?>
                                 <option role="radio" value="" hidden>Pilih Role</option>
@@ -148,12 +150,13 @@
             <!-- modal for block user -->
             <div class="modal-block-user-container modal-pengaturan">
 
-                <form action="<?php echo base_url(); ?>admin_sakip_sulut/user_status_changed" method="post">
+                <form action="<?= base_url('Admin_sakip_sulut/user_status_changed') ?>" method="POST">
                     <div class="modal-block-user">
-                        <h3>Apakah anda ingin memblok user ini?</h3>
+                        <h3>Apakah Anda Ingin Mengganti Status User Ini?</h3>
 
-                        <!-- <input type="hidden" name="id" id="user_id" value="">
-                        <input type="hidden" name="status" id="user_status" value=""> -->
+                        <input type="hidden" name="id" id="user_id">
+                        <input type="hidden" name="status" id="user_status">
+
 
                         <div class="btn-ya-tidak-block-container">
                             <button type="submit" class="btn-ya-block btn-block-user-modal" name="submit">Ya</button>

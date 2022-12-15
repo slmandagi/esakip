@@ -6,6 +6,6 @@ $(document).on('click','.user_status',function(){
     $('#user_id').val(id); //pass attribute value in ID
     $('#user_status').val(status);  //pass attribute value in ID
 
-    $('#modal_popup').modal({backdrop: 'static', keyboard: true, show: true}); //show modal popup
+    // $('#modal_popup').modal({backdrop: 'static', keyboard: true, show: true}); //show modal popup
 
 });
