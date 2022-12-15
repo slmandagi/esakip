@@ -21,7 +21,7 @@ class Auth
             // echo "<script>alert('Anda bukan Admin! Anda tidak berhak mengakses halaman ini!');</script>";
             // redirect('user');
             $this->session->sess_destroy();
-            $url = base_url('autentikasi');
+            $url = base_url('user');
             redirect($url);
         }
     }

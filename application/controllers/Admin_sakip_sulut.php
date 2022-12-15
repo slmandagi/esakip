@@ -17,6 +17,11 @@ class Admin_sakip_sulut extends CI_Controller
             redirect($url);
         };
 
+        if ($this->session->userdata('access') != 'Administrator') {
+            $url = base_url('user_page_login');
+            redirect($url);
+        }
+
 
         // if (!isset($_SERVER['PHP_AUTH_USER']) || $_SERVER['PHP_AUTH_USER'] != 'username' || $_SERVER['PHP_AUTH_PW'] != 'password') {
         //     header('WWW-Authenticate: Basic realm="MyProject"');
@@ -30,13 +35,13 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function index()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $model = 'dashboard';
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = 'Dashboard';
         // 2. torang ambe site urlnya
-        $config['base_url'] = site_url('admin/index/'); // ini langsung link ke controller
+        $config['base_url'] = site_url('admin_sakip_sulut/index/'); // ini langsung link ke controller
         // 3. torang beking variable dan isinya
         // current page itu diambil dari nilai segment 3, segment 3 itu setelah method dari controller
         // misal: https://google.com/segment1/segment2/segment3 -> https://google.com/admin/load_data/5
@@ -143,7 +148,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function perencanaan_kinerja()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'Perencanaan Kinerja';
         $data['judul_header_page'] = 'Perencanaan Kinerja';
         $model = 'perencanaan_kinerja_admin';
@@ -185,7 +190,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function pengukuran_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = "Pengukuran Kinerja";
         $data['judul_header_page'] = 'Pengukuran Kinerja';
@@ -246,12 +251,12 @@ class Admin_sakip_sulut extends CI_Controller
     public function pelaporan_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = "Pelaporan Kinerja";
         $data['judul_header_page'] = "Pelaporan Kinerja";
         $model = "pelaporan_kinerja_admin";
-        $config['base_url'] = site_url('admin/pelaporan_kinerja'); // ini langsung link ke controller
+        $config['base_url'] = site_url('admin_sakip_sulut/pelaporan_kinerja'); // ini langsung link ke controller
 
         $config['uri_segment'] = 3;
         $table_pelaporan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -305,7 +310,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function evaluasi_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Evaluasi Kinerja';
         $data['judul_header_page'] = 'Evaluasi Kinerja';
@@ -349,7 +354,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function profil_pengguna()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Profil Pengguna';
         $data['judul_header_page'] = 'Profil Pengguna';
@@ -362,7 +367,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function ubah_email_password()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         # code...
         $data['judul_halaman'] = "Pengaturan";
@@ -376,7 +381,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function informasi()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Informasi';
         $data['judul_header_page'] = 'Informasi';
@@ -392,8 +397,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function faq()
     {
         # code...
-        $data['user'] = 'admin';
-
+        $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'FAQ';
         $data['judul_header_page'] = 'FAQ';
 
@@ -404,20 +408,146 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function user_opd()
+
+    public function user_opd() //$id adalah variable yang di lempar untuk edit data user..
     {
-        # code...
-        $data['user'] = 'admin';
+        //form validation set rules....
+        $this->form_validation->set_rules('user_name', 'Name', 'required|trim', [
+            'required' => 'Nama pengguna harus diisi'
+        ]);
+        $this->form_validation->set_rules('user_email', 'Email', 'required|trim|valid_email|is_unique[tbl_user.user_email]', [
+            'required' => 'Email harus diisi',
+            'valid_email' => 'Email tidak sesuai',
+            'is_unique' => 'Email ini sudah digunakan!'
+        ]);
+        $this->form_validation->set_rules('user_password', 'Password', 'required|trim|min_length[3]', [
+            'required' => 'Kata sandi harus diisi',
+            'min_length' => 'Password harus lebih dari 3 karakter',
 
-        $data['judul_halaman'] = 'Pengaturan';
-        $data['judul_header_page'] = 'User OPD';
+        ]);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/pengaturan/user_opd');
-        $this->load->view('templates/footer');
+        if ($this->form_validation->run() == false) {
+
+
+            $model = "tbl_user";
+            $config['base_url'] = site_url('admin_sakip_sulut/user_opd'); // ini langsung link ke controller
+
+            $config['uri_segment'] = 3;
+            $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $config['total_rows'] = $this->Table->total_data($model);
+
+            if ($data['page'] == 0) {
+                if ($this->session->per_page == 0) {
+                    $this->session->per_page = 5;
+                    // return $this->session->per_page;
+                }
+                if ((int)$this->input->get('banyaknya-data')) {
+                    $this->session->per_page = (int)$this->input->get('banyaknya-data');
+                }
+            }
+            $config['per_page'] = $this->session->per_page;
+
+            $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
+            $config['first_link'] = '<<';
+            $config['next_link'] = 'Selanjutnya >';
+            $config['prev_link'] = '< Sebelumnya';
+
+            // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
+            $this->pagination->initialize($config);
+
+            $data = array(
+                'table' => $this->Table->get_table($model, $config['per_page'], $data['page'])
+            );
+
+            // torang simpan create linksnya ke variabel
+            $data['pagination'] = $this->pagination->create_links();
+            ///////////////////////////////////
+            $data['user'] = 'admin';
+            $data['judul_halaman'] = 'Pengaturan';
+            $data['judul_header_page'] = 'User OPD';
+
+            $get_u = $this->Mregis->get_jenis_u();
+            $data['jenis_u'] = $get_u; //get jenis user dari model Mregis..
+
+            //untuk update/edit data user...
+            // $where = array('user_name' => $id);
+            // $data['tbl_user'] = $this->Muser->edit_data($where, 'tbl_user')->result();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/head_content', $data);
+            $this->load->view('admin/pengaturan/user_opd', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'user_name' => htmlspecialchars($this->input->post('user_name', true)),
+                'user_email' => htmlspecialchars($this->input->post('user_email', true)),
+                'jenis_user' => htmlspecialchars($this->input->post('jenis_user'), true),
+                'user_password' =>  md5($this->input->post("user_password")),
+                'user_akses' => 2,
+                'user_status' => '1',
+                'date_created' => time(),
+                'date_update' => time(),
+            ];
+
+            $this->db->insert('tbl_user', $data);
+
+            // $this->_sendEmail();
+
+            $this->session->set_flashdata('massage', '<div role="alert">Akun User berhasil didaftarkan</div>');
+            redirect('admin_sakip_sulut/user_opd');
+        }
     }
+
+    public function user_status_changed()
+    {
+        //get hidden values in variables
+        $id = $this->input->post('user_id');
+        $status = $this->input->post('user_status');
+
+        //check condition
+        if ($status == '1') {
+            $user_status = '0';
+        } else {
+            $user_status = '1';
+        }
+
+        $data = array('user_status' => $user_status);
+
+        $this->db->where('user_id', $id);
+        $this->db->update('tbl_user', $data); //Update status here
+
+        //Create success measage
+        $this->session->set_flashdata('msg', "User status has been changed successfully.");
+        $this->session->set_flashdata('msg_class', 'alert-success');
+
+        return redirect('admin_sakip_sulut/user_opd');
+    }
+
+
+    //funcition untuk mengolah edit data yang pada pages pengaturan...
+    // function update_data()
+    // {
+    //     // $user_id = $this->input->post('user_id');
+    //     $user_name = $this->input->post('user_name');
+    //     $user_email = $this->input->post('user_email');
+    //     $jenis_user = $this->input->post('jenis_user');
+
+    //     $data = array(
+    //         // 'user_name' => $user_name,
+    //         'jenis_user' => $jenis_user,
+    //         'user_email' => $user_email
+    //     );
+
+    //     $where = array(
+    //         'user_name' => $user_name
+    //     );
+
+    //     $this->m_data->update_data($where, $data, 'tbl_user');
+    //     redirect('admin_sakip_sulut/user_opd');
+    // }
+
+
     public function notification()
     {
         # code...
@@ -428,7 +558,7 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('templates/notification');
+        $this->load->view('admin/notification/index');
         $this->load->view('templates/footer');
     }
 
