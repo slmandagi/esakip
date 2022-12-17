@@ -44,8 +44,8 @@
                             <td><?= $nomor ?></td>
                             <td><?= $baris['user_name'] ?></td>
                             <td><?= $baris['user_email'] ?></td>
-                            <td><?= $baris['user_akses'] ?></td>
-                            <td><?= $baris['user_status'] ?></td>
+                            <td><?= $baris['user_akses'] == '1' ? "Admin" : "User" ?></td>
+                            <td><?= $baris['user_status'] == '1' ? "Aktif" : "Block" ?></td>
                             <td><?= $baris['date_created'] ?></td>
                             <td><?= $baris['date_update'] ?></td>
                             <td>
