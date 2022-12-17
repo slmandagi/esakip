@@ -481,7 +481,7 @@ class Admin_sakip_sulut extends CI_Controller
                 'Jenis_user' => htmlspecialchars($this->input->post('Jenis_user'), true),
                 'user_password' =>  md5($this->input->post("user_password")),
                 'user_akses' => 2,
-                'user_status' => '1',
+                'user_status' => 1,
                 'date_created' => date("Y-m-d"),
                 'date_update' => date("Y-m-d"),
             ];
@@ -495,32 +495,27 @@ class Admin_sakip_sulut extends CI_Controller
         }
     }
 
-    public function user_status_changed()
+    function update_status_block()
     {
-        // get hidden values in variables
         $id = $this->input->post('user_id');
-        $status = $this->input->post('user_status');
 
+        $data = array(
+            'User_status' => 0,
+            'date_update' => date("Y-m-d"),
+        );
+        $this->Muser->update_status($id, $data);
+        $this->user_opd();
+    }
+    function update_status_aktif()
+    {
+        $id = $this->input->post('user_id');
 
-        //check condition
-        if ($status == '1') {
-            $user_status = '0';
-        }
-        // else {
-        //     $user_status = '1';
-        // }
-
-        $data = array('user_status' => $user_status);
-
-        $this->db->where('user_id', $id);
-        $this->db->update('tbl_user', $data); //Update status here
-
-        //Create success measage
-        $this->session->set_flashdata('msg', "User status has been changed successfully.");
-        $this->session->set_flashdata('msg_class', 'alert-success');
-
-        // $this->user_opd();
-        redirect('admin_sakip_sulut/user_opd');
+        $data = array(
+            'User_status' => 1,
+            'date_update' => date("Y-m-d"),
+        );
+        $this->Muser->update_status($id, $data);
+        $this->user_opd();
     }
 
 
@@ -528,11 +523,13 @@ class Admin_sakip_sulut extends CI_Controller
     function update_data()
     {
         $id = $this->input->post('user_id');
+
         $data = array(
             'User_name' => $this->input->post('user_name'),
             'User_email' => $this->input->post('user_email'),
             'Jenis_user' => $this->input->post('Jenis_user'),
             'date_update' => date("Y-m-d"),
+            // 'User_status' => 0,
         );
         $this->Muser->update_data($id, $data);
         $this->user_opd();
@@ -542,9 +539,9 @@ class Admin_sakip_sulut extends CI_Controller
     function show_user_id()
     {
         $id = $this->uri->segment(3);
-        $data['users'] = $this->Muser->show_users();
-        $data['userID'] = $this->Muser->show_user_id($id);
-
+        $data['users'] = $this->Muser->show_users(); //untuk menampilkan semua user yang ada
+        $data['userID'] = $this->Muser->show_user_id($id); //
+        /////////////
         $data['user'] = 'admin';
         $data['judul_halaman'] = 'Pengaturan';
         $data['judul_header_page'] = 'Update Data User';

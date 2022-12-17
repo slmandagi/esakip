@@ -21,15 +21,15 @@
                         </ol>
                     </td>
 
-                    <td>
-                        <?php foreach ($userID as $user) : ?>
-
+                    <?php foreach ($userID as $user) : ?>
+                        <td>
                             <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
-                                <h3>Edit User</h3>
+                                <h3>Edit data <?php echo $user->user_name; ?></h3>
 
-                                <!-- <label id="hide">Id :</label> -->
+                                <!-- hidden value -->
                                 <input type="hidden" id="user_id" name="user_id" value="<?php echo $user->user_id; ?>" required>
-
+                                <input type="hidden" name="user_status" id="user_status" value="<?php echo $user->user_status; ?>">
+                                <!-- .. -->
                                 <label for="unit-kerja-modal">Unit Kerja</label>
                                 <input name="user_name" type="text" id="user_name" value="<?php echo $user->user_name; ?>" required>
 
@@ -43,14 +43,10 @@
                                         <option role="radio" value="<?= $value->name ?>"><?= $value->name ?></option>
                                     <?php endforeach ?>
                                 </select>
-
                                 <button type="submit" id="btn-edit-user-modal" class="btn-edit-user-modal">Edit</button>
-                                <!-- <input type="submit" id="submit" name="dsubmit" value="Edit" class="btn-edit-user-modal"> -->
-                                <i class="fa-solid fa-circle-xmark modal-close"></i>
                             </form>
-
-                        <?php endforeach; ?>
-                    </td>
+                        </td>
+                    <?php endforeach; ?>
                 </tr>
             </tbody>
         </table>

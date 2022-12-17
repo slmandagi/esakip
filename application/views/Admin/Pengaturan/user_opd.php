@@ -49,22 +49,23 @@
                             <td><?= $baris['date_created'] ?></td>
                             <td><?= $baris['date_update'] ?></td>
                             <td>
-                                <form action="">
-                                    <!-- //getting value in hidden field with the hep of ID's -->
+                                <form action="<?= base_url('admin_sakip_sulut/update_status_aktif'); ?>" method="POST">
+
                                     <input type="hidden" name="user_id" id="user_id" value="<?= $baris['user_id'] ?>">
                                     <input type="hidden" name="user_status" id="user_status" value="<?= $baris['user_status'] ?>">
-
-                                    <button type="submit" class="btn-aktif-user">Aktif</button>
+                                    <?php if ($baris['user_status'] == '0') { ?>
+                                        <button type="submit" class="btn-aktif-user">Aktifkan</button>
+                                    <?php } ?>
                                 </form>
-                                <form action="<?= base_url('Admin_sakip_sulut/user_status_changed'); ?>">
-                                    <!-- //getting value in hidden field with the hep of ID's -->
 
+                                <form action="<?= base_url('admin_sakip_sulut/update_status_block'); ?>" method="POST">
                                     <input type="hidden" name="user_id" id="user_id" value="<?php echo $baris['user_id']; ?>">
                                     <input type="hidden" name="user_status" id="user_status" value="<?php echo $baris['user_status']; ?>">
-
-                                    <button type="submit" id="submit" name="submit" class="btn-block-user">Block</button>
-
+                                    <?php if ($baris['user_status'] == '1') { ?>
+                                        <button uid="<?php echo $baris['user_id']; ?>" uemail="<?php echo $baris['user_email']; ?>" ustatus="<?php echo $baris['user_status']; ?>" class="btn-block-user">Block User</button>
+                                    <?php } ?>
                                 </form>
+
                             </td>
                             <td>
                                 <!-- <button uid="<?php echo $baris['user_id']; ?>" uname="<?php echo $baris['user_name']; ?>" uemail="<?php echo $baris['user_email']; ?>" ujenis="<?php echo $baris['Jenis_user']; ?>" class="btn-edit-user">Edit</button> -->
@@ -168,13 +169,14 @@
             <!-- modal for block user -->
             <!-- <div class="modal-block-user-container modal-pengaturan modal">
 
-                <form action="" method="POST" class="form-modal-block-user">
+                <form action="<?= base_url('admin_sakip_sulut/update_status_block'); ?>" method="POST" class="form-modal-block-user">
                     <h3>Apakah Anda Ingin Mengganti Status User Ini?</h3>
 
                     <div class="btn-ya-tidak-block-container">
                         //getting value in hidden field with the hep of ID's
-                        <input class="btn-ya-block btn-block-user-modal" type="hidden" name="id" id="user_id" value="<?= $table->user_id ?>">
-                        <input class="btn-ya-block btn-block-user-modal" type="hidden" name="status" id="user_status" value="<?= $table->user_status ?>">
+                        <input type="hidden" name="id" id="user_id" value="">
+                        <input type="hidden" name="status" id="user_status" value="">
+                        <input type="hidden" name="status" id="user_email" value="">
 
                         <button type="submit" class="btn-ya-block btn-block-user-modal" name="submit">Ya</button>
                         <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
