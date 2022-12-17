@@ -18,7 +18,7 @@ class Admin_sakip_sulut extends CI_Controller
         };
 
         if ($this->session->userdata('access') != 'Administrator') {
-            $url = base_url('user_page_login');
+            $url = base_url('user');
             redirect($url);
         }
 
@@ -35,13 +35,13 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function index()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $model = 'dashboard';
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = 'Dashboard';
         // 2. torang ambe site urlnya
-        $config['base_url'] = site_url('admin/index/'); // ini langsung link ke controller
+        $config['base_url'] = site_url('admin_sakip_sulut/index/'); // ini langsung link ke controller
         // 3. torang beking variable dan isinya
         // current page itu diambil dari nilai segment 3, segment 3 itu setelah method dari controller
         // misal: https://google.com/segment1/segment2/segment3 -> https://google.com/admin/load_data/5
@@ -148,7 +148,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function perencanaan_kinerja()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'Perencanaan Kinerja';
         $data['judul_header_page'] = 'Perencanaan Kinerja';
         $model = 'perencanaan_kinerja_admin';
@@ -190,7 +190,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function pengukuran_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = "Pengukuran Kinerja";
         $data['judul_header_page'] = 'Pengukuran Kinerja';
@@ -251,7 +251,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function pelaporan_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = "Pelaporan Kinerja";
         $data['judul_header_page'] = "Pelaporan Kinerja";
@@ -310,7 +310,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function evaluasi_kinerja()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Evaluasi Kinerja';
         $data['judul_header_page'] = 'Evaluasi Kinerja';
@@ -354,7 +354,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function profil_pengguna()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Profil Pengguna';
         $data['judul_header_page'] = 'Profil Pengguna';
@@ -367,7 +367,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function ubah_email_password()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         # code...
         $data['judul_halaman'] = "Pengaturan";
@@ -381,7 +381,7 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function informasi()
     {
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = 'Informasi';
         $data['judul_header_page'] = 'Informasi';
@@ -397,7 +397,7 @@ class Admin_sakip_sulut extends CI_Controller
     public function faq()
     {
         # code...
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'FAQ';
         $data['judul_header_page'] = 'FAQ';
 
@@ -467,11 +467,7 @@ class Admin_sakip_sulut extends CI_Controller
             $data['judul_header_page'] = 'User OPD';
 
             $get_u = $this->Mregis->get_jenis_u();
-            $data['jenis_u'] = $get_u; //get jenis user dari model Mregis..
-
-            //untuk update/edit data user...
-            // $where = array('user_name' => $id);
-            // $data['tbl_user'] = $this->Muser->edit_data($where, 'tbl_user')->result();
+            $data['jenis_u'] = $get_u; //get jenis user dari model Mregis
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
@@ -482,7 +478,7 @@ class Admin_sakip_sulut extends CI_Controller
             $data = [
                 'user_name' => htmlspecialchars($this->input->post('user_name', true)),
                 'user_email' => htmlspecialchars($this->input->post('user_email', true)),
-                'jenis_user' => htmlspecialchars($this->input->post('jenis_user'), true),
+                'Jenis_user' => htmlspecialchars($this->input->post('Jenis_user'), true),
                 'user_password' =>  md5($this->input->post("user_password")),
                 'user_akses' => 2,
                 'user_status' => '1',
@@ -501,16 +497,18 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function user_status_changed()
     {
-        //get hidden values in variables
+        // get hidden values in variables
         $id = $this->input->post('user_id');
         $status = $this->input->post('user_status');
+
 
         //check condition
         if ($status == '1') {
             $user_status = '0';
-        } else {
-            $user_status = '1';
         }
+        // else {
+        //     $user_status = '1';
+        // }
 
         $data = array('user_status' => $user_status);
 
@@ -521,32 +519,46 @@ class Admin_sakip_sulut extends CI_Controller
         $this->session->set_flashdata('msg', "User status has been changed successfully.");
         $this->session->set_flashdata('msg_class', 'alert-success');
 
-        return redirect('admin_sakip_sulut/user_opd');
+        // $this->user_opd();
+        redirect('admin_sakip_sulut/user_opd');
     }
 
 
-    //funcition untuk mengolah edit data yang pada pages pengaturan...
-    // function update_data()
-    // {
-    //     // $user_id = $this->input->post('user_id');
-    //     $user_name = $this->input->post('user_name');
-    //     $user_email = $this->input->post('user_email');
-    //     $jenis_user = $this->input->post('jenis_user');
+    //function untuk mengolah edit data yang pada pages pengaturan...
+    function update_data()
+    {
+        $id = $this->input->post('user_id');
+        $data = array(
+            'User_name' => $this->input->post('user_name'),
+            'User_email' => $this->input->post('user_email'),
+            'Jenis_user' => $this->input->post('Jenis_user'),
+            'date_update' => date("Y-m-d"),
+        );
+        $this->Muser->update_data($id, $data);
+        $this->user_opd();
+    }
 
-    //     $data = array(
-    //         // 'user_name' => $user_name,
-    //         'jenis_user' => $jenis_user,
-    //         'user_email' => $user_email
-    //     );
+    //controller untuk menampilkan page edit data user//
+    function show_user_id()
+    {
+        $id = $this->uri->segment(3);
+        $data['users'] = $this->Muser->show_users();
+        $data['userID'] = $this->Muser->show_user_id($id);
 
-    //     $where = array(
-    //         'user_name' => $user_name
-    //     );
+        $data['user'] = 'admin';
+        $data['judul_halaman'] = 'Pengaturan';
+        $data['judul_header_page'] = 'Update Data User';
 
-    //     $this->m_data->update_data($where, $data, 'tbl_user');
-    //     redirect('admin_sakip_sulut/user_opd');
-    // }
+        $get_u = $this->Mregis->get_jenis_u();
+        $data['jenis_u'] = $get_u; //get jenis user dari model Mregis
 
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/pengaturan/update_data', $data);
+        $this->load->view('templates/footer');
+    }
+    //end of update data..
 
     public function notification()
     {
@@ -558,7 +570,7 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('templates/notification');
+        $this->load->view('admin/notification/index');
         $this->load->view('templates/footer');
     }
 

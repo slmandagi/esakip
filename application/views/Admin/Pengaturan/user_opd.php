@@ -1,8 +1,8 @@
     <div class="user-opd-container">
         <div class="main-content-user-opd">
             <div class="search-table-container">
-                <button class="btn-tambah-user">Tambah User</button>
-
+                <button class="">Tambah User</button>
+                <a href="<?= base_url('Admin_sakip_sulut/show_user_id') ?>"><button style="margin-right:800px;">Edit User</button></a>
                 <div class="search-table">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
@@ -17,6 +17,9 @@
                         <th>Email</th>
                         <th>Hak Akses User</th>
                         <th>Status User</th>
+                        <th>Dibuat</th>
+                        <th>Update</th>
+                        <th>Aktifasi User</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -43,19 +46,28 @@
                             <td><?= $baris['user_email'] ?></td>
                             <td><?= $baris['user_akses'] ?></td>
                             <td><?= $baris['user_status'] ?></td>
+                            <td><?= $baris['date_created'] ?></td>
+                            <td><?= $baris['date_update'] ?></td>
                             <td>
-                                <button class="btn-edit-user">Edit</button>
-                                <!-- <button class="btn-aktif-user">Aktif</button>
-                                <button class="btn-block-user">Block</button> -->
-                                <?php if ($baris['user_status'] == '1') { ?>
+                                <form action="">
+                                    <!-- //getting value in hidden field with the hep of ID's -->
+                                    <input type="hidden" name="user_id" id="user_id" value="<?= $baris['user_id'] ?>">
+                                    <input type="hidden" name="user_status" id="user_status" value="<?= $baris['user_status'] ?>">
 
-                                    <button class="btn-block-user user_status" uid="<?php echo $baris['user_id']; ?>" ustatus="<?php echo $baris['user_status']; ?>">Block</button>
-                                    <!-- //In these buttons we are creating an attribute and passing the values -->
-                                <?php } else { ?>
+                                    <button type="submit" class="btn-aktif-user">Aktif</button>
+                                </form>
+                                <form action="<?= base_url('Admin_sakip_sulut/user_status_changed'); ?>">
+                                    <!-- //getting value in hidden field with the hep of ID's -->
 
-                                    <button style="background-color: aqua;" class="btn-block-user user_status" uid="<?php echo $baris['user_id']; ?>" ustatus="<?php echo $baris['user_status']; ?>"><span style="color: black;">Aktifkan</span></button>
+                                    <input type="hidden" name="user_id" id="user_id" value="<?php echo $baris['user_id']; ?>">
+                                    <input type="hidden" name="user_status" id="user_status" value="<?php echo $baris['user_status']; ?>">
 
-                                <?php } ?>
+                                    <button type="submit" id="submit" name="submit" class="btn-block-user">Block</button>
+
+                                </form>
+                            </td>
+                            <td>
+                                <!-- <button uid="<?php echo $baris['user_id']; ?>" uname="<?php echo $baris['user_name']; ?>" uemail="<?php echo $baris['user_email']; ?>" ujenis="<?php echo $baris['Jenis_user']; ?>" class="btn-edit-user">Edit</button> -->
                                 <button class="btn-lupa-password">Lupa Password</button>
                             </td>
                         </tr>
@@ -79,7 +91,7 @@
                 </div>
             </div>
 
-            <div class="modal-tambah-user-container modal-pengaturan">
+            <div class="modal-tambah-user-container modal modal-pengaturan">
                 <div class="modal-tambah-user">
                     <form action="<?= base_url('admin_sakip_sulut/user_opd'); ?>" class="form-tambah-user" method="POST">
                         <h3>Tambah User</h3>
@@ -95,10 +107,10 @@
                         <span style="color: red;"><?= form_error('user_password', '<small class="text-danger">', '</small>') ?></span>
                         <input type="password" id="password-modal" name="user_password" value="<?= set_value('user_password'); ?>">
 
-                        <select name="" id="pilih-role-user" role="radiogroup" required>
+                        <select name="Jenis_user" id="pilih-role-user" role="radiogroup" required>
                             <?php foreach ($jenis_u as $value) : ?>
                                 <option role="radio" value="" hidden>Pilih Role</option>
-                                <option role="radio" value="<?= set_value('jenis_user'); ?><?= $value->name ?>"><?= $value->name ?></option>
+                                <option role="radio" value="<?= set_value('Jenis_user'); ?><?= $value->name ?>"><?= $value->name ?></option>
                             <?php endforeach ?>
                         </select>
                         <button type="submit" id="btn-tambah-user-modal" class="btn-tambah-user-modal">Tambah</button>
@@ -109,17 +121,21 @@
 
 
             </div>
-            <div class="modal-edit-user-container modal-pengaturan">
+            <!-- <div class="modal-edit-user-container modal modal-pengaturan">
                 <div class="modal-edit-user">
-                    <form action="" class="form-edit-user" method="POST">
+
+                    <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
                         <h3>Edit User</h3>
 
+                        <label id="hide">Id :</label>
+                        <input type="hidden" id="user_id" name="user_id" value="">
+
                         <label for="unit-kerja-modal">Unit Kerja</label>
-                        <input type="text" id="unit-kerja-modal" placeholder="Pemerintah Provinsi Sulut" value="">
+                        <input name="user_name" type="text" id="user_name" value="">
 
                         <label for="email-modal">Email</label>
-                        <input type="text" id="email-modal" placeholder="pemprovsulut@gmail.com" value="">
-                        <select name="" id="pilih-role-user" role="radiogroup">
+                        <input name="user_email" type="text" id="user_email" value="">
+                        <select name="Jenis_user" id="Jenis_user" role="radiogroup">
                             <?php foreach ($jenis_u as $value) : ?>
                                 <option role="radio" value="" hidden>Pilih Role</option>
                                 <option role="radio" value="<?= $value->name ?>"><?= $value->name ?></option>
@@ -127,13 +143,15 @@
                         </select>
 
                         <button type="submit" id="btn-edit-user-modal" class="btn-edit-user-modal">Edit</button>
+                        <input type="submit" id="submit" name="dsubmit" value="Edit" class="btn-edit-user-modal">
                         <i class="fa-solid fa-circle-xmark modal-close"></i>
                     </form>
 
-                </div>
-            </div>
 
-            <div class="modal-lupa-password-container modal-pengaturan">
+                </div>
+            </div> -->
+
+            <div class="modal-lupa-password-container modal modal-pengaturan">
                 <div class="modal-lupa-password">
                     <form action="" class="form-lupa-password" id="form-lupa-password" class="form-lupa-password">
                         <h3>Lupa Password</h3>
@@ -148,26 +166,22 @@
             </div>
 
             <!-- modal for block user -->
-            <div class="modal-block-user-container modal-pengaturan">
+            <!-- <div class="modal-block-user-container modal-pengaturan modal">
 
-                <form action="<?= base_url('Admin_sakip_sulut/user_status_changed') ?>" method="POST">
-                    <div class="modal-block-user">
-                        <h3>Apakah Anda Ingin Mengganti Status User Ini?</h3>
+                <form action="" method="POST" class="form-modal-block-user">
+                    <h3>Apakah Anda Ingin Mengganti Status User Ini?</h3>
 
-                        <input type="hidden" name="id" id="user_id">
-                        <input type="hidden" name="status" id="user_status">
+                    <div class="btn-ya-tidak-block-container">
+                        //getting value in hidden field with the hep of ID's
+                        <input class="btn-ya-block btn-block-user-modal" type="hidden" name="id" id="user_id" value="<?= $table->user_id ?>">
+                        <input class="btn-ya-block btn-block-user-modal" type="hidden" name="status" id="user_status" value="<?= $table->user_status ?>">
 
-
-                        <div class="btn-ya-tidak-block-container">
-                            <button type="submit" class="btn-ya-block btn-block-user-modal" name="submit">Ya</button>
-                            <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
-                        </div>
+                        <button type="submit" class="btn-ya-block btn-block-user-modal" name="submit">Ya</button>
+                        <button class="btn-tidak-block model-close btn-block-user-modal">Tidak</button>
                     </div>
                 </form>
 
-            </div>
-
-
+            </div> -->
 
 
         </div>

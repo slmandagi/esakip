@@ -49,17 +49,20 @@ class Autentikasi extends CI_Controller
                         redirect('admin_sakip_sulut');
                     } else if ($x['user_akses'] == '2') { //untuk login sebagai user opd
                         $name = $x['user_name'];
+                        $u_email = $x['user_email'];
                         $this->session->set_userdata('access', 'User');
                         $this->session->set_userdata('id', $id);
                         $this->session->set_userdata('name', $name);
-                        redirect('user_page_login');
-                    } else if ($x['user_akses'] == '3') { //untuk login sebagai user instansi pemuda
-                        $name = $x['user_name'];
-                        $this->session->set_userdata('access', 'User');
-                        $this->session->set_userdata('id', $id);
-                        $this->session->set_userdata('name', $name);
-                        redirect('user_page_login');
+                        $this->session->set_userdata('u_email', $u_email);
+                        redirect('user');
                     }
+                    //  else if ($x['user_akses'] == '3') { //untuk login sebagai user instansi pemuda
+                    //     $name = $x['user_name'];
+                    //     $this->session->set_userdata('access', 'User');
+                    //     $this->session->set_userdata('id', $id);
+                    //     $this->session->set_userdata('name', $name);
+                    //     redirect('user');
+                    // }
 
                     //pesan yang mo timbul pas kalo salah input
                 } else {

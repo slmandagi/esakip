@@ -3,16 +3,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Muser extends CI_Model
 {
-    // function edit_data($where, $table)
-    // {
-    //     return $this->db->get_where($table, $where);
-    // }
 
-    // function update_data($where, $data, $table)
-    // {
+    // Function To Fetch All Students Record
+    function show_users()
+    {
+        $query = $this->db->get('tbl_user');
+        $query_result = $query->result();
+        return $query_result;
+    }
 
-    //     $this->db->where($where);
+    // Update Query For Selected Student
+    function update_data($id, $data)
+    {
+        $this->db->where('user_id', $id);
+        $this->db->update('tbl_user', $data);
+    }
 
-    //     $this->db->update($table, $data);
-    // }
+    // Function To Fetch Selected Student Record
+    function show_user_id($data)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_user');
+        $this->db->where('user_id', $data);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
 }

@@ -10,6 +10,8 @@
 <script src="<?= base_url('/assets/js/faq.js') ?>"></script>
 <script src="<?= base_url('/assets/js/modal.js') ?>"></script>
 <script src="<?= base_url('/assets/js/user_opd.js') ?>"></script>
+<script src="<?= base_url('/assets/js/upload.js') ?>"></script>
+<script src="<?= base_url('/assets/js/dataUser.js') ?>"></script>
 </div>
 <!-- END OF CONTAINER FOR ALL -->
 </body>

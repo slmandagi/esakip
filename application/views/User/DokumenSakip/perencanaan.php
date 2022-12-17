@@ -1,6 +1,6 @@
 <div class="perencanaan-kinerja-container">
     <div class="main-content-perencanaan-kinerja">
-        <form action="<?= base_url('User_page_login/perencanaan_kinerja'); ?>" class="form-input-dokumen-perencanaan" method="POST" enctype="multipart/form-data">
+        <form action="<?= base_url('User/perencanaan_kinerja'); ?>" class="form-input-dokumen-perencanaan" method="POST" enctype="multipart/form-data">
 
             <!-- user name yang akan terupload ke database -->
             <div class="wrapper-input-dokumen">

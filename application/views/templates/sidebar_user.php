@@ -12,14 +12,14 @@
         <div class="sidebar-content">
             <div class="menu dashboard" id="menu">
                 <i class="fa-solid fa-gauge-high"></i>
-                <a href="<?= base_url('User_page_login/') ?>">
+                <a href="<?= base_url('user/') ?>">
                     <p>Dashboard</p>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </div>
             <div class="menu komponen-sakip">
                 <i class="fa-regular fa-file"></i>
-                <!-- <a href="<?= base_url('User_page_login/dokumen') ?>"> -->
+                <!-- <a href="<?= base_url('user/dokumen') ?>"> -->
                 <p>Dokumen SAKIP</p>
                 <!-- </a> -->
                 <i class="fa-solid fa-chevron-up panah-sakip"></i>
@@ -28,17 +28,17 @@
             </div>
             <ul class="dropdown bagian-komponen-sakip">
                 <li class="komponen nonactive">
-                    <a href="<?= base_url('User_page_login/perencanaan_kinerja') ?>">
+                    <a href="<?= base_url('user/perencanaan_kinerja') ?>">
                         Perencanaan Kinerja
                     </a>
                 </li>
                 <li class="komponen nonactive">
-                    <a href="<?= base_url('User_page_login/pengukuran_kinerja') ?>">
+                    <a href="<?= base_url('user/pengukuran_kinerja') ?>">
                         Pengukuran Kinerja
                     </a>
                 </li>
                 <li class="komponen nonactive">
-                    <a href="<?= base_url('User_page_login/pelaporan_kinerja') ?>">
+                    <a href="<?= base_url('user/pelaporan_kinerja') ?>">
                         Pelaporan Kinerja
                     </a>
                 </li>
