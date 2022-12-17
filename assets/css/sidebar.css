@@ -146,6 +146,7 @@
     border-radius: 10px;
 }
 
+.fa-chevron-down,
 .fa-chevron-up {
     margin-left: 8px;
 }
@@ -298,6 +299,7 @@
 }
 
 .sidebar.close .menu p,
+.sidebar.close .menu .fa-chevron-down,
 .sidebar.close .menu .fa-chevron-up {
     display: none;
     /* opacity: 0; */

@@ -3,7 +3,7 @@
         <div class="show-n-row-table">
             <p>Lihat</p>
 
-            <form method="GET" action="<?= base_url('admin/pelaporan_kinerja') ?>">
+            <form method="GET" action="<?= base_url('admin_sakip_sulut/pelaporan_kinerja') ?>">
                 <select name="banyaknya-data">
                     <option hidden></option>
                     <option value="5">5</option>

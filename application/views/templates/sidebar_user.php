@@ -22,7 +22,7 @@
                 <!-- <a href="<?= base_url('user/dokumen') ?>"> -->
                 <p>Dokumen SAKIP</p>
                 <!-- </a> -->
-                <i class="fa-solid fa-chevron-up panah-sakip"></i>
+                <i class="fa-solid fa-chevron-down panah-sakip"></i>
                 <span class="tooltip">Dokumen SAKIP
                 </span>
             </div>
@@ -40,6 +40,11 @@
                 <li class="komponen nonactive">
                     <a href="<?= base_url('user/pelaporan_kinerja') ?>">
                         Pelaporan Kinerja
+                    </a>
+                </li>
+                <li class="komponen nonactive">
+                    <a href="<?= base_url('user/evaluasi_kinerja') ?>">
+                        Evaluasi Kinerja
                     </a>
                 </li>
             </ul>

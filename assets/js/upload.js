@@ -8,6 +8,13 @@ $(document).ready(function () {
         $('.upload-file-informasi').html(fileName + '<i class="fa-solid fa-check"></i>')
     })
 
+    $('.upload-file-evaluasi-input').change(function () {
+        var uploadFileEvaluasi = document.getElementById('upload-file-evaluasi');
+        var fileName = uploadFileEvaluasi.files[0].name;
+        console.log('evaluasi')
+        $('.upload-file-evaluasi').html(fileName + '<i class="fa-solid fa-check"></i>')
+    })
+
     // User
     $('.upload-file-pelaporan').change(function () {
         var uploadFileDok = document.getElementById('upload-file-dokumen');

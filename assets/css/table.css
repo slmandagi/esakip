@@ -161,11 +161,20 @@
 
  /* BAGIAN TABLE EVALUASI START*/
  .table-evaluasi-kinerja thead th:last-of-type {
-     width: 30%;
+     width: 40%;
+ }
+
+ .table-evaluasi-kinerja tbody tr {
+     height: 50px;
  }
 
  .table-evaluasi-kinerja tr:hover td {
-     background: lightgrey;
+     background: grey;
+ }
+
+ .table-evaluasi-kinerja tr:hover td i,
+ label {
+     color: black;
  }
 
  .form-input-evaluasi-admin button {
@@ -176,6 +185,12 @@
      background: lightgreen;
      font-size: 12px;
      padding: 5px;
+     border: 2px solid lightgreen;
+     margin-left: 10px;
+ }
+
+ .form-input-evaluasi-admin button:hover {
+     border: 2px solid white;
  }
 
  .input-evaluasi-admin {
