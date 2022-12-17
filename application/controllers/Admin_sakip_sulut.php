@@ -482,8 +482,8 @@ class Admin_sakip_sulut extends CI_Controller
                 'user_password' =>  md5($this->input->post("user_password")),
                 'user_akses' => 2,
                 'user_status' => '1',
-                'date_created' => time(),
-                'date_update' => time(),
+                'date_created' => date("Y-m-d"),
+                'date_update' => date("Y-m-d"),
             ];
 
             $this->db->insert('tbl_user', $data);

@@ -1,7 +1,7 @@
     <div class="user-opd-container">
         <div class="main-content-user-opd">
             <div class="search-table-container">
-                <button class="">Tambah User</button>
+                <button class="btn-tambah-user">Tambah User</button>
                 <a href="<?= base_url('Admin_sakip_sulut/show_user_id') ?>"><button style="margin-right:800px;">Edit User</button></a>
                 <div class="search-table">
                     <i class="fa-solid fa-magnifying-glass"></i>
