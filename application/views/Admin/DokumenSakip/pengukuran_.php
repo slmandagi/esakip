@@ -50,9 +50,6 @@
                         <a class="btn-triwulan triwulan-4-modal" type="button">
                             Triwulan 4
                         </a>
-                        <a class="btn-triwulan" type="button">
-                            Final
-                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -70,9 +67,6 @@
                         </a>
                         <a class="btn-triwulan triwulan-4-modal" type="button">
                             Triwulan 4
-                        </a>
-                        <a class="btn-triwulan" type="button">
-                            Final
                         </a>
                     </td>
                 </tr>

@@ -111,14 +111,28 @@ class User extends CI_Controller
     {
         # code...
         $data['user'] = 'user';
-        $data['judul_halaman'] = 'Informasi';
-        $data['judul_header_page'] = 'Informasi';
+        $data['judul_halaman'] = 'Pelaporan Kinerja';
+        $data['judul_header_page'] = 'Pelaporan Kinerja';
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user');
         $this->load->view('templates/head_content', $data);
         $this->load->view('user/dokumensakip/pelaporan');
 
+        $this->load->view('templates/footer');
+    }
+
+    public function evaluasi_kinerja()
+    {
+        # code...
+        $data['user'] = 'user';
+        $data['judul_halaman'] = 'Evaluasi Kinerja';
+        $data['judul_header_page'] = 'Evaluasi Kinerja';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_user');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('user/dokumensakip/evaluasi');
         $this->load->view('templates/footer');
     }
 

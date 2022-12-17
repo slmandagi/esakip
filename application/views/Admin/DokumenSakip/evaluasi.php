@@ -3,7 +3,7 @@
         <div class="show-n-row-table">
             <p>Lihat</p>
 
-            <form method="GET" action="<?= base_url('admin/evaluasi_kinerja') ?>">
+            <form method="GET" action="<?= base_url('admin_sakip_sulut/evaluasi_kinerja') ?>">
                 <select name="banyaknya-data">
                     <option hidden></option>
                     <option value="5">5</option>
@@ -34,6 +34,16 @@
                     <td>Provinsi Sulawesi Utara</td>
                     <td>
                         <form action="" method="POST" class="form-input-evaluasi-admin">
+                            <div class="input-file-evaluasi-container">
+                                <!-- <label for="upload-file-informasi">Pilih File</label> -->
+                                <!-- label ini berfungsi sebagai input(secara tampilan) -->
+                                <label for="upload-file-evaluasi" class="upload-file-evaluasi">
+                                    Upload file anda disini...
+                                    <i class="fa-solid fa-file-circle-plus"></i>
+                                </label>
+                                <!-- hanya trima dokumen -->
+                                <input type="file" id="upload-file-evaluasi" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf">
+                            </div>
                             <input type="text" class="input-evaluasi-admin" placeholder="Input Nilai">
                             <button type="submit">Selesai</button>
                         </form>
@@ -44,8 +54,18 @@
                     <td>Badan Pendapatan Daerah</td>
                     <td>
                         <form action="" method="POST" class="form-input-evaluasi-admin">
+                            <div class="input-file-evaluasi-container">
+                                <!-- <label for="upload-file-informasi">Pilih File</label> -->
+                                <!-- label ini berfungsi sebagai input(secara tampilan) -->
+                                <label for="upload-file-evaluasi" class="upload-file-evaluasi">
+                                    Upload file anda disini...
+                                    <i class="fa-solid fa-file-circle-plus"></i>
+                                </label>
+                                <!-- hanya trima dokumen -->
+                                <input type="file" id="upload-file-evaluasi" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf">
+                            </div>
                             <input type="text" class="input-evaluasi-admin" placeholder="Input Nilai">
-                            <button type="submit">Selesai</button>
+                            <button type="submit" class="btn-selesai-evaluasi">Selesai</button>
                         </form>
                     </td>
                 </tr>
@@ -59,3 +79,42 @@
         </div>
     </div>
 </div>
+
+<style>
+    .form-input-evaluasi-admin {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-input-evaluasi-admin .input-file-evaluasi-container {
+        width: 50%;
+        margin-right: 10px;
+        height: 30px;
+    }
+
+    .form-input-evaluasi-admin input[type="file"] {
+        display: none;
+    }
+
+    .form-input-evaluasi-admin label.upload-file-evaluasi {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        padding: 8px;
+        border-radius: 10px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.5s;
+        height: 30px;
+    }
+
+    .form-input-evaluasi-admin .upload-file-evaluasi:hover {
+        background: lightgray;
+        color: black;
+    }
+
+    .form-input-evaluasi-admin .upload-file-evaluasi:hover i {
+        color: black;
+    }
+</style>
