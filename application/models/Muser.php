@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Muser extends CI_Model
 {
 
-    // Function To Fetch All Students Record
+    // Function To Fetch All Users Record
     function show_users()
     {
         $query = $this->db->get('tbl_user');
@@ -12,14 +12,19 @@ class Muser extends CI_Model
         return $query_result;
     }
 
-    // Update Query For Selected Student
+    // Update Query For Selected User
     function update_data($id, $data)
     {
         $this->db->where('user_id', $id);
         $this->db->update('tbl_user', $data);
     }
+    function update_status($id, $data)
+    {
+        $this->db->where('user_id', $id);
+        $this->db->update('tbl_user', $data);
+    }
 
-    // Function To Fetch Selected Student Record
+    // Function To Fetch Selected User Record
     function show_user_id($data)
     {
         $this->db->select('*');
