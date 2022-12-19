@@ -12,16 +12,27 @@ class Mupload extends CI_Model
         return true;
     }
 
-    function tambahLaporan($tabelLaporan)
+    function tambahPengukuran($data)
     {
 
-        $this->db->trans_start();
-        $this->db->insert('tbl_pelaporan', $tabelLaporan);
+        $this->db->insert('tbl_pengukuran', $data);
 
-        $insert_id = $this->db->insert_id();
+        return true;
+    }
 
-        $this->db->trans_complete();
+    function tambahLaporan($data)
+    {
+        $this->db->insert('tbl_pelaporan', $data);
 
-        return $insert_id;
+        return true;
+
+        // $this->db->trans_start();
+        // $this->db->insert('tbl_pelaporan', $tabelLaporan);
+
+        // $insert_id = $this->db->insert_id();
+
+        // $this->db->trans_complete();
+
+        // return $insert_id;
     }
 }

@@ -34,4 +34,16 @@ class Muser extends CI_Model
         $result = $query->result();
         return $result;
     }
+
+    function getAllData()
+    {
+        $this->db->select('*');
+        $this->db->from('perencanaan_kinerja_admin');
+        // $this->db->where('opd', 'minahasa');
+        $this->db->join('tbl_pengukuran', 'tbl_pengukuran.opd = perencanaan_kinerja_admin.opd');
+        // $this->db->join('tbl_pelaporan', 'tbl_pelaporan.opd = perencanaan_kinerja_admin.opd');
+
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
