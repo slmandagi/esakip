@@ -177,12 +177,7 @@ class User extends CI_Controller
             $this->load->view('templates/head_content', $data);
             $this->load->view('user/dokumensakip/pelaporan');
 
-<<<<<<< HEAD
-            $this->pelaporan_kinerja();
-            echo'gagal';
-=======
             $this->load->view('templates/footer');
->>>>>>> cf704fcc2a1bb6be16b7562833972351e62b875a
         } else {
 
 
