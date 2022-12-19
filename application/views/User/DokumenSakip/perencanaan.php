@@ -4,8 +4,8 @@
 
             <!-- user name yang akan terupload ke database -->
             <div class="wrapper-input-dokumen">
-                <label for="input-nama-dokumen">User Name</label>
-                <input name="opd" id="opd" type="text" value="<?php echo $this->session->userdata('name'); ?>" class="input-nama-dokumen upload-input" required>
+                <!-- <label for="input-nama-dokumen">User Name</label> -->
+                <input name="opd" id="opd" type="hidden" value="<?php echo $this->session->userdata('name'); ?>" class="input-nama-dokumen upload-input" required>
             </div>
 
             <div class="wrapper-input-dokumen">
@@ -22,7 +22,7 @@
 
             <div class="wrapper-input-dokumen">
                 <label for="input-nama-dokumen">Nama Dokumen</label>
-                <input name="nama_dok" id="nama_dok" type="text" placeholder="Input nama dokumen disini..." class="input-nama-dokumen upload-input">
+                <input name="nama_dok" id="nama_dok" type="text" placeholder="Contoh: IKU2019..." class="input-nama-dokumen upload-input">
             </div>
 
             <div class="wrapper-input-dokumen">

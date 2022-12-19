@@ -136,6 +136,13 @@
     font-weight: 500;
 }
 
+.menu:visited {
+    background: #A3C8CD;
+    /* border-radius: 10px; */
+    transition: all 0.5s ease;
+    font-weight: 500;
+}
+
 .komponen.nonactive,
 .nonactive {
     /* border-radius: 0px 0px 10px 10px; */
@@ -145,6 +152,7 @@
     border-radius: 10px;
 }
 
+.fa-chevron-down,
 .fa-chevron-up {
     margin-left: 8px;
 }
@@ -185,6 +193,16 @@
     transition: all 0.5s ease;
 }
 
+.menu:active {
+    background: #A3C8CD;
+    border-radius: 12px;
+}
+
+.menu:focus {
+    background: #A3C8CD;
+    border-radius: 12px;
+}
+
 .menu.active p {
     color: black;
 }
@@ -211,6 +229,10 @@
     position: relative;
     /* bottom: 0%; */
     /* position: fixed; */
+}
+
+.profile img {
+    border-radius: 10px;
 }
 
 .profile .data-profile {
@@ -297,6 +319,7 @@
 }
 
 .sidebar.close .menu p,
+.sidebar.close .menu .fa-chevron-down,
 .sidebar.close .menu .fa-chevron-up {
     display: none;
     /* opacity: 0; */

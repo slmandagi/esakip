@@ -1,6 +1,6 @@
 <div class="pelaporan-kinerja-container">
     <div class="main-content-pelaporan-kinerja">
-        <form id="tambahLaporan" role="form" action="<?php echo base_url('tambahLaporan') ?>" class="form-input-dokumen-pelaporan" enctype="multipart/form-data" method="post">
+        <form id="tambahLaporan" role="form" action="<?php echo base_url('User/pelaporan_kinerja') ?>" class="form-input-dokumen-pelaporan" enctype="multipart/form-data" method="post">
             <div class="wrapper-input-dokumen">
                 <label for="upload-file-dokumen">Pilih File</label>
                 <!-- label ini berfungsi sebagai input(secara tampilan) -->

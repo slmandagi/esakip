@@ -18,7 +18,7 @@ class Admin_sakip_sulut extends CI_Controller
         };
 
         if ($this->session->userdata('access') != 'Administrator') {
-            $url = base_url('user_page_login');
+            $url = base_url('user');
             redirect($url);
         }
 
@@ -462,16 +462,12 @@ class Admin_sakip_sulut extends CI_Controller
             // torang simpan create linksnya ke variabel
             $data['pagination'] = $this->pagination->create_links();
             ///////////////////////////////////
-            $data['user'] = 'admin';
+            $data['user'] = 'admin_sakip_sulut';
             $data['judul_halaman'] = 'Pengaturan';
-            $data['judul_header_page'] = 'User OPD';
+            $data['judul_header_page'] = 'Pengaturan User';
 
             $get_u = $this->Mregis->get_jenis_u();
-            $data['jenis_u'] = $get_u; //get jenis user dari model Mregis..
-
-            //untuk update/edit data user...
-            // $where = array('user_name' => $id);
-            // $data['tbl_user'] = $this->Muser->edit_data($where, 'tbl_user')->result();
+            $data['jenis_u'] = $get_u; //get jenis user dari model Mregis
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
@@ -482,12 +478,12 @@ class Admin_sakip_sulut extends CI_Controller
             $data = [
                 'user_name' => htmlspecialchars($this->input->post('user_name', true)),
                 'user_email' => htmlspecialchars($this->input->post('user_email', true)),
-                'jenis_user' => htmlspecialchars($this->input->post('jenis_user'), true),
+                'Jenis_user' => htmlspecialchars($this->input->post('Jenis_user'), true),
                 'user_password' =>  md5($this->input->post("user_password")),
                 'user_akses' => 2,
-                'user_status' => '1',
-                'date_created' => time(),
-                'date_update' => time(),
+                'user_status' => 1,
+                'date_created' => date("Y-m-d"),
+                'date_update' => date("Y-m-d"),
             ];
 
             $this->db->insert('tbl_user', $data);
@@ -499,54 +495,84 @@ class Admin_sakip_sulut extends CI_Controller
         }
     }
 
-    public function user_status_changed()
+    public function profile()
     {
-        //get hidden values in variables
-        $id = $this->input->post('user_id');
-        $status = $this->input->post('user_status');
+        # code...
+        $data['user'] = 'admin_sakip_sulut';
 
-        //check condition
-        if ($status == '1') {
-            $user_status = '0';
-        } else {
-            $user_status = '1';
-        }
+        $data['judul_halaman'] = 'Profile';
+        $data['judul_header_page'] = 'Profile';
 
-        $data = array('user_status' => $user_status);
-
-        $this->db->where('user_id', $id);
-        $this->db->update('tbl_user', $data); //Update status here
-
-        //Create success measage
-        $this->session->set_flashdata('msg', "User status has been changed successfully.");
-        $this->session->set_flashdata('msg_class', 'alert-success');
-
-        return redirect('admin_sakip_sulut/user_opd');
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/profile/index');
+        $this->load->view('templates/footer');
     }
 
 
-    //funcition untuk mengolah edit data yang pada pages pengaturan...
-    // function update_data()
-    // {
-    //     // $user_id = $this->input->post('user_id');
-    //     $user_name = $this->input->post('user_name');
-    //     $user_email = $this->input->post('user_email');
-    //     $jenis_user = $this->input->post('jenis_user');
+    function update_status_block()
+    {
+        $id = $this->input->post('user_id');
 
-    //     $data = array(
-    //         // 'user_name' => $user_name,
-    //         'jenis_user' => $jenis_user,
-    //         'user_email' => $user_email
-    //     );
+        $data = array(
+            'User_status' => 0,
+            'date_update' => date("Y-m-d"),
+        );
+        $this->Muser->update_status($id, $data);
+        $this->user_opd();
+    }
+    function update_status_aktif()
+    {
+        $id = $this->input->post('user_id');
 
-    //     $where = array(
-    //         'user_name' => $user_name
-    //     );
+        $data = array(
+            'User_status' => 1,
+            'date_update' => date("Y-m-d"),
+        );
+        $this->Muser->update_status($id, $data);
+        $this->user_opd();
+    }
 
-    //     $this->m_data->update_data($where, $data, 'tbl_user');
-    //     redirect('admin_sakip_sulut/user_opd');
-    // }
 
+    //function untuk mengolah edit data yang pada pages pengaturan...
+    function update_data()
+    {
+        $id = $this->input->post('user_id');
+
+        $data = array(
+            'User_name' => $this->input->post('user_name'),
+            'User_email' => $this->input->post('user_email'),
+            'Jenis_user' => $this->input->post('Jenis_user'),
+            'date_update' => date("Y-m-d"),
+            // 'User_status' => 0,
+        );
+        $this->Muser->update_data($id, $data);
+        $this->user_opd();
+    }
+
+
+    //controller untuk menampilkan page edit data user//
+    function show_user_id()
+    {
+        $id = $this->uri->segment(3);
+        $data['users'] = $this->Muser->show_users(); //untuk menampilkan semua user yang ada
+        $data['userID'] = $this->Muser->show_user_id($id); //
+        /////////////
+        $data['user'] = 'admin';
+        $data['judul_halaman'] = 'Pengaturan';
+        $data['judul_header_page'] = 'Update Data User';
+
+        $get_u = $this->Mregis->get_jenis_u();
+        $data['jenis_u'] = $get_u; //get jenis user dari model Mregis
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/pengaturan/update_data', $data);
+        $this->load->view('templates/footer');
+    }
+    //end of update data..
 
     public function notification()
     {

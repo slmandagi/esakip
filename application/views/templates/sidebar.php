@@ -19,7 +19,7 @@
             <div class="menu komponen-sakip">
                 <i class="fa-regular fa-file"></i>
                 <p>Komponen SAKIP</p>
-                <i class="fa-solid fa-chevron-up panah-sakip "></i>
+                <i class="fa-solid fa-chevron-down panah-sakip "></i>
                 <span class="tooltip">Dokumen SAKIP
                     <!-- <ul class="dropdown bagian-komponen-sakip">
                     <li class="komponen nonactive">Perencanaan Kinerja</li>
@@ -69,7 +69,7 @@
                 <!-- <img src="<?= base_url('/assets/img/sidebar/Pengaturan.svg') ?>" alt="" width="30"> -->
                 <i class="fa-solid fa-gear"></i>
                 <p>Pengaturan</p>
-                <i class="fa-solid fa-chevron-up panah-pengaturan "></i>
+                <i class="fa-solid fa-chevron-down panah-pengaturan "></i>
                 <span class="tooltip">Pengaturan</span>
             </div>
             <ul class="dropdown bagian-pengaturan">
@@ -95,7 +95,7 @@
             </div>
         </div>
         <div class="profile">
-            <img src="<?= base_url('/assets/img/sidebar/RandomPerson.svg') ?> " alt="" height="50" width="50">
+            <img src="<?= base_url('/assets/img/sidebar/RandomPerson.png') ?> " alt="" height="50" width="50">
             <div class="data-profile">
                 <h4><?php echo $this->session->userdata('name'); ?></h4>
                 <p><?php echo $this->session->userdata('access'); ?></p>

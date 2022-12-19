@@ -11,7 +11,7 @@ listBar.addEventListener("click", function () {
 $(document).ready(function () {
 	/* --FOR KASE TANDA USER D TINDIS PILIHAN APA */
 	/* 1. INI KALO USER PILIH SALAH SATU MENU DI SIDEBAR*/
-	$(".menu").click(function () {
+	$(".menu, .sidebar-content a").click(function (e) {
 		$(this).addClass("active").siblings().removeClass("active");
 		console.log("active");
 
@@ -24,13 +24,13 @@ $(document).ready(function () {
 			/* 1. FOR KASE TURUN DEPE DROPDOWN */
 			$(".dropdown.bagian-komponen-sakip").slideDown("fast");
 			/* 2. FOR UBAH ICON UP JADI DOWN */
-			$(".panah-sakip", this).toggleClass("fa-chevron-down");
+			$(".panah-sakip", this).toggleClass("fa-chevron-down fa-chevron-up");
 			console.log("komponen slidedown");
 		} else {
 			/* 1. FOR KASE NAE DEPE DROPDOWN */
 			$(".dropdown.bagian-komponen-sakip").slideUp("fast");
 			/* 2. FOR UBAH ICON DOWN JADI UP*/
-			$(".panah-sakip", this).toggleClass("fa-chevron-down");
+			$(".panah-sakip", this).toggleClass("fa-chevron-down fa-chevron-up");
 			console.log("komponen slide up");
 		}
 
@@ -41,22 +41,22 @@ $(document).ready(function () {
 			/* 1. FOR KASE TURUN DEPE DROPDOWN */
 			$(".dropdown.bagian-pengaturan").slideDown("fast");
 			/* 2. FOR UBAH ICON UP JADI DOWN */
-			$(".panah-pengaturan", this).toggleClass("fa-chevron-down");
+			$(".panah-pengaturan", this).toggleClass("fa-chevron-down fa-chevron-up");
 		} else {
 			/* 1. FOR KASE NAE  DPE DROPDOWN*/
 			$(".dropdown.bagian-pengaturan").slideUp("fast");
 			/* 2. FOR UBAH ICON DOWN JADI UP */
-			$(".panah-pengaturan", this).toggleClass("fa-chevron-down");
+			$(".panah-pengaturan", this).toggleClass("fa-chevron-down fa-chevron-up");
 		}
 
 		// INI KALO MENU LAIN PUNYA CLASS ACTIVE, MAKA YANG DROPDOWN ADA TABUKA, DIA OTOMATIS TTTUP
 		if ($(".komponen-sakip").siblings().hasClass("active")) {
-			$(".panah-sakip").removeClass("fa-chevron-down");
+			$(".panah-sakip").removeClass("fa-chevron-up");
 			$(".bagian-komponen-sakip .komponen").removeClass("active");
 			// console.log("nda aktif");
 		}
 		if ($(".list-pengaturan").siblings().hasClass("active")) {
-			$(".panah-pengaturan").removeClass("fa-chevron-down");
+			$(".panah-pengaturan").removeClass("fa-chevron-up");
 			$(".bagian-pengaturan .pengaturan").removeClass("active");
 			// console.log("nda aktif");
 		}
@@ -75,15 +75,15 @@ $(document).ready(function () {
 			$(
 				".dropdown.bagian-komponen-sakip, .dropdown.bagian-komponen-sakip.side-close"
 			).slideUp(700);
-			$(".panah-sakip").removeClass("fa-chevron-down");
+			$(".panah-sakip").removeClass("fa-chevron-up");
 		}
 
 		if ($(".sidebar .dropdown.bagian-pengaturan li").hasClass("active")) {
 			console.log("dropdown tutup pengaturan");
 			$(
-				".dropdown.bagian-pengaturanm, .dropdown.bagian-pengaturan.side-close"
+				".dropdown.bagian-pengaturan, .dropdown.bagian-pengaturan.side-close"
 			).slideUp(700);
-			$('.panah-pengaturan').toggleClass("fa-chevron-down");
+			$('.panah-pengaturan').removeClass("fa-chevron-up");
 		}
 		console.log("halo slide");
 	});

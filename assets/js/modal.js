@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
     // Modal edit user
-
+    
     $('.btn-edit-user').click(function () {
         $('.modal-edit-user-container').addClass("active");
     })

@@ -187,7 +187,7 @@
 
 /* ---GENERAL (SEMUA KOMPONEN PAKE INI) */
 .wrapper-input-dokumen {
-    width: 70%;
+    width: 40%;
     display: flex;
     flex-direction: column;
 }
@@ -201,8 +201,8 @@
 }
 
 .wrapper-input-dokumen label.upload-file-dokumen {
-    width: 80%;
-    height: 40px;
+    width: 100%;
+    height: 35px;
     border-radius: 8px;
     background: #E1E8E6;
     display: flex;
@@ -228,8 +228,8 @@
 
 .wrapper-input-dokumen input.upload-input,
 .wrapper-input-dokumen select.upload-input {
-    width: 80%;
-    height: 40px;
+    width: 100%;
+    height: 35px;
     border: none;
     background: #E1E8E6;
     outline: none;
@@ -243,14 +243,7 @@
 }
 
 /* ---PERENCANAAN START */
-.perencanaan-kinerja-container .form-input-dokumen-perencanaan,
-.pelaporan-kinerja-container .form-input-dokumen-pelaporan,
-.pengukuran-kinerja-container form {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 .main-content-perencanaan-kinerja .form-input-dokumen-perencanaan button,
 .main-content-pelaporan-kinerja .form-input-dokumen-pelaporan button,
@@ -282,7 +275,8 @@
     position: relative;
 }
 
-.modal-triwulan input {
+.modal-triwulan input,
+.modal-triwulan-user input {
     border: none;
     background: #E1E8E6;
     text-align: center;
@@ -296,7 +290,6 @@
 
 .modal-triwulan input:focus {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
-
 }
 
 .modal-triwulan label,
@@ -414,6 +407,146 @@ button.btn-selesai-input-triwulan:hover {
     border: 2px solid white;
 }
 
+
+/* ^^^^ PENGUKURAN USER START */
+.pilih-lihat-upload-pengukuran-container {
+    margin-top: 20px;
+    width: 40%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.pilih-lihat-hasil-pengukuran.active {
+    background: #738B8D;
+    pointer-events: none;
+}
+
+.pilih-lihat-hasil-pengukuran {
+    width: 30%;
+    height: 100%;
+    background: #A3C8CD;
+    color: white;
+    border-radius: 10px 0px 0px 10px;
+    line-height: 35px;
+    text-align: center;
+    font-weight: 500;
+    pointer-events: visible;
+    transition: all 0.5s;
+
+}
+
+.pilih-upload-dokumen-pengukuran {
+    width: 30%;
+    height: 100%;
+    background: #A3C8CD;
+    color: white;
+    line-height: 35px;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 0px 10px 10px 0px;
+    pointer-events: visible;
+    transition: all 0.5s;
+
+}
+
+.pilih-upload-dokumen-pengukuran.active {
+    background: #738B8D;
+    pointer-events: none;
+}
+
+.pilih-lihat-hasil-pengukuran-content {
+    opacity: 0;
+    display: none;
+}
+
+
+
+.pilih-lihat-hasil-pengukuran-content.active {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+
+.modal-triwulan-user {
+    width: 40%;
+    height: 60%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    position: relative;
+}
+
+
+
+.btn-triwulan {
+    padding: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    background: #3D8361;
+    border: 2px solid #3D8361;
+    transition: all 0.5s;
+    margin: 0px 5px 0px 5px;
+}
+
+.content-modal-triwulan-user {
+    margin: 15px;
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.tidak-tercapai-user-container {
+    height: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tidak-tercapai-user-container .tidak-tercapai-indikator {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tidak-tercapai-user-container .tidak-tercapai-indikator input {
+    margin-left: 10px;
+}
+
+.tercapai-melebihi-container {
+    width: 80%;
+}
+
+.tidak-tercapai-user-container .tercapai-melebihi-container input {
+    width: 50%;
+}
+
+.pengukuran-kinerja-container .form-input-dokumen-pengukuran {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+.pengukuran-kinerja-container .form-input-dokumen-pengukuran.active {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+}
+
+.hasil-pengukuran-container label,
+.tidak-tercapai-user-container p,
+.tercapai-melebihi-container label {
+    font-weight: 700;
+}
+
+/* ^^^^ PENGUKURAN USER END */
+
 /*  ---PENGUKURAN END */
 
 /*~~~ BAGIAN DOKUMEN SAKIP USER END */
@@ -475,6 +608,7 @@ form.form-kirim-pesan-admin {
     background: #E1E8E6;
     width: 90%;
     transition: all 0.5s;
+    resize: none;
 }
 
 .form-kirim-pesan-admin textarea:focus {
@@ -757,7 +891,8 @@ form.form-kirim-pesan-admin {
     position: relative;
 }
 
-.modal-pengaturan input {
+.form-edit-user .modal-pengaturan input,
+.form-edit-user input {
     border: none;
     outline: none;
     border-bottom: 2px solid grey;
@@ -766,11 +901,13 @@ form.form-kirim-pesan-admin {
     padding-left: 20px;
 }
 
-.modal-pengaturan input:focus {
+.modal-pengaturan input:focus,
+.form-edit-user input:focus {
     box-shadow: 0 2px 2px #A3C8CD;
 }
 
-.modal-pengaturan label {
+.modal-pengaturan label,
+.form-edit-user label {
     align-self: flex-start;
     padding-left: 20%;
     margin-bottom: 0;
@@ -778,16 +915,17 @@ form.form-kirim-pesan-admin {
     font-size: 14px;
 }
 
-.modal-pengaturan select {
+.modal-pengaturan select,
+.form-edit-user select {
     border: none;
     outline: none;
     border-bottom: 2px solid black;
     margin-top: 10px;
     width: 60%;
-    margin-bottom: 10px;
 }
 
-.modal-pengaturan option {
+.modal-pengaturan option,
+.form-edit-user option {
     background: #E1E8E6;
 }
 
@@ -872,3 +1010,20 @@ form.form-kirim-pesan-admin {
 }
 
 /* BAGIAN FOOTER END*/
+
+
+/* FORM START */
+.perencanaan-kinerja-container .form-input-dokumen-perencanaan,
+.pelaporan-kinerja-container .form-input-dokumen-pelaporan,
+.pengukuran-kinerja-container form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pengukuran-kinerja-container form {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}

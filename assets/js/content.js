@@ -52,6 +52,25 @@ $(document).ready(function () {
 		$(".pilih-user-opd ul.daftar-user").removeClass("active");
 	});
 
+	$('.pilih-lihat-upload-pengukuran').click(function () {
+		$(this).addClass("active").siblings().removeClass("active")
+
+		if ($('.pilih-lihat-hasil-pengukuran').hasClass('active')) {
+			$('.pilih-lihat-hasil-pengukuran-content').toggleClass('active')
+		}
+		else {
+			$('.pilih-lihat-hasil-pengukuran-content').removeClass('active')
+		}
+		if ($('.pilih-upload-dokumen-pengukuran').hasClass('active')) {
+			$('.form-input-dokumen-pengukuran').toggleClass('active')
+		}
+		else {
+			$('.form-input-dokumen-pengukuran').removeClass('active')
+
+		}
+
+	})
+
 	/*FOR UBAH WARNA DI BUTTON PAGINATION */
 });
 
