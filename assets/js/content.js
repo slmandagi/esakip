@@ -24,32 +24,39 @@ $(document).ready(function () {
 
 	// FOR KASE TIMBUL DROPDOW DI PILIH USER (UPDATE DATA USER)
 	$(".pilih-user-opd span").click(function () {
-		// $(".pilih-user-opd span").addClass("active");
-		$(".pilih-user-opd ul.daftar-user").addClass("active");
-		const classActivePilihUser = $(".pilih-user-opd span").hasClass("active");
+		$(".pilih-user-opd ul.daftar-user").toggleClass("active");
+		$('.pilih-user-opd span').toggleClass("active");
+		const classActivePilihUser = $(".pilih-user-opd ul.daftar-user").hasClass("active");
 		if (
 			classActivePilihUser &&
-			$(".pilih-user-opd ul.daftar-user").is(":hidden")
+			$(".pilih-user-opd .daftar-user").is(":hidden")
 		) {
 			/* 1. FOR KASE TURUN DEPE DROPDOWN */
 			console.log("slidedown aktif");
-			$(".pilih-user-opd ul.daftar-user").addClass("active");
-			$(".pilih-user-opd ul.daftar-user").slideDown("fast");
-			$(".pilih-user-opd span i").toggleClass("fa-chevron-down fa-chevron-up");
+
+			// $(".pilih-user-opd .daftar-user").addClass("active");
+			$(".pilih-user-opd .daftar-user").slideDown("fast");
 			/* 2. FOR UBAH ICON UP JADI DOWN */
-		} else {
-			console.log("slideup aktif");
-			/* 1. FOR KASE NAE DEPE DROPDOWN */
-			$(".pilih-user-opd ul.daftar-user").slideUp("fast");
-			$(".pilih-user-opd ul.daftar-user").removeClass("active");
-			$(".pilih-user-opd label").removeClass("active");
-			$(".pilih-user-opd span i").toggleClass("fa-chevron-down fa-chevron-up");
-			/* 2. FOR UBAH ICON DOWN JADI UP*/
 		}
+		$(".pilih-user-opd label i").toggleClass("fa-chevron-up fa-chevron-down");
+
+		// } else {
+		// 	console.log("slideup aktif");
+		// 	/* 1. FOR KASE NAE DEPE DROPDOWN */
+		// 	$(".pilih-user-opd .daftar-user").slideUp("fast");
+		// 	// $(".pilih-user-opd .daftar-user").removeClass("active");
+		// 	$(".pilih-user-opd span i").toggleClass("fa-chevron-down fa-chevron-up");
+		// 	/* 2. FOR UBAH ICON DOWN JADI UP*/
+		// }
+		// $(".pilih-user-opd .daftar-user").addClass("active");
+
 	});
 
-	$(".dafar-user .pilih-user").click(function () {
-		$(".pilih-user-opd ul.daftar-user").removeClass("active");
+	$(".daftar-user .pilih-user").click(function (e) {
+		e.preventDefault()
+		$(".pilih-user-opd .daftar-user").removeClass("active");
+		$('.main-content-edit-data .form-edit-user').addClass("active")
+
 	});
 
 	$('.pilih-lihat-upload-pengukuran').click(function () {

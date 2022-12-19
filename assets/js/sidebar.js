@@ -11,7 +11,7 @@ listBar.addEventListener("click", function () {
 $(document).ready(function () {
 	/* --FOR KASE TANDA USER D TINDIS PILIHAN APA */
 	/* 1. INI KALO USER PILIH SALAH SATU MENU DI SIDEBAR*/
-	$(".menu, .sidebar-content a").click(function (e) {
+	$(".menu").click(function (e) {
 		$(this).addClass("active").siblings().removeClass("active");
 		console.log("active");
 
@@ -25,13 +25,13 @@ $(document).ready(function () {
 			$(".dropdown.bagian-komponen-sakip").slideDown("fast");
 			/* 2. FOR UBAH ICON UP JADI DOWN */
 			$(".panah-sakip", this).toggleClass("fa-chevron-down fa-chevron-up");
-			console.log("komponen slidedown");
+			console.log("komponen slidedown sakip");
 		} else {
 			/* 1. FOR KASE NAE DEPE DROPDOWN */
 			$(".dropdown.bagian-komponen-sakip").slideUp("fast");
 			/* 2. FOR UBAH ICON DOWN JADI UP*/
 			$(".panah-sakip", this).toggleClass("fa-chevron-down fa-chevron-up");
-			console.log("komponen slide up");
+			console.log("komponen slide up sakip");
 		}
 
 		if (
@@ -42,23 +42,26 @@ $(document).ready(function () {
 			$(".dropdown.bagian-pengaturan").slideDown("fast");
 			/* 2. FOR UBAH ICON UP JADI DOWN */
 			$(".panah-pengaturan", this).toggleClass("fa-chevron-down fa-chevron-up");
+			console.log("komponen slidedown pengaturan");
+
 		} else {
 			/* 1. FOR KASE NAE  DPE DROPDOWN*/
 			$(".dropdown.bagian-pengaturan").slideUp("fast");
 			/* 2. FOR UBAH ICON DOWN JADI UP */
 			$(".panah-pengaturan", this).toggleClass("fa-chevron-down fa-chevron-up");
+			console.log("komponen slideup pengaturan");
 		}
 
 		// INI KALO MENU LAIN PUNYA CLASS ACTIVE, MAKA YANG DROPDOWN ADA TABUKA, DIA OTOMATIS TTTUP
 		if ($(".komponen-sakip").siblings().hasClass("active")) {
-			$(".panah-sakip").removeClass("fa-chevron-up");
+			$(".panah-sakip").toggleClass("fa-chevron-up");
 			$(".bagian-komponen-sakip .komponen").removeClass("active");
-			// console.log("nda aktif");
+			console.log("nda aktif sakip");
 		}
 		if ($(".list-pengaturan").siblings().hasClass("active")) {
-			$(".panah-pengaturan").removeClass("fa-chevron-up");
-			$(".bagian-pengaturan .pengaturan").removeClass("active");
-			// console.log("nda aktif");
+			$(".panah-pengaturan").toggleClass("fa-chevron-up");
+			// $(".bagian-pengaturan .pengaturan").removeClass("active");
+			console.log("nda aktif pengaturan");
 		}
 
 		// INI KALO DI DALAM
