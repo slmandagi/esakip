@@ -134,6 +134,7 @@ class User extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
 
             $this->pelaporan_kinerja();
+            echo'gagal';
         } else {
             //upload config....
             $config['upload_path']          = './uploads/';
@@ -145,7 +146,7 @@ class User extends CI_Controller
             $this->load->library('upload');
             $this->upload->initialize($config);
 
-            $File_dok     = $this->input->post('File_dok');
+            $File_dok       = $this->input->post('File_dok');
             $namaDokumen    = $this->input->post('namaDokumen');
             $unitKerja      = $this->input->post('unitKerja');
 
@@ -158,11 +159,13 @@ class User extends CI_Controller
             $upload_data = $this->upload->data();
             //mengambil file_name... 
             $tabelLaporan['File_dok'] = $upload_data['file_name'];
+            // var_dump($tabelLaporan);
 
             $result = $this->Mupload->tambahLaporan($tabelLaporan);
 
             if ($result > 0) {
                 echo (json_encode(array('status' => TRUE)));
+                redirect('user/index');
             } else {
                 echo (json_encode(array('status' => FALSE)));
             }

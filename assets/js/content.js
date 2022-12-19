@@ -18,8 +18,38 @@ $(document).ready(function () {
 	/*FOR UBAH WARNA ICON NOTIFIKASI */
 	$(".headline-for-all i").click(function () {
 		$(".headline-for-all i").toggleClass("active");
-		$('.head-notification-container').toggleClass("active");
+		$(".head-notification-container").toggleClass("active");
 		console.log("headline");
+	});
+
+	// FOR KASE TIMBUL DROPDOW DI PILIH USER (UPDATE DATA USER)
+	$(".pilih-user-opd span").click(function () {
+		// $(".pilih-user-opd span").addClass("active");
+		$(".pilih-user-opd ul.daftar-user").addClass("active");
+		const classActivePilihUser = $(".pilih-user-opd span").hasClass("active");
+		if (
+			classActivePilihUser &&
+			$(".pilih-user-opd ul.daftar-user").is(":hidden")
+		) {
+			/* 1. FOR KASE TURUN DEPE DROPDOWN */
+			console.log("slidedown aktif");
+			$(".pilih-user-opd ul.daftar-user").addClass("active");
+			$(".pilih-user-opd ul.daftar-user").slideDown("fast");
+			$(".pilih-user-opd span i").toggleClass("fa-chevron-down fa-chevron-up");
+			/* 2. FOR UBAH ICON UP JADI DOWN */
+		} else {
+			console.log("slideup aktif");
+			/* 1. FOR KASE NAE DEPE DROPDOWN */
+			$(".pilih-user-opd ul.daftar-user").slideUp("fast");
+			$(".pilih-user-opd ul.daftar-user").removeClass("active");
+			$(".pilih-user-opd label").removeClass("active");
+			$(".pilih-user-opd span i").toggleClass("fa-chevron-down fa-chevron-up");
+			/* 2. FOR UBAH ICON DOWN JADI UP*/
+		}
+	});
+
+	$(".dafar-user .pilih-user").click(function () {
+		$(".pilih-user-opd ul.daftar-user").removeClass("active");
 	});
 
 	/*FOR UBAH WARNA DI BUTTON PAGINATION */

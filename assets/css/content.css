@@ -1,13 +1,13 @@
 /* PEMBUNGKUS KONTEN START */
 .content-container {
     height: 100vh;
-    width: 85%;
+    width: 82%;
     transition: all 0.5s;
 }
 
 /* INI KALO SIDEBAR CLOSE DIA MO JADI LEBE LEBAR, MENYESUAIKAN DENG SIDEBAR PE WIDTH */
 .content-container.lebih-lebar {
-    width: 96%;
+    width: 94%;
 }
 
 /* PEMBUNGKUS KONTEN END */
@@ -92,6 +92,13 @@
 .search-table-container {
     margin: 20px 0px;
     width: 97%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.head-user-opd-container {
+    width: 97%;
+    margin: 0;
     display: flex;
     justify-content: space-between;
 }

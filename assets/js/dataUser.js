@@ -12,6 +12,7 @@ $(document).ready(function () {
 			success: function (data) {
 				if ((data.status = true)) {
 					location.reload();
+					alert('succes');
 				} else if ((data.status = false)) {
 					location.reload();
 				}

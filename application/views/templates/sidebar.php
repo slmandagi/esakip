@@ -78,7 +78,7 @@
                         Profil Pengguna
                     </a>
                 </li>
-                <li class="pengaturan nonactive">Ubah Email</li>
+                <!-- <li class="pengaturan nonactive">Ubah Email</li> -->
                 <li class="pengaturan nonactive">
                     <a href="<?= base_url('admin_sakip_sulut/user_opd') ?>">
                         User OPD
