@@ -11,7 +11,7 @@ listBar.addEventListener("click", function () {
 $(document).ready(function () {
 	/* --FOR KASE TANDA USER D TINDIS PILIHAN APA */
 	/* 1. INI KALO USER PILIH SALAH SATU MENU DI SIDEBAR*/
-	$(".menu").click(function () {
+	$(".menu, .sidebar-content a").click(function (e) {
 		$(this).addClass("active").siblings().removeClass("active");
 		console.log("active");
 

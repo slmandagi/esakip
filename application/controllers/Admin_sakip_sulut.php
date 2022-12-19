@@ -462,9 +462,7 @@ class Admin_sakip_sulut extends CI_Controller
             // torang simpan create linksnya ke variabel
             $data['pagination'] = $this->pagination->create_links();
             ///////////////////////////////////
-
-
-            $data['user'] = 'admin';
+            $data['user'] = 'admin_sakip_sulut';
             $data['judul_halaman'] = 'Pengaturan';
             $data['judul_header_page'] = 'Pengaturan User';
 
@@ -496,6 +494,22 @@ class Admin_sakip_sulut extends CI_Controller
             redirect('admin_sakip_sulut/user_opd');
         }
     }
+
+    public function profile()
+    {
+        # code...
+        $data['user'] = 'admin_sakip_sulut';
+
+        $data['judul_halaman'] = 'Profile';
+        $data['judul_header_page'] = 'Profile';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/profile/index');
+        $this->load->view('templates/footer');
+    }
+
 
     function update_status_block()
     {

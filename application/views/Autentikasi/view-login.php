@@ -1,7 +1,6 @@
 <div class="autentikasi-container">
-    <!-- <div class="img-wrapper-autentikasi">
-        <img src="<?= base_url('/assets/img/home/garuda.svg') ?>" alt="">
-    </div> -->
+
+
     <div class="form-autentikasi-container">
         <h1>Login</h1>
         <p>Silahkan bapak/ibu perangkat daerah untuk memasukkan data agar dapat masuk ke sistem.</p>
@@ -17,12 +16,15 @@
                 <i class="fa-solid fa-eye" onclick="myFunction()"></i>
             </div>
             <button type="submit" class="btn-login autentikasi">Login</button>
-        </form>
 
+        </form>
     </div>
-    <div class="headline-container">
+    <!-- <div class="headline-container">
         <h1 class="e">e<span class="sakip">SAKIP</span></h1>
-        <h2>Sistem Akuntabilitas Kinerja
-            Instansi Pemerintahan</h2>
-    </div>
+        <h3>Sistem Akuntabilitas Kinerja
+            Instansi Pemerintahan</h3>
+        <p>Biro Organisasi Pemerintah Provinsi Sulawesi Utara</p>
+
+    </div> -->
+
 </div>
