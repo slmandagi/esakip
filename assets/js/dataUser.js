@@ -1,5 +1,5 @@
 // $(document).ready(function () {
-// 	var form = $("#tambahLaporan");
+// 	var form = $("#perencanaan");
 
 // 	//function tambah laporan kinerja perangkat daerah
 // 	form.submit(function (e) {
@@ -12,6 +12,7 @@
 // 			success: function (data) {
 // 				if ((data.status = true)) {
 // 					location.reload();
+// 					console.log("data.opd");
 // 				} else if ((data.status = false)) {
 // 					location.reload();
 // 				}
