@@ -41,11 +41,11 @@
                 ?>
                         <tr>
                             <td><?= $i; ?></td>
-                            <td><?= $s->jenis_dok; ?></td>
+                            <td style="text-align: start; padding-left: 20px"><?= $s->nama_dok; ?></td>
                             <td><i class="fa-solid fa-circle-check"></i></td>
                             <td><?= $s->date; ?></td>
                             <td>
-                                <a href="<?= base_url() ?>Download">
+                                <a href="<?= base_url() ?>Download/download/<?= $s->id ?>">
                                     <i class="fa-solid fa-file-arrow-down">
                                     </i>
                                 </a>

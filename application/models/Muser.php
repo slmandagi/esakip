@@ -3,6 +3,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Muser extends CI_Model
 {
+    //input perencanaan
+    function tambah_perencanaan($data)
+    {
+
+        $this->db->insert('tbl_dokumen_user', $data);
+
+        return true;
+    }
+
+    //input pengukuran
+    function tambah_pengukuran($data)
+    {
+
+        $this->db->insert('tbl_dokumen_user', $data);
+
+        return true;
+    }
+
+    //input laporan 
+    function tambah_laporan($data)
+    {
+
+        $this->db->insert('tbl_dokumen_user', $data);
+
+        return true;
+    }
 
     // Function To Fetch All Users Record
     function show_users()
@@ -40,10 +66,7 @@ class Muser extends CI_Model
     function getAllData()
     {
         $this->db->select('*');
-        $this->db->from('perencanaan_kinerja_admin');
-        // $this->db->where('opd', 'minahasa');
-        $this->db->join('tbl_pengukuran', 'tbl_pengukuran.opd = perencanaan_kinerja_admin.opd');
-        // $this->db->join('tbl_pelaporan', 'tbl_pelaporan.opd = perencanaan_kinerja_admin.opd');
+        $this->db->from('tbl_dokumen_user');
 
         $query = $this->db->get();
         return $query->result();

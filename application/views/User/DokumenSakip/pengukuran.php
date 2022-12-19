@@ -215,22 +215,8 @@
         </div>
         <form action="<?= base_url('User/pengukuran_kinerja'); ?>" class="form-input-dokumen-pengukuran" method="POST" enctype="multipart/form-data">
             <div class="wrapper-input-dokumen">
-                <label for="file">Pilih File</label>
-                <!-- label ini berfungsi sebagai input(secara tampilan) -->
-                <label for="file" class="upload-file-dokumen">
-                    Upload file anda disini...
-                    <i class="fa-solid fa-file-circle-plus"></i>
-                </label>
-                <!-- hanya trima dokumen dan gambar -->
-                <input type="file" id="file" name="file" class="upload-file-pengukuran upload-input" required accept=".doc,.docx, application/pdf">
-            </div>
-            <div class="wrapper-input-dokumen">
                 <label for="input-nama-dokumen">Nama Dokumen</label>
-                <input type="text" name="namaDok" id="namaDok" placeholder="Input nama dokumen disini..." class="input-nama-dokumen upload-input">
-            </div>
-            <div class="wrapper-input-dokumen">
-                <label for="input-unit-kerja">Unit Kerja</label>
-                <input type="text" name="unitKerja" id="unitKerja" placeholder="Input unit kerja anda disini..." class="input-unit-kerja upload-input">
+                <input type="text" name="nama_dok" id="nama_dok" placeholder="Cth: Laporan Kinerja Triwulan 1" class="input-nama-dokumen upload-input">
             </div>
             <div class="wrapper-input-dokumen">
                 <label for="inpTri">Input Triwulan</label>
@@ -240,6 +226,16 @@
                         <option value="<?= $value->name ?>"><?= $value->name ?></option>
                     <?php endforeach ?>
                 </select>
+            </div>
+            <div class="wrapper-input-dokumen">
+                <label for="file">Pilih File</label>
+                <!-- label ini berfungsi sebagai input(secara tampilan) -->
+                <label for="file" class="upload-file-dokumen">
+                    Upload file anda disini...
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                </label>
+                <!-- hanya trima dokumen dan gambar -->
+                <input type="file" id="file" name="file" class="upload-file-pengukuran upload-input" required accept=".doc,.docx, application/pdf">
             </div>
             <button type="submit">Kirim</button>
         </form>
