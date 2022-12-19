@@ -20,10 +20,10 @@
 <div class="content">
     <!-- Home -->
     <div class="landing home" id="home">
-        <img src="<?= base_url('/assets/img/home/pulau-siladen-manado-sulawesi-utara 1.svg'); ?>" alt="" class="bg-img">
+        <img src="<?= base_url('/assets/img/home/PemprovSulut.jpg'); ?>" alt="" class="bg-img">
         <div class="headline-about">
             <h5 class="hidden">Selamat Datang di</h5>
-            <h1 class="sakip-highlight hidden">Sistem Akuntabilitas Kinerja Instansi Pemerintahan Provinsi Sulawesi Utara</h1>
+            <h1 class="sakip-highlight hidden"><span> Sistem Akuntabilitas Kinerja Instansi Pemerintahan Provinsi Sulawesi Utara</span></h1>
         </div>
     </div>
 
@@ -38,11 +38,11 @@
 
         <img src="<?= base_url('/assets/img/home/garuda.svg'); ?>" alt="" class="img-garuda hidden" height="300" width="300">
 
-        <div class="glass-bg desc hidden">
-            <p class="sakip-desc">
-                E - SAKIP adalah aplikasi Sistem Akuntabilitas Kinerja Instansi Pemerintah yang bertujuan untuk memudahkan proses pemantauan dan pengendalian kinerja dalam rangka meningkatkan akuntabilitas dan kinerja unit kerja. APLIKASI ini menampilkan proses perencanaan kinerja, penganggaran kinerja, keterkaitan kegiatan/sub kegiatan dalam pencapaian target kinerja, dan monitoring serta evaluasi pencapaian kinerja dan keuangan.
-            </p>
-        </div>
+        <!-- <div class="glass-bg desc hidden"> -->
+        <p class="sakip-desc">
+            E - SAKIP adalah aplikasi Sistem Akuntabilitas Kinerja Instansi Pemerintah yang bertujuan untuk memudahkan proses pemantauan dan pengendalian kinerja dalam rangka meningkatkan akuntabilitas dan kinerja unit kerja. APLIKASI ini menampilkan proses perencanaan kinerja, penganggaran kinerja, keterkaitan kegiatan/sub kegiatan dalam pencapaian target kinerja, dan monitoring serta evaluasi pencapaian kinerja dan keuangan.
+        </p>
+        <!-- </div> -->
     </div>
     <div class="strip-login">
         <div class="bungkus-strip-login hidden">

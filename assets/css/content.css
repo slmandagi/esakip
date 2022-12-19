@@ -601,6 +601,7 @@ form.form-kirim-pesan-admin {
     background: #E1E8E6;
     width: 90%;
     transition: all 0.5s;
+    resize: none;
 }
 
 .form-kirim-pesan-admin textarea:focus {
@@ -883,7 +884,8 @@ form.form-kirim-pesan-admin {
     position: relative;
 }
 
-.modal-pengaturan input {
+.form-edit-user .modal-pengaturan input,
+.form-edit-user input {
     border: none;
     outline: none;
     border-bottom: 2px solid grey;
@@ -892,11 +894,13 @@ form.form-kirim-pesan-admin {
     padding-left: 20px;
 }
 
-.modal-pengaturan input:focus {
+.modal-pengaturan input:focus,
+.form-edit-user input:focus {
     box-shadow: 0 2px 2px #A3C8CD;
 }
 
-.modal-pengaturan label {
+.modal-pengaturan label,
+.form-edit-user label {
     align-self: flex-start;
     padding-left: 20%;
     margin-bottom: 0;
@@ -904,16 +908,17 @@ form.form-kirim-pesan-admin {
     font-size: 14px;
 }
 
-.modal-pengaturan select {
+.modal-pengaturan select,
+.form-edit-user select {
     border: none;
     outline: none;
     border-bottom: 2px solid black;
     margin-top: 10px;
     width: 60%;
-    margin-bottom: 10px;
 }
 
-.modal-pengaturan option {
+.modal-pengaturan option,
+.form-edit-user option {
     background: #E1E8E6;
 }
 
