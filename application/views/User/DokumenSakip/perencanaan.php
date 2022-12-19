@@ -4,8 +4,8 @@
 
             <!-- user name yang akan terupload ke database -->
             <div class="wrapper-input-dokumen">
-                <label for="input-nama-dokumen">User Name</label>
-                <input name="opd" id="opd" type="text" value="<?php echo $this->session->userdata('name'); ?>" class="input-nama-dokumen upload-input" required>
+                <!-- <label for="input-nama-dokumen">User Name</label> -->
+                <input name="opd" id="opd" type="hidden" value="<?php echo $this->session->userdata('name'); ?>" class="input-nama-dokumen upload-input" required>
             </div>
 
             <div class="wrapper-input-dokumen">

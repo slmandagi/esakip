@@ -1,6 +1,18 @@
     <div class="user-opd-container">
         <div class="main-content-user-opd">
             <div class="search-table-container">
+                <!-- <div class="show-n-row-table">
+                    <p>Lihat</p>
+                    <form method="GET" action="<?= base_url('admin_sakip_sulut/user_opd') ?>">
+                        <select name="banyaknya-data">
+                            <option hidden></option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                        <input type="submit" name="pilih_jum_data" value="Tampilkan">
+                    </form>
+                </div> -->
+
                 <button class="btn-tambah-user">Tambah User</button>
                 <a href="<?= base_url('Admin_sakip_sulut/show_user_id') ?>"><button style="margin-right:800px;">Edit User</button></a>
                 <div class="search-table">
@@ -11,11 +23,11 @@
             <table class="table-user-opd">
                 <thead>
                     <tr>
-                        <th>Nomor</th>
+                        <th>No</th>
                         <th>Unit Kerja</th>
-                        <!-- <th>Username</th> -->
+                        <th>Jenis User</th>
                         <th>Email</th>
-                        <th>Hak Akses User</th>
+                        <!-- <th>Hak Akses User</th> -->
                         <th>Status User</th>
                         <th>Dibuat</th>
                         <th>Update</th>
@@ -41,36 +53,40 @@
                     foreach ($table as $baris) :
                     ?>
                         <tr>
-                            <td><?= $nomor ?></td>
-                            <td><?= $baris['user_name'] ?></td>
-                            <td><?= $baris['user_email'] ?></td>
-                            <td><?= $baris['user_akses'] == '1' ? "Admin" : "User" ?></td>
-                            <td><?= $baris['user_status'] == '1' ? "Aktif" : "Block" ?></td>
-                            <td><?= $baris['date_created'] ?></td>
-                            <td><?= $baris['date_update'] ?></td>
-                            <td>
-                                <form action="<?= base_url('admin_sakip_sulut/update_status_aktif'); ?>" method="POST">
+                            <?php if ($baris['user_akses'] == '2') { ?>
+                                <td><?= $nomor ?></td>
+                                <td><?= $baris['user_name'] ?></td>
+                                <td><?= $baris['Jenis_user'] ?></td>
+                                <td><?= $baris['user_email'] ?></td>
+                                <!-- <td><?= $baris['user_akses'] == '1' ? "Admin" : "User" ?></td> -->
+                                <td><?= $baris['user_status'] == '1' ? "Aktif" : "Block" ?></td>
+                                <td><?= $baris['date_created'] ?></td>
+                                <td><?= $baris['date_update'] ?></td>
+                                <td>
+                                    <form action="<?= base_url('admin_sakip_sulut/update_status_aktif'); ?>" method="POST">
 
-                                    <input type="hidden" name="user_id" id="user_id" value="<?= $baris['user_id'] ?>">
-                                    <input type="hidden" name="user_status" id="user_status" value="<?= $baris['user_status'] ?>">
-                                    <?php if ($baris['user_status'] == '0') { ?>
-                                        <button type="submit" class="btn-aktif-user">Aktifkan</button>
-                                    <?php } ?>
-                                </form>
+                                        <input type="hidden" name="user_id" id="user_id" value="<?= $baris['user_id'] ?>">
+                                        <input type="hidden" name="user_status" id="user_status" value="<?= $baris['user_status'] ?>">
+                                        <?php if ($baris['user_status'] == '0') { ?>
+                                            <button type="submit" class="btn-aktif-user">Aktifkan</button>
+                                        <?php } ?>
+                                    </form>
 
-                                <form action="<?= base_url('admin_sakip_sulut/update_status_block'); ?>" method="POST">
-                                    <input type="hidden" name="user_id" id="user_id" value="<?php echo $baris['user_id']; ?>">
-                                    <input type="hidden" name="user_status" id="user_status" value="<?php echo $baris['user_status']; ?>">
-                                    <?php if ($baris['user_status'] == '1') { ?>
-                                        <button uid="<?php echo $baris['user_id']; ?>" uemail="<?php echo $baris['user_email']; ?>" ustatus="<?php echo $baris['user_status']; ?>" class="btn-block-user">Block User</button>
-                                    <?php } ?>
-                                </form>
+                                    <form action="<?= base_url('admin_sakip_sulut/update_status_block'); ?>" method="POST">
+                                        <input type="hidden" name="user_id" id="user_id" value="<?php echo $baris['user_id']; ?>">
+                                        <input type="hidden" name="user_status" id="user_status" value="<?php echo $baris['user_status']; ?>">
+                                        <?php if ($baris['user_status'] == '1') { ?>
+                                            <button uid="<?php echo $baris['user_id']; ?>" uemail="<?php echo $baris['user_email']; ?>" ustatus="<?php echo $baris['user_status']; ?>" class="btn-block-user">Block User</button>
+                                        <?php } ?>
+                                    </form>
 
-                            </td>
-                            <td>
-                                <!-- <button uid="<?php echo $baris['user_id']; ?>" uname="<?php echo $baris['user_name']; ?>" uemail="<?php echo $baris['user_email']; ?>" ujenis="<?php echo $baris['Jenis_user']; ?>" class="btn-edit-user">Edit</button> -->
-                                <button class="btn-lupa-password">Lupa Password</button>
-                            </td>
+                                </td>
+                                <td>
+                                    <!-- <button uid="<?php echo $baris['user_id']; ?>" uname="<?php echo $baris['user_name']; ?>" uemail="<?php echo $baris['user_email']; ?>" ujenis="<?php echo $baris['Jenis_user']; ?>" class="btn-edit-user">Edit</button> -->
+
+                                    <button class="btn-lupa-password">Lupa Password</button>
+                                </td>
+                            <?php } ?>
                         </tr>
                     <?php
                         $nomor++;
@@ -122,32 +138,34 @@
 
 
             </div>
+
             <!-- <div class="modal-edit-user-container modal modal-pengaturan">
                 <div class="modal-edit-user">
+                    <?php foreach ($userID as $user) : ?>
 
-                    <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
-                        <h3>Edit User</h3>
+                        <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
+                            <h3>Edit User</h3>
 
-                        <label id="hide">Id :</label>
-                        <input type="hidden" id="user_id" name="user_id" value="">
+                            <label id="hide">Id :</label>
+                            <input type="hidden" id="user_id" name="user_id" value="">
 
-                        <label for="unit-kerja-modal">Unit Kerja</label>
-                        <input name="user_name" type="text" id="user_name" value="">
+                            <label for="unit-kerja-modal">Unit Kerja</label>
+                            <input name="user_name" type="text" id="user_name" value="">
 
-                        <label for="email-modal">Email</label>
-                        <input name="user_email" type="text" id="user_email" value="">
-                        <select name="Jenis_user" id="Jenis_user" role="radiogroup">
-                            <?php foreach ($jenis_u as $value) : ?>
-                                <option role="radio" value="" hidden>Pilih Role</option>
-                                <option role="radio" value="<?= $value->name ?>"><?= $value->name ?></option>
-                            <?php endforeach ?>
-                        </select>
+                            <label for="email-modal">Email</label>
+                            <input name="user_email" type="text" id="user_email" value="">
+                            <select name="Jenis_user" id="Jenis_user" role="radiogroup">
+                                <?php foreach ($jenis_u as $value) : ?>
+                                    <option role="radio" value="" hidden>Pilih Role</option>
+                                    <option role="radio" value="<?= $value->name ?>"><?= $value->name ?></option>
+                                <?php endforeach ?>
+                            </select>
 
-                        <button type="submit" id="btn-edit-user-modal" class="btn-edit-user-modal">Edit</button>
-                        <input type="submit" id="submit" name="dsubmit" value="Edit" class="btn-edit-user-modal">
-                        <i class="fa-solid fa-circle-xmark modal-close"></i>
-                    </form>
-
+                            <button type="submit" id="btn-edit-user-modal" class="btn-edit-user-modal">Edit</button>
+                            <input type="submit" id="submit" name="dsubmit" value="Edit" class="btn-edit-user-modal">
+                            <i class="fa-solid fa-circle-xmark modal-close"></i>
+                        </form>
+                    <?php endforeach; ?>
 
                 </div>
             </div> -->

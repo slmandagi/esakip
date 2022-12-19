@@ -18,6 +18,8 @@ class Muser extends CI_Model
         $this->db->where('user_id', $id);
         $this->db->update('tbl_user', $data);
     }
+
+    //function untuk update status user
     function update_status($id, $data)
     {
         $this->db->where('user_id', $id);

@@ -462,9 +462,11 @@ class Admin_sakip_sulut extends CI_Controller
             // torang simpan create linksnya ke variabel
             $data['pagination'] = $this->pagination->create_links();
             ///////////////////////////////////
+
+
             $data['user'] = 'admin';
             $data['judul_halaman'] = 'Pengaturan';
-            $data['judul_header_page'] = 'User OPD';
+            $data['judul_header_page'] = 'Pengaturan User';
 
             $get_u = $this->Mregis->get_jenis_u();
             $data['jenis_u'] = $get_u; //get jenis user dari model Mregis
@@ -534,6 +536,7 @@ class Admin_sakip_sulut extends CI_Controller
         $this->Muser->update_data($id, $data);
         $this->user_opd();
     }
+
 
     //controller untuk menampilkan page edit data user//
     function show_user_id()
