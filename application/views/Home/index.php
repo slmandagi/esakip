@@ -23,7 +23,7 @@
         <img src="<?= base_url('/assets/img/home/PemprovSulut.jpg'); ?>" alt="" class="bg-img">
         <div class="headline-about">
             <h5 class="hidden">Selamat Datang di</h5>
-            <h1 class="sakip-highlight hidden"><span> Sistem Akuntabilitas Kinerja Instansi Pemerintahan Provinsi Sulawesi Utara</span></h1>
+            <h1 class="sakip-highlight hidden"><span> Sistem Akuntabilitas Kinerja Instansi Pemerintah Provinsi Sulawesi Utara</span></h1>
         </div>
     </div>
 

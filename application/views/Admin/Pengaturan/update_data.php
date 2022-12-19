@@ -16,8 +16,10 @@
                         <td>
 
                             <li>
-                                <a href="<?php echo base_url() . "Admin_sakip_sulut/show_user_id/" . $u->user_id; ?>"><button class="btn-edit-user"><?php echo $u->user_name; ?></button> </a>
+                                <?php if ($u->user_akses == '2') { ?>
+                                    <a href="<?php echo base_url() . "Admin_sakip_sulut/show_user_id/" . $u->user_id; ?>"><button class="btn-edit-user"><?php echo $u->user_name; ?></button> </a>
 
+                                <?php } ?>
                             </li>
                         </td>
                         <!-- </ol> -->
