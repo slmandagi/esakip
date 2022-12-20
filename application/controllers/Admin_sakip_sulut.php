@@ -381,17 +381,90 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function informasi()
     {
-        $data['user'] = 'admin_sakip_sulut';
+        //upload config....
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|pdf|docx';
+        $config['max_size']             = 10000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
 
-        $data['judul_halaman'] = 'Informasi';
-        $data['judul_header_page'] = 'Informasi';
+        $this->load->library('upload');
+        $this->upload->initialize($config);
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/informasi/index');
-        $this->load->view('templates/footer');
-        # code...
+        if (!$this->upload->do_upload('file')) {
+            $model = "tbl_user";
+            $config['base_url'] = site_url('admin_sakip_sulut/user_opd'); // ini langsung link ke controller
+
+            $config['uri_segment'] = 3;
+            $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $config['total_rows'] = $this->Table->total_data($model);
+
+            if ($data['page'] == 0) {
+                if ($this->session->per_page == 0) {
+                    $this->session->per_page = 5;
+                    // return $this->session->per_page;
+                }
+                if ((int)$this->input->get('banyaknya-data')) {
+                    $this->session->per_page = (int)$this->input->get('banyaknya-data');
+                }
+            }
+            $config['per_page'] = $this->session->per_page;
+
+            $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
+            $config['first_link'] = '<<';
+            $config['next_link'] = 'Selanjutnya >';
+            $config['prev_link'] = '< Sebelumnya';
+
+            // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
+            $this->pagination->initialize($config);
+
+            $data = array(
+                'table' => $this->Table->get_table($model, $config['per_page'], $data['page'])
+            );
+
+            // torang simpan create linksnya ke variabel
+            $data['pagination'] = $this->pagination->create_links();
+            ///////////////////////////////////
+
+
+            $data['user'] = 'admin_sakip_sulut';
+
+            $data['judul_halaman'] = 'Informasi';
+            $data['judul_header_page'] = 'Informasi';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/head_content', $data);
+            $this->load->view('admin/informasi/index', $data);
+            $this->load->view('templates/footer');
+            # code...
+
+        } else {
+            $u_tujuan  = $this->input->post('u_tujuan');
+            $informasi   = $this->input->post('informasi');
+            $file   = $this->input->post('file');
+
+            $data = array(
+                'u_tujuan' => $u_tujuan,
+                'informasi' => $informasi,
+                'file' => $file,
+                'date_sended' => date("Y-m-d"),
+            );
+
+            $upload_data = $this->upload->data();
+            //mengambil file... 
+            $data['file'] = $upload_data['file_name'];
+            //untuk kirim ke database..
+            $insert = $this->Minformasi->input_data($data, 'tbl_informasi');
+
+            if ($insert) {
+
+                $this->session->set_flashdata('msg', '<div role="alert">Kirim Informasi Anda Berhasil</div>');
+                redirect('admin_sakip_sulut/informasi');
+            } else {
+                echo "Maaf Coba Lagi Ya...";
+            }
+        }
     }
 
     public function faq()
