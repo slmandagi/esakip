@@ -1,13 +1,13 @@
 /* PEMBUNGKUS KONTEN START */
 .content-container {
     height: 100vh;
-    width: 85%;
+    width: 82%;
     transition: all 0.5s;
 }
 
 /* INI KALO SIDEBAR CLOSE DIA MO JADI LEBE LEBAR, MENYESUAIKAN DENG SIDEBAR PE WIDTH */
 .content-container.lebih-lebar {
-    width: 96%;
+    width: 94%;
 }
 
 /* PEMBUNGKUS KONTEN END */
@@ -96,6 +96,14 @@
     justify-content: space-between;
 }
 
+.head-user-opd-container {
+    width: 97%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+}
+
 /* .search-table-container-user {
     width: 97%;
     display: flex;
@@ -167,7 +175,8 @@
 .main-content-notification,
 .main-content-informasi,
 .main-content-user-opd,
-.main-content-faq {
+.main-content-faq,
+.main-content-edit-data {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -754,7 +763,8 @@ form.form-kirim-pesan-admin {
     margin-left: 40px;
 }
 
-.main-content-user-opd button {
+.main-content-user-opd button,
+.main-content-edit-data button {
     border: none;
     outline: none;
     padding: 5px;
@@ -766,7 +776,10 @@ form.form-kirim-pesan-admin {
     border: 2px solid grey;
 }
 
-.main-content-user-opd button:hover {
+
+
+.main-content-user-opd button:hover,
+.main-content-edit-data button:hover {
     border: 2px solid white;
 }
 
@@ -873,7 +886,6 @@ form.form-kirim-pesan-admin {
 
 
 .form-tambah-user,
-.form-edit-user,
 .form-lupa-password {
     display: flex;
     flex-direction: column;
@@ -884,14 +896,30 @@ form.form-kirim-pesan-admin {
     position: relative;
 }
 
-.form-edit-user .modal-pengaturan input,
+.form-edit-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    margin-top: 40px;
+    height: 30%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-edit-user.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
 .form-edit-user input {
     border: none;
     outline: none;
     border-bottom: 2px solid grey;
     width: 60%;
     height: 25px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .modal-pengaturan input:focus,

@@ -7,7 +7,7 @@ class download extends CI_Controller
 
     function download($id)
     {
-        $data = $this->db->get_where('perencanaan_kinerja_admin', ['id' => $id])->row();
-        force_download('uploads/' . $data->File_dok, NULL);
+        $data = $this->db->get_where('tbl_dokumen_user', ['id' => $id])->row();
+        force_download('uploads/' . $data->file_name, NULL);
     }
 };

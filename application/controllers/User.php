@@ -6,7 +6,7 @@ class User extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Mupload');
+        $this->load->model('Muser');
         if ($this->session->userdata('logged') != TRUE) {
             $url = base_url('autentikasi');
             redirect($url);
@@ -21,7 +21,7 @@ class User extends CI_Controller
     public function index()
     {
         $data['user'] = 'user';
-
+        $data['all_docs'] = $this->Muser->getAllData();
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = "Dashboard";
         $this->load->view('templates/header', $data);
@@ -43,9 +43,7 @@ class User extends CI_Controller
         $this->load->library('upload');
         $this->upload->initialize($config);
 
-
         if (!$this->upload->do_upload('File_dok')) {
-
             $data['user'] = 'user';
             $getsurat = $this->Mdoc->getSuratData();
             $data['jenis_surat'] = $getsurat;
@@ -58,27 +56,23 @@ class User extends CI_Controller
             $this->load->view('user/dokumensakip/perencanaan', $data);
             $this->load->view('templates/footer');
         } else {
-
-
-            $opd   = $this->input->post('opd');
-            $jenis_dok   = $this->input->post('jenis_dok');
+            $jenis_dok  = $this->input->post('jenis_dok');
             $nama_dok   = $this->input->post('nama_dok');
-            $File_dok  = $this->input->post('File_dok');
-            $date  = $this->input->post('date');
+            $File_dok   = $this->input->post('File_dok');
 
             $data = array(
-                'opd' => $opd,
-                'jenis_dok' => $jenis_dok,
-                'nama_dok' => $nama_dok,
-                'File_dok' => $File_dok,
-                'date' => $date,
+                'opd'           => $this->session->userdata('name'),
+                'nama_dok'      => $nama_dok,
+                'jenis_dok'     => $jenis_dok,
+                'date'          => date("Y-m-d"),
+                'file_name'     => $File_dok,
             );
 
             $upload_data = $this->upload->data();
             //mengambil file_name... 
-            $data['File_dok'] = $upload_data['file_name'];
+            $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Mupload->input_data($data, 'perencanaan_kinerja_admin');
+            $insert = $this->Muser->tambah_perencanaan($data);
 
             if ($insert) {
                 redirect('user/index');
@@ -90,35 +84,112 @@ class User extends CI_Controller
 
     public function pengukuran_kinerja()
     {
-        # code...
-        $data['user'] = 'user';
+        //upload config....
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|pdf|docx';
+        $config['max_size']             = 10000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
 
-        $getsurat = $this->Mdoc->getTriwulan();
-        $data['jenis_surat'] = $getsurat;
+        $this->load->library('upload');
+        $this->upload->initialize($config);
 
-        $data['judul_halaman'] = 'Pengukuran Kinerja';
-        $data['judul_header_page'] = 'Pengukuran Kinerja';
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar_user');
-        $this->load->view('templates/head_content', $data);
-        $this->load->view('user/dokumensakip/pengukuran', $data);
-        $this->load->view('templates/footer');
+        if (!$this->upload->do_upload('file')) {
+            # code...
+            $data['user'] = 'user';
+
+            $getsurat = $this->Mdoc->getTriwulan();
+            $data['jenis_surat'] = $getsurat;
+
+            $data['judul_halaman'] = 'Pengukuran Kinerja';
+            $data['judul_header_page'] = 'Pengukuran Kinerja';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_user');
+            $this->load->view('templates/head_content', $data);
+            $this->load->view('user/dokumensakip/pengukuran', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $opd        = $this->session->userdata('name');
+            $nama_dok   = $this->input->post('nama_dok');
+            $inpTri     = $this->input->post('inpTri');
+            $date       = date("Y-m-d");
+            $file       = $this->input->post('file');
+
+            $data = array(
+                'opd'       => $opd,
+                'nama_dok'  => $nama_dok,
+                'jenis_dok' => $inpTri,
+                'date'      => $date,
+                'file_name' => $file
+            );
+
+            $upload_data = $this->upload->data();
+            //mengambil file_name... 
+            $data['file_name'] = $upload_data['file_name'];
+            //untuk kirim ke database..
+            $insert = $this->Muser->tambah_pengukuran($data);
+
+            if ($insert) {
+                redirect('user/index');
+            } else {
+                echo "Gagal";
+            }
+        }
     }
 
     public function pelaporan_kinerja()
     {
-        # code...
-        $data['user'] = 'user';
-        $data['judul_halaman'] = 'Pelaporan Kinerja';
-        $data['judul_header_page'] = 'Pelaporan Kinerja';
+        //upload config....
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|pdf|docx';
+        $config['max_size']             = 10000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar_user');
-        $this->load->view('templates/head_content', $data);
-        $this->load->view('user/dokumensakip/pelaporan');
+        $this->load->library('upload');
+        $this->upload->initialize($config);
 
-        $this->load->view('templates/footer');
+
+        if (!$this->upload->do_upload('File_dok')) {
+            $data['user'] = 'user';
+            $data['judul_halaman'] = 'Pelaporan Kinerja';
+            $data['judul_header_page'] = 'Pelaporan Kinerja';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_user');
+            $this->load->view('templates/head_content', $data);
+            $this->load->view('user/dokumensakip/pelaporan');
+
+            $this->load->view('templates/footer');
+        } else {
+            $opd        = $this->session->userdata('name');
+            $nama_dok   = $this->input->post('nama_dok');
+            $jenis_dok  = 'Laporan Kinerja Tahunan';
+            $date       = date("Y-m-d");
+            $File_dok   = $this->input->post('File_dok');
+
+            $data = array(
+                'opd'       => $opd,
+                'nama_dok'  => $nama_dok,
+                'jenis_dok' => $jenis_dok,
+                'date'      => $date,
+                'file_name' => $File_dok
+            );
+
+            $upload_data = $this->upload->data();
+            //mengambil file_name... 
+            $data['file_name'] = $upload_data['file_name'];
+            //untuk kirim ke database..
+            $insert = $this->Muser->tambah_laporan($data);
+
+            if ($insert) {
+                redirect('user/index');
+            } else {
+                echo "Gagal";
+            }
+        }
     }
 
     public function evaluasi_kinerja()
@@ -133,60 +204,6 @@ class User extends CI_Controller
         $this->load->view('templates/head_content', $data);
         $this->load->view('user/dokumensakip/evaluasi');
         $this->load->view('templates/footer');
-    }
-
-    //upload laporan user
-    function tambahLaporan()
-    {
-
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('namaDokumen', 'NamaDokumen', 'trim|required|max_length[128]|xss_clean');
-        $this->form_validation->set_rules('unitKerja', 'UnitKerja', 'trim|required|max_length[128]|xss_clean');
-
-        if ($this->form_validation->run() == FALSE) {
-
-            $this->pelaporan_kinerja();
-        } else {
-            //upload config....
-            $config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'gif|jpg|png|pdf|docx';
-            $config['max_size']             = 10000;
-            $config['max_width']            = 1024;
-            $config['max_height']           = 768;
-
-            $this->load->library('upload');
-            $this->upload->initialize($config);
-
-            $File_dok     = $this->input->post('File_dok');
-            $namaDokumen    = $this->input->post('namaDokumen');
-            $unitKerja      = $this->input->post('unitKerja');
-
-            $tabelLaporan = [
-                'File_dok'      => $File_dok,
-                'namaDokumen'   => $namaDokumen,
-                'unitKerja'     => $unitKerja,
-            ];
-
-            $upload_data = $this->upload->data();
-            //mengambil file_name... 
-            $tabelLaporan['File_dok'] = $upload_data['file_name'];
-
-            $result = $this->Mupload->tambahLaporan($tabelLaporan);
-
-            if ($result > 0) {
-                echo (json_encode(array('status' => TRUE)));
-            } else {
-                echo (json_encode(array('status' => FALSE)));
-            }
-        }
-    }
-
-
-    function download($id)
-    {
-        $data = $this->db->get_where('perencanaan_kinerja_admin', ['id' => $id])->row();
-        force_download('uploads/' . $data->File_dok, NULL);
     }
 
     public function informasi()

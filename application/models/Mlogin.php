@@ -20,4 +20,4 @@ class Mlogin extends CI_Model
         $result = $this->db->query("SELECT * FROM tbl_user WHERE user_email='$email' AND user_password= '" . md5($password) . "' ");
         return $result;
     }
-}
+}   

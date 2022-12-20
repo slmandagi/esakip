@@ -53,7 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['tambahLaporan']            = "user_page_login/tambahLaporan";
+$route['tambahLaporan']            = "user/tambahLaporan";
+$route['tambah_perencanaan']            = "user/tambah_perencanaan";
+
 
 
 // $route['']

@@ -1,6 +1,6 @@
     <div class="user-opd-container">
         <div class="main-content-user-opd">
-            <div class="search-table-container">
+            <div class="head-user-opd-container">
                 <!-- <div class="show-n-row-table">
                     <p>Lihat</p>
                     <form method="GET" action="<?= base_url('admin_sakip_sulut/user_opd') ?>">

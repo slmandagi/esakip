@@ -33,134 +33,28 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Renstra</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>RPJMD</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>IKU</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>RENJA/RKT</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>PK</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Rencana Aksi</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Laporan Kinerja</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Cascading Kinerja</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Pohon Kinerja</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Crosscutting</td>
-                    <td><i class="fa-solid fa-circle-check"></i></td>
-                    <td>12 November 2022</td>
-                    <td>
-                        <a download="dokumen-sakip" href="<?= base_url('/assets/img/home/garuda.svg') ?>">
-                            <i class="fa-solid fa-file-arrow-down">
-                            </i>
-
-                        </a>
-                    </td>
-                </tr>
+                <?php
+                if (!empty($all_docs)) {
+                    $i = 0;
+                    foreach ($all_docs as $s) {
+                        $i++;
+                ?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td style="text-align: start; padding-left: 20px"><?= $s->nama_dok; ?></td>
+                            <td><i class="fa-solid fa-circle-check"></i></td>
+                            <td><?= $s->date; ?></td>
+                            <td>
+                                <a href="<?= base_url() ?>Download/download/<?= $s->id ?>">
+                                    <i class="fa-solid fa-file-arrow-down">
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
             </tbody>
         </table>
         <div class="footer-for-pagination">
