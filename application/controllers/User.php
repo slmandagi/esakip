@@ -46,7 +46,6 @@ class User extends CI_Controller
         if (!$this->upload->do_upload('File_dok')) {
             $data['user'] = 'user';
             $getsurat = $this->Mdoc->getSuratData();
-
             $data['jenis_surat'] = $getsurat;
 
             $data['judul_halaman'] = 'Perencanaan Kinerja';
