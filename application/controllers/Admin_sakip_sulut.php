@@ -559,7 +559,7 @@ class Admin_sakip_sulut extends CI_Controller
         $data['users'] = $this->Muser->show_users(); //untuk menampilkan semua user yang ada
         $data['userID'] = $this->Muser->show_user_id($id); //
         /////////////
-        $data['user'] = 'admin';
+        $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'Pengaturan';
         $data['judul_header_page'] = 'Update Data User';
 

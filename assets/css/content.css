@@ -1,7 +1,7 @@
 /* PEMBUNGKUS KONTEN START */
 .content-container {
     height: 100vh;
-    width: 82%;
+    width: 84%;
     transition: all 0.5s;
 }
 
@@ -560,7 +560,12 @@ button.btn-selesai-input-triwulan:hover {
     width: 95%;
     height: inherit;
     border-radius: 30px;
+    /* display: flex; */
+}
+
+.the-base.informasi-user {
     display: flex;
+    justify-content: center;
 }
 
 .daftar-pesan-terkirim {
@@ -574,21 +579,33 @@ button.btn-selesai-input-triwulan:hover {
     justify-content: space-around;
 }
 
-.pesan-terkirim {
+.daftar-pesan-diterima {
+    width: 70%;
+    padding: 10px 20px 10px 20px;
+    background: #062C30;
+    border-radius: 10px;
+    height: inherit;
+}
+
+.pesan-terkirim,
+.pesan-diterima {
     line-height: 25px;
 }
 
-.pesan-terkirim p {
+.pesan-terkirim p,
+.pesan-diterima p {
     font-size: 14px;
     color: white;
 }
 
-.pesan-terkirim h5.user-pengirim {
+.pesan-terkirim h5.user-pengirim,
+.pesan-diterima h5.user-pengirim {
     font-size: 14px;
     color: white;
 }
 
-.pesan-terkirim h5 {
+.pesan-terkirim h5,
+.pesan-diterima h5 {
     color: grey;
 }
 

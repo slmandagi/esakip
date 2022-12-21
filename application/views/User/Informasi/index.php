@@ -1,32 +1,48 @@
 <div class="informasi-user-container">
     <div class="main-content-informasi-user">
-        <table class="table-informasi-user">
-            <thead>
-                <tr>
-                    <th>Nomor</th>
-                    <th>Username</th>
-                    <th>Hari/Tanggal</th>
-                    <th>Isi pesan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Admin Sakip</td>
-                    <td>12 November 2022</td>
-                    <td>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, minus perspiciatis nostrum quam praesentium aliquid labore dicta, dolorum reprehenderit dolores aspernatur incidunt assumenda. Ab incidunt dolor dolorem, commodi sapiente fugiat.
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Admin Sakip</td>
-                    <td>12 November 2022</td>
-                    <td>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit..
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+        <div class="the-base informasi-user">
+            <div class="daftar-pesan-diterima">
+                <div class="pesan-diterima">
+                    <h5 class="user-pengirim">Admin Sakip</h5>
+                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
+                    <h5>2 November 2022</h5>
+                </div>
+                <hr>
+                <div class="pesan-diterima">
+                    <h5 class="user-pengirim">Admin Sakip</h5>
+                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
+                    <h5>2 November 2022</h5>
+                </div>
+                <hr>
+                <div class="pesan-diterima">
+                    <h5 class="user-pengirim">Admin Sakip</h5>
+                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
+                    <h5>2 November 2022</h5>
+
+                </div>
+                <hr>
+                <div class="pesan-diterima">
+                    <h5 class="user-pengirim">Admin Sakip</h5>
+                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
+                    <h5>2 November 2022</h5>
+
+                </div>
+                <hr>
+                <div class="pesan-diterima">
+                    <h5 class="user-pengirim">Admin Sakip</h5>
+                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
+                    <h5>2 November 2022</h5>
+
+                </div>
+                <hr>
+                <div class="pesan-diterima">
+                    <h5 class="user-pengirim">Admin Sakip</h5>
+                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
+                    <h5>2 November 2022</h5>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
