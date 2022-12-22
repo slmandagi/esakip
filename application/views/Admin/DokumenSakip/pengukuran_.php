@@ -44,7 +44,7 @@
                             <td><?= $i; ?></td>
                             <td><?= $opd->user_name; ?></td>
                             <td>
-                                <a class="btn-triwulan triwulan-1-modal" type="button">
+                                <a class="btn-triwulan triwulan-1-modal" id="t1" data-opd="<?= $opd->user_name ?>" type="button">
                                     Triwulan 1
                                 </a>
                                 <a class="btn-triwulan triwulan-2-modal" type="button">
@@ -64,7 +64,7 @@
                 ?>
             </tbody>
         </table>
-        <div class="modal-triwulan-1-container modal">
+        <div class="modal-triwulan-1-container modal" id="modal_t1">
             <div class="modal-triwulan">
                 <div class="head-modal-triwulan">
                     Input Triwulan I
@@ -73,7 +73,7 @@
                 <form id="triwulan1" class="form-modal-triwulan triwulan-1" action="<?php echo base_url('tambah_t1') ?>" enctype="multipart/form-data" method="post">
                     <div class="unduh-dokumen-lakip-container">
                         <label for="unduh-dok-lakip">Unduh Dokumen Laporan Kinerja Triwulan I</label>
-                        <a href="<?= base_url('/assets/img/home/garuda.svg') ?>" download id="unduh-dok-lakip" class="unduh-dok-lakip">Unduh Disini</a>
+                        <a href="<?= base_url(); ?>download/download/<?= $id ?>" download id="unduh-dok-lakip" class="unduh-dok-lakip">Unduh Disini</a>
                     </div>
 
                     <div class="input-pengukuran-admin-container">

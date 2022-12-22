@@ -20,4 +20,27 @@ $(document).ready(function () {
 			},
 		});
 	});
+
+	jQuery(document).on("click", "#t1", function (e) {
+		e.preventDefault();
+
+		var idnya = $(this).data("opd");
+
+		// var basee = window.base_url = <?php echo json_encode(base_url('karoo/')); ?> + 'disposisi';
+
+		// console.log(basee);
+
+		$("#modal_t1").modal("show");
+
+		$.ajax({
+			type: "POST", //send with post
+			url: basee,
+			data: {
+				idnya: idnya,
+			},
+			success: function (data) {
+				$("#detail_id").text(idnya);
+			},
+		});
+	});
 });
