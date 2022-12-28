@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="profile">
-            <img src="<?= base_url('/assets/img/sidebar/RandomPerson.svg') ?> " alt="" height="50" width="50">
+            <img src="<?= base_url('/assets/img/sidebar/RandomPerson.png') ?> " alt="" height="50" width="50">
             <div class="data-profile">
                 <h4><?php echo $this->session->userdata('name'); ?></h4>
                 <p><?php echo $this->session->userdata('access'); ?></p>
