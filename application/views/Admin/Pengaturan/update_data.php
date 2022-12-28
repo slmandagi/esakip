@@ -19,7 +19,7 @@
 
         <?php foreach ($userID as $u) : ?>
             <?php if ($u->user_akses == '2') { ?>
-                <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
+                <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="" method="POST">
 
                     <input type="hidden" id="user_id" name="user_id" value="<?php echo $u->user_id; ?>">
 
@@ -29,7 +29,7 @@
                     <label for="email-modal">Email</label>
                     <input name="user_email" type="text" id="user_email" value="<?php echo $u->user_email; ?>">
 
-                    <select name="Jenis_user" id="Jenis_user" role="radiogroup">
+                    <select name="Jenis_user" id="Jenis_user" role="radiogroup" required>
                         <?php foreach ($jenis_u as $j) : ?>
                             <option value="" hidden><?php echo $u->Jenis_user; ?></option>
                             <option value="<?= $j->name ?>"><?= $j->name ?></option>

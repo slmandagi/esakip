@@ -52,12 +52,12 @@ $(document).ready(function () {
 
 	});
 
-	$(".daftar-user .pilih-user").click(function (e) {
-		e.preventDefault()
-		$(".pilih-user-opd .daftar-user").removeClass("active");
-		$('.main-content-edit-data .form-edit-user').addClass("active")
+	// $(".daftar-user .pilih-user").click(function (e) {
+	// 	e.preventDefault()
+	// 	$(".pilih-user-opd .daftar-user").removeClass("active");
+	// 	$('.main-content-edit-data .form-edit-user').addClass("active")
 
-	});
+	// });
 
 	$('.pilih-lihat-upload-pengukuran').click(function () {
 		$(this).addClass("active").siblings().removeClass("active")
