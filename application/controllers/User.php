@@ -16,11 +16,6 @@ class User extends CI_Controller
             $url = base_url('admin_sakip_sulut');
             redirect($url);
         };
-<<<<<<< HEAD
-=======
-
-        // $this->load->model('Table');
->>>>>>> dddc023af9bfb3a7650936f658a0d9ad3f64e06c
     }
 
     public function index()
@@ -131,11 +126,15 @@ class User extends CI_Controller
 
 
         if (!$this->upload->do_upload('file')) {
-            # code...
+            $opd = $this->session->userdata('name');
             $data['user'] = 'user';
+            $data['jenis_surat'] = $this->Mdoc->getTriwulan();
+            $data['nilai_triwulan'] = $this->Muser->getNilaiTriwulan($opd);
 
-            $getsurat = $this->Mdoc->getTriwulan();
-            $data['jenis_surat'] = $getsurat;
+            // foreach ($data['nilai_triwulan'] as $nt) {
+            //     # code...
+            // }
+
 
             $data['judul_halaman'] = 'Pengukuran Kinerja';
             $data['judul_header_page'] = 'Pengukuran Kinerja';

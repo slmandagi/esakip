@@ -12,7 +12,6 @@ class Muser extends CI_Model
         $query = $query->result();
         return $query;
     }
-
     function total_data($opd, $model)
     {
         $this->load->database($model);
@@ -35,6 +34,17 @@ class Muser extends CI_Model
         $this->db->update('tbl_status_dokumen', $status);
 
         return true;
+    }
+
+    //utk mengambil nilai triwulan
+    function getNilaiTriwulan($opd)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_pengukuran_triwulan');
+        $this->db->where('opd', $opd);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
     }
 
     // Function To Fetch All Users Record
