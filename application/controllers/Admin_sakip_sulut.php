@@ -335,6 +335,21 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function triwulan($n_triwulan)
+    {
+        # code...
+        $data['user'] = 'admin_sakip_sulut';
+
+        # code...
+        $data['judul_halaman'] = "Pengaturan";
+        $data['judul_header_page'] =  "Ubah Email & Password";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/pengaturan/ubah_email_pass');
+        $this->load->view('templates/footer');
+    }
+
     public function informasi()
     {
         //upload config....
@@ -572,6 +587,7 @@ class Admin_sakip_sulut extends CI_Controller
         $data = array(
             'User_name' => $this->input->post('user_name'),
             'User_email' => $this->input->post('user_email'),
+            'user_password' =>  md5($this->input->post('user_password')),
             'Jenis_user' => $this->input->post('Jenis_user'),
             'date_update' => date("Y-m-d"),
             // 'User_status' => 0,
@@ -579,6 +595,21 @@ class Admin_sakip_sulut extends CI_Controller
         $this->Muser->update_data($id, $data);
         $this->user_opd();
     }
+
+    //function untuk update password user
+    // function update_pass()
+    // {
+    //     $id = $this->input->post('user_id');
+
+    //     $data = array(
+
+    //         'user_password' =>  md5($this->input->post("user_password")),
+    //         'date_update' => date("Y-m-d"),
+
+    //     );
+    //     $this->Muser->update_data($id, $data);
+    //     $this->user_opd();
+    // }
 
 
     //controller untuk menampilkan page edit data user//

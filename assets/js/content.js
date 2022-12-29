@@ -52,12 +52,12 @@ $(document).ready(function () {
 
 	});
 
-	$(".daftar-user .pilih-user").click(function (e) {
-		e.preventDefault()
-		$(".pilih-user-opd .daftar-user").removeClass("active");
-		$('.main-content-edit-data .form-edit-user').addClass("active")
+	// $(".daftar-user .pilih-user").click(function (e) {
+	// 	e.preventDefault()
+	// 	$(".pilih-user-opd .daftar-user").removeClass("active");
+	// 	$('.main-content-edit-data .form-edit-user').addClass("active")
 
-	});
+	// });
 
 	$('.pilih-lihat-upload-pengukuran').click(function () {
 		$(this).addClass("active").siblings().removeClass("active")
@@ -73,9 +73,43 @@ $(document).ready(function () {
 		}
 		else {
 			$('.form-input-dokumen-pengukuran').removeClass('active')
-
 		}
 
+	})
+
+	$('.pilih-btn-triwulan').click(function () {
+		$(this).addClass("active").siblings().removeClass("active");
+		$(this).addClass("point-none").siblings().removeClass("point-none");
+
+		if ($('.btn-triwulan-1').hasClass('active')) {
+			$('.triwulan-1').toggleClass('active');
+		}
+		else {
+			$('.triwulan-1').removeClass('active');
+		}
+
+		if ($('.btn-triwulan-2').hasClass('active')) {
+			$('.triwulan-2').toggleClass('active');
+		}
+		else {
+			$('.triwulan-2').removeClass('active');
+		}
+
+		if ($('.btn-triwulan-3').hasClass('active')) {
+			$('.triwulan-3').toggleClass('active');
+
+		}
+		else {
+			$('.triwulan-3').removeClass('active');
+		}
+
+		if ($('.btn-triwulan-4').hasClass('active')) {
+			$('.triwulan-4').toggleClass('active');
+
+		}
+		else {
+			$('.triwulan-4').removeClass('active');
+		}
 	})
 
 	/*FOR UBAH WARNA DI BUTTON PAGINATION */

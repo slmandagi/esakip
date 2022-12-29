@@ -16,7 +16,7 @@
                     <h5>Dokumen Masuk</h5>
                     <p>Badan Pendapatan Daerah baru saja memasukan dokumen renstra.</p>
                 </div>
-                <a href="<?= base_url($user . '/notification') ?>">Lihat lebih banyak</a>
+                <a href="<?= base_url($user . '/notification/index') ?>">Lihat lebih banyak</a>
             </div>
         </div>
 

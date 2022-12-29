@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 
     // Modal edit user
-    
+
     $('.btn-edit-user').click(function () {
         $('.modal-edit-user-container').addClass("active");
     })
@@ -49,7 +49,8 @@ $(document).ready(function () {
     // Modal pengukuran
 
     // triwulan 1
-    $('.triwulan-1-modal').click(function () {
+    $('.triwulan-1-modal').click(function (e) {
+        e.preventDefault();
         $('.modal-triwulan-1-container').addClass('active');
     })
 

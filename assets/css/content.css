@@ -166,14 +166,14 @@
 .main-content-dashboard,
 .main-content-pelaporan-kinerja,
 .main-content-evaluasi-kinerja,
-.main-content-pengukuran-kinerja,
 .main-content-ubah-email-container,
 .main-content-dashboard-user,
 .main-content-perencanaan-kinerja,
+.main-content-pengukuran-kinerja,
 .main-content-informasi-user,
+.main-content-informasi,
 .main-content-profil-pengguna-container,
 .main-content-notification,
-.main-content-informasi,
 .main-content-user-opd,
 .main-content-faq,
 .main-content-edit-data {
@@ -428,7 +428,7 @@ button.btn-selesai-input-triwulan:hover {
 
 .pilih-lihat-hasil-pengukuran {
     width: 30%;
-    height: 100%;
+    height: 35px;
     background: #A3C8CD;
     color: white;
     border-radius: 10px 0px 0px 10px;
@@ -442,7 +442,7 @@ button.btn-selesai-input-triwulan:hover {
 
 .pilih-upload-dokumen-pengukuran {
     width: 30%;
-    height: 100%;
+    height: 35px;
     background: #A3C8CD;
     color: white;
     line-height: 35px;
@@ -486,16 +486,24 @@ button.btn-selesai-input-triwulan:hover {
 
 
 
-.btn-triwulan {
+.pilih-btn-triwulan {
     padding: 4px;
     border-radius: 8px;
     cursor: pointer;
-    color: white;
-    background: #3D8361;
+    color: #3D8361;
+    background: white;
     border: 2px solid #3D8361;
     transition: all 0.5s;
     margin: 0px 5px 0px 5px;
 }
+
+.pilih-btn-triwulan.active {
+    color: white;
+    background: #3D8361;
+    border: 2px solid #3D8361;
+}
+
+
 
 .content-modal-triwulan-user {
     margin: 15px;
@@ -560,7 +568,7 @@ button.btn-selesai-input-triwulan:hover {
     width: 95%;
     height: inherit;
     border-radius: 30px;
-    /* display: flex; */
+    display: flex;
 }
 
 .the-base.informasi-user {
@@ -610,7 +618,7 @@ button.btn-selesai-input-triwulan:hover {
 }
 
 form.form-kirim-pesan-admin {
-    width: 55%;
+    width: 50%;
     height: inherit;
     display: flex;
     flex-direction: column;
@@ -1052,16 +1060,15 @@ form.form-kirim-pesan-admin {
 
 /* FORM START */
 .perencanaan-kinerja-container .form-input-dokumen-perencanaan,
-.pelaporan-kinerja-container .form-input-dokumen-pelaporan,
-.pengukuran-kinerja-container form {
+.pelaporan-kinerja-container .form-input-dokumen-pelaporan {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.pengukuran-kinerja-container form {
+/* .pengukuran-kinerja-container form {
     opacity: 0;
     visibility: hidden;
     display: none;
-}
+} */
