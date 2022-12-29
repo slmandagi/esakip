@@ -17,27 +17,33 @@
             </ul>
         </div>
 
-        <?php foreach ($userID as $u) : ?>
-            <?php if ($u->user_akses == '2') { ?>
-                <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
+        <?php foreach ($userID as $user) : ?>
+            <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="" method="POST">
 
-                    <input type="hidden" id="user_id" name="user_id" value="<?php echo $u->user_id; ?>">
+                <center>
+                    <br>
+                    <p>Update Data <b><?php echo $user->user_name; ?></b></p>
+                </center>
 
-                    <label for="unit-kerja-modal">Unit Kerja</label>
-                    <input name="user_name" type="text" id="user_name" value="<?php echo $u->user_name; ?>">
+                <input type="hidden" id="user_id" name="user_id" value="<?php echo $user->user_id; ?>">
 
-                    <label for="email-modal">Email</label>
-                    <input name="user_email" type="text" id="user_email" value="<?php echo $u->user_email; ?>">
+                <label for="unit-kerja-modal">Unit Kerja</label>
+                <input name="user_name" type="text" id="user_name" value="<?php echo $user->user_name; ?>">
 
-                    <select name="Jenis_user" id="Jenis_user" role="radiogroup">
-                        <?php foreach ($jenis_u as $j) : ?>
-                            <option value="" hidden><?php echo $u->Jenis_user; ?></option>
-                            <option value="<?= $j->name ?>"><?= $j->name ?></option>
-                        <?php endforeach ?>
-                    </select>
-                    <button type="submit" id="btn-edit-user" class="btn-edit-user" style="margin-top: 30px;">Edit</button>
-                </form>
-            <?php } ?>
+                <label for="email-modal">Email</label>
+                <input name="user_email" type="text" id="user_email" value="<?php echo $user->user_email; ?>">
+
+                <label for="email-modal">Password</label>
+                <input name="user_password" type="password" id="user_password" value="">
+
+                <select name="Jenis_user" id="Jenis_user" role="radiogroup" required>
+                    <?php foreach ($jenis_u as $j) : ?>
+                        <option value="" hidden>Pilih..</option>
+                        <option value="<?= $j->name ?>"><?= $j->name ?></option>
+                    <?php endforeach ?>
+                </select>
+                <button type="submit" class="btn-edit-user" style="margin-top: 30px;">Edit</button>
+            </form>
         <?php endforeach; ?>
         <!-- <h4>Pilih User Terlebih Dahulu.</h4> -->
     </div>

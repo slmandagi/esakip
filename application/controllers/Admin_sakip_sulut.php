@@ -635,6 +635,7 @@ class Admin_sakip_sulut extends CI_Controller
         $data = array(
             'User_name' => $this->input->post('user_name'),
             'User_email' => $this->input->post('user_email'),
+            'user_password' =>  md5($this->input->post('user_password')),
             'Jenis_user' => $this->input->post('Jenis_user'),
             'date_update' => date("Y-m-d"),
             // 'User_status' => 0,
@@ -642,6 +643,21 @@ class Admin_sakip_sulut extends CI_Controller
         $this->Muser->update_data($id, $data);
         $this->user_opd();
     }
+
+    //function untuk update password user
+    // function update_pass()
+    // {
+    //     $id = $this->input->post('user_id');
+
+    //     $data = array(
+
+    //         'user_password' =>  md5($this->input->post("user_password")),
+    //         'date_update' => date("Y-m-d"),
+
+    //     );
+    //     $this->Muser->update_data($id, $data);
+    //     $this->user_opd();
+    // }
 
 
     //controller untuk menampilkan page edit data user//

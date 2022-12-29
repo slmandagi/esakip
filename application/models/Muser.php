@@ -45,6 +45,7 @@ class Muser extends CI_Model
         $this->db->update('tbl_user', $data);
     }
 
+
     //function untuk update status user
     function update_status($id, $data)
     {
