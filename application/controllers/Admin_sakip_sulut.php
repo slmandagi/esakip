@@ -383,6 +383,21 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function triwulan($n_triwulan)
+    {
+        # code...
+        $data['user'] = 'admin_sakip_sulut';
+
+        # code...
+        $data['judul_halaman'] = "Pengaturan";
+        $data['judul_header_page'] =  "Ubah Email & Password";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/pengaturan/ubah_email_pass');
+        $this->load->view('templates/footer');
+    }
+
     public function informasi()
     {
         //upload config....
