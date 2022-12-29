@@ -12,9 +12,10 @@
                         <input type="submit" name="pilih_jum_data" value="Tampilkan">
                     </form>
                 </div> -->
-
-                <button class="btn-tambah-user">Tambah User</button>
-                <a href="<?= base_url('Admin_sakip_sulut/show_user_id') ?>"><button style="margin-right:800px;">Edit User</button></a>
+                <div class="tambah-edit-user-container">
+                    <button class="btn-tambah-user">Tambah User</button>
+                    <a href="<?= base_url('Admin_sakip_sulut/show_user_id') ?>">Edit User</a>
+                </div>
                 <div class="search-table">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
@@ -111,8 +112,11 @@
 
             <div class="modal-tambah-user-container modal modal-pengaturan">
                 <div class="modal-tambah-user">
-                    <form action="<?= base_url('admin_sakip_sulut/user_opd'); ?>" class="form-tambah-user" method="POST">
+                    <div class="head-modal-tambah-user">
                         <h3>Tambah User</h3>
+                        <i class="fa-solid fa-circle-xmark modal-close"></i>
+                    </div>
+                    <form action="<?= base_url('admin_sakip_sulut/user_opd'); ?>" class="form-tambah-user" method="POST">
                         <label for="unit-kerja-modal">Unit Kerja</label>
                         <span style="color: red;"> <?= form_error('user_name', '<small class="text-danger">', '</small>') ?></span>
                         <input type="text" id="unit-kerja-modal" name="user_name" value="<?= set_value('user_name'); ?>">
@@ -132,7 +136,6 @@
                             <?php endforeach ?>
                         </select>
                         <button type="submit" id="btn-tambah-user-modal" class="btn-tambah-user-modal">Tambah</button>
-                        <i class="fa-solid fa-circle-xmark modal-close"></i>
                     </form>
                 </div>
             </div>

@@ -17,7 +17,7 @@ class User extends CI_Controller
             redirect($url);
         };
 
-        $this->load->model('Table');
+        // $this->load->model('Table');
     }
 
     public function index()

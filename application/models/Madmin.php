@@ -3,6 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Madmin extends CI_Model
 {
+
+
     function get_all_opd()
     {
         $this->db->select('*');
@@ -43,7 +45,7 @@ class Madmin extends CI_Model
     function get_table($model, $limit = null, $start = null)
     {
         $this->load->database($model);
-        $this->db->order_by('opd', 'ASC');
+        // $this->db->order_by('opd', 'ASC');
         $query = $this->db->get($model, $limit, $start);
         $query = $query->result_array();
         return $query;

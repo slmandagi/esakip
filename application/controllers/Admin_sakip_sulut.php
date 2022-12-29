@@ -367,10 +367,10 @@ class Admin_sakip_sulut extends CI_Controller
             $config['base_url'] = site_url('admin_sakip_sulut/user_opd'); // ini langsung link ke controller
 
             $config['uri_segment'] = 3;
-            $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $config['total_rows'] = $this->Table->total_data($model);
+            $table_informasi['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $config['total_rows'] = $this->Madmin->total_data($model);
 
-            if ($data['page'] == 0) {
+            if ($table_informasi['page'] == 0) {
                 if ($this->session->per_page == 0) {
                     $this->session->per_page = 5;
                     // return $this->session->per_page;
@@ -389,8 +389,8 @@ class Admin_sakip_sulut extends CI_Controller
             // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
             $this->pagination->initialize($config);
 
-            $data = array(
-                'table' => $this->Table->get_table($model, $config['per_page'], $data['page'])
+            $table_informasi = array(
+                'table' => $this->Madmin->get_table($model, $config['per_page'], $table_informasi['page'])
             );
 
             // torang simpan create linksnya ke variabel
@@ -406,7 +406,7 @@ class Admin_sakip_sulut extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
             $this->load->view('templates/head_content', $data);
-            $this->load->view('admin/informasi/index', $data);
+            $this->load->view('admin/informasi/index', $table_informasi);
             $this->load->view('templates/footer');
             # code...
 
@@ -478,7 +478,7 @@ class Admin_sakip_sulut extends CI_Controller
 
             $config['uri_segment'] = 3;
             $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $config['total_rows'] = $this->Table->total_data($model);
+            $config['total_rows'] = $this->Madmin->total_data($model);
 
             if ($data['page'] == 0) {
                 if ($this->session->per_page == 0) {
@@ -500,7 +500,7 @@ class Admin_sakip_sulut extends CI_Controller
             $this->pagination->initialize($config);
 
             $data = array(
-                'table' => $this->Table->get_table($model, $config['per_page'], $data['page'])
+                'table' => $this->Madmin->get_table($model, $config['per_page'], $data['page'])
             );
 
             // torang simpan create linksnya ke variabel

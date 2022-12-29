@@ -106,6 +106,29 @@ table.table-dashboard-user {
 /* BAGIAN TABLE DASHBOARD USER END */
 
 /* BAGIAN TABLE PENGUKURAN KINERJA START*/
+
+table.table-pengukuran-kinerja {
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	width: 100%;
+}
+
+table.table-pengukuran-kinerja th:first-child {
+	width: 10%;
+}
+
+table.table-pengukuran-kinerja th {
+	width: 20%;
+}
+
+table.table-pengukuran-kinerja.active {
+	display: unset;
+	opacity: 1;
+	visibility: visible;
+	width: 40%;
+}
+
 .table-pengukuran-kinerja tbody td .btn-triwulan {
 	padding: 4px;
 	border-radius: 8px;
@@ -120,6 +143,8 @@ table.table-dashboard-user {
 .table-pengukuran-kinerja tbody td .btn-triwulan:hover {
 	border: 2px solid white;
 }
+
+
 
 /* BAGIAN TABLE PENGUKURAN KINERJA END*/
 
@@ -174,6 +199,10 @@ table.table-dashboard-user {
 .table-evaluasi-kinerja tr:hover td i,
 label {
 	color: black;
+}
+
+.table-evaluasi-kinerja-user {
+	width: 70%;
 }
 
 .form-input-evaluasi-admin button {

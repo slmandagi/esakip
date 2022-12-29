@@ -1,9 +1,19 @@
 <div class="evaluasi-kinerja-container">
     <div class="search-table-container">
-        <div class="show-n-row-table">
-            <p>Lihat</p>
+        <div class="show-n-row-table-evaluasi">
+            <form class="form-pilih-tahun-evaluasi" action="" method="POST">
+                Pilih Tahun
+                <select name="pilih-tahun-evaluasi" id="pilih-tahun-evaluasi">
+                    <option value="" selected hidden></option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+                <input type="submit" name="pilih_tahun-evaluasi-input" value="Tampilkan">
+
+            </form>
 
             <form method="GET" action="<?= base_url('admin_sakip_sulut/evaluasi_kinerja') ?>">
+                <p>Lihat</p>
                 <select name="banyaknya-data">
                     <option hidden></option>
                     <option value="5">5</option>
@@ -13,11 +23,13 @@
                 <input type="submit" name="pilih_jum_data" value="Tampilkan">
             </form>
         </div>
+
         <div class="search-table">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
         </div>
     </div>
+
     <div class="main-content-evaluasi-kinerja">
         <table class="table-evaluasi-kinerja">
             <thead>
@@ -41,7 +53,7 @@
                                 <div class="input-file-evaluasi-container">
                                     <!-- <label for="upload-file-informasi">Pilih File</label> -->
                                     <!-- label ini berfungsi sebagai input(secara tampilan) -->
-                                    <label for="upload-file-evaluasi-<?= $nomor ?>" class="upload-file-evaluasi-label-<?= $nomor ?>">
+                                    <label for="upload-file-evaluasi-<?= $nomor ?>" class="up-file-evaluasi upload-file-evaluasi-label-<?= $nomor ?>">
                                         Upload file anda disini...
                                         <i class="fa-solid fa-file-circle-plus"></i>
                                     </label>
@@ -67,42 +79,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .form-input-evaluasi-admin {
-        display: flex;
-        justify-content: center;
-    }
-
-    .form-input-evaluasi-admin .input-file-evaluasi-container {
-        width: 50%;
-        margin-right: 10px;
-        height: 30px;
-    }
-
-    .form-input-evaluasi-admin input[type="file"] {
-        display: none;
-    }
-
-    .form-input-evaluasi-admin label.upload-file-evaluasi {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: none;
-        padding: 8px;
-        border-radius: 10px;
-        font-size: 12px;
-        cursor: pointer;
-        transition: all 0.5s;
-        height: 30px;
-    }
-
-    .form-input-evaluasi-admin .upload-file-evaluasi:hover {
-        background: lightgray;
-        color: black;
-    }
-
-    .form-input-evaluasi-admin .upload-file-evaluasi:hover i {
-        color: black;
-    }
-</style>

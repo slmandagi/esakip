@@ -18,7 +18,7 @@
         </div>
 
         <?php foreach ($userID as $user) : ?>
-            <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="" method="POST">
+            <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-update-data" method="POST">
 
                 <center>
                     <br>
@@ -38,106 +38,12 @@
 
                 <select name="Jenis_user" id="Jenis_user" role="radiogroup" required>
                     <?php foreach ($jenis_u as $j) : ?>
-                        <option value="" hidden>Pilih..</option>
+                        <option value="" hidden>Pilih Role</option>
                         <option value="<?= $j->name ?>"><?= $j->name ?></option>
                     <?php endforeach ?>
                 </select>
                 <button type="submit" class="btn-edit-user" style="margin-top: 30px;">Edit</button>
             </form>
         <?php endforeach; ?>
-        <!-- <h4>Pilih User Terlebih Dahulu.</h4> -->
     </div>
 </div>
-
-<style>
-    .main-content-edit-data {
-        height: 100vh;
-    }
-
-    .pilih-user-opd {
-        display: flex;
-        flex-direction: column;
-        width: 40%;
-        height: 5%;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        border-style: dotted;
-    }
-
-    .pilih-user-opd label {
-        cursor: pointer;
-        height: 100%;
-        padding: 10px;
-    }
-
-    .pilih-user-opd span {
-        /* border: 2px solid white; */
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 8px;
-    }
-
-
-    .pilih-user-opd span.active,
-    .pilih-user-opd span:hover {
-        background: #062C30;
-        border-radius: 8px;
-    }
-
-    .pilih-user-opd span.active label,
-    .pilih-user-opd span:hover label {
-        color: white;
-    }
-
-    .pilih-user-opd ul.daftar-user {
-        background: #062C30;
-        width: 40%;
-        border-radius: 8px;
-        position: absolute;
-        top: 0%;
-        right: 0%;
-        height: 150px;
-        overflow: hidden;
-        overflow-y: visible;
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .pilih-user-opd ul.daftar-user.active {
-        visibility: visible;
-        opacity: 1;
-        pointer-events: visible;
-    }
-
-    .pilih-user-opd ul li.pilih-user {
-        height: 20px;
-        line-height: 20px;
-        padding-left: 5px;
-
-    }
-
-    .pilih-user-opd ul li:hover {
-        background: white;
-        color: black;
-    }
-
-    .pilih-user-opd ul li:hover a {
-        color: black
-    }
-
-    .pilih-user-opd ul li a {
-        color: white;
-        font-size: 80%;
-    }
-
-
-    .main-content-edit-data h5 {
-        display: block;
-    }
-
-    .main-content-edit-data h4.disabled {
-        display: none;
-    }
-</style>
