@@ -16,6 +16,11 @@ class User extends CI_Controller
             $url = base_url('admin_sakip_sulut');
             redirect($url);
         };
+<<<<<<< HEAD
+=======
+
+        // $this->load->model('Table');
+>>>>>>> dddc023af9bfb3a7650936f658a0d9ad3f64e06c
     }
 
     public function index()

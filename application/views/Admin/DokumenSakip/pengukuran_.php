@@ -164,32 +164,3 @@
         </div>
     </div>
 </div>
-
-
-<style>
-    table.table-pengukuran-kinerja {
-        display: none;
-        opacity: 0;
-        visibility: hidden;
-        width: 100%;
-    }
-
-    table.table-pengukuran-kinerja th:first-child {
-        width: 10%;
-    }
-
-    table.table-pengukuran-kinerja th {
-        width: 20%;
-    }
-
-    table.table-pengukuran-kinerja.active {
-        display: unset;
-        opacity: 1;
-        visibility: visible;
-        width: 40%;
-    }
-
-    .btn-triwulan.point-none {
-        pointer-events: none;
-    }
-</style>

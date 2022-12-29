@@ -104,35 +104,48 @@
     height: 40px;
 }
 
-/* .search-table-container-user {
-    width: 97%;
+.head-user-opd-container .tambah-edit-user-container {
+    width: 20%;
     display: flex;
-    justify-content: flex-end;
-} */
+    justify-content: space-between;
+}
+
+
 
 .show-n-row-table {
     display: flex;
-    padding-left: 40px;
+    padding-left: 30px;
     width: 20%;
 }
 
-.show-n-row-table p {
+.show-n-row-table-evaluasi {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.show-n-row-table p,
+.show-n-row-table-evaluasi p {
     font-size: 14px;
 }
 
-.show-n-row-table form {
+.show-n-row-table form,
+.show-n-row-table-evaluasi form {
     display: flex;
     padding-left: 15px;
 }
 
-.show-n-row-table form select {
+.show-n-row-table form select,
+.show-n-row-table-evaluasi form select {
     /* width: 30%; */
     border: none;
     border-bottom: 1px solid black;
     outline: none;
 }
 
-.show-n-row-table input {
+.show-n-row-table input,
+.show-n-row-table-evaluasi input {
     background: white;
     border: none;
     outline: none;
@@ -189,7 +202,7 @@
 
 /* ---GENERAL (SEMUA KOMPONEN PAKE INI) */
 .wrapper-input-dokumen {
-    width: 40%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -255,7 +268,7 @@
     padding: 5px;
     height: 35px;
     cursor: pointer;
-    width: 10%;
+    width: 20%;
     border: none;
     outline: none;
     background: #062C30;
@@ -437,7 +450,25 @@ button.btn-selesai-input-triwulan:hover {
     font-weight: 500;
     pointer-events: visible;
     transition: all 0.5s;
+}
 
+.pilih-lihat-hasil-pengukuran-content .btn-triwulan {
+    background: white;
+    border: 1px solid #1C6758;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.pilih-lihat-hasil-pengukuran-content .btn-triwulan:hover {
+    background: #1C6758;
+    color: white;
+    border: 1px solid #1C6758;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 .pilih-upload-dokumen-pengukuran {
@@ -484,7 +515,9 @@ button.btn-selesai-input-triwulan:hover {
     position: relative;
 }
 
-
+.btn-triwulan.point-none {
+    pointer-events: none;
+}
 
 .pilih-btn-triwulan {
     padding: 4px;
@@ -547,9 +580,11 @@ button.btn-selesai-input-triwulan:hover {
     visibility: visible;
     opacity: 1;
     display: flex;
+    flex-direction: column;
+    width: 30%;
 }
 
-.hasil-pengukuran-container label,
+.form-in .hasil-pengukuran-container label,
 .tidak-tercapai-user-container p,
 .tercapai-melebihi-container label {
     font-weight: 700;
@@ -558,6 +593,64 @@ button.btn-selesai-input-triwulan:hover {
 /* ^^^^ PENGUKURAN USER END */
 
 /*  ---PENGUKURAN END */
+
+/* EVALUASI ADMIN START */
+.form-input-evaluasi-admin {
+    display: flex;
+    justify-content: center;
+}
+
+.form-input-evaluasi-admin .input-file-evaluasi-container {
+    width: 50%;
+    margin-right: 10px;
+    height: 30px;
+}
+
+.form-input-evaluasi-admin input[type="file"] {
+    display: none;
+}
+
+.form-input-evaluasi-admin label.up-file-evaluasi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.5s;
+    height: 30px;
+}
+
+.form-input-evaluasi-admin label.up-file-evaluasi:hover {
+    background: lightgray;
+    color: black;
+}
+
+.form-input-evaluasi-admin label.up-file-evaluasi:hover i {
+    color: black;
+}
+
+.form-pilih-tahun-evaluasi {
+    /* background: lightgreen; */
+    align-self: flex-start;
+    margin-left: 30px;
+    font-size: 14px;
+    display: flex;
+
+}
+
+.form-pilih-tahun-evaluasi select {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    /* padding-left: 10px; */
+    margin-left: 10px;
+}
+
+
+/* EVALUASI ADMIN END */
 
 /*~~~ BAGIAN DOKUMEN SAKIP USER END */
 
@@ -789,22 +882,29 @@ form.form-kirim-pesan-admin {
 }
 
 .main-content-user-opd button,
+.main-content-user-opd a,
 .main-content-edit-data button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     outline: none;
-    padding: 5px;
     background: #1C6758;
     border-radius: 8px;
     color: white;
     cursor: pointer;
     transition: all 0.5s;
     border: 2px solid grey;
+    height: 35px;
+    width: 40%;
+    font-size: 12px;
 }
 
 
 
 .main-content-user-opd button:hover,
-.main-content-edit-data button:hover {
+.main-content-edit-data button:hover,
+.main-content-user-opd a:hover {
     border: 2px solid white;
 }
 
@@ -814,6 +914,8 @@ form.form-kirim-pesan-admin {
 
 .main-content-user-opd button.btn-block-user {
     background: red;
+    width: 50%;
+    margin: auto;
 }
 
 .modal {
@@ -850,6 +952,12 @@ form.form-kirim-pesan-admin {
     border-radius: 10px;
     height: 50%;
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    position: relative;
+
 }
 
 .modal-lupa-password {
@@ -909,16 +1017,36 @@ form.form-kirim-pesan-admin {
     color: black;
 }
 
+.head-modal-tambah-user {
+    height: 50px;
+    line-height: 50px;
+}
 
-.form-tambah-user,
-.form-lupa-password {
+.form-tambah-user {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    /* align-items: center; */
+    /* justify-content: space-around; */
     height: 90%;
+    width: 60%;
+}
+
+.form-tambah-user input,
+.form-tambah-user select {
     width: 100%;
-    position: relative;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+.form-tambah-user select {
+    margin-top: 10px;
+}
+
+.form-tambah-user button {
+    align-self: flex-end;
+    margin-top: 20px;
+    width: 25%;
 }
 
 .form-edit-user {
@@ -952,15 +1080,15 @@ form.form-kirim-pesan-admin {
     box-shadow: 0 2px 2px #A3C8CD;
 }
 
-.modal-pengaturan label,
-.form-edit-user label {
+.modal-pengaturan label {
     align-self: flex-start;
-    padding-left: 20%;
-    margin-bottom: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-weight: 500;
     font-size: 14px;
 }
 
+/* 
 .modal-pengaturan select,
 .form-edit-user select {
     border: none;
@@ -968,7 +1096,7 @@ form.form-kirim-pesan-admin {
     border-bottom: 2px solid black;
     margin-top: 10px;
     width: 60%;
-}
+} */
 
 .modal-pengaturan option,
 .form-edit-user option {
@@ -982,6 +1110,128 @@ form.form-kirim-pesan-admin {
     font-size: 24px;
     cursor: pointer;
 }
+
+
+/* ~~~BAGIAN EDIT USER START*/
+
+.pilih-user-opd {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 5%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-style: dotted;
+}
+
+.pilih-user-opd label {
+    cursor: pointer;
+    height: 100%;
+    padding: 10px;
+}
+
+.pilih-user-opd span {
+    /* border: 2px solid white; */
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+
+.pilih-user-opd span.active,
+.pilih-user-opd span:hover {
+    background: #062C30;
+    border-radius: 8px;
+}
+
+.pilih-user-opd span.active label,
+.pilih-user-opd span:hover label {
+    color: white;
+}
+
+.pilih-user-opd ul.daftar-user {
+    background: #062C30;
+    width: 40%;
+    border-radius: 8px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    height: 150px;
+    overflow: hidden;
+    overflow-y: visible;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pilih-user-opd ul.daftar-user.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: visible;
+}
+
+.pilih-user-opd ul li.pilih-user {
+    height: 20px;
+    line-height: 20px;
+    padding-left: 5px;
+
+}
+
+.pilih-user-opd ul li:hover {
+    background: white;
+    color: black;
+}
+
+.pilih-user-opd ul li:hover a {
+    color: black
+}
+
+.pilih-user-opd ul li a {
+    color: white;
+    font-size: 80%;
+}
+
+.form-update-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-top: 20px;
+}
+
+.form-update-data p {
+    margin-bottom: 10px;
+}
+
+.form-update-data input,
+.form-update-data select {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    transition: all 0.5s;
+}
+
+.form-update-data label {
+    align-self: flex-start;
+}
+
+.form-update-data input:focus {
+    box-shadow: 0 2px 2px #A3C8CD;
+
+}
+
+.form-update-data select {
+    margin-top: 15px;
+}
+
+/* ~~~BAGIAN EDIT USER END*/
+
+
+
 
 /* BAGIAN USER OPD (PENGATURAN) END */
 
@@ -1061,7 +1311,7 @@ form.form-kirim-pesan-admin {
 /* FORM START */
 .perencanaan-kinerja-container .form-input-dokumen-perencanaan,
 .pelaporan-kinerja-container .form-input-dokumen-pelaporan {
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;

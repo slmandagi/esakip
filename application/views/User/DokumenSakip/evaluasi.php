@@ -49,9 +49,3 @@
         </table>
     </div>
 </div>
-
-<style>
-    .table-evaluasi-kinerja-user {
-        width: 70%;
-    }
-</style>
