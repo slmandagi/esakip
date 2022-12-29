@@ -24,6 +24,7 @@
                 <tr>
                     <th>Nomor</th>
                     <th>Pengirim</th>
+                    <th>Waktu Pengiriman</th>
                     <th>Laporan Kinerja</th>
                 </tr>
             </thead>
@@ -35,7 +36,8 @@
                     <tr>
                         <td><?= $nomor ?></td>
                         <td><?= $baris['opd'] ?></td>
-                        <td><i class="<?= $baris['dokumen_lakip'] ?>"></i></td>
+                        <td><?= $baris['date'] ?></td>
+                        <td><a class="fa-solid fa-download" href="<?= base_url(); ?>download/download/<?= $baris['id'] ?>"></a></td>
                     </tr>
                 <?php
                     $nomor++;

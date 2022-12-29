@@ -21,13 +21,43 @@ class User extends CI_Controller
     public function index()
     {
         $data['user'] = 'user';
-        $data['all_docs'] = $this->Muser->getAllData();
+
+        $opd = $this->session->userdata('name');
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = "Dashboard";
+        $model = 'tbl_dokumen_user';
+
+        $config['base_url'] = site_url('user/index/'); // ini langsung link ke controller
+        $config['uri_segment'] = 3;
+        $table_dashboard['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $config['total_rows'] = $this->Muser->total_data($opd, $model);
+
+        if ($table_dashboard['page'] == 0) {
+            if ($this->session->per_page == 0) {
+                $this->session->per_page = 5;
+            }
+            if ((int)$this->input->get('banyaknya-data')) {
+                $this->session->per_page = (int)$this->input->get('banyaknya-data');
+            }
+        }
+
+        $config['per_page'] = $this->session->per_page;
+        $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
+        $config['first_link'] = '<<';
+        $config['next_link'] = 'Selanjutnya >';
+        $config['prev_link'] = '< Sebelumnya';
+
+        $this->pagination->initialize($config);
+        $table_dashboard = array(
+            'all_docs' => $this->Muser->get_table($opd, $model, $config['per_page'], $table_dashboard['page'])
+        );
+
+        $table_dashboard['pagination'] = $this->pagination->create_links();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user');
         $this->load->view('templates/head_content.php', $data);
-        $this->load->view('user/dashboard/content');
+        $this->load->view('user/dashboard/content', $table_dashboard);
         $this->load->view('templates/footer');
     }
 
@@ -72,7 +102,7 @@ class User extends CI_Controller
             //mengambil file_name... 
             $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Muser->tambah_perencanaan($data);
+            $insert = $this->Muser->tambah_dokumen($data);
 
             if ($insert) {
                 redirect('user/index');
@@ -129,7 +159,7 @@ class User extends CI_Controller
             //mengambil file_name... 
             $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Muser->tambah_pengukuran($data);
+            $insert = $this->Muser->tambah_dokumen($data);
 
             if ($insert) {
                 redirect('user/index');
@@ -166,7 +196,7 @@ class User extends CI_Controller
         } else {
             $opd        = $this->session->userdata('name');
             $nama_dok   = $this->input->post('nama_dok');
-            $jenis_dok  = 'Laporan Kinerja Tahunan';
+            $jenis_dok  = 'lakip';
             $date       = date("Y-m-d");
             $File_dok   = $this->input->post('File_dok');
 
@@ -182,7 +212,7 @@ class User extends CI_Controller
             //mengambil file_name... 
             $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Muser->tambah_laporan($data);
+            $insert = $this->Muser->tambah_dokumen($data);
 
             if ($insert) {
                 redirect('user/index');

@@ -3,29 +3,36 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Muser extends CI_Model
 {
-    //input perencanaan
-    function tambah_perencanaan($data)
+    // get data utk dasboard user
+    function get_table($opd, $model, $limit = null, $start = null)
     {
-
-        $this->db->insert('tbl_dokumen_user', $data);
-
-        return true;
+        $this->load->database($model);
+        $this->db->where('opd', $opd);
+        $query = $this->db->get($model, $limit, $start);
+        $query = $query->result();
+        return $query;
     }
 
-    //input pengukuran
-    function tambah_pengukuran($data)
+    function total_data($opd, $model)
     {
-
-        $this->db->insert('tbl_dokumen_user', $data);
-
-        return true;
+        $this->load->database($model);
+        $this->db->where('opd', $opd);
+        $query = $this->db->get($model);
+        $query = $query->result_array();
+        $total_data = count($query);
+        return $total_data;
     }
 
-    //input laporan 
-    function tambah_laporan($data)
+    //input perencanaan, pengukuran, pelaporan dan update status dokumen user
+    function tambah_dokumen($data)
     {
 
         $this->db->insert('tbl_dokumen_user', $data);
+
+        $jen_dok = $data['jenis_dok'];
+        $status = [$jen_dok => true];
+        $this->db->where('opd', $data['opd']);
+        $this->db->update('tbl_status_dokumen', $status);
 
         return true;
     }
@@ -61,14 +68,5 @@ class Muser extends CI_Model
         $query = $this->db->get();
         $result = $query->result();
         return $result;
-    }
-
-    function getAllData()
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_dokumen_user');
-
-        $query = $this->db->get();
-        return $query->result();
     }
 }

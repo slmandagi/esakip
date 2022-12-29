@@ -1,242 +1,238 @@
- /* ALL TABLE START*/
- table {
-     width: 95%;
-     /* SUPAYA NYDA ADA JARAK ANTAR CELL, PAKE INI */
-     border-collapse: separate;
-     border-spacing: 0 10px;
- }
+/* ALL TABLE START*/
+table {
+	width: 95%;
+	/* SUPAYA NYDA ADA JARAK ANTAR CELL, PAKE INI */
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}
 
- table tbody {
-     transition: all 0.2s;
- }
+table tbody {
+	transition: all 0.2s;
+}
 
- table tbody td {
-     text-align: center;
-     height: 50px;
-     transition: all 0.2s;
- }
+table tbody td {
+	text-align: center;
+	height: 50px;
+	transition: all 0.2s;
+}
 
- table tbody tr:nth-child(even) {
-     background: white;
- }
+table tbody tr:nth-child(even) {
+	background: white;
+}
 
- table tbody tr:nth-child(odd) {
-     background: #E1E8E6;
- }
+table tbody tr:nth-child(odd) {
+	background: #e1e8e6;
+}
 
- table tbody tr:hover td {
-     background: grey;
-     color: white;
- }
+table tbody tr:hover td {
+	background: grey;
+	color: white;
+}
 
+table tbody tr td {
+	font-weight: 500;
+	font-size: 15px;
+}
 
- table tbody tr td {
-     font-weight: 500;
-     font-size: 15px;
- }
+table tbody tr td i {
+	color: black;
+	font-size: 16px;
+}
 
- table tbody tr td i {
-     color: black;
-     font-size: 16px;
- }
+table tbody tr td:first-child {
+	border-radius: 10px 0 0 10px;
+}
 
- table tbody tr td:first-child {
-     border-radius: 10px 0 0 10px;
- }
+table tbody tr td:last-child {
+	border-radius: 0px 10px 10px 0px;
+}
 
+table tbody tr td:nth-child(even),
+table tbody tr td:nth-child(odd) {
+	/* box-shadow: 0 2px 0px grey; */
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
 
- table tbody tr td:last-child {
-     border-radius: 0px 10px 10px 0px;
- }
+table tbody tr:hover td i {
+	color: white;
+}
 
- table tbody tr td:nth-child(even),
- table tbody tr td:nth-child(odd) {
-     /* box-shadow: 0 2px 0px grey; */
-     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
- }
+/* ALL TABLE END*/
 
- table tbody tr:hover td i {
-     color: white;
- }
+/* BAGIAN TABLE DASHBOARD START */
 
- /* ALL TABLE END*/
+.table-dashboard th:nth-child(2) {
+	width: 20%;
+}
 
- /* BAGIAN TABLE DASHBOARD START */
+.table-dashboard th {
+	width: 5%;
+	background: white;
+}
 
- .table-dashboard th:nth-child(2) {
-     width: 20%;
- }
+.table-dashboard tbody td:nth-child(2) {
+	text-align: start;
+	padding-left: 20px;
+}
 
- .table-dashboard th {
-     width: 5%;
-     background: white;
- }
+.table-dashboard tbody tr:hover td i {
+	color: #60cb5e;
+}
 
- .table-dashboard tbody td:nth-child(2) {
-     text-align: start;
-     padding-left: 20px;
- }
+/* BAGIAN TABLE DASHBOARD END */
 
- .table-dashboard tbody tr:hover td i {
-     color: #60CB5E;
- }
+/* BAGIAN TABLE DASHBOARD USER START */
 
- /* BAGIAN TABLE DASHBOARD END */
+table.table-dashboard-user {
+	width: 80%;
+}
 
+.table-dashboard-user thead th:nth-child(1) {
+	width: 5%;
+}
 
- /* BAGIAN TABLE DASHBOARD USER START */
+.table-dashboard-user thead th {
+	width: 15%;
+}
 
- table.table-dashboard-user {
-     width: 80%;
- }
+.table-dashboard-user tr td i {
+	font-size: 18px;
+}
 
- .table-dashboard-user thead th:nth-child(1) {
-     width: 5%;
- }
+.table-dashboard-user tbody tr:hover td i {
+	color: #60cb5e;
+}
 
- .table-dashboard-user thead th {
-     width: 15%;
- }
+/* BAGIAN TABLE DASHBOARD USER END */
 
- .table-dashboard-user tr td i {
-     font-size: 18px;
- }
+/* BAGIAN TABLE PENGUKURAN KINERJA START*/
+.table-pengukuran-kinerja tbody td .btn-triwulan {
+	padding: 4px;
+	border-radius: 8px;
+	cursor: pointer;
+	color: white;
+	background: #3d8361;
+	border: 2px solid #3d8361;
+	transition: all 0.5s;
+	margin: 0px 5px 0px 5px;
+}
 
- .table-dashboard-user tbody tr:hover td i {
-     color: #60CB5E;
- }
+.table-pengukuran-kinerja tbody td .btn-triwulan:hover {
+	border: 2px solid white;
+}
 
- /* BAGIAN TABLE DASHBOARD USER END */
+/* BAGIAN TABLE PENGUKURAN KINERJA END*/
 
- /* BAGIAN TABLE PENGUKURAN KINERJA START*/
- .table-pengukuran-kinerja tbody td .btn-triwulan {
-     padding: 4px;
-     border-radius: 8px;
-     cursor: pointer;
-     color: white;
-     background: #3D8361;
-     border: 2px solid #3D8361;
-     transition: all 0.5s;
-     margin: 0px 5px 0px 5px;
- }
+/* BAGIAN TABLE PERENCANAAN START */
 
- .table-pengukuran-kinerja tbody td .btn-triwulan:hover {
-     border: 2px solid white;
- }
+.table-perencanaan tr th {
+	width: 5%;
+	text-align: center;
+}
 
- /* BAGIAN TABLE PENGUKURAN KINERJA END*/
+.table-perencanaan tbody tr td:nth-child(2) {
+	width: 15%;
+	text-align: start;
+}
 
+/* BAGIAN TABLE PERENCANAAN END */
 
- /* BAGIAN TABLE PERENCANAAN START */
+/* BAGIAN TABLE PELAPORAN START*/
 
- .table-perencanaan tr th {
-     width: 5%;
-     text-align: center;
- }
+.table-pelaporan-kinerja {
+	width: 60%;
+}
 
- .table-perencanaan tbody tr td:nth-child(2) {
-     width: 15%;
-     text-align: start;
- }
+.table-pelaporan-kinerja thead th:first-of-type {
+	width: 5%;
+}
 
- /* BAGIAN TABLE PERENCANAAN END */
+.table-pelaporan-kinerja tbody tr td:nth-child(2) {
+	text-align: start;
+	padding-left: 40px;
+}
 
- /* BAGIAN TABLE PELAPORAN START*/
+.table-pelaporan-kinerja thead th:last-of-type {
+	width: 20%;
+}
 
- .table-pelaporan-kinerja {
-     width: 60%;
- }
+/* BAGIAN TABLE PELAPORAN END */
 
- .table-pelaporan-kinerja thead th:first-of-type {
-     width: 5%;
- }
+/* BAGIAN TABLE EVALUASI START*/
+.table-evaluasi-kinerja thead th:last-of-type {
+	width: 40%;
+}
 
+.table-evaluasi-kinerja tbody tr {
+	height: 50px;
+}
 
- .table-pelaporan-kinerja thead th:last-of-type {
-     width: 20%;
- }
+.table-evaluasi-kinerja tr:hover td {
+	background: grey;
+}
 
- /* BAGIAN TABLE PELAPORAN END */
+.table-evaluasi-kinerja tr:hover td i,
+label {
+	color: black;
+}
 
+.form-input-evaluasi-admin button {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	background: lightgreen;
+	font-size: 12px;
+	padding: 5px;
+	border: 2px solid lightgreen;
+	margin-left: 10px;
+}
 
- /* BAGIAN TABLE EVALUASI START*/
- .table-evaluasi-kinerja thead th:last-of-type {
-     width: 40%;
- }
+.form-input-evaluasi-admin button:hover {
+	border: 2px solid white;
+}
 
- .table-evaluasi-kinerja tbody tr {
-     height: 50px;
- }
+.input-evaluasi-admin {
+	border: none;
+	outline: none;
+	background: whitesmoke;
+	text-align: center;
+	border-radius: 15px;
+	width: 25%;
+	padding: 5px;
+	font-size: 12px;
+}
 
- .table-evaluasi-kinerja tr:hover td {
-     background: grey;
- }
+.input-evaluasi-admin:focus {
+	box-shadow: 0 2px 2px #a3c8cd;
+}
 
- .table-evaluasi-kinerja tr:hover td i,
- label {
-     color: black;
- }
+/* BAGIAN TABLE EVALUASI END*/
 
- .form-input-evaluasi-admin button {
-     cursor: pointer;
-     border: none;
-     outline: none;
-     border-radius: 10px;
-     background: lightgreen;
-     font-size: 12px;
-     padding: 5px;
-     border: 2px solid lightgreen;
-     margin-left: 10px;
- }
+/* BAGIAN TABLE INFORMASI START */
+.table-informasi-user {
+	width: 85%;
+}
 
- .form-input-evaluasi-admin button:hover {
-     border: 2px solid white;
- }
+.table-informasi-user th:nth-child(1) {
+	width: 5%;
+}
 
- .input-evaluasi-admin {
-     border: none;
-     outline: none;
-     background: whitesmoke;
-     text-align: center;
-     border-radius: 15px;
-     width: 25%;
-     padding: 5px;
-     font-size: 12px;
- }
+.table-informasi-user th:last-child {
+	width: 55%;
+}
 
- .input-evaluasi-admin:focus {
-     box-shadow: 0 2px 2px #A3C8CD;
- }
+/* BAGIAN TABLE INFORMASI END */
 
- /* BAGIAN TABLE EVALUASI END*/
+/* BAGIAN TABLE NOTIFICATION START */
+.table-notification {
+	width: 90%;
+}
 
- /* BAGIAN TABLE INFORMASI START */
- .table-informasi-user {
-     width: 85%;
- }
+/* BAGIAN TABLE NOTIFICATION END */
 
- .table-informasi-user th:nth-child(1) {
-     width: 5%;
- }
-
- .table-informasi-user th:last-child {
-     width: 55%;
- }
-
- /* BAGIAN TABLE INFORMASI END */
-
- /* BAGIAN TABLE NOTIFICATION START */
- .table-notification {
-     width: 90%;
- }
-
- /* BAGIAN TABLE NOTIFICATION END */
-
-
-
-
- /* PENGUKURAN LAMA */
- /* .table-pengukuran-kinerja {
+/* PENGUKURAN LAMA */
+/* .table-pengukuran-kinerja {
      border-collapse: collapse;
      border-spacing: 0px;
  }
@@ -264,23 +260,23 @@
      box-shadow: 0 2px 2px #A3C8CD;
  } */
 
- /* PILIH SPESIFIK  */
+/* PILIH SPESIFIK  */
 
- /*----INI FOR CELL NOMOR  DENG USERNAME (text)*/
- /* .table-pengukuran-kinerja tbody tr:first-child td:nth-child(1),
+/*----INI FOR CELL NOMOR  DENG USERNAME (text)*/
+/* .table-pengukuran-kinerja tbody tr:first-child td:nth-child(1),
  .table-pengukuran-kinerja tbody tr:first-child td:nth-child(2) {
      vertical-align: top;
      padding-top: 15px;
  } */
 
- /*---- INI FOR KASE ILANG BAWAAN BORDER DI TD FIRST CHILD DG LAST CHILD */
- /* .table-pengukuran-kinerja tbody tr td:first-child,
+/*---- INI FOR KASE ILANG BAWAAN BORDER DI TD FIRST CHILD DG LAST CHILD */
+/* .table-pengukuran-kinerja tbody tr td:first-child,
  .table-pengukuran-kinerja tbody tr td:last-child {
      border-radius: 0px;
  } */
 
- /* INI FOR KASE BORDER RADIUS DI KOLOM PERTAMA DENG AKHIR */
- /* .table-pengukuran-kinerja tbody tr:first-child td:first-child {
+/* INI FOR KASE BORDER RADIUS DI KOLOM PERTAMA DENG AKHIR */
+/* .table-pengukuran-kinerja tbody tr:first-child td:first-child {
      border-top-left-radius: 10px;
  }
 
@@ -296,8 +292,7 @@
      border-bottom-right-radius: 10px;
  } */
 
-
- /* tr.footer-submit form button {
+/* tr.footer-submit form button {
      border: none;
      outline: none;
      padding: 5px;
@@ -306,4 +301,4 @@
      cursor: pointer;
  } */
 
- /* PENGUKURAN LAMA END */
+/* PENGUKURAN LAMA END */

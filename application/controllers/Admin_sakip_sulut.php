@@ -29,16 +29,13 @@ class Admin_sakip_sulut extends CI_Controller
         //     header('HTTP/1.0 401 Unauthorized');
         //     die('Access Denied');
         // }
-
-
-        $this->load->model('Table');
     }
 
     public function index()
     {
         $data['user'] = 'admin_sakip_sulut';
 
-        $model = 'dashboard';
+        $model = 'tbl_status_dokumen';
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = 'Dashboard';
         // 2. torang ambe site urlnya
@@ -49,38 +46,7 @@ class Admin_sakip_sulut extends CI_Controller
         // $config['uri_segment'] = 3; // jadi torang mo ambe data yang ada di segment 3
         $config['uri_segment'] = 3;
         $table_dashboard['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $config['total_rows'] = $this->Table->total_data($model);
-
-        // $cookie = [
-        //     'name' => 'per_page',
-        //     'value' => $this->input->get('banyaknya-data'),
-        //     'expire' => '1000',
-        //     'secure' => TRUE
-        // ];
-        // $this->input->set_cookie($cookie);
-        // $config['per_page'] = ($this->input->cookie('per_page'));
-
-        // $per_page_input = (int)($this->input->get('banyaknya-data'));
-        // if()
-        // $per_page_default = 5;
-        // if ($table_dashboard['page'] == 0) {
-        //     if ($this->session->per_page == 0) {
-        //         $this->session->per_page = 5;
-        //         $config['per_page'] = $this->session->per_page;
-        //         echo 'session table page ->' . $this->session->per_page;
-        //     } else {
-        //         $config['per_page'] = $this->session->per_page;
-        //         echo 'session tablel page else ->' . $this->session->per_page;
-        //     }
-
-        //     if ((int)$this->input->get('banyaknya-data')) {
-        //         $this->session->per_page = (int)$this->input->get('banyaknya-data');
-        //         echo 'session table page if kedua ->' . $this->session->per_page;
-        //     }
-        // } else {
-        //     $this->session->per_page = (int)$this->input->get('banyaknya-data');
-        //     echo 'session table page else->' . $this->session->per_page;
-        // }
+        $config['total_rows'] = $this->Madmin->total_data($model);
 
         if ($table_dashboard['page'] == 0) {
             if ($this->session->per_page == 0) {
@@ -91,53 +57,26 @@ class Admin_sakip_sulut extends CI_Controller
                 $this->session->per_page = (int)$this->input->get('banyaknya-data');
             }
         }
-        // echo 'halo';
+
         $config['per_page'] = $this->session->per_page;
-        // $config['per_page'] = $this->session->per_page;
-        // echo 'table ->' . $table_dashboard['page'];
-        // echo 'config' . $config['per_page'];
-        // echo  'session ->' . $this->session->per_page;
-
-        // if()
-        // $config['per_page'] = $this->session->per_page;
-
-
         $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
         $config['first_link'] = '<<';
         $config['next_link'] = 'Selanjutnya >';
         $config['prev_link'] = '< Sebelumnya';
 
-        // echo '-' . $config['per_page'];
-        // echo $table_dashboard['page'];
-        // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
         $this->pagination->initialize($config);
         $table_dashboard = array(
-            'table' => $this->Table->get_table($model, $config['per_page'], $table_dashboard['page'])
+            'table' => $this->Madmin->get_table($model, $config['per_page'], $table_dashboard['page'])
         );
 
         // torang simpan create linksnya ke variabel
         $table_dashboard['pagination'] = $this->pagination->create_links();
 
-        // print_r($table_dashboard['table']);
-        // echo $table_dashboard['pagination'];
         /* 3 Variable: 
                 1. Variabel data, for tampung keperluan tampilan(no logic).
                 2. Variabel table, for tampung data table
-                3. Variabel data_pagination, for mo beking pembagian data pada table.
-                4. Variabel config, for atur uri.
+                3. Variabel config, for atur uri.
         */
-
-        // table_path = APPPATH . "asset";
-        // $table['dashboard'] = file_get_contents("assets/json/table_dashboard.json");
-        // error: cannot use object of type stdclass as array
-        // solusi: pake parameter kedua dari json_decode, yaitu: true
-        // https://stackoverflow.com/questions/6815520/cannot-use-object-of-type-stdclass-as-array
-        //         $json = file_get_contents(FILE_PATH);
-        // $obj  = json_decode($json);
-
-        // $table_dashboard['baris'] = $this->table_dashboard->hitung_baris();
-        // print_r($table_dashboard['baris']);
-        // pemanggilan view
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
@@ -152,16 +91,15 @@ class Admin_sakip_sulut extends CI_Controller
         $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = 'Perencanaan Kinerja';
         $data['judul_header_page'] = 'Perencanaan Kinerja';
-        $model = 'perencanaan_kinerja_admin';
+        $model = 'tbl_dokumen_user';
         $config['base_url'] = site_url('admin_sakip_sulut/perencanaan_kinerja'); // ini langsung link ke controller
         $config['uri_segment'] = 3;
         $table_perencanaan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $config['total_rows'] = ceil($this->Table->total_data($model));
+        $config['total_rows'] = ceil($this->Madmin->total_data_perencanaan($model));
 
         if ($table_perencanaan['page'] == 0) {
             if ($this->session->per_page == 0) {
                 $this->session->per_page = 5;
-                // return $this->session->per_page;
             }
             if ((int)$this->input->get('banyaknya-data')) {
                 $this->session->per_page = (int)$this->input->get('banyaknya-data');
@@ -176,7 +114,7 @@ class Admin_sakip_sulut extends CI_Controller
         // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
         $this->pagination->initialize($config);
         $table_perencanaan = array(
-            'table' => $this->Table->get_table($model, $config['per_page'], $table_perencanaan['page'])
+            'table' => $this->Madmin->get_table_perencanaan($model, $config['per_page'], $table_perencanaan['page'])
         );
 
         // torang simpan create linksnya ke variabel
@@ -254,30 +192,17 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function pelaporan_kinerja()
     {
-        # code...
         $data['user'] = 'admin_sakip_sulut';
 
         $data['judul_halaman'] = "Pelaporan Kinerja";
         $data['judul_header_page'] = "Pelaporan Kinerja";
-        $model = "pelaporan_kinerja_admin";
+        $model = "tbl_dokumen_user";
         $config['base_url'] = site_url('admin_sakip_sulut/pelaporan_kinerja'); // ini langsung link ke controller
 
         $config['uri_segment'] = 3;
         $table_pelaporan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $config['total_rows'] = $this->Table->total_data($model);
+        $config['total_rows'] = $this->Madmin->total_data_pelaporan($model);
 
-        // $cookie = [
-        //     'name' => 'per_page',
-        //     'value' => $this->input->get('banyaknya-data'),
-        //     'expire' => '1000',
-        //     'secure' => TRUE
-        // ];
-        // $this->input->set_cookie($cookie);
-        // $config['per_page'] = ($this->input->cookie('per_page'));
-
-        // $per_page_input = (int)($this->input->get('banyaknya-data'));
-        // if()
-        // $per_page_default = 5;
         if ($table_pelaporan['page'] == 0) {
             if ($this->session->per_page == 0) {
                 $this->session->per_page = 5;
@@ -294,14 +219,12 @@ class Admin_sakip_sulut extends CI_Controller
         $config['next_link'] = 'Selanjutnya >';
         $config['prev_link'] = '< Sebelumnya';
 
-        // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
         $this->pagination->initialize($config);
 
         $table_pelaporan = array(
-            'table' => $this->Table->get_table($model, $config['per_page'], $table_pelaporan['page'])
+            'table' => $this->Madmin->get_table_pelaporan($model, $config['per_page'], $table_pelaporan['page'])
         );
 
-        // torang simpan create linksnya ke variabel
         $table_pelaporan['pagination'] = $this->pagination->create_links();
 
         $this->load->view('templates/header', $data);
@@ -313,46 +236,75 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function evaluasi_kinerja()
     {
-        # code...
+        //upload config....
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|pdf|docx';
+        $config['max_size']             = 10000;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
         $data['user'] = 'admin_sakip_sulut';
 
-        $data['judul_halaman'] = 'Evaluasi Kinerja';
-        $data['judul_header_page'] = 'Evaluasi Kinerja';
-        $model = 'evaluasi_kinerja_admin';
-        // $config['base_url'] = site_url('admin/evaluasi_kinerja');
-        // $config['uri_segment'] = 3;
-        // $table_evaluasi['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        // $config['total_rows'] = $this->Table->total_data($model);
+        $this->load->library('upload');
+        $this->upload->initialize($config);
 
-        // if ($table_evaluasi['page'] == 0) {
-        //     $this->session->per_page = 5;
-        // }
+        if (!$this->upload->do_upload('file')) {
+            $data['judul_halaman'] = 'Evaluasi Kinerja';
+            $data['judul_header_page'] = 'Evaluasi Kinerja';
+            $model = 'tbl_user';
 
-        // if ((int)$this->input->get('banyaknya-data')) {
-        //     $this->session->per_page = $this->input->get('banyaknya-data');
-        // }
-        // $config['per_page'] = $this->session->per_page;
+            $config['base_url'] = site_url('admin_sakip_sulut/evaluasi_kinerja'); // ini langsung link ke controller
+            $config['uri_segment'] = 3;
+            $table_perencanaan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $config['total_rows'] = ceil($this->Madmin->total_data_evaluasi($model));
 
-        // $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
-        // $config['first_link'] = '<<';
-        // $config['next_link'] = 'Selanjutnya >';
-        // $config['prev_link'] = '< Sebelumnya';
+            if ($table_perencanaan['page'] == 0) {
+                if ($this->session->per_page == 0) {
+                    $this->session->per_page = 5;
+                }
+                if ((int)$this->input->get('banyaknya-data')) {
+                    $this->session->per_page = (int)$this->input->get('banyaknya-data');
+                }
+            }
+            $config['per_page'] = $this->session->per_page;
+            $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
+            $config['first_link'] = '<<';
+            $config['next_link'] = 'Selanjutnya >';
+            $config['prev_link'] = '< Sebelumnya';
 
-        // // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
-        // $this->pagination->initialize($config);
+            // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
+            $this->pagination->initialize($config);
+            $table_perencanaan = array(
+                'table' => $this->Madmin->get_table_evaluasi($model, $config['per_page'], $table_perencanaan['page'])
+            );
 
-        // $table_evaluasi = array(
-        //     'table' => $this->Table->get_table($model, $config['per_page'], $table_evaluasi['page'])
-        // );
+            // torang simpan create linksnya ke variabel
+            $table_perencanaan['pagination'] = $this->pagination->create_links();
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/head_content', $data);
+            $this->load->view('admin/dokumensakip/evaluasi', $table_perencanaan);
+            $this->load->view('templates/footer');
+        } else {
+            $file   = $this->input->post('file');
+            $nilai  = $this->input->post('nilai');
 
-        // // torang simpan create linksnya ke variabel
-        // $table_evaluasi['pagination'] = $this->pagination->create_links();
+            $data = array(
+                'file_name' => $file,
+                'nilai'     => $nilai
+            );
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/dokumensakip/evaluasi');
-        $this->load->view('templates/footer');
+            $upload_data = $this->upload->data();
+            //mengambil file_name... 
+            $data['file_name'] = $upload_data['file_name'];
+            //untuk kirim ke database..
+            $insert = $this->Madmin->tambah_evaluasi($data);
+
+            if ($insert) {
+                redirect('Admin_sakip_sulut/evaluasi_kinerja');
+            } else {
+                echo "Gagal";
+            }
+        }
     }
 
 
@@ -563,7 +515,7 @@ class Admin_sakip_sulut extends CI_Controller
                 'date_update' => date("Y-m-d"),
             ];
 
-            $this->db->insert('tbl_user', $data);
+            $insert = $this->Madmin->tambah_user($data);
 
             // $this->_sendEmail();
 

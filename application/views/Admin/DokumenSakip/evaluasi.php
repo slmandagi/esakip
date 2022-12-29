@@ -29,46 +29,34 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Provinsi Sulawesi Utara</td>
-                    <td>
-                        <form action="" method="POST" class="form-input-evaluasi-admin">
-                            <div class="input-file-evaluasi-container">
-                                <!-- <label for="upload-file-informasi">Pilih File</label> -->
-                                <!-- label ini berfungsi sebagai input(secara tampilan) -->
-                                <label for="upload-file-evaluasi" class="upload-file-evaluasi">
-                                    Upload file anda disini...
-                                    <i class="fa-solid fa-file-circle-plus"></i>
-                                </label>
-                                <!-- hanya trima dokumen -->
-                                <input type="file" id="upload-file-evaluasi" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf">
-                            </div>
-                            <input type="text" class="input-evaluasi-admin" placeholder="Input Nilai">
-                            <button type="submit">Selesai</button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Badan Pendapatan Daerah</td>
-                    <td>
-                        <form action="" method="POST" class="form-input-evaluasi-admin">
-                            <div class="input-file-evaluasi-container">
-                                <!-- <label for="upload-file-informasi">Pilih File</label> -->
-                                <!-- label ini berfungsi sebagai input(secara tampilan) -->
-                                <label for="upload-file-evaluasi" class="upload-file-evaluasi">
-                                    Upload file anda disini...
-                                    <i class="fa-solid fa-file-circle-plus"></i>
-                                </label>
-                                <!-- hanya trima dokumen -->
-                                <input type="file" id="upload-file-evaluasi" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf">
-                            </div>
-                            <input type="text" class="input-evaluasi-admin" placeholder="Input Nilai">
-                            <button type="submit" class="btn-selesai-evaluasi">Selesai</button>
-                        </form>
-                    </td>
-                </tr>
+                <?php
+                $nomor =  $this->uri->segment(3) ? $this->uri->segment(3) + 1  : 1;
+                foreach ($table as $baris) :
+                ?>
+                    <tr>
+                        <td><?= $nomor ?></td>
+                        <td><?= $baris['user_name'] ?></td>
+                        <td>
+                            <form id="tambah_evaluasi" action="<?= base_url('Admin_sakip_sulut/evaluasi_kinerja') ?>" method="POST" class="form-input-evaluasi-admin" enctype="multipart/form-data">
+                                <div class="input-file-evaluasi-container">
+                                    <!-- <label for="upload-file-informasi">Pilih File</label> -->
+                                    <!-- label ini berfungsi sebagai input(secara tampilan) -->
+                                    <label for="upload-file-evaluasi-<?= $nomor ?>" class="upload-file-evaluasi-label-<?= $nomor ?>">
+                                        Upload file anda disini...
+                                        <i class="fa-solid fa-file-circle-plus"></i>
+                                    </label>
+                                    <!-- hanya trima dokumen -->
+                                    <input type="file" name="file" id="upload-file-evaluasi-<?= $nomor ?>" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf" data-nomor="<?= $nomor ?>">
+                                </div>
+                                <input type="text" id="nilai" name="nilai" class="input-evaluasi-admin" placeholder="Input Nilai">
+                                <button type="submit">Selesai</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php
+                    $nomor++;
+                endforeach;
+                ?>
             </tbody>
         </table>
 

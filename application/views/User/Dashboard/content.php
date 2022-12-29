@@ -34,13 +34,12 @@
 
             <tbody>
                 <?php
+                $nomor =  $this->uri->segment(3) ? $this->uri->segment(3) + 1  : 1;
                 if (!empty($all_docs)) {
-                    $i = 0;
                     foreach ($all_docs as $s) {
-                        $i++;
                 ?>
                         <tr>
-                            <td><?= $i; ?></td>
+                            <td><?= $nomor ?></td>
                             <td style="text-align: start; padding-left: 20px"><?= $s->nama_dok; ?></td>
                             <td><i class="fa-solid fa-circle-check"></i></td>
                             <td><?= $s->date; ?></td>
@@ -52,6 +51,7 @@
                             </td>
                         </tr>
                 <?php
+                        $nomor++;
                     }
                 }
                 ?>
@@ -59,12 +59,7 @@
         </table>
         <div class="footer-for-pagination">
             <div class="button-pagination">
-                <span class="detail-pagination">Sebelumnya</span>
-                <a href="" class="active">1</a>
-
-                <!-- <?php echo $pagination ?> -->
-                <span class="detail-pagination">Selanjutnya</span>
-
+                <?php echo $pagination ?>
             </div>
         </div>
     </div>
