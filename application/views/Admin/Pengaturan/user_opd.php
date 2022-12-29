@@ -32,7 +32,7 @@
                         <th>Dibuat</th>
                         <th>Update</th>
                         <th>Aktifasi User</th>
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
 
@@ -84,7 +84,8 @@
                                 <td>
                                     <!-- <button uid="<?php echo $baris['user_id']; ?>" uname="<?php echo $baris['user_name']; ?>" uemail="<?php echo $baris['user_email']; ?>" ujenis="<?php echo $baris['Jenis_user']; ?>" class="btn-edit-user">Edit</button> -->
 
-                                    <button class="btn-lupa-password">Lupa Password</button>
+
+                                    <!-- <button uid="<?php echo $baris['user_id']; ?>" upass="<?php echo $baris['user_password']; ?>" class="btn-lupa-password">Lupa Password</button> -->
                                 </td>
                             <?php } ?>
                         </tr>
@@ -134,55 +135,59 @@
                         <i class="fa-solid fa-circle-xmark modal-close"></i>
                     </form>
                 </div>
-
-
-
             </div>
+
 
             <!-- <div class="modal-edit-user-container modal modal-pengaturan">
                 <div class="modal-edit-user">
-                    <?php foreach ($userID as $user) : ?>
 
-                        <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
-                            <h3>Edit User</h3>
+                    <form action="<?= base_url('admin_sakip_sulut/update_data'); ?>" class="form-edit-user" method="POST">
+                        <h3>Edit User</h3>
 
-                            <label id="hide">Id :</label>
-                            <input type="hidden" id="user_id" name="user_id" value="">
+                        <input type="hidden" id="id" name="user_id" value="">
 
-                            <label for="unit-kerja-modal">Unit Kerja</label>
-                            <input name="user_name" type="text" id="user_name" value="">
+                        <label for="unit-kerja-modal">Unit Kerja</label>
+                        <input name="user_name" type="text" id="name" value="">
 
-                            <label for="email-modal">Email</label>
-                            <input name="user_email" type="text" id="user_email" value="">
-                            <select name="Jenis_user" id="Jenis_user" role="radiogroup">
-                                <?php foreach ($jenis_u as $value) : ?>
-                                    <option role="radio" value="" hidden>Pilih Role</option>
-                                    <option role="radio" value="<?= $value->name ?>"><?= $value->name ?></option>
-                                <?php endforeach ?>
-                            </select>
+                        <label for="email-modal">Email</label>
+                        <input name="user_email" type="text" id="email" value="">
+                        <select name="Jenis_user" id="Jenis" role="radiogroup">
+                            <?php foreach ($jenis_u as $value) : ?>
+                                <option role="radio" value="" hidden>Pilih Role</option>
+                                <option role="radio" value="<?= $value->name ?>"><?= $value->name ?></option>
+                            <?php endforeach ?>
+                        </select>
 
-                            <button type="submit" id="btn-edit-user-modal" class="btn-edit-user-modal">Edit</button>
-                            <input type="submit" id="submit" name="dsubmit" value="Edit" class="btn-edit-user-modal">
-                            <i class="fa-solid fa-circle-xmark modal-close"></i>
-                        </form>
-                    <?php endforeach; ?>
+                        <button type="submit" id="btn-edit-user-modal" class="btn-edit-user-modal">Edit</button>
+                        <input type="submit" id="submit" name="dsubmit" value="Edit" class="btn-edit-user-modal">
+            <i class="fa-solid fa-circle-xmark modal-close"></i>
+            </form>
 
-                </div>
-            </div> -->
+        </div>
+    </div> -->
 
-            <div class="modal-lupa-password-container modal modal-pengaturan">
+
+            <!-- modal untuk ubah password -->
+            <!-- <div class="modal-lupa-password-container modal modal-pengaturan">
                 <div class="modal-lupa-password">
-                    <form action="" class="form-lupa-password" id="form-lupa-password" class="form-lupa-password">
+
+                    <form action="<?= base_url('admin_sakip_sulut/update_pass'); ?>" class="form-lupa-password" id="form-lupa-password" class="form-lupa-password" method="POST">
                         <h3>Lupa Password</h3>
+
+                        <input type="hidden" class="password-baru" id="id">
+
                         <label for="password-baru">Password Baru</label>
-                        <input type="text" class="password-baru" id="password-baru">
+                        <input name="user_password" type="text" class="password-baru" id="password-baru">
+
                         <label for="konfirmasi-password-baru">Konfirmasi Password Baru</label>
                         <input type="text" class="konfirmasi-password-baru" id="konfirmasi-password-baru">
+
                         <button type="submit" id="btn-edit-user-modal" class="btn-lupa-password-modal">Simpan</button>
                         <i class="fa-solid fa-circle-xmark modal-close"></i>
+
                     </form>
                 </div>
-            </div>
+            </div> -->
 
             <!-- modal for block user -->
             <!-- <div class="modal-block-user-container modal-pengaturan modal">
@@ -202,6 +207,8 @@
                 </form>
 
             </div> -->
+
+
 
 
         </div>

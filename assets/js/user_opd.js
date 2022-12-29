@@ -70,11 +70,25 @@ $(document).ready(function () {
         var email = $(this).attr('uemail'); //get attribute value in variable
         var jenis = $(this).attr('ujenis'); //get attribute value in variable
        
-        $('#user_id').val(id); //pass attribute value in ID
-        $('#user_name').val(name); //pass attribute value in ID
-        $('#user_email').val(email); //pass attribute value in ID
-        $('#Jenis_user').val(jenis); //pass attribute value in ID
+        $('#id').val(id); //pass attribute value in ID
+        $('#name').val(name); //pass attribute value in ID
+        $('#email').val(email); //pass attribute value in ID
+        $('#Jenis').val(jenis); //pass attribute value in ID
         
+    })
+
+})
+
+$(document).ready(function () {
+
+    $('.btn-lupa-password').click(function () {
+        var id = $(this).attr('uid'); //get attribute value in variable
+        var pass = $(this).attr('upass'); //get attribute value in variable
+       
+       
+        $('#id').val(id); //pass attribute value in ID
+        $('#user_password').val(pass); //pass attribute value in ID
+      
     })
 
 })
