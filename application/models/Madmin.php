@@ -13,28 +13,16 @@ class Madmin extends CI_Model
         return $result;
     }
 
-    function tambah_t1($data)
-    {
-
-        $this->db->trans_start();
-        $this->db->insert('tbl_pengukuran_triwulan', $data);
-
-        $insert_id = $this->db->insert_id();
-
-        $this->db->trans_complete();
-
-        return $insert_id;
-    }
-
     //fungsi tambah user opd/instansi & tambah nama user ke table status dokumen
     function tambah_user($data)
     {
         //utk table user
         $this->db->insert('tbl_user', $data);
 
-        //utk table status dokumen
+        //utk table status dokumen dan tbl pengukuran triwulan
         $opd = ['opd' => $data['user_name']];
         $this->db->insert('tbl_status_dokumen', $opd);
+        $this->db->insert('tbl_pengukuran_triwulan', $opd);
 
         return true;
     }
@@ -58,7 +46,7 @@ class Madmin extends CI_Model
         return $total_data;
     }
 
-    // utk menampilkan data pengukuran kinerja user
+    // utk menampilkan data perencanaan kinerja user
     function get_table_perencanaan($model, $limit = null, $start = null)
     {
         $jen_dok = ['Renstra', 'RPJMD', 'IKU', 'Renja', 'PK', 'Rencana Aksi', 'Cascading Kinerja', 'Pohon Kinerja', 'Crosscutting'];
@@ -83,6 +71,69 @@ class Madmin extends CI_Model
         return $total_data;
     }
 
+    // utk menampilkan data pengukuran kinerja triwulan 1
+    function get_table_pengukuran_t1($model, $limit = null, $start = null)
+    {
+        $this->load->database($model);
+        $this->db->where('jenis_dok', 'triwulan1');
+        // $this->db->join('tbl_dokumen_user', 'tbl_dokumen_user.opd = ' . $model . '.user_name', 'left');
+        $query = $this->db->get($model, $limit, $start);
+        $query = $query->result();
+        return $query;
+    }
+
+    // utk menampilkan data pengukuran kinerja triwulan 2
+    function get_table_pengukuran_t2($model, $limit = null, $start = null)
+    {
+        $this->load->database($model);
+        $this->db->where('jenis_dok', 'triwulan2');
+        // $this->db->join('tbl_dokumen_user', 'tbl_dokumen_user.opd = ' . $model . '.user_name', 'left');
+        $query = $this->db->get($model, $limit, $start);
+        $query = $query->result();
+        return $query;
+    }
+
+    // utk menampilkan data pengukuran kinerja triwulan 3
+    function get_table_pengukuran_t3($model, $limit = null, $start = null)
+    {
+        $this->load->database($model);
+        $this->db->where('jenis_dok', 'triwulan3');
+        // $this->db->join('tbl_dokumen_user', 'tbl_dokumen_user.opd = ' . $model . '.user_name', 'left');
+        $query = $this->db->get($model, $limit, $start);
+        $query = $query->result();
+        return $query;
+    }
+
+    // utk menampilkan data pengukuran kinerja triwulan 4
+    function get_table_pengukuran_t4($model, $limit = null, $start = null)
+    {
+        $this->load->database($model);
+        $this->db->where('jenis_dok', 'triwulan4');
+        // $this->db->join('tbl_dokumen_user', 'tbl_dokumen_user.opd = ' . $model . '.user_name', 'left');
+        $query = $this->db->get($model, $limit, $start);
+        $query = $query->result();
+        return $query;
+    }
+
+    function total_data_pengukuran($model)
+    {
+        $this->load->database($model);
+        $this->db->where('jenis_dok', 'triwulan1');
+        $query = $this->db->get($model);
+        $query = $query->result_array();
+        $total_data = count($query);
+        return $total_data;
+    }
+
+    //utk tambah triwulan 1
+    function tambah_triwulan($data)
+    {
+        $this->db->where('opd', $data['opd']);
+        $this->db->update('tbl_pengukuran_triwulan', $data);
+
+        return true;
+    }
+
     // utk menampilkan data pelaporan tahunan kinerja user
     function get_table_pelaporan($model, $limit = null, $start = null)
     {
@@ -102,6 +153,24 @@ class Madmin extends CI_Model
 
         $this->load->database($model);
         $this->db->or_where_in('jenis_dok', $jen_dok);
+        $query = $this->db->get($model);
+        $query = $query->result_array();
+        $total_data = count($query);
+        return $total_data;
+    }
+
+    // utk page informasi pesan dari admin
+    function get_table_informasi($model, $limit = null, $start = null)
+    {
+        $this->load->database($model);
+        $query = $this->db->get($model, $limit, $start);
+        $query = $query->result_array();
+        return $query;
+    }
+
+    function total_data_informasi($model)
+    {
+        $this->load->database($model);
         $query = $this->db->get($model);
         $query = $query->result_array();
         $total_data = count($query);
