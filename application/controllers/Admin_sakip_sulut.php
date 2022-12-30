@@ -451,16 +451,21 @@ class Admin_sakip_sulut extends CI_Controller
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload('file')) {
+            $year = $this->input->get('year');
             $data['judul_halaman'] = 'Evaluasi Kinerja';
-            $data['judul_header_page'] = 'Evaluasi Kinerja';
-            $model = 'tbl_user';
+            if (!$year) {
+                $data['judul_header_page'] = 'Evaluasi Kinerja';
+            } else {
+                $data['judul_header_page'] = 'Evaluasi Kinerja ' . $year;
+            }
+            $model = 'tbl_status_dokumen';
 
             $config['base_url'] = site_url('admin_sakip_sulut/evaluasi_kinerja'); // ini langsung link ke controller
             $config['uri_segment'] = 3;
-            $table_perencanaan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $table_evaluasi['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
             $config['total_rows'] = ceil($this->Madmin->total_data_evaluasi($model));
 
-            if ($table_perencanaan['page'] == 0) {
+            if ($table_evaluasi['page'] == 0) {
                 if ($this->session->per_page == 0) {
                     $this->session->per_page = 5;
                 }
@@ -476,24 +481,28 @@ class Admin_sakip_sulut extends CI_Controller
 
             // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
             $this->pagination->initialize($config);
-            $table_perencanaan = array(
-                'table' => $this->Madmin->get_table_evaluasi($model, $config['per_page'], $table_perencanaan['page'])
+            $table_evaluasi = array(
+                'table' => $this->Madmin->get_table_evaluasi($year, $model, $config['per_page'], $table_evaluasi['page'])
             );
 
             // torang simpan create linksnya ke variabel
-            $table_perencanaan['pagination'] = $this->pagination->create_links();
+            $table_evaluasi['pagination'] = $this->pagination->create_links();
+            $table_evaluasi['year'] = $this->Madmin->get_year();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
             $this->load->view('templates/head_content', $data);
-            $this->load->view('admin/dokumensakip/evaluasi', $table_perencanaan);
+            $this->load->view('admin/dokumensakip/evaluasi', $table_evaluasi);
             $this->load->view('templates/footer');
         } else {
             $file   = $this->input->post('file');
             $nilai  = $this->input->post('nilai');
+            $opd    = $this->input->post('opd');
 
             $data = array(
+                'opd'       => $opd,
                 'file_name' => $file,
-                'nilai'     => $nilai
+                'nilai'     => $nilai,
+                'year'      => date('Y'),
             );
 
             $upload_data = $this->upload->data();

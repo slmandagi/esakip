@@ -174,4 +174,11 @@ $(document).ready(function () {
 
 		// $("#modal_t1").modal("show");
 	});
+
+	//utk menghapus duplicate select option
+	$(".select option").each(function () {
+		$(this)
+			.siblings('[value="' + this.value + '"]')
+			.remove();
+	});
 });

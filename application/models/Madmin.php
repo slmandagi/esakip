@@ -180,20 +180,29 @@ class Madmin extends CI_Model
     }
 
     //utk menampilkan setiap user pada page evaluasi
-    function get_table_evaluasi($model, $limit = null, $start = null)
+    function get_table_evaluasi($year, $model, $limit = null, $start = null)
     {
-        $this->load->database($model);
-        $this->db->order_by('user_name', 'ASC');
-        $this->db->where('user_akses', '2');
-        $query = $this->db->get($model, $limit, $start);
-        $query = $query->result_array();
-        return $query;
+        if (!$year) {
+            $this->load->database($model);
+            $this->db->join('tbl_evaluasi', 'tbl_evaluasi.opd = tbl_status_dokumen.opd');
+            $this->db->order_by('tbl_dokumen_user.opd', 'ASC');
+            $query = $this->db->get($model, $limit, $start);
+            $query = $query->result_array();
+            return $query;
+        } else {
+            $this->load->database($model);
+            $this->db->join('tbl_evaluasi', 'tbl_evaluasi.opd = tbl_status_dokumen.opd');
+            $this->db->order_by('tbl_evaluasi.opd', 'ASC');
+            $this->db->where('tbl_status_dokumen.year', $year);
+            $query = $this->db->get($model, $limit, $start);
+            $query = $query->result_array();
+            return $query;
+        }
     }
 
     function total_data_evaluasi($model)
     {
         $this->load->database($model);
-        $this->db->where('user_akses', '2');
         $query = $this->db->get($model);
         $query = $query->result_array();
         $total_data = count($query);
@@ -206,5 +215,15 @@ class Madmin extends CI_Model
         $this->db->insert('tbl_evaluasi', $data);
 
         return true;
+    }
+
+    //utk ambil tahun
+    function get_year()
+    {
+        $this->db->select('year');
+        $this->db->from('tbl_year');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
     }
 }

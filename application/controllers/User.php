@@ -190,6 +190,7 @@ class User extends CI_Controller
             $data['user'] = 'user';
             $data['judul_halaman'] = 'Pelaporan Kinerja';
             $data['judul_header_page'] = 'Pelaporan Kinerja';
+            $data['year'] = $this->Muser->get_year();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar_user');
@@ -203,6 +204,7 @@ class User extends CI_Controller
             $jenis_dok  = 'lakip';
             $date       = date("Y-m-d");
             $File_dok   = $this->input->post('File_dok');
+            $year       = $this->input->post('year');
 
             $data = array(
                 'opd'       => $opd,
@@ -216,7 +218,7 @@ class User extends CI_Controller
             //mengambil file_name... 
             $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Muser->tambah_dokumen($data);
+            $insert = $this->Muser->tambah_pelaporan($data, $year);
 
             if ($insert) {
                 redirect('user/index');

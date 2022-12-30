@@ -22,14 +22,34 @@ class Muser extends CI_Model
         return $total_data;
     }
 
-    //input perencanaan, pengukuran, pelaporan dan update status dokumen user
+    //input perencanaan, pengukuran, dan update status dokumen user
     function tambah_dokumen($data)
     {
 
         $this->db->insert('tbl_dokumen_user', $data);
 
+        $add_year = ['year' => date('Y')];
+        $this->db->insert('tbl_year', $add_year);
+
         $jen_dok = $data['jenis_dok'];
-        $status = [$jen_dok => true];
+        $status = [$jen_dok => true, 'year' => date('Y')];
+        $this->db->where('opd', $data['opd']);
+        $this->db->update('tbl_status_dokumen', $status);
+
+        return true;
+    }
+
+    //input pelaporan
+    function tambah_pelaporan($data, $year)
+    {
+
+        $this->db->insert('tbl_dokumen_user', $data);
+
+        if ($year) {
+            # code...
+        }
+        $jen_dok = $data['jenis_dok'];
+        $status = [$jen_dok => true, 'year' => date('Y')];
         $this->db->where('opd', $data['opd']);
         $this->db->update('tbl_status_dokumen', $status);
 
@@ -76,6 +96,16 @@ class Muser extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_user');
         $this->db->where('user_id', $data);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+
+    //utk ambil tahun
+    function get_year()
+    {
+        $this->db->select('year');
+        $this->db->from('tbl_year');
         $query = $this->db->get();
         $result = $query->result();
         return $result;
