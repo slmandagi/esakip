@@ -119,15 +119,15 @@
                     <form action="<?= base_url('admin_sakip_sulut/user_opd'); ?>" class="form-tambah-user" method="POST">
                         <label for="unit-kerja-modal">Unit Kerja</label>
                         <span style="color: red;"> <?= form_error('user_name', '<small class="text-danger">', '</small>') ?></span>
-                        <input type="text" id="unit-kerja-modal" name="user_name" value="<?= set_value('user_name'); ?>">
+                        <input type="text" id="unit-kerja-modal" name="user_name" value="<?= set_value('user_name'); ?>" placeholder="nama user">
 
                         <label for="email-modal">Email</label>
                         <span style="color: red;"><?= form_error('user_email', '<small class="text-danger">', '</small>') ?></span>
-                        <input type="email" id="email-modal" name="user_email" value="<?= set_value('user_email'); ?>">
+                        <input type="email" id="email-modal" name="user_email" value="<?= set_value('user_email'); ?>" placeholder="user@gmail.com">
 
                         <label for="password-modal">Password</label>
                         <span style="color: red;"><?= form_error('user_password', '<small class="text-danger">', '</small>') ?></span>
-                        <input type="password" id="password-modal" name="user_password" value="<?= set_value('user_password'); ?>">
+                        <input type="password" id="password-modal" name="user_password" value="<?= set_value('user_password'); ?>" placeholder="masukan password user">
 
                         <select name="Jenis_user" id="pilih-role-user" role="radiogroup" required>
                             <?php foreach ($jenis_u as $value) : ?>

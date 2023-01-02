@@ -22,7 +22,7 @@
 
                 <center>
                     <br>
-                    <p>Update Data <b><?php echo $user->user_name; ?></b></p>
+                    <p>Update Data <span style="color: #82C3EC;"><b><?php echo $user->user_name; ?></b></span></p>
                 </center>
 
                 <input type="hidden" id="user_id" name="user_id" value="<?php echo $user->user_id; ?>">
@@ -33,9 +33,10 @@
                 <label for="email-modal">Email</label>
                 <input name="user_email" type="text" id="user_email" value="<?php echo $user->user_email; ?>">
 
-                <label for="email-modal">Password</label>
-                <input name="user_password" type="password" id="user_password" value="">
+                <label for="email-modal">Ganti Password</label>
+                <input name="user_password" type="text" id="user_password" placeholder="masukan password baru user" required>
 
+                <label for="email-modal">Ganti Role User</label>
                 <select name="Jenis_user" id="Jenis_user" role="radiogroup" required>
                     <?php foreach ($jenis_u as $j) : ?>
                         <option value="" hidden>Pilih Role</option>

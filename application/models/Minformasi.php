@@ -11,4 +11,11 @@ class Minformasi extends CI_Model
 
         return true;
     }
+
+    function getInformasi()
+    {
+        $query = $this->db->get('tbl_informasi');
+        $query_result = $query->result();
+        return $query_result;
+    }
 }

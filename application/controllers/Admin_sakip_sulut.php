@@ -599,10 +599,12 @@ class Admin_sakip_sulut extends CI_Controller
             $data['judul_halaman'] = 'Informasi';
             $data['judul_header_page'] = 'Informasi';
 
+            $data['informasi'] = $this->Minformasi->getInformasi();
+
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
             $this->load->view('templates/head_content', $data);
-            $this->load->view('admin/informasi/index', $table_informasi);
+            $this->load->view('admin/informasi/index', $table_informasi, $data);
             $this->load->view('templates/footer');
             # code...
 
@@ -783,7 +785,9 @@ class Admin_sakip_sulut extends CI_Controller
         $data = array(
             'User_name' => $this->input->post('user_name'),
             'User_email' => $this->input->post('user_email'),
+
             'user_password' =>  md5($this->input->post('user_password')),
+
             'Jenis_user' => $this->input->post('Jenis_user'),
             'date_update' => date("Y-m-d"),
             // 'User_status' => 0,
