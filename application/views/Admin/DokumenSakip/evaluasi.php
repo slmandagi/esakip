@@ -52,7 +52,7 @@
                     <tr>
                         <td><?= $nomor ?></td>
                         <td><?= $baris['opd'] ?></td>
-                        <td><?= $baris['year'] ?></td>
+                        <td><?= $baris['years'] ?></td>
                         <td>
                             <form id="tambah_evaluasi" action="<?= base_url('Admin_sakip_sulut/evaluasi_kinerja') ?>" method="POST" class="form-input-evaluasi-admin" enctype="multipart/form-data">
                                 <div class="input-file-evaluasi-container">
@@ -92,7 +92,7 @@
 
         <div class="footer-for-pagination">
             <div class="button-pagination">
-                <a href="">1</a>
+                <?php echo $pagination ?>
             </div>
         </div>
     </div>
