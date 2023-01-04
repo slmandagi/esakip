@@ -1,7 +1,7 @@
 <div class="informasi-container">
     <div class="main-content-informasi">
-        <div class="the-base">
-            <div class="daftar-pesan-terkirim">
+        <div class="the-base" style="height: 100vh;">
+            <div class="daftar-pesan-terkirim" style="height:fit-content;">
                 <div class="pesan-terkirim">
                     <h5 class="user-pengirim">Admin Sakip</h5>
                     <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
@@ -9,39 +9,6 @@
 
                 </div>
                 <hr>
-                <div class="pesan-terkirim">
-                    <h5 class="user-pengirim">Admin Sakip</h5>
-                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
-                    <h5>2 November 2022</h5>
-                </div>
-                <hr>
-                <div class="pesan-terkirim">
-                    <h5 class="user-pengirim">Admin Sakip</h5>
-                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
-                    <h5>2 November 2022</h5>
-
-                </div>
-                <hr>
-                <div class="pesan-terkirim">
-                    <h5 class="user-pengirim">Admin Sakip</h5>
-                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
-                    <h5>2 November 2022</h5>
-
-                </div>
-                <hr>
-                <div class="pesan-terkirim">
-                    <h5 class="user-pengirim">Admin Sakip</h5>
-                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
-                    <h5>2 November 2022</h5>
-
-                </div>
-                <hr>
-                <div class="pesan-terkirim">
-                    <h5 class="user-pengirim">Admin Sakip</h5>
-                    <p>Bagi Semua Perangkat Daerah, mohon untuk segera mengirimkan laporan kinerja untuk triwulan pertama ini.</p>
-                    <h5>2 November 2022</h5>
-
-                </div>
             </div>
             <form action="<?= base_url('admin_sakip_sulut/informasi'); ?>" class="form-kirim-pesan-admin" method="POST" enctype="multipart/form-data">
 

@@ -677,7 +677,6 @@ button.btn-selesai-input-triwulan:hover {
     height: inherit;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 .daftar-pesan-diterima {
