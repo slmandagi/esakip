@@ -1,70 +1,66 @@
 $(document).ready(function () {
+	// General
+	$(".modal-close").click(function () {
+		$(".modal-pengaturan, .modal").removeClass("active");
+	});
 
-    // General
-    $('.modal-close').click(function () {
-        $('.modal-pengaturan, .modal').removeClass('active');
-        console.log('afasf')
-    })
+	// Modal tambah user
+	$(".btn-tambah-user").click(function () {
+		$(".modal-tambah-user-container").addClass("active");
+	});
 
-    // Modal tambah user
-    $('.btn-tambah-user').click(function () {
-        $('.modal-tambah-user-container').addClass('active');
-        console.log('adfa');
-    })
+	$(".btn-tambah-user-modal").click(function () {
+		$(".modal-tambah-user-container").removeClass("active");
+	});
 
-    $('.btn-tambah-user-modal').click(function () {
-        $('.modal-tambah-user-container').removeClass('active');
-    })
+	// Modal edit user
 
+	$(".btn-edit-user").click(function () {
+		$(".modal-edit-user-container").addClass("active");
+	});
 
-    // Modal edit user
+	$(".btn-edit-user-modal").click(function () {
+		$(".modal-edit-user-container").removeClass("active");
+	});
 
-    $('.btn-edit-user').click(function () {
-        $('.modal-edit-user-container').addClass("active");
-    })
+	// Modal Lupa Password
 
-    $('.btn-edit-user-modal').click(function () {
-        $('.modal-edit-user-container').removeClass("active");
-    })
+	$(".btn-lupa-password").click(function () {
+		$(".modal-lupa-password-container").addClass("active");
+	});
 
-    // Modal Lupa Password
+	$(".btn-lupa-password-modal").click(function () {
+		$(".modal-lupa-password-container").removeClass("active");
+	});
 
-    $('.btn-lupa-password').click(function () {
-        $('.modal-lupa-password-container').addClass('active');
-    })
+	// Modal block user
+	$(".btn-block-user").click(function () {
+		$(".modal-block-user-container").addClass("active");
+	});
 
-    $('.btn-lupa-password-modal').click(function () {
-        $('.modal-lupa-password-container').removeClass('active');
-    })
+	$(".btn-tidak-block").click(function () {
+		$(".modal-block-user-container").removeClass("active");
+	});
 
-    // Modal block user
-    $('.btn-block-user').click(function () {
-        $('.modal-block-user-container').addClass('active');
-    })
+	// Modal pengukuran
 
-    $('.btn-tidak-block').click(function () {
-        $('.modal-block-user-container').removeClass('active');
-    })
+	// triwulan 1
+	$(".triwulan-1-modal").click(function (e) {
+		// e.preventDefault();
+		$(".modal-triwulan-1-container").addClass("active");
+	});
 
-    // Modal pengukuran
+	// triwulan 2
+	$(".triwulan-2-modal").click(function () {
+		$(".modal-triwulan-2-container").addClass("active");
+	});
+	// triwulan 3
+	$(".triwulan-3-modal").click(function () {
+		$(".modal-triwulan-3-container").addClass("active");
+	});
 
-    // triwulan 1
-    $('.triwulan-1-modal').click(function (e) {
-        e.preventDefault();
-        $('.modal-triwulan-1-container').addClass('active');
-    })
-
-    // triwulan 2
-    $('.triwulan-2-modal').click(function () {
-        $('.modal-triwulan-2-container').addClass('active');
-    })
-    // triwulan 3
-    $('.triwulan-3-modal').click(function () {
-        $('.modal-triwulan-3-container').addClass('active');
-    })
-
-    // triwulan 4
-    $('.triwulan-4-modal').click(function () {
-        $('.modal-triwulan-4-container').addClass('active');
-    })
-})
+	// triwulan 4
+	$(".triwulan-4-modal").click(function () {
+		$(".modal-triwulan-4-container").addClass("active");
+	});
+});

@@ -128,24 +128,85 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function pengukuran_kinerja()
     {
-        # code...
         $data['user'] = 'admin_sakip_sulut';
         $data['judul_halaman'] = "Pengukuran Kinerja";
         $data['judul_header_page'] = 'Pengukuran Kinerja';
+        $model = 'tbl_dokumen_user';
+        $config['base_url'] = site_url('admin_sakip_sulut/perencanaan_kinerja'); // ini langsung link ke controller
+        $config['uri_segment'] = 3;
+        $table_pengukuran['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $config['total_rows'] = ceil($this->Madmin->total_data_pengukuran($model));
 
-        $data['all_opd'] = $this->Madmin->get_all_opd();
+        if ($table_pengukuran['page'] == 0) {
+            if ($this->session->per_page == 0) {
+                $this->session->per_page = 5;
+            }
+            if ((int)$this->input->get('banyaknya-data')) {
+                $this->session->per_page = (int)$this->input->get('banyaknya-data');
+            }
+        }
+        $config['per_page'] = $this->session->per_page;
+        $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
+        $config['first_link'] = '<<';
+        $config['next_link'] = 'Selanjutnya >';
+        $config['prev_link'] = '< Sebelumnya';
 
+        $this->pagination->initialize($config);
+        $table_pengukuran = array(
+            'triwulan1' => $this->Madmin->get_table_pengukuran_t1($model, $config['per_page'], $table_pengukuran['page']),
+            'triwulan2' => $this->Madmin->get_table_pengukuran_t2($model, $config['per_page'], $table_pengukuran['page']),
+            'triwulan3' => $this->Madmin->get_table_pengukuran_t3($model, $config['per_page'], $table_pengukuran['page']),
+            'triwulan4' => $this->Madmin->get_table_pengukuran_t4($model, $config['per_page'], $table_pengukuran['page']),
+        );
+
+        $table_pengukuran['pagination'] = $this->pagination->create_links();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/dokumensakip/pengukuran_');
+        $this->load->view('admin/dokumensakip/pengukuran_', $table_pengukuran);
         $this->load->view('templates/footer');
     }
+
+    // utk menampilkan data triwulan 1
+    function triwulan1()
+    {
+        $data['id'] = $_POST['id'];
+        $data['opd'] = $_POST['opd'];
+
+        $this->load->view('admin/dokumensakip/triwulan1', $data);
+    }
+
+    // utk menampilkan data triwulan 2
+    function triwulan2()
+    {
+        $data['id'] = $_POST['id'];
+        $data['opd'] = $_POST['opd'];
+
+        $this->load->view('admin/dokumensakip/triwulan2', $data);
+    }
+
+    // utk menampilkan data triwulan 3
+    function triwulan3()
+    {
+        $data['id'] = $_POST['id'];
+        $data['opd'] = $_POST['opd'];
+
+        $this->load->view('admin/dokumensakip/triwulan3', $data);
+    }
+
+    // utk menampilkan data triwulan 4
+    function triwulan4()
+    {
+        $data['id'] = $_POST['id'];
+        $data['opd'] = $_POST['opd'];
+
+        $this->load->view('admin/dokumensakip/triwulan4', $data);
+    }
+
 
     // fungsi utk menambahkan triwulan 1
     function tambah_t1()
     {
-
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('ji_t1', 'Ji_T1', 'trim|required|max_length[10]|xss_clean');
@@ -154,7 +215,7 @@ class Admin_sakip_sulut extends CI_Controller
 
             $this->pengukuran_kinerja();
         } else {
-
+            $opd    = $this->input->post('opd');
             $ji_t1  = $this->input->post('ji_t1');
             $tt_t1  = $this->input->post('tt_t1');
             $tc1_t1 = $this->input->post('tc1_t1');
@@ -166,6 +227,7 @@ class Admin_sakip_sulut extends CI_Controller
             $mt_t1  = $this->input->post('mt_t1');
 
             $data = [
+                'opd'       => $opd,
                 'ji_t1'     => $ji_t1,
                 'tt_t1'     => $tt_t1,
                 'tc1_t1'    => $tc1_t1,
@@ -178,11 +240,152 @@ class Admin_sakip_sulut extends CI_Controller
 
             ];
 
-            $result = $this->Madmin->tambah_t1($data);
+            $result = $this->Madmin->tambah_triwulan($data);
 
             if ($result > 0) {
-                // $this->pengukuran_kinerja();
-                echo (json_encode(array('status' => TRUE)));
+                json_encode(array('status' => TRUE));
+                redirect('Admin_sakip_sulut/pengukuran_kinerja');
+            } else {
+                echo (json_encode(array('status' => FALSE)));
+            }
+        }
+    }
+
+    // fungsi utk menambahkan triwulan 2
+    function tambah_t2()
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('ji_t2', 'Ji_T2', 'trim|required|max_length[10]|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+
+            $this->pengukuran_kinerja();
+        } else {
+            $opd    = $this->input->post('opd');
+            $ji_t2  = $this->input->post('ji_t2');
+            $tt_t2  = $this->input->post('tt_t2');
+            $tc1_t2 = $this->input->post('tc1_t2');
+            $tc2_t2 = $this->input->post('tc2_t2');
+            $tc3_t2 = $this->input->post('tc3_t2');
+            $tc4_t2 = $this->input->post('tc4_t2');
+            $tc5_t2 = $this->input->post('tc5_t2');
+            $t_t2   = $this->input->post('t_t2');
+            $mt_t2  = $this->input->post('mt_t2');
+
+            $data = [
+                'opd'       => $opd,
+                'ji_t2'     => $ji_t2,
+                'tt_t2'     => $tt_t2,
+                'tc1_t2'    => $tc1_t2,
+                'tc2_t2'    => $tc2_t2,
+                'tc3_t2'    => $tc3_t2,
+                'tc4_t2'    => $tc4_t2,
+                'tc5_t2'    => $tc5_t2,
+                't_t2'      => $t_t2,
+                'mt_t2'     => $mt_t2,
+
+            ];
+
+            $result = $this->Madmin->tambah_triwulan($data);
+
+            if ($result > 0) {
+                json_encode(array('status' => TRUE));
+                redirect('Admin_sakip_sulut/pengukuran_kinerja');
+            } else {
+                echo (json_encode(array('status' => FALSE)));
+            }
+        }
+    }
+
+    // fungsi utk menambahkan triwulan 3
+    function tambah_t3()
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('ji_t3', 'Ji_T3', 'trim|required|max_length[10]|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+
+            $this->pengukuran_kinerja();
+        } else {
+            $opd    = $this->input->post('opd');
+            $ji_t3  = $this->input->post('ji_t3');
+            $tt_t3  = $this->input->post('tt_t3');
+            $tc1_t3 = $this->input->post('tc1_t3');
+            $tc2_t3 = $this->input->post('tc2_t3');
+            $tc3_t3 = $this->input->post('tc3_t3');
+            $tc4_t3 = $this->input->post('tc4_t3');
+            $tc5_t3 = $this->input->post('tc5_t3');
+            $t_t3   = $this->input->post('t_t3');
+            $mt_t3  = $this->input->post('mt_t3');
+
+            $data = [
+                'opd'       => $opd,
+                'ji_t3'     => $ji_t3,
+                'tt_t3'     => $tt_t3,
+                'tc1_t3'    => $tc1_t3,
+                'tc2_t3'    => $tc2_t3,
+                'tc3_t3'    => $tc3_t3,
+                'tc4_t3'    => $tc4_t3,
+                'tc5_t3'    => $tc5_t3,
+                't_t3'      => $t_t3,
+                'mt_t3'     => $mt_t3,
+
+            ];
+
+            $result = $this->Madmin->tambah_triwulan($data);
+
+            if ($result > 0) {
+                json_encode(array('status' => TRUE));
+                redirect('Admin_sakip_sulut/pengukuran_kinerja');
+            } else {
+                echo (json_encode(array('status' => FALSE)));
+            }
+        }
+    }
+
+    // fungsi utk menambahkan triwulan 4
+    function tambah_t4()
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('ji_t4', 'Ji_T4', 'trim|required|max_length[10]|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+
+            $this->pengukuran_kinerja();
+        } else {
+            $opd    = $this->input->post('opd');
+            $ji_t4  = $this->input->post('ji_t4');
+            $tt_t4  = $this->input->post('tt_t4');
+            $tc1_t4 = $this->input->post('tc1_t4');
+            $tc2_t4 = $this->input->post('tc2_t4');
+            $tc3_t4 = $this->input->post('tc3_t4');
+            $tc4_t4 = $this->input->post('tc4_t4');
+            $tc5_t4 = $this->input->post('tc5_t4');
+            $t_t4   = $this->input->post('t_t4');
+            $mt_t4  = $this->input->post('mt_t4');
+
+            $data = [
+                'opd'       => $opd,
+                'ji_t4'     => $ji_t4,
+                'tt_t4'     => $tt_t4,
+                'tc1_t4'    => $tc1_t4,
+                'tc2_t4'    => $tc2_t4,
+                'tc3_t4'    => $tc3_t4,
+                'tc4_t4'    => $tc4_t4,
+                'tc5_t4'    => $tc5_t4,
+                't_t4'      => $t_t4,
+                'mt_t4'     => $mt_t4,
+
+            ];
+
+            $result = $this->Madmin->tambah_triwulan($data);
+
+            if ($result > 0) {
+                json_encode(array('status' => TRUE));
+                redirect('Admin_sakip_sulut/pengukuran_kinerja');
             } else {
                 echo (json_encode(array('status' => FALSE)));
             }
@@ -236,7 +439,6 @@ class Admin_sakip_sulut extends CI_Controller
 
     public function evaluasi_kinerja()
     {
-        //upload config....
         $config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'gif|jpg|png|pdf|docx';
         $config['max_size']             = 10000;
@@ -248,16 +450,21 @@ class Admin_sakip_sulut extends CI_Controller
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload('file')) {
+            $year = $this->input->get('year');
             $data['judul_halaman'] = 'Evaluasi Kinerja';
-            $data['judul_header_page'] = 'Evaluasi Kinerja';
-            $model = 'tbl_user';
+            if (!$year) {
+                $data['judul_header_page'] = 'Evaluasi Kinerja';
+            } else {
+                $data['judul_header_page'] = 'Evaluasi Kinerja ' . $year;
+            }
+            $model = 'tbl_status_dokumen';
 
             $config['base_url'] = site_url('admin_sakip_sulut/evaluasi_kinerja'); // ini langsung link ke controller
             $config['uri_segment'] = 3;
-            $table_perencanaan['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $config['total_rows'] = ceil($this->Madmin->total_data_evaluasi($model));
+            $table_evaluasi['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $config['total_rows'] = ceil($this->Madmin->total_data_evaluasi($year, $model));
 
-            if ($table_perencanaan['page'] == 0) {
+            if ($table_evaluasi['page'] == 0) {
                 if ($this->session->per_page == 0) {
                     $this->session->per_page = 5;
                 }
@@ -273,24 +480,28 @@ class Admin_sakip_sulut extends CI_Controller
 
             // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
             $this->pagination->initialize($config);
-            $table_perencanaan = array(
-                'table' => $this->Madmin->get_table_evaluasi($model, $config['per_page'], $table_perencanaan['page'])
+            $table_evaluasi = array(
+                'table' => $this->Madmin->get_table_evaluasi($year, $model, $config['per_page'], $table_evaluasi['page'])
             );
 
             // torang simpan create linksnya ke variabel
-            $table_perencanaan['pagination'] = $this->pagination->create_links();
+            $table_evaluasi['pagination'] = $this->pagination->create_links();
+            $table_evaluasi['year'] = $this->Madmin->get_year();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar');
             $this->load->view('templates/head_content', $data);
-            $this->load->view('admin/dokumensakip/evaluasi', $table_perencanaan);
+            $this->load->view('admin/dokumensakip/evaluasi', $table_evaluasi);
             $this->load->view('templates/footer');
         } else {
             $file   = $this->input->post('file');
             $nilai  = $this->input->post('nilai');
+            $opd    = $this->input->post('opd');
 
             $data = array(
+                'opd'       => $opd,
                 'file_name' => $file,
-                'nilai'     => $nilai
+                'nilai'     => $nilai,
+                'year'      => date('Y'),
             );
 
             $upload_data = $this->upload->data();
@@ -306,7 +517,6 @@ class Admin_sakip_sulut extends CI_Controller
             }
         }
     }
-
 
     public function profil_pengguna()
     {
@@ -335,21 +545,6 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function triwulan($n_triwulan)
-    {
-        # code...
-        $data['user'] = 'admin_sakip_sulut';
-
-        # code...
-        $data['judul_halaman'] = "Pengaturan";
-        $data['judul_header_page'] =  "Ubah Email & Password";
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/pengaturan/ubah_email_pass');
-        $this->load->view('templates/footer');
-    }
-
     public function informasi()
     {
         //upload config....
@@ -363,53 +558,39 @@ class Admin_sakip_sulut extends CI_Controller
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload('file')) {
-            $model = "tbl_user";
-            $config['base_url'] = site_url('admin_sakip_sulut/user_opd'); // ini langsung link ke controller
+            $u_tujuan  = $this->input->post('u_tujuan');
+            $informasi   = $this->input->post('informasi');
 
-            $config['uri_segment'] = 3;
-            $table_informasi['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-            $config['total_rows'] = $this->Madmin->total_data($model);
+            if (!$informasi) {
+                $data['user'] = 'admin_sakip_sulut';
 
-            if ($table_informasi['page'] == 0) {
-                if ($this->session->per_page == 0) {
-                    $this->session->per_page = 5;
-                    // return $this->session->per_page;
-                }
-                if ((int)$this->input->get('banyaknya-data')) {
-                    $this->session->per_page = (int)$this->input->get('banyaknya-data');
+                $data['judul_halaman'] = 'Informasi';
+                $data['judul_header_page'] = 'Informasi';
+                $data['users'] = $this->Madmin->get_user();
+                $data['info'] = $this->Madmin->get_info();
+
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar');
+                $this->load->view('templates/head_content', $data);
+                $this->load->view('admin/informasi/index', $data);
+                $this->load->view('templates/footer');
+            } else {
+                $data = array(
+                    'u_tujuan' => $u_tujuan,
+                    'informasi' => $informasi,
+                    'date_sended' => date("Y-m-d"),
+                );
+
+                //untuk kirim ke database..
+                $insert = $this->Madmin->input_evaluasi($data);
+
+                if ($insert) {
+                    $this->session->set_flashdata('msg', '<div role="alert">Kirim Informasi Anda Berhasil</div>');
+                    redirect('admin_sakip_sulut/informasi');
+                } else {
+                    echo "Maaf Coba Lagi Ya...";
                 }
             }
-            $config['per_page'] = $this->session->per_page;
-
-            $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
-            $config['first_link'] = '<<';
-            $config['next_link'] = 'Selanjutnya >';
-            $config['prev_link'] = '< Sebelumnya';
-
-            // $config['use_page_numbers'] = true; // ini dpe guna, spya dpe segment 3 diambil dari nomor halaman.
-            $this->pagination->initialize($config);
-
-            $table_informasi = array(
-                'table' => $this->Madmin->get_table($model, $config['per_page'], $table_informasi['page'])
-            );
-
-            // torang simpan create linksnya ke variabel
-            $data['pagination'] = $this->pagination->create_links();
-            ///////////////////////////////////
-
-
-            $data['user'] = 'admin_sakip_sulut';
-
-            $data['judul_halaman'] = 'Informasi';
-            $data['judul_header_page'] = 'Informasi';
-
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar');
-            $this->load->view('templates/head_content', $data);
-            $this->load->view('admin/informasi/index', $table_informasi);
-            $this->load->view('templates/footer');
-            # code...
-
         } else {
             $u_tujuan  = $this->input->post('u_tujuan');
             $informasi   = $this->input->post('informasi');
@@ -426,7 +607,7 @@ class Admin_sakip_sulut extends CI_Controller
             //mengambil file... 
             $data['file'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Minformasi->input_data($data, 'tbl_informasi');
+            $insert = $this->Madmin->input_evaluasi($data);
 
             if ($insert) {
 

@@ -1,18 +1,21 @@
 <div class="evaluasi-kinerja-container">
     <div class="search-table-container">
         <div class="show-n-row-table-evaluasi">
-            <form class="form-pilih-tahun-evaluasi" action="" method="POST">
-                Pilih Tahun
-                <select name="pilih-tahun-evaluasi" id="pilih-tahun-evaluasi">
-                    <option value="" selected hidden></option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                </select>
-                <input type="submit" name="pilih_tahun-evaluasi-input" value="Tampilkan">
+            <?php if (!$year) : ?>
+            <?php else : ?>
+                <form class="form-pilih-tahun-evaluasi" method="GET" action="<?= base_url('admin_sakip_sulut/evaluasi_kinerja') ?>">
+                    Pilih Tahun
+                    <select class="select" name="year" id="pilih-tahun-evaluasi">
+                        <?php foreach ($year as $y) : ?>
+                            <option value="" selected hidden></option>
+                            <option value="<?= $y->year ?>"><?= $y->year ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <input type="submit" name="pilih_tahun-evaluasi-input" value="Tampilkan">
+                </form>
+            <?php endif ?>
 
-            </form>
-
-            <form method="GET" action="<?= base_url('admin_sakip_sulut/evaluasi_kinerja') ?>">
+            <form class="form-pilih-tahun-evaluasi" method="GET" action="<?= base_url('admin_sakip_sulut/evaluasi_kinerja') ?>">
                 <p>Lihat</p>
                 <select name="banyaknya-data">
                     <option hidden></option>
@@ -36,6 +39,7 @@
                 <tr>
                     <th>Nomor</th>
                     <th>Perangkat Daerah</th>
+                    <th>Tahun</th>
                     <th>Kategori (per Tahun)</th>
                 </tr>
             </thead>
@@ -47,20 +51,34 @@
                 ?>
                     <tr>
                         <td><?= $nomor ?></td>
-                        <td><?= $baris['user_name'] ?></td>
+                        <td><?= $baris['opd'] ?></td>
+                        <td><?= $baris['years'] ?></td>
                         <td>
                             <form id="tambah_evaluasi" action="<?= base_url('Admin_sakip_sulut/evaluasi_kinerja') ?>" method="POST" class="form-input-evaluasi-admin" enctype="multipart/form-data">
                                 <div class="input-file-evaluasi-container">
-                                    <!-- <label for="upload-file-informasi">Pilih File</label> -->
                                     <!-- label ini berfungsi sebagai input(secara tampilan) -->
-                                    <label for="upload-file-evaluasi-<?= $nomor ?>" class="up-file-evaluasi upload-file-evaluasi-label-<?= $nomor ?>">
-                                        Upload file anda disini...
-                                        <i class="fa-solid fa-file-circle-plus"></i>
-                                    </label>
-                                    <!-- hanya trima dokumen -->
-                                    <input type="file" name="file" id="upload-file-evaluasi-<?= $nomor ?>" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf" data-nomor="<?= $nomor ?>">
+                                    <?php if (!$baris['file_name']) : ?>
+                                        <label for="upload-file-evaluasi-<?= $nomor ?>" class="up-file-evaluasi upload-file-evaluasi-label-<?= $nomor ?>">
+                                            Upload file anda disini...
+                                            <i class="fa-solid fa-file-circle-plus"></i>
+                                        </label>
+                                        <!-- hanya trima dokumen -->
+                                        <input type="file" name="file" id="upload-file-evaluasi-<?= $nomor ?>" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf" data-nomor="<?= $nomor ?>">
+                                    <?php else : ?>
+                                        <label style="cursor:default;" for="upload-file-evaluasi-<?= $nomor ?>" class="up-file-evaluasi upload-file-evaluasi-label-<?= $nomor ?>">
+                                            <?= $baris['file_name'] ?>
+                                            <i class="fa-solid fa-file-circle-plus"></i>
+                                        </label>
+                                        <!-- hanya trima dokumen -->
+                                        <input type="file" disabled name="file" id="upload-file-evaluasi-<?= $nomor ?>" class="upload-file-evaluasi-input" required accept=".doc,.docx, application/pdf" data-nomor="<?= $nomor ?>">
+                                    <?php endif ?>
                                 </div>
-                                <input type="text" id="nilai" name="nilai" class="input-evaluasi-admin" placeholder="Input Nilai">
+                                <?php if (!$baris['nilai']) : ?>
+                                    <input type="text" id="nilai" name="nilai" class="input-evaluasi-admin" placeholder="Input Nilai">
+                                <?php else : ?>
+                                    <input type="text" disabled value="<?= $baris['nilai'] ?>" id="nilai" name="nilai" class="input-evaluasi-admin" placeholder="Input Nilai">
+                                <?php endif ?>
+                                <input type="text" id="opd" name="opd" hidden value="<?= $baris['opd'] ?>">
                                 <button type="submit">Selesai</button>
                             </form>
                         </td>
@@ -74,7 +92,7 @@
 
         <div class="footer-for-pagination">
             <div class="button-pagination">
-                <a href="">1</a>
+                <?php echo $pagination ?>
             </div>
         </div>
     </div>

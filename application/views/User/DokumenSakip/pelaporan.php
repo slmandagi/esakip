@@ -5,6 +5,16 @@
                 <label for="input-nama-dokumen">Nama Dokumen</label>
                 <input type="text" id="nama_dok" name="nama_dok" required placeholder="Input nama dokumen disini..." class="input-nama-dokumen upload-input">
             </div>
+            <!-- untuk pilih tahun -->
+            <div class="wrapper-input-dokumen">
+                <label for="year">Pilih Tahun</label>
+                <select name="year" id="year" class="select input-triwulan upload-input">
+                    <?php foreach ($year as $value) : ?>
+                        <option value="" hidden>Pilih..</option>
+                        <option value="<?= $value->year ?>"><?= $value->year ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
             <div class="wrapper-input-dokumen">
                 <label for="upload-file-dokumen">Pilih File</label>
                 <!-- label ini berfungsi sebagai input(secara tampilan) -->

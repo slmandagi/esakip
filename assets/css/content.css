@@ -30,7 +30,7 @@
 
 .headline-for-all i {
     font-size: 20px;
-    background: #E1E8E6;
+    background: #e1e8e6;
     width: 3%;
     text-align: center;
     border-radius: 30px;
@@ -42,7 +42,7 @@
 .headline-for-all i:hover,
 .headline-for-all i.active {
     color: white;
-    background: #46B5D1;
+    background: #46b5d1;
     transition: all 0.5s ease-out;
 }
 
@@ -53,7 +53,7 @@
 .head-notification-container {
     width: 25%;
     height: 200px;
-    background: #062C30;
+    background: #062c30;
     position: absolute;
     right: 0;
     top: 100%;
@@ -84,9 +84,7 @@
     text-decoration: underline;
 }
 
-
 /* BAGIAN ATAS END */
-
 
 /* BAGIAN SEARCH START */
 .search-table-container {
@@ -110,8 +108,6 @@
     justify-content: space-between;
 }
 
-
-
 .show-n-row-table {
     display: flex;
     padding-left: 30px;
@@ -123,7 +119,6 @@
     display: flex;
     justify-content: space-between;
 }
-
 
 .show-n-row-table p,
 .show-n-row-table-evaluasi p {
@@ -169,12 +164,10 @@
 }
 
 .search-table-input:focus {
-    box-shadow: 0 2px 2px #A3C8CD;
+    box-shadow: 0 2px 2px #a3c8cd;
 }
 
-
 /* BAGIAN CONTENT START */
-
 
 .main-content-dashboard,
 .main-content-pelaporan-kinerja,
@@ -183,8 +176,6 @@
 .main-content-dashboard-user,
 .main-content-perencanaan-kinerja,
 .main-content-pengukuran-kinerja,
-.main-content-informasi-user,
-.main-content-informasi,
 .main-content-profil-pengguna-container,
 .main-content-notification,
 .main-content-user-opd,
@@ -196,7 +187,6 @@
     align-items: center;
     transition: all 0.5s;
 }
-
 
 /* ~~~BAGIAN DOKUMEN SAKIP USER START*/
 
@@ -219,7 +209,7 @@
     width: 100%;
     height: 35px;
     border-radius: 8px;
-    background: #E1E8E6;
+    background: #e1e8e6;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -246,7 +236,7 @@
     width: 100%;
     height: 35px;
     border: none;
-    background: #E1E8E6;
+    background: #e1e8e6;
     outline: none;
     padding-left: 15px;
     font-size: 14px;
@@ -259,7 +249,6 @@
 
 /* ---PERENCANAAN START */
 
-
 .main-content-perencanaan-kinerja .form-input-dokumen-perencanaan button,
 .main-content-pelaporan-kinerja .form-input-dokumen-pelaporan button,
 .main-content-pengukuran-kinerja .form-input-dokumen-pengukuran button {
@@ -271,12 +260,11 @@
     width: 20%;
     border: none;
     outline: none;
-    background: #062C30;
+    background: #062c30;
     color: white;
     font-weight: 500;
     align-self: flex-end;
 }
-
 
 /*  ---PENGUKURAN START */
 .modal-triwulan {
@@ -293,7 +281,7 @@
 .modal-triwulan input,
 .modal-triwulan-user input {
     border: none;
-    background: #E1E8E6;
+    background: #e1e8e6;
     text-align: center;
     border-radius: 8px;
     outline: none;
@@ -324,7 +312,6 @@ p {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
 }
 
-
 .form-modal-triwulan {
     margin: 15px;
     width: 85%;
@@ -341,13 +328,13 @@ p {
 }
 
 .modal-triwulan a.unduh-dok-lakip {
-    background: #3D8361;
+    background: #3d8361;
     padding: 5px;
     text-align: center;
     border-radius: 8px;
     color: white;
     width: 20%;
-    border: 3px solid #3D8361;
+    border: 3px solid #3d8361;
     transition: all 0.5s;
 }
 
@@ -367,7 +354,6 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
 }
 
 .tidak-tercapai-container p {
@@ -386,7 +372,6 @@ p {
     margin-right: 20px;
 }
 
-
 .tidak-tercapai-container label {
     font-size: 14px;
 }
@@ -396,7 +381,6 @@ p {
     margin-top: 20px;
     width: 70%;
 }
-
 
 .tercapai-melebihi-container input {
     width: 20%;
@@ -408,7 +392,7 @@ button.btn-selesai-input-triwulan {
     border: none;
     outline: none;
     padding: 5px;
-    background: #1C6758;
+    background: #1c6758;
     border-radius: 8px;
     color: white;
     cursor: pointer;
@@ -422,7 +406,6 @@ button.btn-selesai-input-triwulan:hover {
     border: 2px solid white;
 }
 
-
 /* ^^^^ PENGUKURAN USER START */
 .pilih-lihat-upload-pengukuran-container {
     margin-top: 20px;
@@ -433,16 +416,15 @@ button.btn-selesai-input-triwulan:hover {
     cursor: pointer;
 }
 
-
 .pilih-lihat-hasil-pengukuran.active {
-    background: #738B8D;
+    background: #738b8d;
     pointer-events: none;
 }
 
 .pilih-lihat-hasil-pengukuran {
     width: 30%;
     height: 35px;
-    background: #A3C8CD;
+    background: #a3c8cd;
     color: white;
     border-radius: 10px 0px 0px 10px;
     line-height: 35px;
@@ -454,7 +436,7 @@ button.btn-selesai-input-triwulan:hover {
 
 .pilih-lihat-hasil-pengukuran-content .btn-triwulan {
     background: white;
-    border: 1px solid #1C6758;
+    border: 1px solid #1c6758;
     margin: 10px;
     padding: 5px;
     border-radius: 8px;
@@ -463,9 +445,9 @@ button.btn-selesai-input-triwulan:hover {
 }
 
 .pilih-lihat-hasil-pengukuran-content .btn-triwulan:hover {
-    background: #1C6758;
+    background: #1c6758;
     color: white;
-    border: 1px solid #1C6758;
+    border: 1px solid #1c6758;
     margin: 10px;
     padding: 5px;
     border-radius: 8px;
@@ -474,7 +456,7 @@ button.btn-selesai-input-triwulan:hover {
 .pilih-upload-dokumen-pengukuran {
     width: 30%;
     height: 35px;
-    background: #A3C8CD;
+    background: #a3c8cd;
     color: white;
     line-height: 35px;
     text-align: center;
@@ -482,11 +464,10 @@ button.btn-selesai-input-triwulan:hover {
     border-radius: 0px 10px 10px 0px;
     pointer-events: visible;
     transition: all 0.5s;
-
 }
 
 .pilih-upload-dokumen-pengukuran.active {
-    background: #738B8D;
+    background: #738b8d;
     pointer-events: none;
 }
 
@@ -495,14 +476,11 @@ button.btn-selesai-input-triwulan:hover {
     display: none;
 }
 
-
-
 .pilih-lihat-hasil-pengukuran-content.active {
     visibility: visible;
     opacity: 1;
     display: block;
 }
-
 
 .modal-triwulan-user {
     width: 40%;
@@ -523,20 +501,18 @@ button.btn-selesai-input-triwulan:hover {
     padding: 4px;
     border-radius: 8px;
     cursor: pointer;
-    color: #3D8361;
+    color: #3d8361;
     background: white;
-    border: 2px solid #3D8361;
+    border: 2px solid #3d8361;
     transition: all 0.5s;
     margin: 0px 5px 0px 5px;
 }
 
 .pilih-btn-triwulan.active {
     color: white;
-    background: #3D8361;
-    border: 2px solid #3D8361;
+    background: #3d8361;
+    border: 2px solid #3d8361;
 }
-
-
 
 .content-modal-triwulan-user {
     margin: 15px;
@@ -638,7 +614,6 @@ button.btn-selesai-input-triwulan:hover {
     margin-left: 30px;
     font-size: 14px;
     display: flex;
-
 }
 
 .form-pilih-tahun-evaluasi select {
@@ -649,24 +624,18 @@ button.btn-selesai-input-triwulan:hover {
     margin-left: 10px;
 }
 
-
 /* EVALUASI ADMIN END */
 
 /*~~~ BAGIAN DOKUMEN SAKIP USER END */
 
-
 /* ---BAGIAN INFORMASI START */
-
-.the-base {
-    width: 95%;
-    height: inherit;
-    border-radius: 30px;
-    display: flex;
-}
-
-.the-base.informasi-user {
+.main-content-informasi,
+.main-content-informasi-user {
+    height: 80vh;
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .daftar-pesan-terkirim {
@@ -679,12 +648,34 @@ button.btn-selesai-input-triwulan:hover {
     flex-direction: column;
 }
 
-.daftar-pesan-diterima {
-    width: 70%;
-    padding: 10px 20px 10px 20px;
-    background: #062C30;
+.the-base {
+    margin-left: 20px;
     border-radius: 10px;
-    height: inherit;
+    width: 55%;
+    height: 80vh;
+    background: #062c30;
+    overflow: scroll;
+    overflow-y: auto;
+    display: flex;
+}
+
+.daftar-pesan-terkirim,
+.daftar-pesan-diterima-user {
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.tidak-ada-pesan {
+    height: 100%;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pesan-terkirim,
@@ -698,10 +689,15 @@ button.btn-selesai-input-triwulan:hover {
     color: white;
 }
 
+.pesan-terkirim h5.user-pengirim small {
+    color: #46b5d1;
+}
+
 .pesan-terkirim h5.user-pengirim,
 .pesan-diterima h5.user-pengirim {
     font-size: 14px;
     color: white;
+    word-spacing: 2px;
 }
 
 .pesan-terkirim h5,
@@ -724,15 +720,14 @@ form.form-kirim-pesan-admin {
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 15px;
-    background: #E1E8E6;
+    background: #e1e8e6;
     width: 90%;
     transition: all 0.5s;
     resize: none;
 }
 
 .form-kirim-pesan-admin textarea:focus {
-    box-shadow: 3px 3px 2px 2px #A3C8CD;
-
+    box-shadow: 3px 3px 2px 2px #a3c8cd;
 }
 
 .form-kirim-pesan-admin .input-file-informasi-container {
@@ -749,7 +744,7 @@ form.form-kirim-pesan-admin {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #E1E8E6;
+    background: #e1e8e6;
     padding: 8px;
     border-radius: 10px;
     font-size: 14px;
@@ -767,7 +762,7 @@ form.form-kirim-pesan-admin {
     border: none;
     outline: none;
     border-radius: 10px;
-    background: #062C30;
+    background: #062c30;
     width: 12%;
     font-size: 14px;
     height: 32px;
@@ -780,7 +775,7 @@ form.form-kirim-pesan-admin {
 }
 
 .form-kirim-pesan-admin .btn-kirim-informasi:hover {
-    background: #46B5D1;
+    background: #46b5d1;
 }
 
 .form-kirim-pesan-admin select {
@@ -794,11 +789,10 @@ form.form-kirim-pesan-admin {
 }
 
 .form-kirim-pesan-admin option {
-    background: #E1E8E6;
+    background: #e1e8e6;
 }
 
 /* ---BAGIAN INFORMASI END */
-
 
 /* BAGIAN PROFILE PENGGUNA (PENGATURAN) START*/
 
@@ -806,7 +800,6 @@ form.form-kirim-pesan-admin {
     padding-left: 30px;
     margin-bottom: 20px;
 }
-
 
 .form-profil-pengguna {
     width: 60%;
@@ -823,7 +816,7 @@ form.form-kirim-pesan-admin {
 .form-profil-pengguna input {
     height: 35px;
     border-radius: 8px;
-    background: #E1E8E6;
+    background: #e1e8e6;
     border: none;
     outline: none;
     padding-left: 20px;
@@ -832,7 +825,6 @@ form.form-kirim-pesan-admin {
 
 .form-profil-pengguna input:focus {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-
 }
 
 .form-profil-pengguna .input-pengaturan-wrapper {
@@ -840,7 +832,6 @@ form.form-kirim-pesan-admin {
     flex-direction: column;
     width: 30%;
 }
-
 
 .form-profil-pengguna label:first-of-type {
     margin-top: 0px;
@@ -851,7 +842,7 @@ form.form-kirim-pesan-admin {
     font-weight: 700;
     margin-top: 25px;
     margin-bottom: 2px;
-    color: #062C30
+    color: #062c30;
 }
 
 .form-profil-pengguna .input-pengaturan-wrapper button {
@@ -862,18 +853,17 @@ form.form-kirim-pesan-admin {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    background: #1C6758;
+    background: #1c6758;
     color: white;
     transition: all 0.5s;
 }
 
 .form-profil-pengguna .input-pengaturan-wrapper button:hover {
-    background-color: #46B5D1;
+    background-color: #46b5d1;
     box-shadow: 4px 8px 30px rgba(23, 201, 213, 0.2);
 }
 
 /* BAGIAN PROFILE PENGGUNA (PENGATURAN) END */
-
 
 /* BAGIAN USER OPD (PENGATURAN) START */
 .btn-tambah-user {
@@ -888,7 +878,7 @@ form.form-kirim-pesan-admin {
     justify-content: center;
     border: none;
     outline: none;
-    background: #1C6758;
+    background: #1c6758;
     border-radius: 8px;
     color: white;
     cursor: pointer;
@@ -899,8 +889,6 @@ form.form-kirim-pesan-admin {
     font-size: 12px;
 }
 
-
-
 .main-content-user-opd button:hover,
 .main-content-edit-data button:hover,
 .main-content-user-opd a:hover {
@@ -908,7 +896,7 @@ form.form-kirim-pesan-admin {
 }
 
 .main-content-user-opd button.btn-edit-user {
-    background: #3D8361;
+    background: #3d8361;
 }
 
 .main-content-user-opd button.btn-block-user {
@@ -956,7 +944,6 @@ form.form-kirim-pesan-admin {
     align-items: center;
     /* justify-content: center; */
     position: relative;
-
 }
 
 .modal-lupa-password {
@@ -965,7 +952,6 @@ form.form-kirim-pesan-admin {
     background: white;
     border-radius: 10px;
 }
-
 
 .form-modal-block-user {
     height: 12%;
@@ -1009,7 +995,6 @@ form.form-kirim-pesan-admin {
     border: 2px solid grey;
     border-radius: 0px;
     border-bottom-right-radius: 8px;
-
 }
 
 .modal-pengaturan h3 {
@@ -1064,7 +1049,6 @@ form.form-kirim-pesan-admin {
     visibility: visible;
 }
 
-
 .form-edit-user input {
     border: none;
     outline: none;
@@ -1076,7 +1060,7 @@ form.form-kirim-pesan-admin {
 
 .modal-pengaturan input:focus,
 .form-edit-user input:focus {
-    box-shadow: 0 2px 2px #A3C8CD;
+    box-shadow: 0 2px 2px #a3c8cd;
 }
 
 .modal-pengaturan label {
@@ -1099,7 +1083,7 @@ form.form-kirim-pesan-admin {
 
 .modal-pengaturan option,
 .form-edit-user option {
-    background: #E1E8E6;
+    background: #e1e8e6;
 }
 
 .modal-close {
@@ -1109,7 +1093,6 @@ form.form-kirim-pesan-admin {
     font-size: 24px;
     cursor: pointer;
 }
-
 
 /* ~~~BAGIAN EDIT USER START*/
 
@@ -1137,10 +1120,9 @@ form.form-kirim-pesan-admin {
     border-radius: 8px;
 }
 
-
 .pilih-user-opd span.active,
 .pilih-user-opd span:hover {
-    background: #062C30;
+    background: #062c30;
     border-radius: 8px;
 }
 
@@ -1150,7 +1132,7 @@ form.form-kirim-pesan-admin {
 }
 
 .pilih-user-opd ul.daftar-user {
-    background: #062C30;
+    background: #062c30;
     width: 40%;
     border-radius: 8px;
     position: absolute;
@@ -1174,7 +1156,6 @@ form.form-kirim-pesan-admin {
     height: 20px;
     line-height: 20px;
     padding-left: 5px;
-
 }
 
 .pilih-user-opd ul li:hover {
@@ -1183,7 +1164,7 @@ form.form-kirim-pesan-admin {
 }
 
 .pilih-user-opd ul li:hover a {
-    color: black
+    color: black;
 }
 
 .pilih-user-opd ul li a {
@@ -1219,8 +1200,7 @@ form.form-kirim-pesan-admin {
 }
 
 .form-update-data input:focus {
-    box-shadow: 0 2px 2px #A3C8CD;
-
+    box-shadow: 0 2px 2px #a3c8cd;
 }
 
 .form-update-data select {
@@ -1228,9 +1208,6 @@ form.form-kirim-pesan-admin {
 }
 
 /* ~~~BAGIAN EDIT USER END*/
-
-
-
 
 /* BAGIAN USER OPD (PENGATURAN) END */
 
@@ -1240,7 +1217,7 @@ form.form-kirim-pesan-admin {
     width: 96%;
     height: 400px;
     line-height: 30px;
-    background: #062C30;
+    background: #062c30;
     padding-left: 20px;
     border-radius: 12px;
 }
@@ -1297,7 +1274,7 @@ form.form-kirim-pesan-admin {
 .button-pagination .active,
 .button-pagination a:hover,
 .button-pagination strong {
-    background: #46B5D1;
+    background: #46b5d1;
     border-radius: 50px;
     color: white;
     padding: 5px 10px;
@@ -1305,7 +1282,6 @@ form.form-kirim-pesan-admin {
 }
 
 /* BAGIAN FOOTER END*/
-
 
 /* FORM START */
 .perencanaan-kinerja-container .form-input-dokumen-perencanaan,

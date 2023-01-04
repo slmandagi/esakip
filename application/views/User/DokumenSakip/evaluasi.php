@@ -3,7 +3,7 @@
         <div class="show-n-row-table">
             <p>Lihat</p>
 
-            <form method="GET" action="<?= base_url('admin_sakip_sulut/evaluasi_kinerja') ?>">
+            <form method="GET" action="<?= base_url('user/evaluasi_kinerja') ?>">
                 <select name="banyaknya-data">
                     <option hidden></option>
                     <option value="5">5</option>
@@ -25,26 +25,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><a href="<?= base_url('/assets/img/home/garuda.svg') ?>" download>
-                            EvaluasiKinerja2019.pdf
-                            <i class="fa-solid fa-file-arrow-down"></i>
-                        </a>
-                    </td>
-                    <td>A</td>
-                    <td>2019</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="<?= base_url('/assets/img/home/garuda.svg') ?>" download>
-                            EvaluasiKinerja2020.pdf
-                            <i class="fa-solid fa-file-arrow-down"></i>
-                        </a>
-                    </td>
-                    <td>A</td>
-                    <td>2020</td>
-                </tr>
+                <?php
+                $nomor =  $this->uri->segment(3) ? $this->uri->segment(3) + 1  : 1;
+                if (!empty($evaluasi)) {
+                    foreach ($evaluasi as $s) {
+                ?>
+                        <tr>
+                            <td><?= $nomor ?></td>
+                            <td><a href="<?= base_url() ?>Download/download/<?= $s->id ?>">
+                                    <?= $s->file_name ?>
+                                    <i class="fa-solid fa-file-arrow-down"></i>
+                                </a>
+                            </td>
+                            <td><?= $s->nilai ?></td>
+                            <td><?= $s->year ?></td>
+                        </tr>
+                <?php
+                        $nomor++;
+                    }
+                }
+                ?>
             </tbody>
         </table>
     </div>

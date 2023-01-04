@@ -56,6 +56,12 @@ $route['translate_uri_dashes'] = FALSE;
 $route['tambahLaporan']         = "user/tambahLaporan";
 $route['tambah_perencanaan']    = "user/tambah_perencanaan";
 $route['tambah_t1']             = "admin_sakip_sulut/tambah_t1";
+$route['triwulan1']             = "admin_sakip_sulut/triwulan1";
+$route['tambah_t2']             = "admin_sakip_sulut/tambah_t2";
+$route['tambah_t3']             = "admin_sakip_sulut/tambah_t3";
+$route['triwulan3']             = "admin_sakip_sulut/triwulan3";
+$route['tambah_t4']             = "admin_sakip_sulut/tambah_t4";
+$route['triwulan4']             = "admin_sakip_sulut/triwulan4";
 
 
 

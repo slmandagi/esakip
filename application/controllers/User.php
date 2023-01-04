@@ -16,8 +16,6 @@ class User extends CI_Controller
             $url = base_url('admin_sakip_sulut');
             redirect($url);
         };
-
-        // $this->load->model('Table');
     }
 
     public function index()
@@ -79,6 +77,7 @@ class User extends CI_Controller
             $data['user'] = 'user';
             $getsurat = $this->Mdoc->getSuratData();
             $data['jenis_surat'] = $getsurat;
+            $data['year'] = $this->Muser->get_year();
 
             $data['judul_halaman'] = 'Perencanaan Kinerja';
             $data['judul_header_page'] = 'Perencanaan Kinerja';
@@ -91,6 +90,7 @@ class User extends CI_Controller
             $jenis_dok  = $this->input->post('jenis_dok');
             $nama_dok   = $this->input->post('nama_dok');
             $File_dok   = $this->input->post('File_dok');
+            $year       = $this->input->post('year');
 
             $data = array(
                 'opd'           => $this->session->userdata('name'),
@@ -104,7 +104,7 @@ class User extends CI_Controller
             //mengambil file_name... 
             $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Muser->tambah_dokumen($data);
+            $insert = $this->Muser->tambah_dokumen($data, $year);
 
             if ($insert) {
                 redirect('user/index');
@@ -128,11 +128,16 @@ class User extends CI_Controller
 
 
         if (!$this->upload->do_upload('file')) {
-            # code...
+            $opd = $this->session->userdata('name');
             $data['user'] = 'user';
+            $data['jenis_surat'] = $this->Mdoc->getTriwulan();
+            $data['nilai_triwulan'] = $this->Muser->getNilaiTriwulan($opd);
+            $data['year'] = $this->Muser->get_year();
 
-            $getsurat = $this->Mdoc->getTriwulan();
-            $data['jenis_surat'] = $getsurat;
+            // foreach ($data['nilai_triwulan'] as $nt) {
+            //     # code...
+            // }
+
 
             $data['judul_halaman'] = 'Pengukuran Kinerja';
             $data['judul_header_page'] = 'Pengukuran Kinerja';
@@ -147,6 +152,7 @@ class User extends CI_Controller
             $nama_dok   = $this->input->post('nama_dok');
             $inpTri     = $this->input->post('inpTri');
             $date       = date("Y-m-d");
+            $year       = $this->input->post('year');
             $file       = $this->input->post('file');
 
             $data = array(
@@ -161,7 +167,7 @@ class User extends CI_Controller
             //mengambil file_name... 
             $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Muser->tambah_dokumen($data);
+            $insert = $this->Muser->tambah_dokumen($data, $year);
 
             if ($insert) {
                 redirect('user/index');
@@ -188,6 +194,7 @@ class User extends CI_Controller
             $data['user'] = 'user';
             $data['judul_halaman'] = 'Pelaporan Kinerja';
             $data['judul_header_page'] = 'Pelaporan Kinerja';
+            $data['year'] = $this->Muser->get_year();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar_user');
@@ -201,6 +208,7 @@ class User extends CI_Controller
             $jenis_dok  = 'lakip';
             $date       = date("Y-m-d");
             $File_dok   = $this->input->post('File_dok');
+            $year       = $this->input->post('year');
 
             $data = array(
                 'opd'       => $opd,
@@ -214,7 +222,7 @@ class User extends CI_Controller
             //mengambil file_name... 
             $data['file_name'] = $upload_data['file_name'];
             //untuk kirim ke database..
-            $insert = $this->Muser->tambah_dokumen($data);
+            $insert = $this->Muser->tambah_dokumen($data, $year);
 
             if ($insert) {
                 redirect('user/index');
@@ -226,24 +234,53 @@ class User extends CI_Controller
 
     public function evaluasi_kinerja()
     {
-        # code...
         $data['user'] = 'user';
+        $opd = $this->session->userdata('name');
         $data['judul_halaman'] = 'Evaluasi Kinerja';
         $data['judul_header_page'] = 'Evaluasi Kinerja';
+        $model = 'tbl_evaluasi';
+
+        $config['base_url'] = site_url('user/index/'); // ini langsung link ke controller
+        $config['uri_segment'] = 3;
+        $table_evaluasi['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $config['total_rows'] = $this->Muser->total_data_evaluasi($opd, $model);
+
+        if ($table_evaluasi['page'] == 0) {
+            if ($this->session->per_page == 0) {
+                $this->session->per_page = 5;
+            }
+            if ((int)$this->input->get('banyaknya-data')) {
+                $this->session->per_page = (int)$this->input->get('banyaknya-data');
+            }
+        }
+
+        $config['per_page'] = $this->session->per_page;
+        $config['num_links'] = 2; // ini mo tentukan ada berapa angka yg mo tampil di tombol pagination
+        $config['first_link'] = '<<';
+        $config['next_link'] = 'Selanjutnya >';
+        $config['prev_link'] = '< Sebelumnya';
+
+        $this->pagination->initialize($config);
+        $table_evaluasi = array(
+            'evaluasi' => $this->Muser->get_table_evaluasi($opd, $model, $config['per_page'], $table_evaluasi['page'])
+        );
+
+        $table_evaluasi['pagination'] = $this->pagination->create_links();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('user/dokumensakip/evaluasi');
+        $this->load->view('user/dokumensakip/evaluasi', $table_evaluasi);
         $this->load->view('templates/footer');
     }
 
     public function informasi()
     {
-        # code...
+        $opd = $this->session->userdata('name');
         $data['user'] = 'user';
         $data['judul_halaman'] = 'Informasi';
         $data['judul_header_page'] = 'Informasi';
+        $data['info'] = $this->Muser->get_info($opd);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user');
