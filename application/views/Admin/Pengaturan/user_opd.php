@@ -16,6 +16,11 @@
                     <button class="btn-tambah-user">Tambah User</button>
                     <a href="<?= base_url('Admin_sakip_sulut/show_user_id') ?>">Edit User</a>
                 </div>
+
+                <div class="tambah-edit-user-container" style="margin-right: 43%;">
+                    <a href="<?= base_url('Admin_sakip_sulut/pass_update') ?>">Ubah Pass User</a>
+                </div>
+
                 <div class="search-table">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">

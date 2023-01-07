@@ -5,50 +5,61 @@
                 <img src="<?= base_url('/assets/img/sidebar/RandomPerson.svg') ?>" alt="" height="150" width="150">
             </div>
             <div class="data-profile-container">
-                <div class="data-profile-left">
-                    <div class="n-data-profile">
-                        <h5>Username:</h5>
-                        <h5>Admin</h5>
+                <?php foreach ($users as $u) : ?>
+                    <div class="data-profile-left">
+                        <div class="n-data-profile">
+                            <h5>Username:</h5>
+                            <p><?php echo $u->user_name; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>Gelar Depan:</h5>
+                            <p><?php echo $u->gelar_depan; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>Gelar Belakang: </h5>
+                            <p><?php echo $u->gelar_belakang; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>Unit Kerja: </h5>
+                            <p><?php echo $u->golongan; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>Nama Penanggung Jawab:</h5>
+                            <p><?php echo $u->jabatan; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>No Telepon Kantor:</h5>
+                            <p><?php echo $u->no_tlp_kantor; ?></p>
+                        </div>
                     </div>
-                    <div class="n-data-profile">
-                        <h5>Gelar Depan:</h5>
-                        <h5>...</h5>
+                    <div class="data-profile-right">
+                        <div class="n-data-profile">
+                            <h5>Eselon:</h5>
+                            <p><?php echo $u->eselon; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>Tingkat Golongan:</h5>
+                            <p><?php echo $u->golongan; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>NIP:</h5>
+                            <p><?php echo $u->NIP; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>Jabatan:</h5>
+                            <p><?php echo $u->jabatan; ?></p>
+                        </div>
+                        <div class="n-data-profile">
+                            <h5>No. HP:</h5>
+                            <p><?php echo $u->no_hp; ?></p>
+                        </div>
+
+                        <div class="n-data-profile">
+                            <h5>Di Update:</h5>
+                            <p><?php echo $u->date_update; ?></p>
+                        </div>
                     </div>
-                    <div class="n-data-profile">
-                        <h5>Gelar Belakang: </h5>
-                        <h5>...</h5>
-                    </div>
-                    <div class="n-data-profile">
-                        <h5>Unit Kerja: </h5>
-                        <h5>...</h5>
-                    </div>
-                    <div class="n-data-profile">
-                        <h5>Nama Penanggung Jawab:</h5>
-                        <h5>...</h5>
-                    </div>
-                </div>
-                <div class="data-profile-right">
-                    <div class="n-data-profile">
-                        <h5>Eselon:</h5>
-                        <h5>...</h5>
-                    </div>
-                    <div class="n-data-profile">
-                        <h5>Tingkat Golongan:</h5>
-                        <h5>...</h5>
-                    </div>
-                    <div class="n-data-profile">
-                        <h5>NIP:</h5>
-                        <h5>...</h5>
-                    </div>
-                    <div class="n-data-profile">
-                        <h5>Jabatan:</h5>
-                        <h5>...</h5>
-                    </div>
-                    <div class="n-data-profile">
-                        <h5>No. HP:</h5>
-                        <h5>...</h5>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

@@ -33,8 +33,8 @@
                 <label for="email-modal">Email</label>
                 <input name="user_email" type="text" id="user_email" value="<?php echo $user->user_email; ?>">
 
-                <label for="email-modal">Ganti Password</label>
-                <input name="user_password" type="text" id="user_password" placeholder="masukan password baru user" required>
+                <!-- <label for="email-modal">Ganti Password</label>
+                <input name="user_password" type="text" id="user_password" placeholder="masukan password baru user" required> -->
 
                 <label for="email-modal">Ganti Role User</label>
                 <select name="Jenis_user" id="Jenis_user" role="radiogroup" required>

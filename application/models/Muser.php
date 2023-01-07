@@ -74,12 +74,32 @@ class Muser extends CI_Model
         $query_result = $query->result();
         return $query_result;
     }
+    function show_admin()
+    {
+        $query = $this->db->get('tbl_profile');
+        $query_result = $query->result();
+        return $query_result;
+    }
 
     // Update Query For Selected User
     function update_data($id, $data)
     {
         $this->db->where('user_id', $id);
         $this->db->update('tbl_user', $data);
+    }
+
+    //update password...
+    function update_pass($id, $data)
+    {
+        $this->db->where('user_id', $id);
+        $this->db->update('tbl_user', $data);
+    }
+
+    //update profile untuk admin.....
+    function update_profile($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_profile', $data);
     }
 
 

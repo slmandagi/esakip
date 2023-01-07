@@ -95,10 +95,14 @@
             </div>
         </div>
         <div class="profile">
-            <img src="<?= base_url('/assets/img/sidebar/RandomPerson.png') ?> " alt="" height="50" width="50">
+            <a href="<?= base_url('admin_sakip_sulut/profile') ?>"> <img src="<?= base_url('/assets/img/sidebar/RandomPerson.png') ?> " alt="" height="50" width="50"></a>
             <div class="data-profile">
-                <h4><?php echo $this->session->userdata('name'); ?></h4>
-                <p><?php echo $this->session->userdata('access'); ?></p>
+                <a href="<?= base_url('admin_sakip_sulut/profile') ?>">
+                    <h4><?php echo $this->session->userdata('name'); ?></h4>
+                </a>
+                <a href="<?= base_url('admin_sakip_sulut/profile') ?>">
+                    <p><?php echo $this->session->userdata('access'); ?></p>
+                </a>
             </div>
             <a href="<?php echo site_url('autentikasi/logout'); ?>" class="logout">
                 <i class="fa-solid fa-arrow-left"></i>

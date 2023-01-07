@@ -525,12 +525,40 @@ class Admin_sakip_sulut extends CI_Controller
 
         $data['judul_halaman'] = 'Profil Pengguna';
         $data['judul_header_page'] = 'Profil Pengguna';
+
+        $data['users'] = $this->Muser->show_admin();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
         $this->load->view('admin/pengaturan/profil_pengguna');
         $this->load->view('templates/footer');
     }
+
+    function ubah_profile_admin()
+    {
+        $id = $this->input->post('id');
+
+        $data = array(
+
+            'user_name' => $this->input->post('user_name'),
+            'gelar_depan' => $this->input->post('gelar_depan'),
+            'nama_admin' => $this->input->post('nama_admin'),
+            'golongan' => $this->input->post('golongan'),
+            'jabatan' => $this->input->post('jabatan'),
+            'no_hp' => $this->input->post('no_hp'),
+            'gelar_belakang' => $this->input->post('gelar_belakang'),
+            'unit_kerja' => $this->input->post('unit_kerja'),
+            'eselon' => $this->input->post('eselon'),
+            'NIP' => $this->input->post('NIP'),
+            'no_tlp_kantor' => $this->input->post('no_tlp_kantor'),
+            'date_created' => date("Y-m-d"),
+            'date_update' => date("Y-m-d"),
+
+        );
+        $this->Muser->update_profile($id, $data);
+        $this->profile();
+    }
+
 
     public function ubah_email_password()
     {
@@ -745,10 +773,12 @@ class Admin_sakip_sulut extends CI_Controller
         $data['judul_halaman'] = 'Profile';
         $data['judul_header_page'] = 'Profile';
 
+        $data['users'] = $this->Muser->show_admin();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
-        $this->load->view('admin/profile/index');
+        $this->load->view('admin/profile/index', $data);
         $this->load->view('templates/footer');
     }
 
@@ -785,9 +815,6 @@ class Admin_sakip_sulut extends CI_Controller
         $data = array(
             'User_name' => $this->input->post('user_name'),
             'User_email' => $this->input->post('user_email'),
-
-            'user_password' =>  md5($this->input->post('user_password')),
-
             'Jenis_user' => $this->input->post('Jenis_user'),
             'date_update' => date("Y-m-d"),
             // 'User_status' => 0,
@@ -796,20 +823,21 @@ class Admin_sakip_sulut extends CI_Controller
         $this->user_opd();
     }
 
-    //function untuk update password user
-    // function update_pass()
-    // {
-    //     $id = $this->input->post('user_id');
+    function pass()
+    {
+        $id = $this->input->post('user_id');
 
-    //     $data = array(
+        $data = array(
 
-    //         'user_password' =>  md5($this->input->post("user_password")),
-    //         'date_update' => date("Y-m-d"),
+            'user_password' =>  md5($this->input->post('user_password')),
+            'date_update' => date("Y-m-d"),
 
-    //     );
-    //     $this->Muser->update_data($id, $data);
-    //     $this->user_opd();
-    // }
+        );
+        $this->Muser->update_pass($id, $data);
+        $this->user_opd();
+    }
+
+
 
 
     //controller untuk menampilkan page edit data user//
@@ -830,6 +858,26 @@ class Admin_sakip_sulut extends CI_Controller
         $this->load->view('templates/sidebar');
         $this->load->view('templates/head_content', $data);
         $this->load->view('admin/pengaturan/update_data', $data);
+        $this->load->view('templates/footer');
+    }
+
+    function pass_update()
+    {
+        $id = $this->uri->segment(3);
+        $data['users'] = $this->Muser->show_users(); //untuk menampilkan semua user yang ada
+        $data['userID'] = $this->Muser->show_user_id($id); //
+        /////////////
+        $data['user'] = 'admin_sakip_sulut';
+        $data['judul_halaman'] = 'Pengaturan';
+        $data['judul_header_page'] = 'Update Password User';
+
+        $get_u = $this->Mregis->get_jenis_u();
+        $data['jenis_u'] = $get_u; //get jenis user dari model Mregis
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/head_content', $data);
+        $this->load->view('admin/pengaturan/update_pass', $data);
         $this->load->view('templates/footer');
     }
     //end of update data..
