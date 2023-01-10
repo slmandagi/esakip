@@ -23,35 +23,39 @@ class Muser extends CI_Model
     }
 
     //input perencanaan, pengukuran, dan update status dokumen user
-    function tambah_dokumen($data)
+    function tambah_dokumen($data, $year)
     {
+        // mengabil year yg ada di db tbl status dokumen
+        $this->db->select('year');
+        $this->db->where('opd', $data['opd']);
+        $this->db->where('year', $year);
+        $this->db->from('tbl_status_dokumen');
+        $db_year = $this->db->get()->result_array();
 
+
+        // memasukan data ke db
         $this->db->insert('tbl_dokumen_user', $data);
 
         $add_year = ['year' => date('Y')];
         $this->db->insert('tbl_year', $add_year);
+        $years = '';
 
-        $jen_dok = $data['jenis_dok'];
-        $status = [$jen_dok => true, 'year' => date('Y')];
-        $this->db->where('opd', $data['opd']);
-        $this->db->update('tbl_status_dokumen', $status);
-
-        return true;
-    }
-
-    //input pelaporan
-    function tambah_pelaporan($data, $year)
-    {
-
-        $this->db->insert('tbl_dokumen_user', $data);
-
-        if ($year) {
-            # code...
+        foreach ($db_year as $db) {
+            $years = $db['year'];
         }
-        $jen_dok = $data['jenis_dok'];
-        $status = [$jen_dok => true, 'year' => date('Y')];
-        $this->db->where('opd', $data['opd']);
-        $this->db->update('tbl_status_dokumen', $status);
+
+        if ($year == $years) {
+            $jen_dok = $data['jenis_dok'];
+            $status = [$jen_dok => true, 'year' => $year];
+            $this->db->where('opd', $data['opd']);
+            $this->db->where('year', $year);
+            $this->db->update('tbl_status_dokumen', $status);
+        } else {
+            $jen_dok = $data['jenis_dok'];
+            $status = ['opd' => $data['opd'], $jen_dok => true, 'year' => $year];
+            $this->db->where('opd', $data['opd']);
+            $this->db->insert('tbl_status_dokumen', $status);
+        }
 
         return true;
     }
@@ -110,6 +114,37 @@ class Muser extends CI_Model
         $this->db->update('tbl_user', $data);
     }
 
+    // get data utk evaluasi user
+    function get_table_evaluasi($opd, $model, $limit = null, $start = null)
+    {
+        $this->load->database($model);
+        $this->db->where('opd', $opd);
+        $query = $this->db->get($model, $limit, $start);
+        $query = $query->result();
+        return $query;
+    }
+    function total_data_evaluasi($opd, $model)
+    {
+        $this->load->database($model);
+        $this->db->where('opd', $opd);
+        $query = $this->db->get($model);
+        $query = $query->result_array();
+        $total_data = count($query);
+        return $total_data;
+    }
+
+    // utk page informasi pesan dari admin
+    function get_info($opd)
+    {
+        $where = "u_tujuan= '$opd' OR u_tujuan='All'";
+        $this->db->select('*');
+        $this->db->from('tbl_informasi');
+        $this->db->where($where);
+        // $this->db->where('u_tujuan', 'All');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
     // Function To Fetch Selected User Record
     function show_user_id($data)
     {

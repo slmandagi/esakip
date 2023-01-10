@@ -161,48 +161,35 @@ class Madmin extends CI_Model
         return $total_data;
     }
 
-    // utk page informasi pesan dari admin
-    function get_table_informasi($model, $limit = null, $start = null)
-    {
-        $this->load->database($model);
-        $query = $this->db->get($model, $limit, $start);
-        $query = $query->result_array();
-        return $query;
-    }
-
-    function total_data_informasi($model)
-    {
-        $this->load->database($model);
-        $query = $this->db->get($model);
-        $query = $query->result_array();
-        $total_data = count($query);
-        return $total_data;
-    }
-
     //utk menampilkan setiap user pada page evaluasi
     function get_table_evaluasi($year, $model, $limit = null, $start = null)
     {
         if (!$year) {
             $this->load->database($model);
+            $this->db->select('tbl_evaluasi.*, tbl_status_dokumen.year as years');
             $this->db->join('tbl_evaluasi', 'tbl_evaluasi.opd = tbl_status_dokumen.opd');
-            $this->db->order_by('tbl_dokumen_user.opd', 'ASC');
+            $this->db->where('tbl_status_dokumen.lakip', true);
+            $this->db->order_by('tbl_evaluasi.opd', 'ASC');
             $query = $this->db->get($model, $limit, $start);
             $query = $query->result_array();
             return $query;
         } else {
             $this->load->database($model);
+            $this->db->select('tbl_evaluasi.*, tbl_status_dokumen.year as years');
             $this->db->join('tbl_evaluasi', 'tbl_evaluasi.opd = tbl_status_dokumen.opd');
             $this->db->order_by('tbl_evaluasi.opd', 'ASC');
             $this->db->where('tbl_status_dokumen.year', $year);
+            $this->db->where('tbl_status_dokumen.lakip', true);
             $query = $this->db->get($model, $limit, $start);
             $query = $query->result_array();
             return $query;
         }
     }
 
-    function total_data_evaluasi($model)
+    function total_data_evaluasi($year, $model)
     {
         $this->load->database($model);
+        $this->db->where('year', $year);
         $query = $this->db->get($model);
         $query = $query->result_array();
         $total_data = count($query);
@@ -217,11 +204,38 @@ class Madmin extends CI_Model
         return true;
     }
 
+    //ut inpurt informasi dari admin
+    function input_evaluasi($data)
+    {
+        $this->db->insert('tbl_informasi', $data);
+
+        return true;
+    }
+
+    // utk page informasi pesan dari admin
+    function get_info()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_informasi');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+
     //utk ambil tahun
     function get_year()
     {
         $this->db->select('year');
         $this->db->from('tbl_year');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+    //utk ambil tahun
+    function get_user()
+    {
+        $this->db->where('user_akses', '2');
+        $this->db->from('tbl_user');
         $query = $this->db->get();
         $result = $query->result();
         return $result;

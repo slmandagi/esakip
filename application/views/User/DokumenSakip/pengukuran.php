@@ -243,6 +243,16 @@
                     <?php endforeach ?>
                 </select>
             </div>
+            <!-- untuk pilih tahun -->
+            <div class="wrapper-input-dokumen">
+                <label for="year">Pilih Tahun</label>
+                <select name="year" id="year" class="select input-triwulan upload-input">
+                    <?php foreach ($year as $value) : ?>
+                        <option value="" hidden>Pilih..</option>
+                        <option value="<?= $value->year ?>"><?= $value->year ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
             <div class="wrapper-input-dokumen">
                 <label for="file">Pilih File</label>
                 <!-- label ini berfungsi sebagai input(secara tampilan) -->
