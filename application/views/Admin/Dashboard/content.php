@@ -13,10 +13,10 @@
                  <input type="submit" name="pilih_jum_data" value="Tampilkan">
              </form>
          </div>
-         <div class="search-table">
+         <!-- <div class="search-table">
              <i class="fa-solid fa-magnifying-glass"></i>
              <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
-         </div>
+         </div> -->
      </div>
 
      <div class="main-content-dashboard">

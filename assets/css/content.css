@@ -115,8 +115,9 @@
 }
 
 .show-n-row-table-evaluasi {
-    width: 35%;
+    width: 40%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -165,6 +166,20 @@
 
 .search-table-input:focus {
     box-shadow: 0 2px 2px #a3c8cd;
+}
+
+.dashboard-container input.search-table-submit {
+    padding: 2px;
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.dashboard-container input.search-table-submit:hover {
+    background: #3d8361;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
 }
 
 /* BAGIAN CONTENT START */

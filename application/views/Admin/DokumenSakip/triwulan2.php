@@ -15,7 +15,7 @@
         <input type="text" id="ji_t2" name="ji_t2" class="jlh-indikator">
     </div>
     <div class="input-pengukuran-admin-container">
-        <label for="tidak-ada-target-input">Tidak Ada Target</label>
+        <label for="tidak-ada-target-input">Target</label>
         <input type="text" id="tt_t2" name="tt_t2" class="tidak-ada-target-input">
     </div>
     <div class="tidak-tercapai-container">
