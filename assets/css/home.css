@@ -45,6 +45,7 @@ p {
 
 .nav-left {
     display: flex;
+    align-items: center;
     width: 40%;
     margin-left: 50px;
     opacity: 1;
@@ -63,6 +64,34 @@ p {
 .nav-left p>span,
 .sakip {
     color: white;
+}
+
+.lambang-pemprov-container {
+    /* position: absolute;
+    left: 40px;
+    top: 100px; */
+    margin-left: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+}
+
+.lambang-pemprov-container img {
+    height: 40px;
+    width: 40px;
+    left: 20px
+}
+
+.lambang-pemprov-container span {
+    background: rgba(355, 355, 355, 0.6);
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.lambang-pemprov-container h5 {
+    font-size: 14px;
+    color: rgba(355, 0, 0, 0.7);
 }
 
 .nav-right {
@@ -155,10 +184,11 @@ p {
 
 .landing.home {
     background-color: black;
+    position: relative;
 }
 
 
-.landing.home h5 {
+.landing.home .headline-about h5 {
     color: white;
     font-weight: 500;
     font-size: 28px;
@@ -202,21 +232,22 @@ p {
 }
 
 .landing.regulation h1 {
-    font-size: 40px;
-    width: 30%;
+    font-size: 50px;
+    width: 25%;
     margin: 0;
 }
 
 .landing.regulation p {
-    font-size: 80%;
+    font-size: 100%;
     font-weight: 500;
+    color: white;
     transition: all 0.5s ease;
 }
 
 .landing.regulation p:hover,
 .list-medsos .medsos:hover i,
 .list-medsos .medsos:hover p {
-    color: white;
+    margin-left: 10px;
     cursor: default;
     /* transition: all 0.5s ease; */
 }
@@ -410,8 +441,8 @@ p {
 
 .glass-bg.regulation {
     padding: 10px 20px;
-    width: 60%;
-    height: 48%;
+    width: 70%;
+    height: 55%;
     /* word-wrap: break-word; */
     line-height: 30px;
     letter-spacing: normal;

@@ -2,6 +2,13 @@
 <div class="navbar">
     <div class="nav-left">
         <p class="e">e<span class="sakip">SAKIP</span></p>
+        <!-- <h3 style="margin:10px; color:white">|</h3> -->
+        <div class="lambang-pemprov-container">
+            <img src="<?= base_url('/assets/img/home/LambangPemprovSulut.png') ?>" alt="" class="lambang-pemprov">
+            <span>
+                <h5>Pemerintah Provinsi Sulawesi Utara</h5>
+            </span>
+        </div>
     </div>
     <div class="nav-right">
         <ul>
@@ -20,10 +27,11 @@
 <div class="content">
     <!-- Home -->
     <div class="landing home" id="home">
+
         <img src="<?= base_url('/assets/img/home/PemprovSulut.jpg'); ?>" alt="" class="bg-img">
         <div class="headline-about">
             <h5 class="hidden">Selamat Datang di</h5>
-            <h1 class="sakip-highlight hidden"><span> Sistem Akuntabilitas Kinerja Instansi Pemerintah Provinsi Sulawesi Utara</span></h1>
+            <h1 class="sakip-highlight hidden"><span> Sistem Akuntabilitas Kinerja Instansi Pemerintah</span></h1>
         </div>
     </div>
 
@@ -54,7 +62,7 @@
     <!-- Regulation -->
     <div class="landing regulation" id="regulation">
         <h1 class="hidden">Peraturan Terkait <span class="e">e</span>SAKIP</h1>
-        <img src="<?= base_url('/assets/img/home/illustrations-regulation-page.svg') ?>" alt="" height="400" width="400" class="hidden">
+        <!-- <img src="<?= base_url('/assets/img/home/illustrations-regulation-page.svg') ?>" alt="" height="400" width="400" class="hidden"> -->
         <div class="glass-bg regulation hidden">
             <!-- Nanti akan berupa link yang akan mendownload dokumen tentang aturan-aturan -->
             <p>1. Peraturan Presiden Nomor 29 Tahun 2014 tentang Sistem Akuntabilitas Kinerja Instansi Pemerintah</p>
@@ -62,9 +70,6 @@
             <p>3. Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Republik Indonesia Nomor 88 Tahun 2021 tentang Evaluasi Akuntabilitas Kinerja Instansi Pemerintah</p>
             <p>4. Keputusan Gubernur Sulawesi Utara Nomor 36a Tahun 2022 tentang Pedoman Pelaksanaan Sistem Akuntabilitas Kinerja Instansi Pemerintah di Lingkungan Provinsi Sulawesi Utara</p>
             <p>5. Keputusan Gubernur Sulawesi Utara Nomor 104 Tahun 2022 tentang Pembentukan Tim Evaluasi Akuntabilitas Kinerja Instansi Pemerintah Di Lingkungan Pemerintah Provinsi Sulawesi Utara</p>
-        </div>
-        <div class="rincian-regulation hidden">
-            * Esakip pemerintah provinsi Sulawesi Utara sudah mengacu pada peraturan yang telah dikeluarkan.
         </div>
     </div>
 

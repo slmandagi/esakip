@@ -26,12 +26,22 @@ class User extends CI_Controller
         $data['judul_halaman'] = "Dashboard";
         $data['judul_header_page'] = "Dashboard";
         $model = 'tbl_dokumen_user';
+        // $data['keyword'] = null;
+        if ($this->input->post('submit')) {
+            $data['keyword'] =  $this->input->post('keyword');
+            $this->session->set_userdata('keyword', $data['keyword']);
+        } else {
+            $data['keyword'] =  $this->session->userdata('keyword');
+        }
 
         $config['base_url'] = site_url('user/index/'); // ini langsung link ke controller
         $config['uri_segment'] = 3;
         $table_dashboard['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $config['total_rows'] = $this->Muser->total_data($opd, $model);
-
+        if ($this->input->post('keyword') !== null) {
+            $config['total_rows'] = $this->Muser->total_data_selected($opd, $data['keyword']);
+        } else {
+            $config['total_rows'] = $this->Muser->total_all_data($model, $opd);
+        }
         if ($table_dashboard['page'] == 0) {
             if ($this->session->per_page == 0) {
                 $this->session->per_page = 5;
@@ -49,11 +59,11 @@ class User extends CI_Controller
 
         $this->pagination->initialize($config);
         $table_dashboard = array(
-            'all_docs' => $this->Muser->get_table($opd, $model, $config['per_page'], $table_dashboard['page'])
+            'all_docs' => $this->Muser->get_table($opd, $model, $config['per_page'], $table_dashboard['page'], $data['keyword'])
         );
 
         $table_dashboard['pagination'] = $this->pagination->create_links();
-
+        // var_dump($table_dashboard['all_docs']);
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_user');
         $this->load->view('templates/head_content.php', $data);
@@ -262,7 +272,7 @@ class User extends CI_Controller
 
         $this->pagination->initialize($config);
         $table_evaluasi = array(
-            'evaluasi' => $this->Muser->get_table_evaluasi($opd, $model, $config['per_page'], $table_evaluasi['page'])
+            'evaluasi' => $this->Muser->get_table_evaluasi($model, $opd, $config['per_page'], $table_evaluasi['page'])
         );
 
         $table_evaluasi['pagination'] = $this->pagination->create_links();

@@ -14,8 +14,11 @@
             </form>
         </div>
         <div class="search-table">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Cari" class="search-table-input" onkeyup="">
+            <form action="<?= base_url('user/index') ?>" method="post">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" name="keyword" placeholder="Ketik Disini" class="search-table-input" onkeyup="">
+                <input type="submit" name="submit" value="Cari" class="search-table-submit"></input>
+            </form>
         </div>
     </div>
 
@@ -65,18 +68,3 @@
     </div>
 
 </div>
-
-
-<!-- 
-     <div class="show-n-row-table">
-        <p>Lihat</p>
-        <form method="GET" action="<?= base_url('user/') ?>">
-            <select name="banyaknya-data">
-                <option hidden></option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                </select>
-            <input type="submit" name="pilih_jum_data" value="Tampilkan">
-        </form>
-    </div>
- -->

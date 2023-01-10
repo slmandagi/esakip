@@ -4,15 +4,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Muser extends CI_Model
 {
     // get data utk dasboard user
-    function get_table($opd, $model, $limit = null, $start = null)
+    function get_table($opd, $model, $limit = null, $start = null, $keyword = null)
     {
+        if ($keyword) {
+            $this->db->where('opd', $opd);
+            $this->db->like('nama_dok', $keyword);
+            $this->db->or_like('date', $keyword);
+        }
         $this->load->database($model);
         $this->db->where('opd', $opd);
+        // $this->db->where('opd', $opd);
         $query = $this->db->get($model, $limit, $start);
         $query = $query->result();
         return $query;
     }
-    function total_data($opd, $model)
+    function total_all_data($model, $opd)
     {
         $this->load->database($model);
         $this->db->where('opd', $opd);
@@ -22,6 +28,14 @@ class Muser extends CI_Model
         return $total_data;
     }
 
+    function total_data_selected($opd, $keyword)
+    {
+        $this->db->where('opd', $opd);
+        $this->db->like('nama_dok', $keyword);
+        $this->db->or_like('date', $keyword);
+        $this->db->from('tbl_dokumen_user');
+        return $this->db->count_all_results();
+    }
     //input perencanaan, pengukuran, dan update status dokumen user
     function tambah_dokumen($data, $year)
     {
@@ -115,7 +129,7 @@ class Muser extends CI_Model
     }
 
     // get data utk evaluasi user
-    function get_table_evaluasi($opd, $model, $limit = null, $start = null)
+    function get_table_evaluasi($model, $opd, $limit = null, $start = null)
     {
         $this->load->database($model);
         $this->db->where('opd', $opd);

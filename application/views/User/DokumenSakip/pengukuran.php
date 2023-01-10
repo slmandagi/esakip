@@ -43,7 +43,7 @@
                                 <input type="text" disabled value="<?= $nt->ji_t1 ?>" id="jlh-indikator" class="jlh-indikator" disabled>
                             </div>
                             <div class="hasil-pengukuran-container">
-                                <label for="tidak-ada-target-input">Tidak Ada Target</label>
+                                <label for="tidak-ada-target-input">Target</label>
                                 <input type="text" value="<?= $nt->tt_t1 ?>" class="tidak-ada-target-input" disabled>
                             </div>
                             <div class="tidak-tercapai-user-container">
@@ -92,7 +92,7 @@
                                 <input type="text" disabled value="<?= $nt->ji_t2 ?>" id="jlh-indikator" class="jlh-indikator" disabled>
                             </div>
                             <div class="hasil-pengukuran-container">
-                                <label for="tidak-ada-target-input">Tidak Ada Target</label>
+                                <label for="tidak-ada-target-input">Target</label>
                                 <input type="text" value="<?= $nt->tt_t2 ?>" class="tidak-ada-target-input" disabled>
                             </div>
                             <div class="tidak-tercapai-user-container">
@@ -140,7 +140,7 @@
                                 <input type="text" disabled value="<?= $nt->ji_t3 ?>" id="jlh-indikator" class="jlh-indikator" disabled>
                             </div>
                             <div class="hasil-pengukuran-container">
-                                <label for="tidak-ada-target-input">Tidak Ada Target</label>
+                                <label for="tidak-ada-target-input">Target</label>
                                 <input type="text" value="<?= $nt->tt_t3 ?>" class="tidak-ada-target-input" disabled>
                             </div>
                             <div class="tidak-tercapai-user-container">
@@ -188,7 +188,7 @@
                                 <input type="text" disabled value="<?= $nt->ji_t4 ?>" id="jlh-indikator" class="jlh-indikator" disabled>
                             </div>
                             <div class="hasil-pengukuran-container">
-                                <label for="tidak-ada-target-input">Tidak Ada Target</label>
+                                <label for="tidak-ada-target-input">Target</label>
                                 <input type="text" value="<?= $nt->tt_t4 ?>" class="tidak-ada-target-input" disabled>
                             </div>
                             <div class="tidak-tercapai-user-container">
