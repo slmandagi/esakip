@@ -95,7 +95,7 @@
             </div>
         </div>
         <div class="profile">
-            <a href="<?= base_url('admin_sakip_sulut/profile') ?>"> <img src="<?= base_url('/assets/img/sidebar/RandomPerson.png') ?> " alt="" height="50" width="50"></a>
+            <a href="<?= base_url('admin_sakip_sulut/profile') ?>"> <img src="<?= base_url('/assets/img/sidebar/user_esakip.png') ?> " alt="" height="50" width="50"></a>
             <div class="data-profile">
                 <a href="<?= base_url('admin_sakip_sulut/profile') ?>">
                     <h4><?php echo $this->session->userdata('name'); ?></h4>

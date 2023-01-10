@@ -2,7 +2,7 @@
     <div class="main-content-profile">
         <div class="profile-content">
             <div class="img-container">
-                <img src="<?= base_url('/assets/img/sidebar/RandomPerson.svg') ?>" alt="" height="150" width="150">
+                <img src="<?= base_url('/assets/img/sidebar/user_esakip.png') ?>" alt="" height="150" width="150">
             </div>
             <div class="data-profile-container">
                 <?php foreach ($users as $u) : ?>
